@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+.AppleDouble
+
+# Obsidian vault config (do not publish)
+.obsidian/
+.trash/
+
+# Editor
+.vscode/
+*.swp
+
+# Misc
+*.tmp
+Thumbs.db

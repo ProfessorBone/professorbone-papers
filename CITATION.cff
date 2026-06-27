@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: "Professor Bone Lab: Papers"
+message: "If you use or reference this work, please cite it using the metadata below."
+type: dataset
+authors:
+  - given-names: Clarence
+    family-names: Downs
+    alias: "Faheem (Professor Bone)"
+    affiliation: "Professor Bone Lab"
+url: "https://professorbone.com"
+repository-code: "https://github.com/ProfessorBone/professorbone-papers"
+license: CC-BY-4.0
+version: "1.0.0"
+date-released: "2026-06-27"
+keywords:
+  - governed agentic AI
+  - constitutional runtime
+  - epistemic governance
+  - constitutional runtime computation
+  - multi-agent systems
+  - AI safety
