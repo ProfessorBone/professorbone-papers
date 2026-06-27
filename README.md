@@ -1,3 +1,5 @@
+<img src="assets/professorbone-logo.png" alt="ProfessorBone Logo" width="200">
+
 # Professor Bone Lab — Papers
 
 Research on governed agentic AI systems: constitutional runtime architectures,
