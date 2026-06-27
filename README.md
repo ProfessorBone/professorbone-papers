@@ -1,6 +1,8 @@
-<img src="assets/professorbone-logo.png" alt="ProfessorBone Logo" width="200">
+<img src="assets/professorbone-banner.png" alt="Professor Bone Banner" width="100%">
 
 # Professor Bone Lab — Papers
+
+<img src="assets/professorbone-logo.png" alt="ProfessorBone Logo" width="120" align="left" style="margin-right: 16px;">
 
 Research on governed agentic AI systems: constitutional runtime architectures,
 epistemic governance, and the engineering of constitutionally bounded agents.
