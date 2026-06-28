@@ -42,9 +42,21 @@ core paper identifies but does not close.
   it must also own the record of past transitions and the conditions under
   which they shape future ones.
 
-- Constitutional Retrieval: Memory View Issuance and Observe Construction
-  in Governed Agentic Systems *(forthcoming)*
-  Companion 2. Currently in development.
+- [Constitutional Retrieval: Memory View Issuance and Observe Construction
+  in Governed Agentic Systems](companions/constitutional-retrieval-v1.2.md)
+  Companion 2. Argues that retrieval is not access but the construction of
+  Observe, the entrance to every ORSR cycle. Where Constitutional Memory
+  governs whether a memory view may be issued, this paper governs how the
+  issued view is constructed: how it is ranked, scoped, summarized,
+  compressed, and assembled. It closes the cross-cycle feedback loop on the
+  read side, completing what the memory companion closed on the write side.
+
+- Constitutional Baselines: Authority, Versioning, and Drift Measurement
+  for Memory and Retrieval Governance *(forthcoming)*
+  Companion 3. Will govern the external baselines that P_mem5 (write side)
+  and P_ret5 (read side) both depend on but cannot move: who authorizes a
+  baseline, how it is versioned, and how an authorized baseline change is
+  distinguished from the drift the baseline is meant to detect.
 
 ### Domain Applications
 
@@ -81,6 +93,7 @@ They remain part of the intellectual lineage of the series.
 
 1. Constitutional Runtime Computation v5.3 (core)
 2. Constitutional Memory v2.1 (companion 1)
-3. Apex Architecture Seed (domain application, short)
-4. Apex Build Specification v0.5 (domain application, full)
-5. The Knowledge Graph as Constitutional Substrate (historical lineage)
+3. Constitutional Retrieval v1.2 (companion 2)
+4. Apex Architecture Seed (domain application, short)
+5. Apex Build Specification v0.5 (domain application, full)
+6. The Knowledge Graph as Constitutional Substrate (historical lineage)
