@@ -51,12 +51,26 @@ core paper identifies but does not close.
   compressed, and assembled. It closes the cross-cycle feedback loop on the
   read side, completing what the memory companion closed on the write side.
 
-- Constitutional Baselines: Authority, Versioning, and Drift Measurement
-  for Memory and Retrieval Governance *(forthcoming)*
-  Companion 3. Will govern the external baselines that P_mem5 (write side)
-  and P_ret5 (read side) both depend on but cannot move: who authorizes a
-  baseline, how it is versioned, and how an authorized baseline change is
-  distinguished from the drift the baseline is meant to detect.
+- [Constitutional Baselines: Authority, Versioning, and Drift Measurement
+  for Memory and Retrieval Governance](companions/constitutional-baselines-v1.2.md)
+  Companion 3. Governs the external baselines that P_mem5 (write side) and
+  P_ret5 (read side) both depend on but cannot move. Whoever can move the
+  baseline controls whether drift is detectable at all, so the paper derives
+  the Baseline Sovereignty Principle: baseline-change authority must reside in
+  the sovereign, a baseline change is a typed, traced reconstitution act, and
+  the baseline must be independent of the process it measures. It shows the
+  regress terminates at the sovereign rather than an infinite monitoring tower,
+  and it is the meta-level closure of the corpus's drift architecture.
+
+- Constitutional Coherence: Baseline Generations, Cross-Surface Consistency,
+  and the Governance of Multi-Surface Drift *(forthcoming)*
+  Companion 4. Constitutional Baselines governs baseline authority one surface
+  at a time. This paper will govern the coherence of the baseline family: the
+  BaselineGeneration object, Baseline Family Incoherence (individually valid
+  baselines that diverge as a set), cross-surface consistency, and the adjacent
+  threshold-authority and evidence-packet-provenance residues. Once individual
+  baseline authority is governed, the next risk is that locally valid baselines
+  become globally incoherent.
 
 ### Domain Applications
 
@@ -94,6 +108,7 @@ They remain part of the intellectual lineage of the series.
 1. Constitutional Runtime Computation v5.3 (core)
 2. Constitutional Memory v2.1 (companion 1)
 3. Constitutional Retrieval v1.2 (companion 2)
-4. Apex Architecture Seed (domain application, short)
-5. Apex Build Specification v0.5 (domain application, full)
-6. The Knowledge Graph as Constitutional Substrate (historical lineage)
+4. Constitutional Baselines v1.2 (companion 3)
+5. Apex Architecture Seed (domain application, short)
+6. Apex Build Specification v0.5 (domain application, full)
+7. The Knowledge Graph as Constitutional Substrate (historical lineage)
