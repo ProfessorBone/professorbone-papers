@@ -1,4 +1,4 @@
-# Constitutional Runtime Computation — Series Overview
+# Constitutional Runtime Computation: Series Overview
 
 **Author:** Clarence "Faheem" Downs (Professor Bone Lab)
 
@@ -62,15 +62,32 @@ core paper identifies but does not close.
   regress terminates at the sovereign rather than an infinite monitoring tower,
   and it is the meta-level closure of the corpus's drift architecture.
 
-- Constitutional Coherence: Baseline Generations, Cross-Surface Consistency,
-  and the Governance of Multi-Surface Drift *(forthcoming)*
+- [Constitutional Coherence: Baseline Generations, Cross-Surface Consistency,
+  and the Governance of Multi-Surface Drift](companions/constitutional-coherence-v1.2.md)
   Companion 4. Constitutional Baselines governs baseline authority one surface
-  at a time. This paper will govern the coherence of the baseline family: the
-  BaselineGeneration object, Baseline Family Incoherence (individually valid
-  baselines that diverge as a set), cross-surface consistency, and the adjacent
-  threshold-authority and evidence-packet-provenance residues. Once individual
-  baseline authority is governed, the next risk is that locally valid baselines
-  become globally incoherent.
+  at a time, but the corpus has a family of baselines, and per-surface validity
+  does not guarantee family coherence. This paper matures the BaselineGeneration
+  into a constitutional object and derives the Generation Coherence Principle:
+  coherence of the standard-set is sovereign-authored, not an emergent property
+  of individually valid baselines. Its load-bearing contribution is the
+  cross-surface non-masking property, the gate that catches a family in which
+  every member baseline is valid yet one surface hides exactly what another
+  surface expects to escalate.
+
+- Constitutional Thresholds: Trigger Authority, Decision Boundaries, and
+  Evidence-Packet Provenance in Governed Drift Monitoring *(forthcoming)*
+  Companion 5. The corpus now governs the substrate, memory, retrieval, the
+  per-surface baselines, and the coherence of the baseline family. This paper
+  will take up the two human-interface residues named and scoped out across
+  Constitutional Baselines v1.2 and Constitutional Coherence v1.2: the
+  threshold-authority problem (the baseline, metric, threshold, and trigger
+  distinction, and threshold capture, in which a doctrine-grounded baseline is
+  blinded by a quietly raised decision boundary) and the evidence-packet-provenance
+  problem behind mediated capture (whether the briefing through which a sovereign
+  decides traces to the monitored process), which Constitutional Coherence v1.2
+  elevated to a deployment precondition. The two meet at the cross-surface
+  threshold, the seam at which threshold authority and the coherence of the
+  standard-set become one question.
 
 ### Domain Applications
 
@@ -109,6 +126,7 @@ They remain part of the intellectual lineage of the series.
 2. Constitutional Memory v2.1 (companion 1)
 3. Constitutional Retrieval v1.2 (companion 2)
 4. Constitutional Baselines v1.2 (companion 3)
-5. Apex Architecture Seed (domain application, short)
-6. Apex Build Specification v0.5 (domain application, full)
-7. The Knowledge Graph as Constitutional Substrate (historical lineage)
+5. Constitutional Coherence v1.2 (companion 4)
+6. Apex Architecture Seed (domain application, short)
+7. Apex Build Specification v0.5 (domain application, full)
+8. The Knowledge Graph as Constitutional Substrate (historical lineage)
