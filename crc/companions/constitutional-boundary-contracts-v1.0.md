@@ -19,7 +19,7 @@ The Constitutional Runtime Computation paper reconstructs the agentic loop into 
 
 This paper argues that boundaries are not passive conduits. A boundary crossing is a constitutional event. The content, structure, provenance, and authority basis of what crosses determines whether the governed loop retains its constitutional integrity or whether the boundary becomes a surface through which constitutional consequence can be produced without adjudication. We state this as the Boundary Sovereignty Principle: any component that unilaterally determines what crosses a governed boundary, or how it crosses, holds causal authority over constitutional outcomes at the receiving side, which under ORSR no component may hold without substrate adjudication.
 
-The contribution is sixfold. First, the Boundary Sovereignty Principle and its derivation from the parent's authority-migration logic. Second, a formal classification of boundary violation severity into five classes (B0 through B4), providing a consistent vocabulary for boundary failures across the corpus. Third, two typed boundary contracts, ProposalContract governing the Agent-to-Substrate boundary and ObservationContract governing the Substrate-to-Agent boundary, each with a formal schema, a validation predicate, a typed violation taxonomy, an audit record requirement, and an escalation rule. Fourth, the BoundaryValidationFunction as a constitutionally separated substrate component, distinct from the observation generator, with its own audit record and L2 monitoring obligation. Fifth, a family of boundary-specific primitive failure topologies (P_bnd), with P_bnd5 (observation packaging narrowing) traced end-to-end as the boundary-specific instance of systematic output compression. Sixth, the closure of the governed loop at the interface layer, completing what the memory companion closed on the write side and what the retrieval companion closed on the construction side. AEGIS serves as the worked domain throughout. Nafisah remains the sovereign principal. Mantis remains the clinical reasoning agent. MEC remains the L2 monitor.
+The contribution is sixfold. First, the Boundary Sovereignty Principle and its derivation from the parent's authority-migration logic. Second, a formal classification of boundary violation severity into six classes (B0 through B5), providing a consistent vocabulary for boundary failures across the corpus. Third, two typed boundary contracts, ProposalContract governing the Agent-to-Substrate boundary and ObservationContract governing the Substrate-to-Agent boundary, each with a formal schema, a validation predicate, a typed violation taxonomy, an audit record requirement, and an escalation rule. Fourth, the BoundaryValidationFunction as a constitutionally separated substrate component, distinct from the observation generator, with its own audit record and L2 monitoring obligation. Fifth, a family of boundary-specific primitive failure topologies (P_bnd), with P_bnd5 (observation packaging narrowing) traced end-to-end as the boundary-specific instance of systematic output compression. Sixth, the closure of the governed loop at the interface layer, completing what the memory companion closed on the write side and what the retrieval companion closed on the construction side. AEGIS serves as the worked domain throughout. Nafisah remains the sovereign principal. Mantis remains the clinical reasoning agent. MEC remains the L2 monitor.
 
 ---
 
@@ -111,19 +111,26 @@ A proposal can be crossing-valid (conforming to ProposalContract) and constituti
 
 # Part III. Violation Severity Classification
 
-Before specifying the contracts, the violation severity taxonomy must be established. Every violation type in both contracts maps to one of five severity classes. The class determines the escalation rule. This taxonomy prevents ad hoc escalation decisions and allows later papers to reason about boundary failures consistently.
+Before specifying the contracts, the violation severity taxonomy must be established. Every violation type in both contracts maps to one of six severity classes. The class determines the escalation rule. This taxonomy prevents ad hoc escalation decisions and allows later papers to reason about boundary failures consistently.
 
-**B0: Structural Deficiency.** The crossing object is missing a required field, carries a null where a value is required, or fails schema completeness in a way that prevents the validation predicate from evaluating. The object is interpretable as to its type but incomplete. Escalation: logged to audit store, reported at next scheduled review unless the task is time-sensitive, in which case immediate notification.
+**B0: Structural Deficiency.** The crossing object is missing a required field, carries a null where a value is required, or fails schema completeness in a way that prevents the validation predicate from evaluating. The object is interpretable as to its type but incomplete. Escalation: logged to audit store, reported at next scheduled review unless the task is time-sensitive.
 
-**B1: Provenance Deficiency.** The crossing object is structurally complete but fails a provenance or lineage check: evidence cited without provenance chain reference, contract version not pinned, observation components lacking source references, or lineage not reconstructable. The object could be acted on but the constitutional trace is incomplete. Escalation: same as B0 unless the deficiency is in a field required for a reachability predicate evaluation, in which case the object is held and the Grounded check cannot proceed.
+**B1: Provenance or Version Deficiency.** The crossing object is structurally complete but fails a provenance, lineage, or contract version check. This includes evidence cited without provenance chain reference, observation components lacking source references, lineage not reconstructable, and contract version anomalies. Contract version anomalies are further graded:
 
-**B2: Scope or Affordance Violation.** The crossing object proposes a capability not in the allowed affordance set, includes an affordance the substrate cannot authorize, silently omits a required affordance, or operates outside the declared scope. The object is structurally valid and traceable but attempts to cross outside its authorized scope. Escalation: immediate escalation to sovereign. Task held.
+- Unknown contract version: the contract_version field references a version the BVF cannot resolve. Treat as B1 pending resolution.
+- Stale but still-accepted contract version: the version is known and within an active compatibility window under the reconstitution governance policy. Treat as B1 with logged advisory.
+- Scheduled-successor contract version: the version is known but not yet active. Reject as B1 until the version's effective date.
+- Revoked contract version: the version has been withdrawn. Treat as B3 (cycle or state integrity violation) because use of a revoked contract version may indicate a downgrade attempt or stale-state submission.
 
-**B3: State Chain or Consistency Violation.** The crossing object carries a prior_resolution_ref that is not the most recent Resolution for this task, carries a goal_status that does not match the Task Ledger, carries a hold_status that misrepresents the active hold, or otherwise misrepresents the substrate's current constitutional state. Escalation: immediate escalation to sovereign. Task held.
+Escalation for B1: logged to audit store, object held, sovereign notified at next review interval unless the deficiency prevents a reachability predicate evaluation, in which case the object is held immediately.
 
-**B4: Authority or Integrity Violation.** The crossing object violates an authority boundary explicitly: authority_boundary_acknowledgment is False or absent, a sovereign instruction is present but not traceable to a SovereignResolution, or a cycle boundary is contaminated with prior-cycle ephemeral state. These are constitutional integrity events, not validation errors. Escalation: immediate escalation to sovereign. Task held. MEC notified.
+**B2: Scope or Affordance Violation.** The crossing object proposes a capability not in the allowed affordance set, includes an affordance the substrate cannot authorize, silently omits a required affordance, or operates outside the declared scope. Escalation: immediate escalation to sovereign. Task held.
 
-**B5: Boundary Bypass.** No crossing event occurred at all, but a downstream effect (a CTLC adjudication, an Observe event) exists with no corresponding boundary audit record. This class is detected by L2 reconciliation, not synchronous validation, because the bypass means the validation gate was not reached. P_bnd1 and P_bnd2 map to this class. Escalation: immediate sovereign escalation on confirmation. MEC notified.
+**B3: State Chain, Cycle Integrity, or Consistency Violation.** The crossing object carries a prior_resolution_ref that is not the most recent Resolution for this task, carries a goal_status that does not match the Task Ledger, carries a hold_status that misrepresents the active hold, carries a terminal_completion_flag that is inconsistent with the proposed capability, uses a revoked contract version, or submits multiple proposals in a single cycle. Multiple proposals in one cycle is a cycle integrity violation, not merely a schema deficiency: the agent is attempting multiple state-transition nominations under one observation, which violates the one-proposal-per-cycle invariant of ORSR. Escalation: immediate escalation to sovereign. Task held.
+
+**B4: Authority or Boundary Integrity Violation.** The crossing object violates an authority boundary explicitly: authority_boundary_acknowledgment is False or absent, a sovereign instruction is present but not traceable to a SovereignResolution, or a cycle boundary is contaminated with prior-cycle ephemeral state. These are constitutional integrity events, not validation errors. Escalation: immediate escalation to sovereign. Task held. MEC notified.
+
+**B5: Boundary Bypass.** No crossing event occurred at all, but a downstream effect (a CTLC adjudication or an Observe event) exists with no corresponding BVF audit record. This class is detected by L2 reconciliation, not synchronous validation, because the bypass means the BVF gate was not reached. Detection requires that CTLC adjudication records and Observe events be independently logged: if the same bypass that skips the BVF also suppresses downstream logs, absence-based detection fails. The architecture requires independently logged downstream effects as a prerequisite for P_bnd1 and P_bnd2 detection. Escalation: immediate sovereign escalation on confirmation. MEC notified.
 
 ---
 
@@ -194,13 +201,13 @@ ProposalConformant(p) ⟺
 
 **CapabilityAuthorized(p):** proposed_capability is named in the allowed_next_affordances field of the prior Resolution. If the proposed capability is not in the allowed set, the proposal is non-conforming regardless of the agent's reasoning.
 
-**EvidenceScopeValid(p):** each evidence_ref is within the scope authorized for this task and cycle. Evidence from outside the authorized scope cannot ground a conforming proposal.
+**EvidenceScopeValid(p):** each evidence_ref is within the scope authorized for this task and cycle. Evidence from outside the authorized scope cannot ground a conforming proposal. Note: EvidenceScopeValid verifies that evidence references are in authorized scope and carry provenance handles. It does not decide whether the evidence substantively grounds the proposed transition. Substantive grounding evaluation remains CTLC's Grounded(τ) check. ProposalContract is not a pre-CTLC mini-CTLC.
 
 **ProvenancePresent(p):** provenance_chain_ref is present and non-null. Each evidence_ref carries a provenance chain reference. The Grounded check is evaluable.
 
 **UncertaintyPresent(p):** uncertainty_state is present and non-null. The agent may not submit a proposal with a null or absent uncertainty record. This prevents silent epistemic flattening at the Submit boundary: the agent cannot drop preserved uncertainty when crossing the boundary. What was uncertain in the Reason phase must remain visible at the Submit phase.
 
-**AuthorityAcknowledged(p):** authority_boundary_acknowledgment is True. A proposal with this field False or absent is an authority boundary violation regardless of other fields.
+**AuthorityAcknowledged(p):** authority_boundary_acknowledgment is True. A proposal with this field False or absent is an authority boundary violation regardless of other fields. Note: AuthorityAcknowledged is a necessary declaration, not proof of correct authority posture. A confused or malicious agent can set this field True. The actual authority boundary is enforced by the substrate's refusal to treat proposals as actions, not by the agent's self-declaration. The field's absence or falsity is an immediate B4 violation. Its presence establishes the required declaration; the substance of authority governance is the substrate's function.
 
 **TerminalConsistent(p):** if terminal_completion_flag is True, proposed_capability is TASK_COMPLETION; if False, proposed_capability is not TASK_COMPLETION. Inconsistency between these fields prevents undetected terminal self-declaration.
 
@@ -209,30 +216,33 @@ ProposalConformant(p) ⟺
 | Violation type | Severity class | Description |
 |---|---|---|
 | `AUTHORITY_BOUNDARY_VIOLATED` | B4 | authority_boundary_acknowledgment is False or absent |
+| `CYCLE_BOUNDARY_MULTIPLE_PROPOSALS` | B3 | more than one proposal submitted in a single cycle; cycle integrity violation |
 | `STATE_CHAIN_BROKEN` | B3 | prior_resolution_ref is not the most recent Resolution |
-| `UNAUTHORIZED_CAPABILITY` | B2 | proposed_capability not in allowed_next_affordances |
-| `CONTRACT_VERSION_UNKNOWN` | B1 | contract_version references unknown or revoked version |
-| `TRANSITION_UNTYPED` | B1 | transition_type absent, null, or unresolvable |
 | `TERMINAL_INCONSISTENT` | B3 | terminal_completion_flag and proposed_capability are inconsistent |
+| `CONTRACT_VERSION_REVOKED` | B3 | contract_version references a revoked version; possible downgrade attempt |
+| `UNAUTHORIZED_CAPABILITY` | B2 | proposed_capability not in allowed_next_affordances |
+| `EVIDENCE_SCOPE_INVALID` | B2 | evidence_refs include out-of-scope evidence |
+| `CONTRACT_VERSION_UNKNOWN` | B1 | contract_version references unknown version; held pending resolution |
+| `CONTRACT_VERSION_STALE` | B1 | contract_version is known but outside active compatibility window |
+| `CONTRACT_VERSION_FUTURE` | B1 | contract_version references a scheduled-successor version not yet active |
+| `TRANSITION_UNTYPED` | B1 | transition_type absent, null, or unresolvable |
 | `PROVENANCE_MISSING` | B1 | provenance_chain_ref absent or incomplete |
 | `UNCERTAINTY_ABSENT` | B1 | uncertainty_state absent or null |
-| `EVIDENCE_SCOPE_INVALID` | B2 | evidence_refs include out-of-scope evidence |
 | `TASK_REF_INVALID` | B0 | task_id does not reference an active task |
 | `CYCLE_REF_MISMATCH` | B0 | cycle_id does not match active cycle |
-| `MULTIPLE_PROPOSALS` | B0 | more than one proposal submitted in a single cycle |
 | `SCHEMA_INCOMPLETE` | B0 | required field missing or null |
 
 ## IV.5 Escalation rules by severity class
 
 B4 violations (AUTHORITY_BOUNDARY_VIOLATED): immediate escalation to sovereign. Task held. MEC notified. This is a constitutional integrity event.
 
-B3 violations (STATE_CHAIN_BROKEN, TERMINAL_INCONSISTENT): immediate escalation to sovereign. Task held. The agent is not reasoning from current substrate state or is attempting unauthorized terminal self-declaration.
+B3 violations (STATE_CHAIN_BROKEN, TERMINAL_INCONSISTENT, CYCLE_BOUNDARY_MULTIPLE_PROPOSALS, CONTRACT_VERSION_REVOKED): immediate escalation to sovereign. Task held. These are cycle integrity or state chain violations, including the use of a revoked contract version which may indicate a downgrade attempt.
 
 B2 violations (UNAUTHORIZED_CAPABILITY, EVIDENCE_SCOPE_INVALID): immediate escalation to sovereign. Task held.
 
-B1 violations (provenance, contract version, transition type, uncertainty): logged to audit store. Object held pending resolution. Sovereign notified at next review interval unless task is time-sensitive.
+B1 violations (contract version anomalies, provenance deficiency, transition type, uncertainty): logged to audit store. Object held pending resolution. Sovereign notified at next review interval unless task is time-sensitive.
 
-B0 violations (schema, reference validity, multiple proposals): logged to audit store. Object rejected. Sovereign notified at next review interval.
+B0 violations (schema, reference validity): logged to audit store. Object rejected. Sovereign notified at next review interval.
 
 ## IV.6 The pre-CTLC gate
 
@@ -245,6 +255,13 @@ ProposalContract validation runs before CTLC adjudication. A non-conforming prop
 ## V.1 The governed object: AgentObservation
 
 The AgentObservation is the typed object the substrate issues to cross the Substrate-to-Agent boundary. It is the concrete form of the substrate's Observe event in ORSR. The substrate does not pass an informal context window or a raw task state dump. It passes an AgentObservation that conforms to ObservationContract. The agent reasons only from what the substrate has issued and only within the cycle for which the observation was issued.
+
+**Two sub-surfaces of the observation boundary.** The AgentObservation contains two constitutionally distinct sub-surfaces that fail differently and may require independent treatment in future work:
+
+- Perceptual surface: what the agent receives as state and context (working_memory, task_ledger_view, observation_components). A malformed perceptual surface distorts the agent's reasoning by giving it an inaccurate or incomplete picture of current substrate state.
+- Affordance surface: what the agent is allowed to propose next (allowed_next_affordances). A malformed affordance surface constrains or expands the agent's proposal space, steering proposal distribution without appearing in the agent's reasoning context.
+
+Both sub-surfaces are governed by ObservationContract. Their failure modes are distinct. P_bnd5 addresses packaging narrowing on both sub-surfaces; the affordance presentation narrowing subtype (systematic ordering, emphasis, or grouping that steers proposal distribution even when the affordance set is otherwise complete and authorized) is noted below as a subtype that may warrant separate treatment in future revisions.
 
 ## V.2 Schema
 
@@ -314,7 +331,7 @@ ObservationConformant(o) ⟺
 
 **AffordancesAuthorized(o):** every capability in allowed_next_affordances is a capability the substrate can authorize from this task state. No unauthorized capability appears in the affordance set. This is the ceiling: the substrate cannot offer what it cannot authorize.
 
-**AffordanceSetComplete(o):** the allowed_next_affordances set includes all capabilities the substrate is required to offer from this task state given current doctrine. A systematically narrowed affordance set that omits required capabilities is an observation scope violation. This is the floor: the substrate cannot silently omit what the agent is constitutionally entitled to propose. AffordancesAuthorized and AffordanceSetComplete are the ceiling/floor pair, mirroring the retrieval companion's treatment of view scope.
+**AffordanceSetComplete(o):** the allowed_next_affordances set includes all capabilities the substrate is required to offer from this task state given current doctrine. A systematically narrowed affordance set that omits required capabilities is an observation scope violation. This is the floor: the substrate cannot silently omit what the agent is constitutionally entitled to propose. AffordancesAuthorized and AffordanceSetComplete are the ceiling/floor pair, mirroring the retrieval companion's treatment of view scope. The completeness basis, the typed object defining which affordances are required from a given task state under current doctrine, is a formal dependency of this conjunct. A RequiredAffordanceSet object (or equivalent, potentially incorporating prior Resolution, task state, goal status, hold status, escalation state, domain constitution version, and transition-type availability rules) is required for AffordanceSetComplete to be mechanically evaluable. The conjunct is architecturally necessary; its operationalization depends on a future RequiredAffordanceSet specification, named as an open problem below.
 
 **ObservationScopeMatched(o):** the observation's scope, as declared in observation_components, matches the authorized scope for this task and cycle. The substrate cannot expand or contract the observation scope unilaterally.
 
@@ -377,7 +394,7 @@ The parent paper's response is the L1/L2 separation: L1 performs synchronous adj
 
 The BoundaryValidationFunction (BVF) is a constitutionally separated substrate component, distinct from the observation generator. It has its own audit record and its own L2 monitoring obligation. It is not the observation generator checking its own output. It is a separate component whose sole function is to evaluate whether crossing objects conform to their contracts.
 
-**Separation requirements:** The BVF must not share code, data structures, or execution context with the observation generator in a way that would allow the generator's drift to corrupt the validator's behavior. The BVF is not part of the agent. It is not part of the orchestrator. It is a substrate component with a constitutionally defined separation boundary.
+**Separation requirements:** The BVF must not depend on generator-controlled mutable state, generator-authored validation logic, or generator-owned execution authority. The actual requirement is independent authority and failure-domain separation, not total isolation. Shared immutable artifacts are permitted: canonical schema definitions, read-only contract specifications, and shared type libraries may be used by both the generator and the BVF without compromising the separation. What is prohibited is any shared state or execution path that would allow generator drift to affect validation outcomes, or generator failure to bypass the validation gate. The BVF may share immutable contract schemas with generators; it must not depend on generator-controlled validation rules or generator-owned mutable state.
 
 **BVF audit record:** Every BVF evaluation, conforming or not, produces its own audit record distinct from the crossing object's audit record. The BVF audit record carries: the evaluation_id, the object_id evaluated, the contract_version applied, the validation_result, each conjunct result individually, the timestamp, and the BVF's integrity signature. This makes BVF behavior independently auditable.
 
@@ -454,9 +471,15 @@ Five primitives, each independently governable, each with a distinct detection s
 
 **P_bnd5: Observation Packaging Narrowing.** Individually valid observation components, each passing their own construction predicates and provenance checks, are packaged into AgentObservation in a way that systematically narrows, de-saliences, or omits constitutionally relevant material before the agent reasons. The observation structurally conforms to ObservationContract. The packaging does the damage.
 
-P_bnd5 is distinct from P_ret5 (constructional narrowing in the retrieval companion). P_ret5 operates at the view construction layer: the memory-derived view is assembled from the store with systematic bias. P_bnd5 operates at the boundary packaging layer: the constructed components are valid, but the act of assembling them into AgentObservation, selecting ordering, emphasis, and inclusion from valid components, introduces systematic narrowing that conditions the agent's reasoning without any individual component being deficient.
+P_bnd5 is distinct from P_ret5 (constructional narrowing in the retrieval companion). P_ret5 operates at the view construction layer: the memory-derived view is assembled from the store with systematic bias. P_bnd5 operates at the boundary packaging layer: the constructed components are valid, but the act of assembling them into AgentObservation introduces systematic narrowing that conditions the agent's reasoning without any individual component being deficient.
 
-The distinction: P_ret5 is a failure in what is constructed. P_bnd5 is a failure in how valid constructions are combined at packaging.
+P_bnd5 contains two mechanistically distinct subtypes, which may warrant separate primitive treatment in a future revision:
+
+**P_bnd5a: Content Packaging Narrowing.** Valid observation components (working_memory, task_ledger_view, agent-visible component content) are packaged in a way that systematically de-emphasizes, omits, or distorts constitutionally relevant perceptual content. The agent's picture of current substrate state is narrowed. This operates on the perceptual sub-surface of the observation.
+
+**P_bnd5b: Affordance Presentation Narrowing.** The allowed_next_affordances set is complete and authorized (AffordancesAuthorized and AffordanceSetComplete both hold), but the ordering, emphasis, grouping, or presentation of affordances systematically steers the agent toward some proposals and away from others. The agent's proposal distribution is conditioned by presentation without any individual affordance being unauthorized or missing. This operates on the affordance sub-surface of the observation. It is particularly subtle because it passes all structural ObservationContract checks and yet produces constitutional consequence through presentation.
+
+Both subtypes share the same detection architecture: L2 comparison of issued observations against a baseline observation constructed from the same task ledger state by a process independent of the packaging layer. Both depend on the baseline-authority infrastructure established in Companions 3 and 4. P_bnd5 as a whole is structurally specified here; its operational monitoring depends on those companions. Future work should assess whether P_bnd5a and P_bnd5b are sufficiently distinct in mechanism and detection to warrant separate primitive identifiers.
 
 P_bnd5 traced end-to-end:
 
@@ -612,15 +635,21 @@ The coherence companion (Companion 4) extends baseline governance to the family 
 
 # Open Problems
 
-**The P_bnd5 baseline-authority problem.** P_bnd5 detection requires a baseline observation constructed from the same task ledger state by a process independent of the packaging layer. Who authorizes this baseline, how it is versioned, and how an authorized baseline change is distinguished from packaging drift are instances of the Baseline Sovereignty Principle (Companion 3) applied to the packaging layer. P_bnd5 is structurally specified here. Its operational monitoring awaits application of the baselines and coherence companions to the packaging layer baseline.
+**The P_bnd5 baseline-authority problem.** P_bnd5 detection requires a baseline observation constructed from the same task ledger state by a process independent of the packaging layer. Who authorizes this baseline, how it is versioned, and how an authorized baseline change is distinguished from packaging drift are instances of the Baseline Sovereignty Principle (Companion 3) applied to the packaging layer. P_bnd5 is structurally specified here. Its operational monitoring applies the baselines and coherence companions to the packaging-layer baseline. Cross-surface non-masking (Companion 4) applies: packaging-layer narrowing must not be hidden by apparently valid construction-layer fidelity on another surface.
+
+**RequiredAffordanceSet specification.** AffordanceSetComplete depends on a formal basis for which affordances are required from a given task state under current doctrine. This basis, provisionally named RequiredAffordanceSet, must incorporate prior Resolution, task state, goal status, hold status, escalation state, domain constitution version, and transition-type availability rules. Without a RequiredAffordanceSet specification, AffordanceSetComplete remains architecturally necessary but not mechanically evaluable. This is the affordance-completeness analogue of the RequiredObserveSet dependency in the retrieval companion.
+
+**Audit Substrate Governance.** The audit store is now a load-bearing constitutional dependency. Boundary crossings are held if the audit store is unavailable. The architecture requires the audit store to be append-only, sequenced, substrate-signed, and sovereign-accessible. But it does not yet specify who governs the audit store's own policy: who can rotate substrate signing keys, who can change hash-chain policy, who can read or export audit records, how retention rules are governed, what happens if sovereign access fails, and whether audit-store reconstitution is itself a governed event. These questions are not implementation details. They bear on whether the audit record is a trustworthy constitutional trace or an opaque log that can be manipulated by whoever controls the store.
+
+**Boundary Contract Generalization.** ProposalContract and ObservationContract are the first instances of a general boundary-contract pattern that the CRC corpus will require at other crossing surfaces: sovereign-facing boundaries, tool-output boundaries, L2-to-sovereign boundaries, evidence-packet boundaries, memory-store boundaries, and multi-agent inter-boundary crossings. As Companion 0, this paper establishes the pattern: schema, validation predicate, violation typology with severity classes, BVF-equivalent separation, audit record, and escalation rules. Future companions and domain application documents applying this pattern to other crossing surfaces should inherit the same structure. The generalization problem, how the six-component contract pattern scales to boundary surfaces with different authority structures, provenance requirements, and crossing semantics, is a standing open problem for the series.
 
 **Substrate self-validation completeness.** ObservationContract requires the BVF to validate its own output before issuing it. The BVF is constitutionally separated from the generator (Part VI), but the completeness question remains: can the substrate produce a non-conforming observation that passes BVF validation? This is a soundness problem about the BVF itself. The architecture requires that the BVF's conjuncts be jointly sufficient to detect all non-conforming observations. Whether they are in fact sufficient is a verification question. The BVF's own L2 monitoring is what catches behavioral drift in the validator; the underlying soundness question is whether the conjunct set is complete.
 
 **Multi-agent boundary topology.** When multiple agents operate under the same substrate, the boundary topology is more complex: each agent has its own two primary boundaries, and a proposal from one agent may produce an observation issued to another. ProposalContract and ObservationContract as specified here cover the single-agent case. The multi-agent extension, including cross-agent observation issuance and inter-agent provenance tracking, is future work. The contracts' typed structure is designed to extend naturally: ObservationComponentsTyped would carry a source_agent field for cross-agent components, and ProvenancePresent would extend to cover inter-agent provenance chains.
 
-**Contract reconstitution governance.** A schema change to either boundary contract is a contract reconstitution event. The governance of that reconstitution, who authorizes it, how it is versioned, how existing in-flight proposals and observations under the prior contract are handled during transition, and how the BVF validates objects that may have been submitted under a different contract version than the current one, is specified at the conceptual level here and left to detailed future work. The contract_version field in crossing objects and audit records is the enabling mechanism; the reconstitution governance protocol is the future specification.
+**Contract reconstitution governance.** A schema change to either boundary contract is a contract reconstitution event. The governance of that reconstitution, who authorizes it, how it is versioned, how existing in-flight proposals and observations under the prior contract are handled during transition, and how the BVF validates objects submitted under a different contract version than the current one, is specified at the conceptual level here and left to detailed future work. The contract_version field in crossing objects and audit records is the enabling mechanism; the reconstitution governance protocol is the future specification.
 
-**Completeness of the violation typology.** The violation typologies enumerate known violation modes for both contracts. Whether these typologies are jointly exhaustive, whether there exist violation modes that produce constitutional consequence without appearing in any P_bnd primitive, is a verification question. The claim that the P_bnd family is exhaustive is an architectural intention, not a proven property. Future formal verification work should treat the question of whether P_bnd1 through P_bnd5 are necessary and sufficient as a primary target.
+**Completeness of the violation typology.** The violation typologies enumerate known violation modes for both contracts. Whether these typologies are jointly exhaustive, whether there exist violation modes that produce constitutional consequence without appearing in any P_bnd primitive, is a verification question. The claim that the P_bnd family is exhaustive is an architectural intention, not a proven property.
 
 **The BVF's relationship to CTLC.** ProposalConformant is evaluated by the BVF before a proposal enters CTLC. The BVF checks structural and provenance properties. CTLC checks constitutional reachability. These are distinct evaluations at distinct layers. The question of whether there exist conjuncts that properly belong to ProposalConformant but currently appear in CTLC's reachability evaluation, or vice versa, is an architectural question about the correct placement of each check. The distinction between "did this cross correctly" (BVF) and "may this happen" (CTLC) is the governing principle; applying it consistently to every check in both evaluators is future refinement work.
 
@@ -630,6 +659,6 @@ The coherence companion (Companion 4) extends baseline governance to the family 
 *Companion 0 to Constitutional Runtime Computation v5.3.*
 *Foundational interface companion. Governs the two primary boundaries in the core ORSR agent-substrate loop.*
 *ProposalContract (Agent-to-Substrate) and ObservationContract (Substrate-to-Agent).*
-*BoundaryValidationFunction, five P_bnd primitives, B0-B4 severity classification.*
+*BoundaryValidationFunction, five P_bnd primitives (P_bnd5 with two subtypes), B0-B5 six-class severity taxonomy.*
 *Author: Clarence "Faheem" Downs (Professor Bone Lab)*
 *License: CC BY 4.0*
