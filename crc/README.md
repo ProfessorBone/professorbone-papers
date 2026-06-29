@@ -36,6 +36,20 @@ documents demonstrate the architecture operating under real constraints.
 Companion papers extend the core architecture. Each addresses a gap that the
 core paper identifies but does not close.
 
+- [Constitutional Boundary Contracts: Governed Interface Exchange at the
+  Agent-Substrate Boundary](companions/constitutional-boundary-contracts-v1.0.md)
+  Companion 0. Foundational interface companion. ORSR produces two primary
+  governed boundaries in the core agent-substrate loop: Agent-to-Substrate
+  (TransitionProposal) and Substrate-to-Agent (AgentObservation). This paper
+  argues that boundary crossings are constitutional events, not transport
+  events, and establishes typed contracts for both. Contributions include the
+  Boundary Sovereignty Principle, ProposalContract and ObservationContract with
+  full schemas and validation predicates, the BoundaryValidationFunction as a
+  constitutionally separated substrate component, a five-class violation severity
+  taxonomy (B0-B4), and five boundary-specific primitive failure topologies
+  (P_bnd). Logically prior to all subsequent companions. May be read immediately
+  after the core paper.
+
 - [Constitutional Memory v2.1](companions/constitutional-memory-v2.1.md)
   Companion 1. Argues that the substrate's authority over state transitions
   extends necessarily to memory. If the substrate owns the present transition,
@@ -123,10 +137,11 @@ They remain part of the intellectual lineage of the series.
 ## Recommended Reading Order
 
 1. Constitutional Runtime Computation v5.3 (core)
-2. Constitutional Memory v2.1 (companion 1)
-3. Constitutional Retrieval v1.2 (companion 2)
-4. Constitutional Baselines v1.2 (companion 3)
-5. Constitutional Coherence v1.2 (companion 4)
-6. Apex Architecture Seed (domain application, short)
-7. Apex Build Specification v0.5 (domain application, full)
-8. The Knowledge Graph as Constitutional Substrate (historical lineage)
+2. Constitutional Boundary Contracts v1.0 (companion 0, foundational interface)
+3. Constitutional Memory v2.1 (companion 1)
+4. Constitutional Retrieval v1.2 (companion 2)
+5. Constitutional Baselines v1.2 (companion 3)
+6. Constitutional Coherence v1.2 (companion 4)
+7. Apex Architecture Seed (domain application, short)
+8. Apex Build Specification v0.5 (domain application, full)
+9. The Knowledge Graph as Constitutional Substrate (historical lineage)
