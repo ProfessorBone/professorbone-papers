@@ -375,7 +375,7 @@ flowchart TB
 
 # 8. Worked Example: One AEGIS Transition Through the Full Architecture
 
-> **Evidence scope.** The AEGIS example below is presented as an architectural case study and design trace — not as a completed empirical validation of the full CRA paradigm. The agents, objects, procedures, and verdicts are drawn from the AEGIS specification architecture and reflect the design intent of the system as built. They demonstrate that the architecture is instantiable and internally consistent. Empirical validation — including implementation traces, failure case analysis, latency measurements, and comparative baselines — constitutes future work.
+> **Evidence scope.** The AEGIS example below is presented as an architectural case study and design trace,not as a completed empirical validation of the full CRA paradigm. The agents, objects, procedures, and verdicts are drawn from the AEGIS specification architecture and reflect the design intent of the system as built. They demonstrate that the architecture is instantiable and internally consistent. Empirical validation, including implementation traces, failure case analysis, latency measurements, and comparative baselines, constitutes future work.
 
 The architecture described in Sections 3 through 7 becomes concrete through a single transition traced end-to-end through a real system. This example uses AEGIS, a governed agentic clinical platform for substance use evaluation operating under the constitutional authority of a licensed clinical social worker (Nafisah). The agents, objects, procedures, and verdicts below are drawn from the AEGIS Constitutional Transition Legitimacy Computation Algorithmic Architecture Specification v0.1.
 
