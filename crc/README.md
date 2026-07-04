@@ -88,20 +88,23 @@ core paper identifies but does not close.
   every member baseline is valid yet one surface hides exactly what another
   surface expects to escalate.
 
-- Constitutional Thresholds: Trigger Authority, Decision Boundaries, and
-  Evidence-Packet Provenance in Governed Drift Monitoring *(forthcoming)*
-  Companion 5. The corpus now governs the substrate, memory, retrieval, the
-  per-surface baselines, and the coherence of the baseline family. This paper
-  will take up the two human-interface residues named and scoped out across
-  Constitutional Baselines v1.2 and Constitutional Coherence v1.2: the
-  threshold-authority problem (the baseline, metric, threshold, and trigger
-  distinction, and threshold capture, in which a doctrine-grounded baseline is
-  blinded by a quietly raised decision boundary) and the evidence-packet-provenance
-  problem behind mediated capture (whether the briefing through which a sovereign
-  decides traces to the monitored process), which Constitutional Coherence v1.2
-  elevated to a deployment precondition. The two meet at the cross-surface
-  threshold, the seam at which threshold authority and the coherence of the
-  standard-set become one question.
+- [Constitutional Thresholds: Trigger Authority, Decision Boundaries, and
+  Evidence-Packet Provenance in Governed Drift Monitoring](companions/constitutional-thresholds-v1.2.md)
+  Companion 5. Closes the threshold-authority and evidence-packet-provenance
+  residues named and scoped out across Constitutional Baselines v1.2 and
+  Constitutional Coherence v1.2. It distinguishes four objects the corpus had
+  treated as one, the baseline, the metric, the threshold, and the trigger, and
+  derives the Trigger Authority Principle: whoever can move the threshold or
+  the trigger controls whether an honestly measured deviation ever produces
+  action, so threshold and trigger authority must be sovereign. It also extends
+  Constitutional Boundary Contracts v1.0's boundary-contract pattern to the
+  evidence-packet-to-sovereign crossing with the EvidencePacketContract,
+  closing the mechanically detectable form of the mediated-capture deployment
+  precondition Constitutional Coherence v1.2 named, while naming evidentiary
+  sufficiency and candidate-selection capture as a distinct, still-open form.
+  Threshold capture is identified as a third, independent axis of false
+  stability alongside baseline capture's vertical axis and family incoherence's
+  horizontal axis.
 
 ### Domain Applications
 
@@ -142,6 +145,7 @@ They remain part of the intellectual lineage of the series.
 4. Constitutional Retrieval v1.2 (companion 2)
 5. Constitutional Baselines v1.2 (companion 3)
 6. Constitutional Coherence v1.2 (companion 4)
-7. Apex Architecture Seed (domain application, short)
-8. Apex Build Specification v0.5 (domain application, full)
-9. The Knowledge Graph as Constitutional Substrate (historical lineage)
+7. Constitutional Thresholds v1.2 (companion 5)
+8. Apex Architecture Seed (domain application, short)
+9. Apex Build Specification v0.5 (domain application, full)
+10. The Knowledge Graph as Constitutional Substrate (historical lineage)
