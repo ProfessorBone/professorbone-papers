@@ -27,9 +27,13 @@ documents demonstrate the architecture operating under real constraints.
 
 ### Core Paper
 
-- [Constitutional Runtime Computation v5.3](constitutional-runtime-computation-v5.3.md)
+- [Constitutional Runtime Computation v5.4](constitutional-runtime-computation-v5.4.md)
   The foundational paper. Introduces ORSR, CTLC, L1/L2 governance separation,
   the Q/P constitutional ontology, and the Constitutional Engineering Lifecycle.
+  v5.4 adds §6a, formalizing HOLD verdict completeness (non-formation,
+  non-replayability, non-bypassability) as an invariant rather than an
+  asserted norm; it does not change CTLC's Reachable(τ) predicate or the
+  Emit and Escalate paths that every companion below builds on.
 
 ### Companion Papers
 
@@ -139,7 +143,7 @@ They remain part of the intellectual lineage of the series.
 
 ## Recommended Reading Order
 
-1. Constitutional Runtime Computation v5.3 (core)
+1. Constitutional Runtime Computation v5.4 (core)
 2. Constitutional Boundary Contracts v1.0 (companion 0, foundational interface)
 3. Constitutional Memory v2.1 (companion 1)
 4. Constitutional Retrieval v1.2 (companion 2)

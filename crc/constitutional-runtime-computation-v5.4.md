@@ -2,7 +2,7 @@
 
 ## Governed Cognitive Substrates, Constitutional Reachability, and the Reconstruction of Agentic Sovereignty
 
-### v5.3 Conceptual Architecture Paper
+### v5.4 Conceptual Architecture Paper
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 
@@ -28,42 +28,43 @@ The resulting architecture suggests a transition away from capability-centric co
 
 ## Contents
 
-**Part I — The Problem**
+**Part I: The Problem**
 §1 The governance failure of current agentic systems
 §2 From capability-centric systems to constitutional computation
 
-**Part II — The Constitutional Runtime Substrate**
+**Part II: The Constitutional Runtime Substrate**
 §3 The Constitutional Runtime Substrate
 §4 The reconstruction of the agentic loop (ORSR as governed continuation loop)
 §5 Constitutional reachability
 §6 Constitutional Transition Legitimacy Computation (CTLC)
+§6a HOLD verdict completeness (non-formation, non-replay, non-bypass)
 §7 Why L1 and L2 must remain separate
 §8 Worked example: one AEGIS transition (case study and design trace)
 
-**Part III — Constitutional Ontology**
+**Part III: Constitutional Ontology**
 §9 Constitutional stability domains (Q architecture)
 §10 Primitive constitutional topologies (P architecture)
 
-**Part IV — Constitutional Engineering Lifecycle**
+**Part IV: Constitutional Engineering Lifecycle**
 §11 Constitutional discovery vs constitutional declaration
 §12 The governance development workflow
 
-**Part V — Failure Theory, SLM Implications, and Synthesis**
+**Part V: Failure Theory, SLM Implications, and Synthesis**
 §13 Drift, differentiability, and false stability
 §14 Strong topology vs strong nodes
 §15 The constitutional case for small language models
 §16 Governance as reachability topology
 §17 Who governs the substrate?
 
-**Part VI — Scholarly Context and Conclusion**
+**Part VI: Scholarly Context and Conclusion**
 §18 Related work
 §19 Conclusion (including open problems)
 
-Appendix — Supporting figures
+Appendix: Supporting figures
 
 ---
 
-# Part I — The Problem
+# Part I: The Problem
 
 ---
 
@@ -109,7 +110,7 @@ The distinction is analogous to the difference between traffic laws and road top
 
 ---
 
-# Part II — The Constitutional Runtime Substrate
+# Part II: The Constitutional Runtime Substrate
 
 ---
 
@@ -127,7 +128,7 @@ The term "constitutional" operates at three distinct layers in this architecture
 
 The **normative constitution** is the domain-authorized set of principles, values, and constraints that define what the system must preserve. In AEGIS, this is Nafisah's clinical doctrine: the professional standards, ethical obligations, and clinical judgment that constitute the authorized basis for the system's governance. The normative constitution is human-authored and human-maintained.
 
-The **operational constitution** is the encoded translation of normative principles into authority rules, admissibility predicates, transition types, escalation topologies, and domain constraints. This is the specification layer: it takes the normative constitution and expresses it in terms the runtime can evaluate. The operational constitution is where doctrine becomes computable — though the translation from human normative intent into formal admissibility predicates is itself an open problem addressed in Section 19.
+The **operational constitution** is the encoded translation of normative principles into authority rules, admissibility predicates, transition types, escalation topologies, and domain constraints. This is the specification layer: it takes the normative constitution and expresses it in terms the runtime can evaluate. The operational constitution is where doctrine becomes computable, though the translation from human normative intent into formal admissibility predicates is itself an open problem addressed in Section 19.
 
 The **runtime constitution** is the executable substrate that resolves transitions in real time. It is the implementation of the operational constitution as a running system: the L1 adjudication gate, the typed transition resolution engine, the authority graph evaluator, and the escalation router.
 
@@ -135,11 +136,11 @@ These three layers must remain distinguishable because they can diverge. The nor
 
 One boundary must be held clearly because it defines the substrate's scope: the boundary between procedure and content. The substrate governs procedural legitimacy: whether a transition is authorized, traced, and reachable. It does not govern content quality: whether the content of a legitimate transition is correct, safe, or true. A transition can be entirely legal and still carry a harmful payload. This is precisely why the three constitutional layers form a stack rather than a hierarchy of replacement. Training and guidance are necessary for content quality and insufficient for procedural legitimacy. The substrate is the floor of legitimacy that the trained, guided model operates on top of.
 
-**Figure 1 — The constitutional three-layer stack**
+**Figure 1: The constitutional three-layer stack**
 
 ```mermaid
 flowchart TB
-    N["Normative constitution\nHuman-authorized doctrine, values, clinical judgment\n(Nafisah — sovereign root)"]
+    N["Normative constitution\nHuman-authorized doctrine, values, clinical judgment\n(Nafisah: sovereign root)"]
     O["Operational constitution\nAdmissibility predicates · authority graph · transition types · escalation rules"]
     R["Runtime constitution\nL1 adjudication gate · CTLC engine · audit log · escalation router"]
     L2["L2 / MEC\nMonitors L1 adjudication behavior\nRoutes drift signals to Nafisah"]
@@ -184,11 +185,11 @@ This separation has a practical consequence that is easy to underestimate: it ma
 
 **Notation: ORDA, ORDS, ORDR, and ORSR.** Four related loop abbreviations appear in this paper and in Figure 2. ORDA (Observe → Reason → Decide → Act) names the traditional agent-centered sovereign loop in which the agent's decision terminates in action. ORDS (Observe → Reason → Decide → Submit) names the constitutional agent-side proposal loop in which Submit replaces Act: the agent's decision terminates in submission, not execution. ORDR (Observe → Reason → Decide → Request) is a variant agent-side notation used in the appendix POC; it is semantically equivalent to ORDS, with Request emphasizing that the agent's submission is a typed request for adjudication rather than a unilateral act. ORSR (Observe → Reason → Submit → Resolve) names the full system-level constitutional loop, where Resolve belongs to the substrate and completes the cycle. This paper uses ORSR as the primary term because it includes the substrate's adjudicative role; ORDS and ORDR appear as agent-side bridges from traditional ORDA to the constitutional model.
 
-**Figure 2 — ORDA vs ODS: sovereignty location comparison**
+**Figure 2: ORDA vs ODS: sovereignty location comparison**
 
 ```mermaid
 flowchart TB
-    subgraph A["ORDA — agent-centered sovereignty"]
+    subgraph A["ORDA: agent-centered sovereignty"]
         O1[Observe] --> R1[Reason]
         R1 --> D1[Decide]
         D1 --> A1[Act]
@@ -197,7 +198,7 @@ flowchart TB
         SOV1((Terminal execution sovereignty))
         SOV1 --> A1
     end
-    subgraph B["ODS — substrate-centered sovereignty"]
+    subgraph B["ODS: substrate-centered sovereignty"]
         O2[Observe] --> R2[Reason]
         R2 --> D2[Decide]
         D2 --> SUB[Submit]
@@ -267,10 +268,10 @@ Reachable(τ) ⟺ Resolvable(τ)  ∧  Authorized(τ)  ∧  Admissible(τ)  ∧ 
 
 - **Resolvable(τ):** the transition type maps to a known admissibility domain in the domain constitution D. If no domain maps to the transition type, the transition cannot be evaluated and is held.
 - **Authorized(τ):** the authority claim A validates against the authority topology. Authority is structural, not asserted. Content cannot confer authority.
-- **Admissible(τ):** the domain's legality conditions hold, including domain-specific constraints (in AEGIS: consent reachability, mandated-reporting review requirements). Insufficient consent and undischarged mandatory review conditions are admissibility failures, not downstream filters. Uncertainty is also evaluated inside this conjunct: a transition is admissible only if the preserved uncertainty state U remains within the domain's uncertainty tolerance or is routed to an escalation condition. Uncertainty that exceeds tolerance is not compressed into confidence — it becomes an admissibility condition that the substrate must resolve.
+- **Admissible(τ):** the domain's legality conditions hold, including domain-specific constraints (in AEGIS: consent reachability, mandated-reporting review requirements). Insufficient consent and undischarged mandatory review conditions are admissibility failures, not downstream filters. Uncertainty is also evaluated inside this conjunct: a transition is admissible only if the preserved uncertainty state U remains within the domain's uncertainty tolerance or is routed to an escalation condition. Uncertainty that exceeds tolerance is not compressed into confidence: it becomes an admissibility condition that the substrate must resolve.
 - **Grounded(τ):** recorded provenance P supports the proposed effect through forward evidentiary reconstruction. Because agents can read provenance records but cannot write them, this check distinguishes supported proposals from manufactured ones.
 
-**Note on decidability.** Three of the four conjuncts are mechanically decidable: Resolvable(τ) evaluates over the typed transition system; Authorized(τ) evaluates over the authority graph; Grounded(τ) evaluates over the provenance record. Admissible(τ) is not mechanically decidable in general — it binds domain-specific admissibility conditions and uncertainty-tolerance requirements that may resist algorithmic evaluation. Where Admissible(τ) cannot be conclusively evaluated, the architecture's response is structural: the transition routes to escalation rather than emit. This is not a workaround. It is what the architecture is for. The undecidable region of constitutional reasoning is precisely the region in which human constitutional authority must adjudicate. The decidable conjuncts narrow the space; the undecidable conjunct names the boundary at which sovereignty becomes necessary.
+**Note on decidability.** Three of the four conjuncts are mechanically decidable: Resolvable(τ) evaluates over the typed transition system; Authorized(τ) evaluates over the authority graph; Grounded(τ) evaluates over the provenance record. Admissible(τ) is not mechanically decidable in general: it binds domain-specific admissibility conditions and uncertainty-tolerance requirements that may resist algorithmic evaluation. Where Admissible(τ) cannot be conclusively evaluated, the architecture's response is structural: the transition routes to escalation rather than emit. This is not a workaround. It is what the architecture is for. The undecidable region of constitutional reasoning is precisely the region in which human constitutional authority must adjudicate. The decidable conjuncts narrow the space; the undecidable conjunct names the boundary at which sovereignty becomes necessary.
 
 The verdict composes this predicate with executability at the requesting standing class:
 
@@ -284,7 +285,7 @@ The verdict composes this predicate with executability at the requesting standin
 
 **Escalate** if and only if τ is Reachable but not executable at the requesting standing class, and is constitutionally routeable to a named higher authority. The transition is not rejected; it is rerouted. Escalate covers both insufficient standing and domain conditions that mandate sovereign review regardless of standing.
 
-**Hold** if and only if any conjunct of Reachable(τ) is false — the transition type is unresolvable, the authority claim fails, the domain conditions are not met, or the proposed effect cannot be grounded in recorded provenance. The transition does not proceed and does not earn privilege for a retry.
+**Hold** if and only if any conjunct of Reachable(τ) is false: the transition type is unresolvable, the authority claim fails, the domain conditions are not met, or the proposed effect cannot be grounded in recorded provenance. The transition does not proceed and does not earn privilege for a retry. The internal structure of this non-retry property, together with the object a Hold produces and its behavior under resubmission and re-routing, is formalized in §6a.
 
 This formalization distinguishes CTLC from ordinary policy compliance checking. A policy checker asks: "Does this action violate a rule?" CTLC asks: "Does this transition exist as an admissible transition from current substrate state, given the full constitutional context of authority, provenance, doctrine, and uncertainty?" The distinction is between behavioral constraint and constitutional reachability.
 
@@ -294,21 +295,21 @@ This formalization is further developed in the AEGIS Constitutional Transition L
 
 CTLC consists of two constitutionally separated computational layers.
 
-**L1 — Transition Legitimacy Adjudication.** The runtime-layer computation. L1 answers: "Is this transition constitutionally reachable from current substrate state?" L1 is synchronous, deterministic given a pinned constitution version, and gating. No transition proceeds without L1 resolution.
+**L1: Transition Legitimacy Adjudication.** The runtime-layer computation. L1 answers: "Is this transition constitutionally reachable from current substrate state?" L1 is synchronous, deterministic given a pinned constitution version, and gating. No transition proceeds without L1 resolution.
 
-**L2 — Differentiability Preservation Monitoring.** The monitoring-layer computation. L2 answers: "Do the conditions under which L1 remains meaningful still hold?" L2 does not adjudicate. L2 observes, monitors, detects, reconstructs, and reports. The separation between L1 and L2 is not organizational. It is constitutional. Section 7 explains why.
+**L2: Differentiability Preservation Monitoring.** The monitoring-layer computation. L2 answers: "Do the conditions under which L1 remains meaningful still hold?" L2 does not adjudicate. L2 observes, monitors, detects, reconstructs, and reports. The separation between L1 and L2 is not organizational. It is constitutional. Section 7 explains why.
 
-**Figure 3 — CTLC: admissibility predicate and verdict computation**
+**Figure 3: CTLC: admissibility predicate and verdict computation**
 
 ```mermaid
 flowchart TB
     subgraph INPUTS["Inputs to CTLC"]
-        S["S — substrate state"]
-        T["τ — proposed transition"]
-        A["A — authority context"]
-        P["P — provenance / lineage"]
-        D["D — domain constitution"]
-        U["U — uncertainty state"]
+        S["S: substrate state"]
+        T["τ: proposed transition"]
+        A["A: authority context"]
+        P["P: provenance / lineage"]
+        D["D: domain constitution"]
+        U["U: uncertainty state"]
     end
 
     PRED["Reachable(τ) ⟺\nResolvable(τ) ∧ Authorized(τ)\n∧ Admissible(τ) ∧ Grounded(τ)"]
@@ -331,6 +332,133 @@ flowchart TB
 
 ---
 
+# 6a. HOLD Verdict Completeness: Non-Formation, Non-Replay, Non-Bypass
+
+**The asymmetry.** §6 defines Grounded(τ) for the Emit path with a formal mechanism: an append-only Retrieval Lineage Graph and the invariant that agents can reference provenance but cannot write it. Emit has teeth because its grounding condition names a concrete artifact and a concrete non-forgery property. Hold does not receive the same treatment. §6 states that Hold "does not earn privilege for a retry," but that is an assertion about the verdict's character, not a mechanism that enforces it. A gap of this shape, an informally stated property standing where a formal invariant should be, deserves the same discipline applied everywhere else in this section: the property should be named, typed, and given an enforcement mechanism, not left as prose.
+
+The gap is narrower than it might first appear. The architecture already produces a record for every verdict, including Hold: §8's worked example and Appendix A's Governance Runtime stub both write an AdjudicationRecord carrying an outcome, a reason, and the pinned constitution_version, for Emit, Escalate, and Hold alike. The artifact is not missing. What is missing is a formal specification of that artifact's constitutional properties, non-formation, non-replayability, and non-bypassability, of the kind §6 already supplies for Emit's grounding. This section formalizes an implicit mechanism. It does not invent one from nothing.
+
+Why this matters: a verdict space with an informally specified refusal path has a specific failure mode. A Hold that is silently discarded rather than recorded has no non-formation guarantee. A Hold that can be defeated by resubmitting an unchanged proposal until an evaluator's behavior happens to drift has no non-replay guarantee. A Hold that can be defeated by re-expressing the same effect under a different transition type has no non-bypass guarantee. None of these failures requires L1 to misbehave on any single evaluation. Each is a structural gap in what the verdict space is required to preserve across evaluations, which is precisely the kind of failure the drift and false-stability apparatus of §13 is built to catch, except that apparatus presupposes the verdict it is watching already has the completeness properties this section supplies.
+
+**The HoldRecord.** Emit, Escalate, and Hold all produce the Resolution-level adjudication artifact §4 establishes for every verdict, the same artifact the Governance Runtime stub writes as an AdjudicationRecord (§8.5, Appendix A). A **HoldRecord** is the Hold-specific constitutional subrecord of that artifact: the typed completeness structure the Hold branch additionally requires, precisely because Hold's non-retry property, unlike Emit's grounding and Escalate's routing, has so far been asserted rather than enforced. It is not a log line appended for observability. It is a formal artifact with the following fields:
+
+- `hold_id`: a unique, monotonically assigned identifier, append-only.
+- `proposal_ref`: a content hash of the exact TransitionProposal that was evaluated.
+- `failed_conjunct`: which conjunct or conjuncts of Reachable(τ) evaluated false.
+- `cause`: the specific predicate failure within the failed conjunct (the existing AdjudicationRecord's reason field, typed).
+- `state_ref`: a pinned reference to the substrate state frontier S at evaluation time.
+- `authority_context_ref`: a pinned reference to the authority context A, the requester's standing and the authority graph, at evaluation time.
+- `domain_constitution_ref`: a pinned reference to the domain constitution D governing this transition type at evaluation time. In the common case this coincides with `constitution_version` below; it is pinned separately because a domain's admissibility conditions can, in principle, version independently of the general doctrine record.
+- `constitution_version`: the general doctrine version pinned at Step 1 of the CRA Assembly for this evaluation.
+- `provenance_frontier_ref`: a pinned reference to the state of the Retrieval Lineage Graph P, the provenance frontier, at evaluation time.
+- `cycle_id`: the ORSR cycle in which the evaluation occurred (§4).
+- `superseded_by`: `null | HoldRecordRef | ResolutionRef`, null unless a later evaluation formally supersedes this one under genuine state change, below.
+
+These five pinned references, `state_ref`, `authority_context_ref`, `domain_constitution_ref`, `constitution_version`, and `provenance_frontier_ref`, are what make the replay predicate below mechanically checkable rather than merely asserted: non-replay depends on knowing precisely what has and has not changed since h was written, and a single `constitution_version` field is not sufficient to capture state, authority, and provenance movement independently. A HoldRecord is written to the same append-only adjudication trace as every Emit and Escalate record (§4, Figure 4). This is not a new writing surface. It is the existing trace, with the Hold branch of the verdict now producing a typed object rather than an untyped reason string.
+
+**Non-formation.** Non-formation is the property that a Hold verdict has causal weight in the audit topology equal in formality to an Emit. It is not the absence of a record. It is the presence of a specific kind of record.
+
+```
+∀ h ∈ HoldRecord:
+  h ∈ Trace ∧ Immutable(h) ∧ IndependentlyQueryable(h)
+```
+
+Immutable(h) follows from the append-only property of the trace already established in §4. IndependentlyQueryable(h) is the added requirement: a HoldRecord must be reconstructable and reviewable on its own, by an auditor or by L2, without requiring the proposal that produced it to be resubmitted. A verdict space that satisfies non-formation cannot make a Hold disappear by simply not recording it, because recording is not optional; it is what a Hold is.
+
+**Non-replayability.** This is the property currently stated as an assertion in §6 and formalized here as an enforced invariant. The formalization turns on a precise definition of what counts as a replay, as opposed to a legitimate resubmission.
+
+```
+Replay(τ', h) ⟺
+  ContentIdentical(τ', h.proposal_ref)                        ∧
+  StateUnchanged(S, h.state_ref)                              ∧
+  AuthorityContextUnchanged(A, h.authority_context_ref)       ∧
+  DomainConstitutionUnchanged(D, h.domain_constitution_ref)   ∧
+  ProvenanceFrontierUnchanged(P, h.provenance_frontier_ref)
+```
+
+ContentIdentical holds when the resubmitted proposal is, as a typed object, the same proposal that produced h. StateUnchanged holds when the substrate state frontier has not advanced since h.state_ref was pinned. AuthorityContextUnchanged holds when the authority graph and the requester's standing have not moved since h.authority_context_ref was pinned, no new grant, no revocation, no delegation change. DomainConstitutionUnchanged holds when the domain constitution governing this transition type, including the general doctrine version, has not been amended or reconstituted since h.domain_constitution_ref was pinned. ProvenanceFrontierUnchanged holds when no new provenance has entered the Retrieval Lineage Graph within this proposal's grounding scope since h.provenance_frontier_ref was pinned. When all five hold, the resubmission is a replay by definition, and:
+
+```
+∀ τ': Replay(τ', h) ⟹
+  CTLC(S, τ', A, P, D, U) = Hold(h.cause), referencing h.hold_id,
+  without re-executing the seven-step CRA Assembly
+```
+
+Replay detection occurs at a pre-CRA replay gate, evaluated before Step 1 of the CRA Assembly, not as part of it. If Replay(τ', h) holds at this gate, CTLC returns the prior Hold by reference and the seven-step procedure is never entered. If Replay(τ', h) does not hold, whether because the proposal is fresh or because a genuine change to S, A, D, or P has occurred, the gate passes the proposal through to Step 1 for full adjudication. Locating the check before Step 1 rather than folding it into Step 1 keeps the distinction unambiguous: Step 1 pins the constitution version for a fresh evaluation; the replay gate decides whether a fresh evaluation is warranted at all.
+
+A true replay does not receive a fresh adjudication. It is short-circuited to the existing HoldRecord. This is the formal move that makes non-replay mechanical rather than asserted: the enforcement does not depend on L1 correctly refusing the same proposal twice in a row, which would be a behavioral property subject to the same drift §13 already warns against. It depends on the replay being recognized as identical to a prior evaluation before adjudication runs at all.
+
+The converse matters equally. If S, A, D, or P has genuinely changed, new provenance recorded, new authority granted, doctrine reconstituted, the resubmission is not a replay by this definition, and full re-adjudication from Step 1 is correct and required. This is the precise answer to whether a changed condition can change the result: yes, but only through a genuine change reflected in one of the four pinned references, never through resubmission of the same proposal against unchanged state. A HoldRecord that is superseded this way has its superseded_by field set to the hold_id or Resolution reference of the fresh evaluation, preserving the lineage between the original refusal and its legitimate reversal.
+
+**Non-bypassability.** Non-bypassability addresses a different attack surface: not resubmitting the same proposal, but submitting a differently typed proposal that reaches the same effect. The formal move is to bind the admissibility condition that produced a Hold to the proposed effect, not to the transition type that carried it.
+
+```
+∀ τ'': Effect(τ'') = Effect(h.proposal_ref) ⟹
+  Admissible(τ'') must independently satisfy every admissibility
+  condition responsible for h.failed_conjunct, regardless of Type(τ'')
+```
+
+A proposal that resolves to the same target effect as a held proposal, whatever its transition type, must independently clear the admissibility conditions that produced the original Hold. It gains nothing from arriving under a different type. This closes the cross-route attack: an actor cannot achieve a blocked effect by re-expressing the same request as a different kind of transition and hoping the new type's admissibility domain does not carry the same conditions.
+
+This invariant introduces a genuine new requirement on the domain constitution D, named here rather than assumed: D must define effect-equivalence classes, a mapping from proposed effects to the admissibility conditions that govern them, independent of transition type. Where the parent architecture's admissibility domains are currently keyed to transition type (Resolvable(τ) in §6), non-bypassability requires an additional keying by effect. This is new specification work belonging to the operational constitution layer (§3), not something the current architecture already provides.
+
+**Note on scope.** Non-formation is fully specified above and is decidable, because it reduces to the existing append-only trace property. Non-replayability is fully specified as an invariant and requires no new architecture beyond the pre-CRA replay gate recognizing content-identity and the four pinned references' unchanged-ness before the CRA Assembly runs. Non-bypassability is specified as a requirement, not a completed mechanism: it depends on the domain constitution defining effect-equivalence classes, which is new work belonging to the operational constitution layer rather than to CTLC itself. This asymmetry is stated plainly so the corpus does not treat non-bypassability as complete before the effect-equivalence classes it depends on are populated for a given domain.
+
+Refining the Hold row of §6's verdict table:
+
+| Predicate state | Trigger | Verdict |
+|---|---|---|
+| Not Reachable, fresh evaluation | Replay(τ', h) is false | **Hold(cause)** → new HoldRecord |
+| Not Reachable, resubmission | Replay(τ', h) is true | **Hold(h.cause)** → references existing hold_id, no re-adjudication |
+| Not Reachable, cross-type resubmission | Effect(τ'') = Effect(h.proposal_ref) | Admissible(τ'') independently evaluated against h's failed conditions |
+
+**A candidate formal property.** In the same register as the candidate properties named for future formal verification (Appendix, Figure A2), this section's contribution can be stated as one property, the sixth candidate property in that figure's verification-pathway list: no Hold verdict admits replay or cross-type bypass without a genuine change to substrate state that re-triggers fresh adjudication from Step 1 of the CRA Assembly. As with the figure's first five candidate properties, this is specified here, not formally verified. It is a candidate property for the same future verification work named throughout this paper wherever a formal claim is made without a completed proof.
+
+**Figure 3a: HOLD verdict internal structure: non-formation, non-replay, non-bypass**
+
+```mermaid
+flowchart TB
+    PROP["Proposal submitted\n(fresh τ, or resubmission τ')"]
+    CHK{"Replay(τ', h)? pre-CRA gate\nContentIdentical ∧ StateUnchanged\n∧ AuthorityContextUnchanged ∧ DomainConstitutionUnchanged\n∧ ProvenanceFrontierUnchanged"}
+    PROP --> CHK
+
+    SHORT["Short-circuit\nHold(h.cause)\nreferences existing hold_id\nno CRA re-run: non-replay"]
+    CRA["Full seven-step CRA Assembly\nReachable(τ) evaluated fresh"]
+
+    CHK -->|"true: replay"| SHORT
+    CHK -->|"false: fresh proposal\nor genuine state change"| CRA
+
+    EMIT["Emit"]
+    ESC["Escalate(target)"]
+    NEWHOLD["New HoldRecord\nimmutable · independently queryable\nnon-formation"]
+
+    CRA -->|"Reachable ∧ executable"| EMIT
+    CRA -->|"Reachable ∧ needs escalation"| ESC
+    CRA -->|"¬Reachable"| NEWHOLD
+
+    BYPASS{"Cross-type resubmission τ'':\nEffect(τ'') = Effect(h.proposal_ref)?"}
+    REEVAL["Admissible(τ'') must independently\nsatisfy h's failed conditions\nnon-bypass"]
+
+    NEWHOLD -.-> BYPASS
+    BYPASS -->|"yes"| REEVAL
+    BYPASS -->|"no: distinct effect"| CRA
+    REEVAL --> CRA
+
+    style PROP fill:#E6F1FB,stroke:#185FA5,color:#042C53
+    style CHK fill:#EEEDFE,stroke:#534AB7,color:#26215C
+    style SHORT fill:#FCEBEB,stroke:#A32D2D,color:#501313
+    style CRA fill:#EEEDFE,stroke:#534AB7,color:#26215C
+    style EMIT fill:#EAF3DE,stroke:#3B6D11,color:#173404
+    style ESC fill:#FAEEDA,stroke:#BA7517,color:#412402
+    style NEWHOLD fill:#FCEBEB,stroke:#A32D2D,color:#501313
+    style BYPASS fill:#EEEDFE,stroke:#534AB7,color:#26215C
+    style REEVAL fill:#FCEBEB,stroke:#A32D2D,color:#501313
+```
+
+*A resubmission that is content-identical to a held proposal, against unchanged substrate state, is short-circuited to the existing HoldRecord rather than re-adjudicated (non-replay). A fresh Hold is itself a first-class, immutable, independently queryable trace entry (non-formation). A differently typed proposal reaching the same effect as a held one must independently clear the same admissibility conditions (non-bypass). Genuine substrate-state change, new provenance, new authority, reconstituted doctrine, always triggers fresh adjudication from Step 1.*
+
+---
+
 # 7. Why L1 and L2 Must Remain Separate
 
 The architecture treats the fusion of governance and self-monitoring as a constitutional collapse condition.
@@ -347,21 +475,21 @@ The most dangerous failure mode is self-concealing drift. A runtime may appear i
 
 L2 exists because L1 cannot reliably detect this condition internally. L2 observes L1's adjudication patterns over time. L2 monitors for calibration displacement, precedent overweighting, escalation suppression, and false stability signals. L2 does not re-enter the verdict path. L2 never overrides L1. L2 reports to the constitutional authority when the conditions under which L1 remains constitutionally meaningful may have degraded. This separation is load-bearing. If L2 were incorporated into L1, the monitoring function would be subject to the same drift it is designed to detect.
 
-**Figure 4 — L1/L2 separation: why governance cannot self-certify**
+**Figure 4: L1/L2 separation: why governance cannot self-certify**
 
 ```mermaid
 flowchart TB
     AGENT["Agent proposals"]
-    L1["L1 — Transition Legitimacy Adjudication\nEmit / Escalate / Hold\n(sole runtime adjudication function)"]
+    L1["L1: Transition Legitimacy Adjudication\nEmit / Escalate / Hold\n(sole runtime adjudication function)"]
     EFF["Runtime effects"]
     TRACE["Adjudication trace\n(append-only)"]
-    L2["L2 / MEC — Drift monitoring\nObserves only — never adjudicates"]
-    HCA["Human constitutional authority\n(Nafisah — sovereign root)"]
+    L2["L2 / MEC: Drift monitoring\nObserves only, never adjudicates"]
+    HCA["Human constitutional authority\n(Nafisah: sovereign root)"]
 
     AGENT -->|"proposes"| L1
     L1 -->|"verdict"| EFF
     L1 -->|"writes"| TRACE
-    TRACE -->|"L2 reads trace — one direction only"| L2
+    TRACE -->|"L2 reads trace: one direction only"| L2
     L2 -->|"drift signal routed to"| HCA
     HCA -.->|"reconstitution corrects L1"| L1
 
@@ -391,25 +519,25 @@ This is the Submit event in ORSR. Mantis has reasoned. Mantis has not acted. The
 
 L1 executes the seven-step CRA Assembly procedure. The order is canonical and does not short-circuit.
 
-**Step 1 — PIN.** L1 pins the current version of the Constitutional Substrate Graph. All adjudication for this transition evaluates against this version.
+**Step 1: PIN.** L1 pins the current version of the Constitutional Substrate Graph. All adjudication for this transition evaluates against this version.
 
-**Step 2 — RESOLVE.** L1 resolves the transition type (Risk/Safety Assessment) against the domain partition. The type maps to a known admissibility domain. Resolvable(τ) holds.
+**Step 2: RESOLVE.** L1 resolves the transition type (Risk/Safety Assessment) against the domain partition. The type maps to a known admissibility domain. Resolvable(τ) holds.
 
-**Step 3 — STAND.** L1 validates Mantis's standing class against the authority topology. Mantis holds clinical reasoning standing, which authorizes proposal of assessment artifacts. Authorized(τ) holds.
+**Step 3: STAND.** L1 validates Mantis's standing class against the authority topology. Mantis holds clinical reasoning standing, which authorizes proposal of assessment artifacts. Authorized(τ) holds.
 
-**Step 4 — ADMIT.** L1 evaluates the domain's admissibility conditions. Risk/Safety Assessment transitions involving potential mandated reporting triggers require sovereign review. The client's disclosure activates this condition. The transition is admissible but flagged: the admissibility domain mandates higher-authority review for this transition subtype. Admissible(τ) holds, with escalation required.
+**Step 4: ADMIT.** L1 evaluates the domain's admissibility conditions. Risk/Safety Assessment transitions involving potential mandated reporting triggers require sovereign review. The client's disclosure activates this condition. The transition is admissible but flagged: the admissibility domain mandates higher-authority review for this transition subtype. Admissible(τ) holds, with escalation required.
 
-**Step 5 — GROUND.** L1 performs forward evidentiary reconstruction on the proposed effect. The PHQ-9 score, the client self-report synthesis, and the risk level classification all trace to recorded provenance in the Retrieval Lineage Graph. Grounded(τ) holds.
+**Step 5: GROUND.** L1 performs forward evidentiary reconstruction on the proposed effect. The PHQ-9 score, the client self-report synthesis, and the risk level classification all trace to recorded provenance in the Retrieval Lineage Graph. Grounded(τ) holds.
 
-**Step 6 — DECIDE.** All four conjuncts of Reachable(τ) hold. But the admissibility domain mandates sovereign review for transitions involving potential mandated reporting triggers — making the transition not executable at Mantis's standing class. The escalation topology names the target: Level 3, Nafisah with constitutional authority. Verdict: **Escalate(target = Nafisah).**
+**Step 6: DECIDE.** All four conjuncts of Reachable(τ) hold. But the admissibility domain mandates sovereign review for transitions involving potential mandated reporting triggers: making the transition not executable at Mantis's standing class. The escalation topology names the target: Level 3, Nafisah with constitutional authority. Verdict: **Escalate(target = Nafisah).**
 
-**Step 7 — TRACE.** L1 writes the complete adjudication record to the runtime execution trace. L1 writes nothing to the Constitutional Substrate Graph. Adjudication consumes the constitution. It never edits it.
+**Step 7: TRACE.** L1 writes the complete adjudication record to the runtime execution trace. L1 writes nothing to the Constitutional Substrate Graph. Adjudication consumes the constitution. It never edits it.
 
 ### 8.3 The Resolve Event
 
 The substrate has adjudicated. Mantis's proposal is routed to Nafisah through the escalation topology. Nafisah receives the complete transition proposal, the risk assessment artifact, the provenance references, the ambiguous client disclosure, and the reason for escalation. She reviews the clinical content with her professional judgment. She determines that the disclosure warrants a mandated report and that Mantis's risk classification is clinically appropriate.
 
-Nafisah's authorization is not a bypass. It is a governed, versioned, traced constitutional act. Her authorization re-enters the loop as a new typed transition carrying her sovereign authority context — not resuming the escalated proposal but initiating a fresh adjudication from Step 1 with the sovereign's authority. L1 adjudicates: standing sovereign, admissibility satisfied, grounding intact. Verdict: **Emit.** Pepper produces the clinical artifact and initiates the mandated reporting workflow.
+Nafisah's authorization is not a bypass. It is a governed, versioned, traced constitutional act. Her authorization re-enters the loop as a new typed transition carrying her sovereign authority context: not resuming the escalated proposal but initiating a fresh adjudication from Step 1 with the sovereign's authority. L1 adjudicates: standing sovereign, admissibility satisfied, grounding intact. Verdict: **Emit.** Pepper produces the clinical artifact and initiates the mandated reporting workflow.
 
 ### 8.4 L2 Three Months Later
 
@@ -446,9 +574,21 @@ This POC does not implement the full CTLC architecture, MEC/L2 monitoring, forma
 
 A representative excerpt of the POC code appears in Appendix A; the complete script is available from the Professor Bone Lab repository.
 
+### 8.6 Extending the Example: HOLD Verdict Completeness in Practice
+
+§6a's formal apparatus is easiest to see against a concrete Hold, and the running example so far has not produced one, Mantis's proposal in §8.1 through §8.3 was Reachable and escalated. Consider a structurally similar variant to give §6a's machinery a trace.
+
+Suppose a second intake proposal, τ, resolves to Risk/Safety Assessment as before, but its provenance reference points to a Retrieval Lineage Graph slice that does not, on forward evidentiary reconstruction, support the proposed risk classification: the cited PHQ-9 record exists, but the specific client self-report segments the classification depends on are not present in the referenced slice. Step 5 (GROUND) fails. Grounded(τ) is false, Reachable(τ) is false, and the verdict is Hold. L1 writes a HoldRecord: proposal_ref is the content hash of τ, failed_conjunct is Grounded, cause names the missing self-report segments, state_ref, authority_context_ref, domain_constitution_ref, constitution_version, and provenance_frontier_ref are each pinned at the substrate, authority, doctrine, and provenance frontier in force at evaluation time, cycle_id names the current ORSR cycle, and superseded_by is null.
+
+**Case one: replay.** Mantis, or Pepper acting on Mantis's behalf, resubmits the identical proposal without adding provenance. This resubmission, τ', is content-identical to h.proposal_ref, and none of the four pinned frontiers, substrate state, authority context, domain constitution, or provenance, has moved since h was written. Replay(τ', h) is true at the pre-CRA replay gate. CTLC does not re-execute the seven-step CRA Assembly. It returns Hold(h.cause), referencing h.hold_id. The audit trace shows one HoldRecord and one reference to it, not two independent adjudications that happened to agree, which matters for L2: an evaluator whose behavior might otherwise drift toward accepting a repeatedly resubmitted proposal is never given the opportunity to re-decide, because the decision is not re-made.
+
+**Case two: genuine state change.** Independently, Mantis retrieves and records the missing self-report segments into the Retrieval Lineage Graph, an ordinary act of provenance recording, not a reconstitution, and resubmits the same risk classification. ProvenanceFrontierUnchanged(P, h.provenance_frontier_ref) is now false: new provenance has entered the graph since h.provenance_frontier_ref was pinned. Replay(τ', h) is false by definition, the state, authority, and domain-constitution frontiers being unchanged does not matter once any one of the four fails, and the resubmission is not a replay. The pre-CRA gate passes the proposal through, and full re-adjudication from Step 1 is correct and required. GROUND is re-evaluated against the now-complete lineage slice; Grounded(τ') holds; the remaining conjuncts are unaffected; the transition proceeds to Escalate, exactly as the original §8.1 through §8.3 example did once its own grounding was intact. The new Resolution's reference is written to h.superseded_by, so an auditor reading the trace can recover both that the original Hold was legitimate at the time and that it was superseded by a genuine change to P, not by resubmission of the same defective proposal.
+
+Case one demonstrates non-replayability: the identical proposal against unchanged state cannot be adjudicated into a different outcome by resubmission alone. Case two demonstrates that non-replayability does not freeze the system: a genuine change to substrate state correctly triggers fresh adjudication, and a Hold that was correct when written is not a permanent judgment on the underlying request, only on the request as it stood against the state that produced it.
+
 ---
 
-# Part III — Constitutional Ontology
+# Part III: Constitutional Ontology
 
 ---
 
@@ -522,33 +662,33 @@ The Decomposition Probe tests whether a completed clinical artifact decomposes i
 
 This is one primitive traced from observed failure pressure through full instrumentation to CTLC effect and constitutional recovery. The same engineering chain applies to every primitive in the Q/P architecture. Primitives are not categories in a taxonomy. They are independently governable failure mechanisms with concrete probe systems, threshold architectures, and CTLC integration.
 
-**Figure 5 — Q/P architecture: constitutional ontology decomposition**
+**Figure 5: Q/P architecture: constitutional ontology decomposition**
 
 ```mermaid
 flowchart LR
     Q3["Q3\nInferential Legitimacy"]
     Q6["Q6\nIterative Governance Integrity"]
 
-    Q3 --> P3_1["P1 — Salience governance"]
-    Q3 --> P3_2["P2 — Compression authorization"]
-    Q3 --> P3_3["P3 — Framing directionality"]
-    Q3 --> P3_4["P4 — Evidence-inference proportionality"]
-    Q3 --> P3_5["P5 — Uncertainty transformation"]
-    Q3 --> P3_6["P6 — Implication propagation"]
-    Q3 --> P3_7["P7 — Latent conclusion formation"]
+    Q3 --> P3_1["P1: Salience governance"]
+    Q3 --> P3_2["P2: Compression authorization"]
+    Q3 --> P3_3["P3: Framing directionality"]
+    Q3 --> P3_4["P4: Evidence-inference proportionality"]
+    Q3 --> P3_5["P5: Uncertainty transformation"]
+    Q3 --> P3_6["P6: Implication propagation"]
+    Q3 --> P3_7["P7: Latent conclusion formation"]
 
-    Q6 --> P6_1["P1 — Re-entry conditioning"]
-    Q6 --> P6_2["P2 — Prospective conditioning"]
-    Q6 --> P6_3["P3 — Source legibility ★"]
-    Q6 --> P6_4["P4 — Comparability boundary"]
-    Q6 --> P6_5["P5 — Calibration displacement"]
+    Q6 --> P6_1["P1: Re-entry conditioning"]
+    Q6 --> P6_2["P2: Prospective conditioning"]
+    Q6 --> P6_3["P3: Source legibility ★"]
+    Q6 --> P6_4["P4: Comparability boundary"]
+    Q6 --> P6_5["P5: Calibration displacement"]
 
     style Q3 fill:#EEEDFE,stroke:#534AB7,color:#26215C
     style Q6 fill:#E1F5EE,stroke:#0F6E56,color:#04342C
     style P6_3 fill:#FAEEDA,stroke:#BA7517,color:#412402
 ```
 
-*★ = Q6 P3 Source Legibility — traced end-to-end in §10. Each primitive is independently identifiable, independently measurable within a specified instrumentation design, and independently governable.*
+*★ = Q6 P3 Source Legibility: traced end-to-end in §10. Each primitive is independently identifiable, independently measurable within a specified instrumentation design, and independently governable.*
 
 ---
 
@@ -558,7 +698,7 @@ The constitutional ontology defines what the substrate governs. But how was this
 
 ---
 
-# Part IV — Constitutional Engineering Lifecycle
+# Part IV: Constitutional Engineering Lifecycle
 
 ---
 
@@ -586,29 +726,29 @@ A traditional constitution says: "These things are prohibited." Constitutional d
 
 The constitutional discovery process decomposes into approximately nine major phases. Each phase produces constitutional knowledge that the subsequent phase requires.
 
-**Phase 0 — Problem Recognition.** The realization that capability scaling alone does not produce constitutional stability. Governance failures are recognized as structural rather than behavioral: alignment drift, inference overreach, latent implication formation, authority leakage, salience instability. This is the prerequisite phase.
+**Phase 0: Problem Recognition.** The realization that capability scaling alone does not produce constitutional stability. Governance failures are recognized as structural rather than behavioral: alignment drift, inference overreach, latent implication formation, authority leakage, salience instability. This is the prerequisite phase.
 
-**Phase 1 — Constitutional Object Discovery.** The identification of constitutional properties that must remain stable. Q domains emerge: inferential legitimacy, sovereignty preservation, uncertainty admissibility, diagnostic boundary preservation.
+**Phase 1: Constitutional Object Discovery.** The identification of constitutional properties that must remain stable. Q domains emerge: inferential legitimacy, sovereignty preservation, uncertainty admissibility, diagnostic boundary preservation.
 
-**Phase 2 — Primitive Discovery.** The transition from broad constitutional domains to concrete failure topologies. P primitives appear, pressure mechanisms are isolated, and independently governable failure surfaces are identified. This phase is the birth of constitutional mechanics.
+**Phase 2: Primitive Discovery.** The transition from broad constitutional domains to concrete failure topologies. P primitives appear, pressure mechanisms are isolated, and independently governable failure surfaces are identified. This phase is the birth of constitutional mechanics.
 
-**Phase 3 — Pressure Topology Mapping.** The discovery of how primitives interact, compound, propagate, and recursively amplify. The architecture becomes topological rather than categorical.
+**Phase 3: Pressure Topology Mapping.** The discovery of how primitives interact, compound, propagate, and recursively amplify. The architecture becomes topological rather than categorical.
 
-**Phase 4 — Harness Construction.** Evaluation harnesses, pressure scenarios, constitutional tests, failure signatures, recovery expectations, and admissible intensity ranges are constructed. This is where constitutional theory becomes measurable runtime stress.
+**Phase 4: Harness Construction.** Evaluation harnesses, pressure scenarios, constitutional tests, failure signatures, recovery expectations, and admissible intensity ranges are constructed. This is where constitutional theory becomes measurable runtime stress.
 
-**Phase 5 — Architectural Stabilization.** The major transition point. The discovery that governance cannot merely evaluate outputs, because outputs are downstream and failures emerge earlier. Inferential motion itself must be governed. ORSR becomes architecturally necessary.
+**Phase 5: Architectural Stabilization.** The major transition point. The discovery that governance cannot merely evaluate outputs, because outputs are downstream and failures emerge earlier. Inferential motion itself must be governed. ORSR becomes architecturally necessary.
 
-**Phase 6 — Runtime Constitutionalization.** The Governance Runtime emerges as executable constitutional infrastructure. Only now can typed transition objects, admissibility domains, authority topology, escalation topology, and the CRA Assembly be specified. The prerequisite knowledge from Phases 0–5 is what makes this specification possible.
+**Phase 6: Runtime Constitutionalization.** The Governance Runtime emerges as executable constitutional infrastructure. Only now can typed transition objects, admissibility domains, authority topology, escalation topology, and the CRA Assembly be specified. The prerequisite knowledge from Phases 0–5 is what makes this specification possible.
 
-**Phase 7 — Cognitive Decomposition.** The architecture begins reshaping intelligence allocation. Once governance stabilizes the substrate, cognition can be safely fragmented into specialized bounded roles.
+**Phase 7: Cognitive Decomposition.** The architecture begins reshaping intelligence allocation. Once governance stabilizes the substrate, cognition can be safely fragmented into specialized bounded roles.
 
-**Phase 8 — Sovereign Runtime Ecology.** The fully mature stage. The system becomes self-monitoring, recursively constitutional, and dynamically governable. Governance is no longer a module. It becomes the reachability topology of cognition itself.
+**Phase 8: Sovereign Runtime Ecology.** The fully mature stage. The system becomes self-monitoring, recursively constitutional, and dynamically governable. Governance is no longer a module. It becomes the reachability topology of cognition itself.
 
 The most important insight this lifecycle reveals: the Governance Runtime (Phase 6) is not the beginning of governance architecture. It is late-stage architecture. It can only exist after constitutional ontology, primitive discovery, pressure topology analysis, and harness stabilization have already occurred. Most current agent systems cannot build something like the Constitutional Runtime Substrate because they have not performed the prerequisite constitutional discovery work. They moved directly from "we need agents" to "let us orchestrate tools," skipping the constitutional foundation entirely.
 
 ---
 
-# Part V — Failure Theory, SLM Implications, and Synthesis
+# Part V: Failure Theory, SLM Implications, and Synthesis
 
 ---
 
@@ -668,7 +808,7 @@ The architecture's response to drift is structural, not procedural. L2 exists to
 
 The most important principle in drift theory: the rejection of output quality as a sufficient governance signal. Governance health and output quality are structurally distinct quantities. A system producing excellent outputs may be constitutionally drifting. A system producing mediocre outputs may be constitutionally sound.
 
-**Figure 6 — False stability: the self-concealing drift vector**
+**Figure 6: False stability: the self-concealing drift vector**
 
 ```mermaid
 flowchart TB
@@ -679,7 +819,7 @@ flowchart TB
     DRIFT -->|"reinforces drifted patterns"| VP
 
     L2["L2 / MEC\nExternal observer\nDetects loop"]
-    L2 -.->|"breaks the loop — routes\ndrift signal to Nafisah"| DRIFT
+    L2 -.->|"breaks the loop, routes\ndrift signal to Nafisah"| DRIFT
 
     style VP fill:#EEEDFE,stroke:#534AB7,color:#26215C
     style STABLE fill:#FAEEDA,stroke:#BA7517,color:#412402
@@ -689,12 +829,12 @@ flowchart TB
 
 *The loop looks healthy by every internally derived metric. Output quality ≠ governance integrity. L2 is the only external observer capable of detecting co-drift between proposer and governor.*
 
-**Figure 7 — Governance health vs output quality**
+**Figure 7: Governance health vs output quality**
 
 | | High output quality | Low output quality |
 |---|---|---|
 | **High governance integrity** | Healthy governed system | Constitutionally sound, capability-limited |
-| **Low governance integrity** | **False stability** ← most dangerous | Obvious failure — visible |
+| **Low governance integrity** | **False stability** ← most dangerous | Obvious failure (visible) |
 
 *The critical cell is high output quality + low governance integrity: the system appears to be working while constitutional fidelity is declining. This is the false stability failure mode. It is undetectable without L2 drift monitoring because the only observable output quality reads as healthy.*
 
@@ -723,7 +863,7 @@ This claim converges with, but is structurally distinct from, a position increas
 
 **The constitutional substrate argument: sovereignty decomposition.** Constitutional Runtime Architecture makes a different and compounding claim. The reason frontier models appear necessary is not primarily that agentic tasks are complex; it is that the traditional agentic loop imposes sovereignty burdens unrelated to the task itself. The constitutional substrate externalizes these burdens: it constrains reachability so the agent cannot form unauthorized inferences, preserves uncertainty rather than compressing it under action pressure, governs escalation, and prevents latent conclusions from acquiring causal force without adjudication. The agent is left with the cognitive task; the governance is in the topology.
 
-NVIDIA's argument is about *task decomposition*: complex tasks broken into simple subtasks that SLMs can handle. CRA is about *sovereignty decomposition*: the governance burden removed from the agent and carried by the substrate. The two reductions compound. Under task decomposition alone, SLMs are cheaper replacements for frontier models doing the same work at the same architectural level. Under sovereignty decomposition, SLMs become *constitutionally viable* — bounded cognitive roles that could not safely exist without the substrate. The substrate does not merely make small models economical; it provides the governance structure that small models cannot carry internally.
+NVIDIA's argument is about *task decomposition*: complex tasks broken into simple subtasks that SLMs can handle. CRA is about *sovereignty decomposition*: the governance burden removed from the agent and carried by the substrate. The two reductions compound. Under task decomposition alone, SLMs are cheaper replacements for frontier models doing the same work at the same architectural level. Under sovereignty decomposition, SLMs become *constitutionally viable*: bounded cognitive roles that could not safely exist without the substrate. The substrate does not merely make small models economical; it provides the governance structure that small models cannot carry internally.
 
 **Constitutional cognitive decomposition.** The strongest version of the SLM argument is therefore not "SLMs can do what LLMs do, at lower cost" but "constitutional substrates create cognitive roles that SLMs can safely fill."
 
@@ -775,7 +915,7 @@ One structural cost is worth naming. The trusted computing base of a constitutio
 
 ---
 
-# Part VI — Scholarly Context and Conclusion
+# Part VI: Scholarly Context and Conclusion
 
 ---
 
@@ -787,7 +927,7 @@ One structural cost is worth naming. The trusted computing base of a constitutio
 
 **Reference monitor lineage.** The strongest systems-level lineage is the reference monitor [3, 10]. A reference monitor enforces access control through complete mediation, tamperproofing, and verifiability, mediating all security-sensitive operations over subjects and objects. This architecture explicitly claims that ancestry: the substrate is structurally a constitutional reference monitor. All consequential transitions must pass through a mandatory mediation layer (Invariant I1 in the AEGIS CTLC specification). Inheriting the lineage entails inheriting its obligations. Complete mediation is established by Invariant I1. Tamperproofing is established by the immutable governance exposure log (§17), by the versioned doctrine record that the substrate cannot modify from inside the adjudication path, and by the L1/L2 separation that prevents the monitor from being silenced by the function it monitors. Verifiability is established by the auditability requirement and by L2's independent measurement channels (§17). The key extension beyond the classical reference monitor is scope and semantics: a reference monitor decides whether an operation is permitted based on access-control policy, whereas this architecture adjudicates constitutional reachability using authority context, provenance, uncertainty, escalation topology, and drift monitoring. The lineage is not borrowed framing. The architecture commits to its requirements and extends them.
 
-**Capability-based security.** Capability-based security [11] formalizes authority as explicit, bounded, and context-sensitive — treating authority as an unforgeable token that must be presented rather than inferred. The present architecture shares this commitment: authority is topological, not asserted, and a transition that claims authorization is asserting something, not authorized (Invariant I3 in the CTLC specification). The extension is that the authority structure here is drift-monitored and reconstitutable, and that the governed object is cognitive transition rather than object access.
+**Capability-based security.** Capability-based security [11] formalizes authority as explicit, bounded, and context-sensitive, treating authority as an unforgeable token that must be presented rather than inferred. The present architecture shares this commitment: authority is topological, not asserted, and a transition that claims authorization is asserting something, not authorized (Invariant I3 in the CTLC specification). The extension is that the authority structure here is drift-monitored and reconstitutable, and that the governed object is cognitive transition rather than object access.
 
 **Policy-as-code.** Policy-as-code frameworks such as Open Policy Agent (OPA) and Rego aim to make policy machine-checkable and auditable [12]. The present architecture differs because it does not merely evaluate whether a request violates a policy specification; it defines the topology of reachable transitions and turns authority into an explicit, inspectable, drift-monitored runtime property. Standard policy-as-code does not monitor whether its own authorization criteria have displaced from their authorized basis over time, which is precisely the P5 calibration displacement problem this architecture is designed to detect.
 
@@ -803,19 +943,19 @@ The table below summarizes the architectural position of each tradition relative
 
 | Approach | Governance location | Before effect? | Agent retains act authority? | Governs reachability? | Handles drift? | Supports reconstitution? |
 |---|---|---|---|---|---|---|
-| Prompt policy | Inside prompt / model | No — post-generation | Yes | No | No | No |
-| RLHF / Constitutional AI | Training-time alignment | No — shapes tendency | Yes | No | Weak | No |
-| Runtime verification | External trace monitor | Partial — post-step | Yes | Partial | Limited | No |
+| Prompt policy | Inside prompt / model | No (post-generation) | Yes | No | No | No |
+| RLHF / Constitutional AI | Training-time alignment | No (shapes tendency) | Yes | No | Weak | No |
+| Runtime verification | External trace monitor | Partial (post-step) | Yes | Partial | Limited | No |
 | Reference monitor | Mandatory mediation layer | Yes | Partial | Partial | No | No |
 | Access control / capability | Permission layer | Yes | Partial | Limited | No | No |
 | Policy-as-code (OPA/Rego) | Policy engine | Yes | Partial | Limited | No | No |
 | Workflow / orchestration | Orchestration layer | Partial | Partial | No | No | No |
-| AI risk frameworks (NIST) | Organizational governance | No — advisory | Yes | No | Guidance only | No |
-| CRA / ORSR (this paper) | Runtime substrate | Yes — pre-effect gate | No | Yes | Yes, via L2 | Yes |
+| AI risk frameworks (NIST) | Organizational governance | No (advisory) | Yes | No | Guidance only | No |
+| CRA / ORSR (this paper) | Runtime substrate | Yes (pre-effect gate) | No | Yes | Yes, via L2 | Yes |
 
 CRA is the only approach in this table where the agent does not retain act authority, governance is structurally prior to every effect, reachability is the governing concept rather than behavioral compliance, drift is monitored longitudinally, and reconstitution is a specified architectural mechanism.
 
-**Figure 8 — Normative-to-operational translation pipeline**
+**Figure 8: Normative-to-operational translation pipeline**
 
 ```mermaid
 flowchart LR
@@ -892,7 +1032,9 @@ Three major open problems are visible at the current frontier of this architectu
 
 **The translation problem.** The most important unresolved problem is the translation between the normative and operational layers of the constitution: how does human normative doctrine become a computable operational constitution without losing, distorting, or over-freezing the judgment it is supposed to preserve? The operational constitution (admissibility predicates, authority topology, transition types) must be expressive enough to encode the normative constitution's intent, and stable enough to adjudicate consistently, while remaining open to the evolution of the normative constitution as the human authority's judgment matures. This is not merely a technical problem. It is a constitutional design problem. Current approaches (including AEGIS) manage this through reconstitution, periodic realignment of operative governance to authorized doctrine, which is a mitigation strategy rather than a solution. A principled translation methodology remains future work.
 
-**Figure 9 — Translation risk map**
+The v5.4 non-bypassability invariant (§6a) is a specific instance of this problem, named here rather than treated as a separate open-problem family: it requires domains to define effect-equivalence classes sufficient to bind admissibility to effect identity rather than transition-type identity, and populating those classes for a given domain is translation work belonging to the operational constitution layer, of the same character as the rest of what this problem names.
+
+**Figure 9: Translation risk map**
 
 ```mermaid
 flowchart TB
@@ -928,9 +1070,11 @@ flowchart TB
 
 **The substrate verification problem.** This architecture is designed to be formalization-compatible: its admissibility predicates, authority graphs, and typed transition semantics are structured toward formal verification. But formal verification of a deployed constitutional substrate, one that must handle ambiguous clinical evidence, evolving doctrine, and the full breadth of human institutional complexity, remains an open research problem. The gap between "structured for verification" and "formally verified" is non-trivial, and closing it will require both formal methods contributions and domain-specific specification discipline.
 
-**The constitutive-irreducibility problem.** Some judgments may resist predicate evaluation in principle rather than in practice. Clinical judgment includes cases where the practitioner's response is grounded in tacit recognition that resists articulation as admissibility conditions: an experienced clinician's discomfort with a case that cannot yet be named, a pattern recognition that operates below the threshold of explicit clinical criteria. The current architecture treats such cases as routing successes — the indeterminate signal correctly escalates to the human authority. But a stronger account would distinguish between two failure modes: cases where the operational constitution is insufficiently developed to adjudicate (a translation problem, mitigable by reconstitution), and cases where no operational constitution can adjudicate because the judgment is constitutively non-predicative (a category problem requiring a different architectural response). From outside the L1 gate the two failure modes look identical. Distinguishing them is open work, and the distinction may matter most precisely where the stakes are highest.
+**The constitutive-irreducibility problem.** Some judgments may resist predicate evaluation in principle rather than in practice. Clinical judgment includes cases where the practitioner's response is grounded in tacit recognition that resists articulation as admissibility conditions: an experienced clinician's discomfort with a case that cannot yet be named, a pattern recognition that operates below the threshold of explicit clinical criteria. The current architecture treats such cases as routing successes: the indeterminate signal correctly escalates to the human authority. But a stronger account would distinguish between two failure modes: cases where the operational constitution is insufficiently developed to adjudicate (a translation problem, mitigable by reconstitution), and cases where no operational constitution can adjudicate because the judgment is constitutively non-predicative (a category problem requiring a different architectural response). From outside the L1 gate the two failure modes look identical. Distinguishing them is open work, and the distinction may matter most precisely where the stakes are highest.
 
 **The task-state continuity problem.** The governed continuation loop described in §4 requires the substrate to maintain a governed task ledger: the authoritative record of goal state, completed transitions, pending requirements, available affordances, and terminal criteria across a multi-step task. Without such a ledger, the agent retains practical sovereignty over task continuation: it privately decides what remains, what the next step should be, and when the task is complete. But specifying a task ledger that is simultaneously expressive enough to represent the full range of agentic task types, compact enough to adjudicate at runtime, and stable enough to survive mid-task reconstitution events remains open work. The three-catalog architecture (raw capability exposure, CRS capability registry, agent-visible affordance catalog) and the continuation directive system are downstream specifications of this problem. They constitute a planned doctrine layer, Constitutional Task Continuation Doctrine, that extends the present architecture into governed multi-step operation.
+
+A fifth item is not added to this list, because it is not, in the same sense, still open. Prior versions of this paper stated Hold's non-retry property as an assertion rather than a mechanism, an implicit gap in the verdict space alongside the four named above. §6a closes that gap at the specification level: the HoldRecord is now a typed constitutional object, and non-formation, non-replayability, and non-bypassability are each given a formal invariant rather than a stated norm. What remains open is exactly what remains open for the rest of this paper's formal apparatus: proof. The candidate property named in §6a is specified, not verified, and its verification is deferred to the same future work named for the substrate verification problem above and for the candidate properties of Figure A2.
 
 The concepts described here were developed through the practical construction and hardening of AEGIS, a governed agentic clinical platform designed to operate under the constitutional authority of a licensed clinical social worker. The architecture is not theoretical. It is the formalization of what constitutional governance requires when it is taken seriously as an engineering discipline.
 
@@ -952,6 +1096,10 @@ The architecture therefore suggests a different future for agentic systems: not 
 
 **Reconstitution.** The governed process by which the operative governance standard is examined against the authorized normative constitution, divergences are identified and resolved, and the doctrine record is updated. Reconstitution is the mechanism that prevents governance self-sealing by periodically reopening the loop between operative governance and external constitutional authority.
 
+**HoldRecord.** The Hold-specific constitutional subrecord of the Resolution-level adjudication artifact §4 establishes for every verdict (§6a), carrying proposal_ref, failed_conjunct, cause, state_ref, authority_context_ref, domain_constitution_ref, constitution_version, provenance_frontier_ref, cycle_id, and superseded_by. The pinned references are what make the replay predicate mechanically checkable. Written to the same append-only adjudication trace as every Emit and Escalate record. Not a log line; a formal artifact with the same standing as a Resolution.
+
+**Non-formation, non-replayability, non-bypassability.** The three completeness properties of the Hold verdict (§6a). Non-formation: a Hold is an immutable, independently queryable trace entry, not the absence of one. Non-replayability: a proposal that is content-identical to a held proposal, evaluated against unchanged substrate state, is short-circuited to the existing HoldRecord rather than re-adjudicated; genuine state change always triggers fresh adjudication. Non-bypassability: a differently typed proposal reaching the same effect as a held one must independently satisfy the same admissibility conditions, closing the cross-type route around a refusal.
+
 ---
 
 **Acknowledgments**
@@ -960,15 +1108,17 @@ This work was developed under the Professor Bone Lab research identity. AEGIS se
 
 ---
 
-*v5.3 — Polish pass on v5.2 reviewer feedback. Appendix conflict resolved (§8.5 now states a representative excerpt appears in Appendix A, with the complete script in the Professor Bone Lab repository). §8.5 ORDS→ORDR notation fixed for internal consistency with the v5.1 notation block. Four duplicate horizontal-rule breaks cleaned (artifact of the v5.1 bridge cuts before Part II, Part III, Part V, and §16). v5.2 — Second compression pass. §13 drift vectors fully restructured under family headers (selection / authority erosion / observation degradation / human-process / meta-failure) with original-vs-added markers preserved at each vector. §15 SLM section compressed: paragraphs 2-3 merged (constitutional substrate argument + sovereignty decomposition into one structural claim); paragraphs 5-7 compressed (frontier-models and assumptions-and-limits closing redundancy removed). v5.1 — Three-pass review applied. Argument flow: four transitional bridges cut as redundant; §15 reframed as consequence of §14 strong-topology principle. Reviewer defensibility: decidability note added at §6 for the Admissible(τ) conjunct; reference monitor obligations (complete mediation, tamperproofing, verifiability) addressed explicitly at §18; Constitutional AI distinction sharpened to shape-distribution vs bound-reachable-space; TCB note added at §17 acknowledging structured-larger vs opaque-smaller tradeoff; constitutive-irreducibility added as third open problem at §19. Compression: §18 introduction cut; §13 drift vectors given family-taxonomy framing; redundant Key Terms entries (CTLC, Constitutional reachability) removed. Smaller fixes: ORDR added to §4 notation block. Prior history: v1.0 initial draft; v2.0 external review; v3.0 CTLC formalization; v4.0 admissibility predicate, three-layer stack, ORSR worked example, drift expansion; v5.0 formal legitimacy predicate, §16 renamed, six Mermaid diagrams added, Open Problems section added.*
+*v5.4: HOLD verdict completeness addressed, identified through external review of v5.3 and refined through a second review pass before commit. §6a added (Part II, between §6 and §7): formalizes the Hold verdict's constitutional structure that §6 previously stated only as an assertion ("does not earn privilege for a retry"). Introduces the typed HoldRecord object as the Hold-specific subrecord of the Resolution-level adjudication artifact §4 already establishes for every verdict, not a parallel object splitting Hold out of that artifact. HoldRecord carries proposal_ref, failed_conjunct, cause, and five pinned references, state_ref, authority_context_ref, domain_constitution_ref, constitution_version, and provenance_frontier_ref, plus cycle_id and superseded_by (renamed from an earlier supersedable_by, and typed as null | HoldRecordRef | ResolutionRef); the pinned references are what the replay predicate checks against, since a single constitution_version field cannot independently capture state, authority, and provenance movement. Three properties formalized: non-formation (a Hold is an immutable, independently queryable trace entry, not the absence of one); non-replayability (Replay(τ', h) is formally defined over content-identity and the four pinned references' unchanged-ness, evaluated at a named pre-CRA replay gate before Step 1 rather than as part of it; a true replay short-circuits to the existing HoldRecord without re-running the seven-step CRA Assembly, while a genuine change to any one of the four pinned references correctly triggers fresh adjudication from Step 1); and non-bypassability (admissibility is bound to effect-equivalence rather than to transition type, closing the cross-type route around a Hold; this names a new requirement on the domain constitution D to define effect-equivalence classes, stated as a requirement rather than a completed mechanism, and cross-referenced from §19's translation problem as a specific instance of it rather than a separate open-problem family). Figure 3a added and its replay-gate label updated to the five-conjunct predicate. A sixth candidate property, HOLD Verdict Completeness, added to Figure A2's verification-pathway list (Appendix), specified but not formally verified, in the same posture as the existing five; the figure notes explicitly that this P6 is scoped to its own list and distinct from the same numeral's use within the Q-domain-indexed primitives elsewhere in the paper. §8 extended with §8.6, a short worked continuation tracing a Hold, its replay at the pre-CRA gate, and its legitimate supersession under genuine provenance recording. §19's Open Problems retains its four items and is not expanded to five; a closing paragraph acknowledges that HOLD verdict completeness was an implicit gap in v5.3, now closed at the specification level, with formal verification of the new candidate property deferred alongside P1 through P5. Front-matter Contents and Key Terms updated to match. No change to CTLC's four-conjunct Reachable(τ) predicate or to the Emit and Escalate paths; the revision is confined to the internal structure of the Hold path. Companion papers 0 through 5 continue to cite Constitutional Runtime Computation v5.3; this is not an error, since v5.4 is non-breaking with respect to everything the companions depend on, and updating those citations is deferred to a separate repository-hygiene pass rather than folded into this one. Separately, the whole document was brought into conformance with the standing no-em-dash convention already applied across the companion series.*
+
+*v5.3: Polish pass on v5.2 reviewer feedback. Appendix conflict resolved (§8.5 now states a representative excerpt appears in Appendix A, with the complete script in the Professor Bone Lab repository). §8.5 ORDS→ORDR notation fixed for internal consistency with the v5.1 notation block. Four duplicate horizontal-rule breaks cleaned (artifact of the v5.1 bridge cuts before Part II, Part III, Part V, and §16). v5.2: Second compression pass. §13 drift vectors fully restructured under family headers (selection / authority erosion / observation degradation / human-process / meta-failure) with original-vs-added markers preserved at each vector. §15 SLM section compressed: paragraphs 2-3 merged (constitutional substrate argument + sovereignty decomposition into one structural claim); paragraphs 5-7 compressed (frontier-models and assumptions-and-limits closing redundancy removed). v5.1: Three-pass review applied. Argument flow: four transitional bridges cut as redundant; §15 reframed as consequence of §14 strong-topology principle. Reviewer defensibility: decidability note added at §6 for the Admissible(τ) conjunct; reference monitor obligations (complete mediation, tamperproofing, verifiability) addressed explicitly at §18; Constitutional AI distinction sharpened to shape-distribution vs bound-reachable-space; TCB note added at §17 acknowledging structured-larger vs opaque-smaller tradeoff; constitutive-irreducibility added as third open problem at §19. Compression: §18 introduction cut; §13 drift vectors given family-taxonomy framing; redundant Key Terms entries (CTLC, Constitutional reachability) removed. Smaller fixes: ORDR added to §4 notation block. Prior history: v1.0 initial draft; v2.0 external review; v3.0 CTLC formalization; v4.0 admissibility predicate, three-layer stack, ORSR worked example, drift expansion; v5.0 formal legitimacy predicate, §16 renamed, six Mermaid diagrams added, Open Problems section added.*
 
 ---
 
-## Appendix — Supporting Figures
+## Appendix: Supporting Figures
 
 ---
 
-**Appendix A — ORDR Minimal Reachability POC**
+**Appendix A: ORDR Minimal Reachability POC**
 
 *Executable design trace for typed transition adjudication in AEGIS/SAP clinical workflow.*
 
@@ -978,7 +1128,7 @@ This appendix provides the local Python proof-of-concept script referenced in §
 """
 ORDR Minimal Reachability POC
 AEGIS Constitutional Governance Architecture
-Mac Studio — Local Python script
+Mac Studio, Local Python script
 
 ORDR = Observe → Reason → Decide → Request.
 It names the agent-side constitutional loop in which a decision becomes
@@ -1009,7 +1159,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 from enum import Enum
 
-# Stub constitution version — in production, pinned at CRA Assembly Step 1
+# Stub constitution version (in production, pinned at CRA Assembly Step 1)
 CONSTITUTION_VERSION = "AEGIS-CRA-POC-v0.1"
 
 # ─────────────────────────────────────────────
@@ -1047,7 +1197,7 @@ AUTHORITY_MAP = {
     },
 }
 
-# Claimed authority must match standing class — content cannot confer authority (I3)
+# Claimed authority must match standing class (content cannot confer authority, I3)
 CLAIMED_AUTHORITY_MAP = {
     "mantis.clinical": {
         "clinical.formulation",
@@ -1148,7 +1298,7 @@ class GovernanceRuntime:
 
     def _cra_assembly(self, req: TypedTransitionRequest):
         """
-        Constitutional Reachability Adjudication — minimal stub.
+        Constitutional Reachability Adjudication, minimal stub.
 
         Canonical seven-step CRA Assembly order per §6 and
         AEGIS CTLC Algorithmic Architecture Specification v0.1:
@@ -1218,7 +1368,7 @@ class GovernanceRuntime:
                 return (
                     Outcome.ESCALATE,
                     f"Risk signal '{req.risk_signal}' requires escalation. "
-                    f"NOTE: lineage reference missing — escalating with constitutional "
+                    f"NOTE: lineage reference missing, escalating with constitutional "
                     f"trace deficiency. Sovereign review required."
                 )
             return (
@@ -1245,7 +1395,7 @@ class GovernanceRuntime:
                 f"Constitutional trace obligation unmet. Blocked."
             )
 
-        # Step 6: Decide — all checks passed
+        # Step 6: Decide (all checks passed)
         return (
             Outcome.EMIT,
             f"Transition {req.from_state} → {req.to_state} is constitutionally "
@@ -1262,7 +1412,7 @@ class GovernanceRuntime:
 
 ---
 
-**Figure A1 — Escalation suppression trend (illustrative AEGIS drift signal)**
+**Figure A1: Escalation suppression trend (illustrative AEGIS drift signal)**
 
 The following table illustrates the type of L2 drift signal that would trigger a governance review. The numbers are illustrative; they are drawn from the worked example in §8.4 and do not represent production measurement data.
 
@@ -1271,13 +1421,13 @@ The following table illustrates the type of L2 drift signal that would trigger a
 | Baseline | 94% | Within threshold |
 | Month 1 | 94% | Within threshold |
 | Month 2 | 87% | Approaching threshold (85%) |
-| Month 3 | 71% | **Threshold breached — drift signal issued** |
+| Month 3 | 71% | **Threshold breached: drift signal issued** |
 
 *MEC detects the trend at Month 2 (approaching threshold) and issues a drift signal at Month 3 (breach). The signal carries the specific transitions that emitted without escalation, not merely the aggregate rate. Nafisah reviews and reconstitutes.*
 
 ---
 
-**Figure A2 — Verification pathway diagram**
+**Figure A2: Verification pathway diagram**
 
 ```mermaid
 flowchart LR
@@ -1301,12 +1451,13 @@ flowchart LR
 - *P3: Escalation-required transitions cannot emit locally.*
 - *P4: Every verdict has an audit trace entry.*
 - *P5: L2 cannot alter L1 verdicts.*
+- *P6: No Hold verdict admits replay or cross-type bypass without a genuine substrate-state change that re-triggers fresh adjudication from Step 1 (§6a). This sixth property is scoped to this figure's own verification-pathway list and is distinct from the Q-domain-indexed primitives named elsewhere in this paper (for example Q3's P6, Implication Propagation), which use the same numeral within their own, separately scoped enumeration.*
 
-*The architecture is structured for formalization-compatible specification at steps B–E. Formal verification (step G) requires a decidable formal language and bounded state space — both non-trivial for clinical governance domains.*
+*The architecture is structured for formalization-compatible specification at steps B–E. Formal verification (step G) requires a decidable formal language and bounded state space, both non-trivial for clinical governance domains.*
 
 ---
 
-**Figure A3 — Agentic sovereignty decomposition**
+**Figure A3: Agentic sovereignty decomposition**
 
 ```mermaid
 flowchart TB
