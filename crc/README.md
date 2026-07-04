@@ -129,19 +129,23 @@ core paper identifies but does not close.
   Constitutional Baselines v1.2, Constitutional Coherence v1.2, and
   Constitutional Thresholds v1.2's own contributions.
 
-- Constitutional Tools: Capability Invocation, External Effects, and
-  Tool-Result Admission in Governed Agentic Systems *(forthcoming)*
+- [Constitutional Tools: Capability Invocation, External Effects, and
+  Tool-Result Admission in Governed Agentic Systems](companions/constitutional-tools-v1.1.md)
   Companion 7. Sits alongside Constitutional Memory v2.1 as the other major
   agent-capability surface ORSR cannot leave ungoverned. Argues that tool
   invocation is a constitutional transition surface, not a neutral capability
   call: if the substrate owns terminal execution authority, that authority
   cannot stop at Act while tool invocation remains agent-owned, since a tool
-  can retrieve or fabricate evidence, mutate substrate or external state,
-  shape future Observe, and produce real-world effects. The agent does not
-  call tools; it submits ToolInvocationProposals, and a tool result has no
-  constitutional force merely because a tool produced it. See
-  [companions/constitutional-tools-FORTHCOMING.md](companions/constitutional-tools-FORTHCOMING.md)
-  for the fixed title, scope, and required reading.
+  can retrieve, generate, transform, or misframe evidence, mutate substrate or
+  external state, shape future Observe, and produce real-world effects. The
+  agent does not call tools; it submits ToolInvocationProposals, and a tool
+  result has no constitutional force merely because a tool produced it.
+  Contributions include the Tool Sovereignty Principle, a seven-class
+  tool-operation taxonomy by constitutional effect, ToolInvocationReachable(κ)
+  and ToolResultAdmissible(ρ), the Tool Governance Boundary as a third instance
+  of Constitutional Boundary Contracts v1.0's six-component pattern, and an
+  eight-primitive P_tool family, with an explicit four-part sovereign-terminal
+  test applied to the two strongest candidates and neither found to qualify.
 
 ### Domain Applications
 
@@ -184,6 +188,7 @@ They remain part of the intellectual lineage of the series.
 6. Constitutional Coherence v1.2 (companion 4)
 7. Constitutional Thresholds v1.2 (companion 5)
 8. Constitutional Standing v1.2 (companion 6)
-9. Apex Architecture Seed (domain application, short)
-10. Apex Build Specification v0.5 (domain application, full)
-11. The Knowledge Graph as Constitutional Substrate (historical lineage)
+9. Constitutional Tools v1.1 (companion 7)
+10. Apex Architecture Seed (domain application, short)
+11. Apex Build Specification v0.5 (domain application, full)
+12. The Knowledge Graph as Constitutional Substrate (historical lineage)
