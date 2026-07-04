@@ -2,7 +2,7 @@
 
 ## Why Memory Governance Is a Constitutional Reachability Problem
 
-### v2.1 Conceptual Architecture Paper, companion to Constitutional Runtime Computation v5.3
+### v2.1 Conceptual Architecture Paper, companion to Constitutional Runtime Computation v5.4
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 
@@ -10,7 +10,7 @@
 
 # Abstract
 
-The parent paper, Constitutional Runtime Computation v5.3, matures the agentic loop by removing the terminal Act event from the agent and migrating execution authority into the Constitutional Runtime Substrate. The agent proposes. The substrate resolves. This paper observes that the same migration, once taken seriously, does not stop at Act. It reaches memory. Memory operations alter future substrate state and shape the next Observe event. They are therefore constitutionally active, not infrastructural, and they fall under the same reachability governance the parent paper applies to action.
+The parent paper, Constitutional Runtime Computation v5.4, matures the agentic loop by removing the terminal Act event from the agent and migrating execution authority into the Constitutional Runtime Substrate. The agent proposes. The substrate resolves. This paper observes that the same migration, once taken seriously, does not stop at Act. It reaches memory. Memory operations alter future substrate state and shape the next Observe event. They are therefore constitutionally active, not infrastructural, and they fall under the same reachability governance the parent paper applies to action.
 
 This is the next stage in the maturation of an existing architecture, not a new one. The parent established that the substrate owns the present transition. This paper establishes that the substrate owns the record of past transitions and the conditions under which past transitions condition future ones. A substrate that governs the present moment but not the memory feeding the next moment is constitutionally incomplete. Closing that gap is what it means for the substrate to mature.
 
@@ -535,7 +535,7 @@ The memory architecture described here is the maturation of the Constitutional R
 
 **Acknowledgments**
 
-This work was developed under the Professor Bone Lab research identity as a companion to Constitutional Runtime Computation v5.3. AEGIS serves as the worked domain. The v2.0 revision was shaped by external critical review of v1.0, which identified the write-bias of the original predicate and the need to separate reachability from executability, specify the boundary as a stateful object, govern reads and deletion within the formal model, and state the constitutional-necessity argument explicitly. The v2.1 tightening pass was shaped by a second review (Accept with targeted tightening), which split BaselineFaithful into an L1 conjunct and an L2 obligation, named the deletion subtypes, reframed schema-changing operations as memory-substrate reconstitution events, and marked the specification asymmetry across operation classes.
+This work was developed under the Professor Bone Lab research identity as a companion to Constitutional Runtime Computation v5.4. AEGIS serves as the worked domain. The v2.0 revision was shaped by external critical review of v1.0, which identified the write-bias of the original predicate and the need to separate reachability from executability, specify the boundary as a stateful object, govern reads and deletion within the formal model, and state the constitutional-necessity argument explicitly. The v2.1 tightening pass was shaped by a second review (Accept with targeted tightening), which split BaselineFaithful into an L1 conjunct and an L2 obligation, named the deletion subtypes, reframed schema-changing operations as memory-substrate reconstitution events, and marked the specification asymmetry across operation classes.
 
 ---
 

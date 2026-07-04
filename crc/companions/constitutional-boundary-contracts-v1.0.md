@@ -2,7 +2,7 @@
 
 ## Why Boundary Crossings Are Constitutional Events
 
-### Companion 0 to Constitutional Runtime Computation v5.3
+### Companion 0 to Constitutional Runtime Computation v5.4
 ### Foundational interface companion to the ORSR architecture
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
@@ -582,7 +582,7 @@ The parent paper relocates Act. The memory companion relocates write and issuanc
 The full maturation sequence with boundaries included:
 
 ```
-CRC parent (v5.3):          ORSR architecture. Act relocated. Substrate owns resolution.
+CRC parent (v5.4):          ORSR architecture. Act relocated. Substrate owns resolution.
 Boundary Contracts (this):  Primary agent-substrate boundaries governed. Every crossing
                             is a typed contract event. Foundational interface companion.
 Memory (v2.1):              Write and issuance relocated. Substrate owns memory operations.
@@ -597,7 +597,7 @@ This paper is Companion 0 because boundary contracts are logically prior to ever
 
 **Recommended reading order:**
 
-1. Constitutional Runtime Computation v5.3
+1. Constitutional Runtime Computation v5.4
 2. Constitutional Boundary Contracts v1.0 (this paper)
 3. Constitutional Memory v2.1
 4. Constitutional Retrieval v1.2
@@ -666,7 +666,7 @@ The coherence companion (Companion 4) extends baseline governance to the family 
 ---
 
 *Constitutional Boundary Contracts: Governed Interface Exchange at the Agent-Substrate Boundary*
-*Companion 0 to Constitutional Runtime Computation v5.3.*
+*Companion 0 to Constitutional Runtime Computation v5.4.*
 *Foundational interface companion. Governs the two primary boundaries in the core ORSR agent-substrate loop.*
 *ProposalContract (Agent-to-Substrate) and ObservationContract (Substrate-to-Agent).*
 *BoundaryValidationFunction, five P_bnd primitives (P_bnd5 with two subtypes), B0-B5 six-class severity taxonomy.*

@@ -1,18 +1,18 @@
 # Apex Build Specification
 **Version:** v0.5
-**Status:** DRAFT FOR SOVEREIGN REVIEW — do not treat as approved until Faheem confirms
+**Status:** DRAFT FOR SOVEREIGN REVIEW: do not treat as approved until Faheem confirms
 **Author:** Apex Build Agent (Specification Drafting Mode)
-**Sessions:** 002–005 — 2026-06-12
+**Sessions:** 002–005, 2026-06-12
 **Sovereign Principal:** Faheem Downs
 **Source artifacts:** Agent/STATE.md, BS-000 through BS-005, Governance/Principles.md,
                       ADR-001 (APPROVED 2026-06-10), ADR-002 (APPROVED 2026-06-10),
                       Apex-Architecture-Seed.md
-**Governing doctrine:** Constitutional Runtime Computation v5.3 (CRC);
+**Governing doctrine:** Constitutional Runtime Computation v5.4 (CRC);
                         Constitutional Runtime Architecture Specification (CRAS);
                         AI Agent Build Guide (Professor Bone Lab);
                         The Reflexion-Drift Collapse (RDC);
                         The Knowledge Graph as Constitutional Substrate (KGCS)
-**Governing system prompt:** Agent/SYSTEM-PROMPT.md (v0.8 — current at session open)
+**Governing system prompt:** Agent/SYSTEM-PROMPT.md (v0.8, current at session open)
 
 **Provenance note:** This draft was produced on Hannibal from vault artifacts read
 during Sessions 004–005. Approval is authoritative on Continuum. The bare git repo
@@ -20,22 +20,22 @@ lives at `/Users/faheem/.aegis-vault-git`; Hannibal syncs via iCloud but cannot 
 Vault this file only after Faheem approves and Continuum git commit is confirmed.
 
 **Version history:**
-- v0.1 — Initial 18-section draft. Schema sections contained premature field lists.
-- v0.2 — Legal authority layer added. Constitutional Domain expanded. Authority
+- v0.1: Initial 18-section draft. Schema sections contained premature field lists.
+- v0.2: Legal authority layer added. Constitutional Domain expanded. Authority
           Encoder added. Reachability Conjunction Rule added. Ten governance
           corrections applied.
-- v0.3 — State and Schema Contract Layer added (§15a). Schema section downgraded to
+- v0.3: State and Schema Contract Layer added (§15a). Schema section downgraded to
           object requirements (§15). Field definitions deferred pending PEAS documents.
           OID-007 through OID-010 added. CTLC phrased as future substrate requirement.
           SovereignResolution sovereign authority processing clarified.
-- v0.4 — P0 gap closure: L2/Drift Monitor registered as first-class SEED component.
+- v0.4: P0 gap closure: L2/Drift Monitor registered as first-class SEED component.
           Retrieval Lineage layer added as fourth graph domain. Grounded(τ) operationalized
           with ProvenanceChain objects and agent-cannot-write-provenance invariant.
           Adversarial-environment doctrine added (§19). Terminal-criteria authorship
           defined. Standing classes introduced. Reachability crosswalk added (§2.6).
           Legal-instrument language softened. Convergence claim corrected. Affordance
           invisibility labeled as shaping, not enforcement. APPROVED by Faheem 2026-06-12.
-- v0.5 — Section 20 (Memory Architecture) added. OID-014 closed by this section.
+- v0.5: Section 20 (Memory Architecture) added. OID-014 closed by this section.
           Memory classes, ownership, persistence, write/read authority, and ORSR
           participation defined. Governing doctrine locked: durable memory belongs to
           governed substrate-owned stores; agent memory is not authoritative; ephemeral
@@ -43,7 +43,7 @@ Vault this file only after Faheem approves and Continuum git commit is confirmed
 
 ---
 
-> **NOTE ON SCHEMA STATUS:** All schema objects in this document are *stubs* —
+> **NOTE ON SCHEMA STATUS:** All schema objects in this document are *stubs*:
 > named and purposed, not field-locked. Field definitions require
 > `Apex-Agent-PEAS.md`, `Apex-Constitutional-Substrate-PEAS.md`, and
 > `Apex-State-Schema-Contracts.md`. Those artifacts do not yet exist.
@@ -60,7 +60,7 @@ Vault this file only after Faheem approves and Continuum git commit is confirmed
 
 ---
 
-## Section 1 — Project Identity and Constitutional Spine
+## Section 1: Project Identity and Constitutional Spine
 
 Apex is a single-agent, substrate-governed bug bounty research architecture. It
 achieves multi-capability operation through instrument composition, not agent
@@ -88,20 +88,20 @@ Governed Task Ledger, and reinserted into ORSR as the next governed observation.
 | Specification phase | OPEN |
 | Implementation phase | NOT STARTED |
 
-### 1.2 What Apex Is — and Is Not
+### 1.2 What Apex Is, and Is Not
 
 **Apex IS:**
 - A single-agent, substrate-governed agentic system for bug bounty vulnerability research
 - A topological reasoner: maps codebases as knowledge graphs, traverses paths not files
 - A constitutionally governed system: every consequential action passes substrate
-  adjudication — including against legal and policy constraints — before execution
+  adjudication, including against legal and policy constraints, before execution
 - A system designed to enforce scope discipline and reduce legal exposure as a
   structural property, not as a preference
 
 **Apex IS NOT:**
 - A multi-agent system
 - An automated vulnerability scanner operating without governance
-- A legal compliance certification — the architecture enforces scope discipline
+- A legal compliance certification: the architecture enforces scope discipline
   structurally, but whether it satisfies any specific legal requirement requires legal
   judgment, not a claim this spec makes
 - A system that can self-authorize offensive actions
@@ -111,43 +111,43 @@ Governed Task Ledger, and reinserted into ORSR as the next governed observation.
 
 Apex unifies three intellectual lineages:
 
-1. **KGCompass (GLEAM-Lab)** — graph-based, multi-hop traversal for codebase reasoning.
+1. **KGCompass (GLEAM-Lab)**: graph-based, multi-hop traversal for codebase reasoning.
    Apex repurposes this for offensive surface mapping rather than repair.
 
-2. **Harness-1** — stateful cognitive offloading: separating semantic decisions from
+2. **Harness-1**: stateful cognitive offloading: separating semantic decisions from
    state management. Structurally analogous to ORSR's separation of agent inference
    from substrate adjudication.
 
-3. **Professor Bone Lab Constitutional Architecture** — CTLC, ORSR, CRA, constitutional
+3. **Professor Bone Lab Constitutional Architecture**: CTLC, ORSR, CRA, constitutional
    reachability, and the Knowledge Graph as Constitutional Substrate. The converging
    insight: codebase graph traversal and constitutional reachability computation share
-   a traversal substrate. Both are graph traversal problems — one over code topology,
-   one over legality topology — running on the same traversal engine. They are not the
+   a traversal substrate. Both are graph traversal problems, one over code topology,
+   one over legality topology, running on the same traversal engine. They are not the
    same ontology.
 
 ---
 
-## Section 2 — Operating Doctrine and Safety Boundaries
+## Section 2: Operating Doctrine and Safety Boundaries
 
 ### 2.1 The Governing Doctrine
 
-**Layer 1 — Faith constraint (top-level).** All Apex operations are governed by the
+**Layer 1: Faith constraint (top-level).** All Apex operations are governed by the
 Islamic ethical framework that governs all Professor Bone Lab work. Not overridable.
 
-**Layer 2 — Legal and regulatory constraint.** Laws and regulations governing computer
+**Layer 2: Legal and regulatory constraint.** Laws and regulations governing computer
 access, data handling, privacy, and disclosure are structural inputs to the reachability
-computation — not background guidance. A transition that violates applicable law is
+computation, not background guidance. A transition that violates applicable law is
 constitutionally unreachable regardless of program scope.
 
 Key legal frame (candidate references, requiring human review per engagement):
-- CFAA — governing unauthorized access
-- Applicable state computer crime statutes — jurisdiction-dependent
-- ECPA — wire/data interception
-- Applicable data privacy law — GDPR, CCPA, HIPAA, and others by context
-- DMCA Section 1201 — anti-circumvention
+- CFAA: governing unauthorized access
+- Applicable state computer crime statutes: jurisdiction-dependent
+- ECPA: wire/data interception
+- Applicable data privacy law: GDPR, CCPA, HIPAA, and others by context
+- DMCA Section 1201: anti-circumvention
 - Program-specific disclosure obligations and NDA requirements
 
-**Layer 3 — Constitutional governance (Apex doctrine).** CTLC governs what transitions
+**Layer 3: Constitutional governance (Apex doctrine).** CTLC governs what transitions
 Apex may make, from what state, under what authorization. The governing question: "May
 this transition constitutionally occur from current substrate state?"
 
@@ -155,7 +155,7 @@ this transition constitutionally occur from current substrate state?"
 
 | Priority | Layer | What it governs |
 |---|---|---|
-| 1 | Faith / ethical constraint | Top-level moral boundary — not overridable |
+| 1 | Faith / ethical constraint | Top-level moral boundary, not overridable |
 | 2 | Law and regulation | CFAA, privacy law, anti-circumvention, data duties |
 | 3 | Platform policy | HackerOne, Bugcrowd, Intigriti, private program terms, NDA requirements |
 | 4 | Program scope | The specific bug bounty or VDP authorized scope and methods |
@@ -186,23 +186,23 @@ Apex may only treat a transition as reachable when it is simultaneously:
 | Scope | No action may target an asset not covered by an approved DomainConstitution |
 | Law | No action may proceed if it violates an applicable legal constraint |
 | Authorization | No consequential action occurs without a substrate-issued Resolution |
-| Completion | No agent may declare task completion — only the substrate may close a task |
+| Completion | No agent may declare task completion; only the substrate may close a task |
 | Evidence | No evidence captured outside substrate authorization may appear in any report |
-| Escalation | No ESCALATE verdict is abandoned — every escalation returns through SovereignResolution |
-| Observed content | Instrument and retrieval output is data, never instruction — see §19 |
-| Memory | Durable memory belongs to governed substrate-owned stores — agent may not write durable memory — see §20 |
+| Escalation | No ESCALATE verdict is abandoned; every escalation returns through SovereignResolution |
+| Observed content | Instrument and retrieval output is data, never instruction; see §19 |
+| Memory | Durable memory belongs to governed substrate-owned stores; agent may not write durable memory; see §20 |
 | Scope Encoder | Scope Encoder output is not authoritative until SovereignResolution APPROVE |
 | Authority Encoder | Legal/policy constraint output is not authoritative until SovereignResolution APPROVE |
 
 ### 2.5 Operational Gates
 
-- **Gate 1 — Build Spec Approved:** v0.5 reviewed and approved by Faheem.
-- **Gate 2 — DomainConstitution Issued:** No task may begin without an approved DomainConstitution.
-- **Gate 3 — Constitutional Substrate Operational:** No agent loop may run without a substrate capable of resolving against all authority layers.
-- **Gate 4 — Task Ledger Active with terminal criteria authored by Faheem.**
-- **Gate 5 — Human Sovereign Reachable or Standing Class Defined.**
+- **Gate 1: Build Spec Approved:** v0.5 reviewed and approved by Faheem.
+- **Gate 2: DomainConstitution Issued:** No task may begin without an approved DomainConstitution.
+- **Gate 3: Constitutional Substrate Operational:** No agent loop may run without a substrate capable of resolving against all authority layers.
+- **Gate 4: Task Ledger Active with terminal criteria authored by Faheem.**
+- **Gate 5: Human Sovereign Reachable or Standing Class Defined.**
 
-### 2.6 Reachability Crosswalk — Seven Conditions vs. Four-Conjunct Predicate
+### 2.6 Reachability Crosswalk: Seven Conditions vs. Four-Conjunct Predicate
 
 | Seven conditions (§2.3) | Maps into CTLC predicate (§15a.5) | Notes |
 |---|---|---|
@@ -211,14 +211,14 @@ Apex may only treat a transition as reachable when it is simultaneously:
 | 3. Authorized by DomainConstitution | `Resolvable(τ)` + `Admissible(τ)` | Transition type must map to an admissibility domain in the active DomainConstitution |
 | 4. Consistent with SafeHarborProfile | `Admissible(τ)` | Safe harbor conditions are domain admissibility conditions |
 | 5. Within Apex doctrine | `Resolvable(τ)` + `Authorized(τ)` | Doctrine defines the typed transition system and authority topology |
-| 6. Exposed by AffordanceAvailability | Precondition to CTLC — not a CTLC conjunct | Checked before submission |
-| 7. Resolved by substrate Resolution | Output of CTLC — not an input conjunct | The Resolution is what CTLC produces |
+| 6. Exposed by AffordanceAvailability | Precondition to CTLC, not a CTLC conjunct | Checked before submission |
+| 7. Resolved by substrate Resolution | Output of CTLC, not an input conjunct | The Resolution is what CTLC produces |
 
 Four CTLC conjuncts: `Resolvable(τ)`, `Authorized(τ)`, `Admissible(τ)`, `Grounded(τ)`.
 
 ---
 
-## Section 3 — Apex-Level PEAS
+## Section 3: Apex-Level PEAS
 
 ### 3.1 Performance Measures
 
@@ -235,7 +235,7 @@ Four CTLC conjuncts: `Resolvable(τ)`, `Authorized(τ)`, `Admissible(τ)`, `Grou
 
 ### 3.2 Environment
 
-**Target environment (the codebase) — treated as untrusted:**
+**Target environment (the codebase), treated as untrusted:**
 - Source repositories authorized under the active DomainConstitution
 - Codebase artifacts: files, functions, classes, call chains, dependencies, configs
 - External intelligence sources: NVD, CVE advisories, public security research
@@ -247,11 +247,11 @@ Four CTLC conjuncts: `Resolvable(τ)`, `Authorized(τ)`, `Admissible(τ)`, `Grou
 - ResolutionHistory, EvidenceStore
 - **Retrieval Lineage Graph** (append-only provenance records)
 - **Memory stores** (each class per §20: Task Memory, Episodic Memory, Provenance Memory,
-  Evidence Memory, Monitoring Memory — all substrate-owned)
+  Evidence Memory, Monitoring Memory, all substrate-owned)
 
 ### 3.3 Actuators
 
-Agent actuators are proposals submitted to the Constitutional Substrate — not executions.
+Agent actuators are proposals submitted to the Constitutional Substrate, not executions.
 
 | Proposed action class | Description |
 |---|---|
@@ -274,20 +274,20 @@ Agent actuators are proposals submitted to the Constitutional Substrate — not 
 | Evidence records | Governed evidence available to cite in proposals (via EvidenceSummaryView) |
 | DomainConstitution | Current compiled scope, legal, and policy boundaries (via scope_basis_ref only) |
 | SovereignResolution | Faheem's decisions on escalations, or pre-authorized standing decisions |
-| Working memory | Substrate-issued AgentObservation for the current ORSR cycle — ephemeral, ends with cycle |
+| Working memory | Substrate-issued AgentObservation for the current ORSR cycle, ephemeral, ends with cycle |
 
 ---
 
-## Section 4 — Component Registry
+## Section 4: Component Registry
 
 ### 4.1 Runtime Component Registry
 
 | Component | Type | Output Type | Sovereign? | Maturity |
 |---|---|---|---|---|
-| Apex Runtime Agent | Agent | `TransitionProposal` | No — proposes only | SEED |
-| Constitutional Substrate (L1) | Authority layer | `Resolution` | Yes — adjudicates | SEED |
-| Apex Drift Monitor (L2) | Monitor | `DriftSignal` (to Faheem only) | No — observes and reports | SEED |
-| Human Sovereign (Faheem) | Human authority | `SovereignResolution` | Yes — escalation authority | N/A |
+| Apex Runtime Agent | Agent | `TransitionProposal` | No, proposes only | SEED |
+| Constitutional Substrate (L1) | Authority layer | `Resolution` | Yes, adjudicates | SEED |
+| Apex Drift Monitor (L2) | Monitor | `DriftSignal` (to Faheem only) | No, observes and reports | SEED |
+| Human Sovereign (Faheem) | Human authority | `SovereignResolution` | Yes, escalation authority | N/A |
 | Scope Encoder | Instrument | `ConstitutionalConstraintSet` (scope) | No | SEED |
 | Authority Encoder | Instrument | `LegalAuthoritySet` (candidate) | No | SEED |
 | Codebase Graph Engine | Instrument | `CodeGraphEvidence` | No | RESEARCHING |
@@ -296,9 +296,9 @@ Agent actuators are proposals submitted to the Constitutional Substrate — not 
 | Evidence Store | Governed store | `EvidenceRecord` (write) | No | SEED |
 | Retrieval Lineage Store | Governed store | `ProvenanceChain` (write) | No | SEED |
 | Report Generator | Instrument | `ReportDraft` | No | SEED |
-| Governed Task Ledger | Governed state object | — | No | SEED |
-| AffordanceCatalog | Governed state object | — | No | SEED |
-| AffordanceAvailability | Governed state object | — | No | SEED |
+| Governed Task Ledger | Governed state object | None | No | SEED |
+| AffordanceCatalog | Governed state object | None | No | SEED |
+| AffordanceAvailability | Governed state object | None | No | SEED |
 
 **Note on Retrieval Lineage Store:** Governed store, append-only. Agent may reference
 provenance records by ID but may never write to this store.
@@ -317,25 +317,25 @@ The Apex Build Agent is not a component of the deployed Apex system.
 
 ### 4.3 Component Sovereignty Classification
 
-- **Sovereign:** Constitutional Substrate (L1) — issues Resolutions; Human Sovereign (Faheem) — issues SovereignResolutions
-- **Monitor:** Apex Drift Monitor (L2) — reads trace only, routes DriftSignals, no sovereignty
-- **Non-sovereign proposing:** Apex Runtime Agent — submits TransitionProposals
-- **Non-sovereign non-proposing:** All instruments and stores — may not write to Retrieval Lineage Store or any durable memory store directly
+- **Sovereign:** Constitutional Substrate (L1), issues Resolutions; Human Sovereign (Faheem), issues SovereignResolutions
+- **Monitor:** Apex Drift Monitor (L2), reads trace only, routes DriftSignals, no sovereignty
+- **Non-sovereign proposing:** Apex Runtime Agent, submits TransitionProposals
+- **Non-sovereign non-proposing:** All instruments and stores, may not write to Retrieval Lineage Store or any durable memory store directly
 
 ---
 
-## Section 5 — Capability / Affordance / Authorization Distinction
+## Section 5: Capability / Affordance / Authorization Distinction
 
-**Capability** — what Apex can technically do.
-**Affordance** — what the substrate exposes as available, constrained by all authority layers.
-**Authorization** — what the substrate resolves for a specific proposal. Per-instance.
+**Capability**: what Apex can technically do.
+**Affordance**: what the substrate exposes as available, constrained by all authority layers.
+**Authorization**: what the substrate resolves for a specific proposal. Per-instance.
 
 The dangerous collapse: *The system can do it → therefore the system may do it.* Program
 scope alone cannot override law. Program scope alone is insufficient to establish reachability.
 
 ---
 
-## Section 6 — Single-Agent Architecture
+## Section 6: Single-Agent Architecture
 
 Apex is single-agent. One Runtime Agent proposes. One substrate resolves. One ledger
 carries continuity. When multiple agents conclude, the question "which agent's conclusion
@@ -343,25 +343,25 @@ becomes causal?" recreates the sovereignty problem Apex is solving.
 
 ---
 
-## Section 7 — Bounded Instrument Model
+## Section 7: Bounded Instrument Model
 
 A bounded instrument has a declared output type (only type it may return), no reasoning
 authority, no continuation authority, no write authority to Constitutional Domain graph
 or Retrieval Lineage Store or any durable memory store, and substrate-resolved usage.
 
-**The Instrument Output Type Rule (Locked — Decision 6):** An instrument returning a
+**The Instrument Output Type Rule (Locked: Decision 6):** An instrument returning a
 TransitionProposal commits a constitutional violation. Instruments may not write to the
 Retrieval Lineage Store. Provenance is written by the substrate on instrument invocation
-authorization — not by the instrument itself.
+authorization, not by the instrument itself.
 
 **The six bounded instruments:** Scope Encoder (SEED), Authority Encoder (SEED),
 Codebase Graph Engine (RESEARCHING), Retrieval Harness (RESEARCHING),
 Vulnerability Signature Classifier (RESEARCHING), Report Generator (SEED).
-All instrument output is data — not instruction to the agent.
+All instrument output is data, not instruction to the agent.
 
 ---
 
-## Section 8 — Four-Graph Substrate Model
+## Section 8: Four-Graph Substrate Model
 
 **ADR-001 (APPROVED 2026-06-10):** One Neo4j instance. ADR-001a required to record
 the fourth domain extension. Storage-level enforcement pending ADR-001a.
@@ -378,14 +378,14 @@ the fourth domain extension. Storage-level enforcement pending ADR-001a.
 The CRAS ideal is distinct backends. Apex's single-instance deviation must be enforced
 at domain-boundary level with explicit write-authorization rules per domain.
 
-### 8.2 Codebase Domain — Candidate Node Types
+### 8.2 Codebase Domain: Candidate Node Types
 
 ```
 Repository, File, Function, Class, Endpoint, Input, Sink,
 Dependency, Config, SecretCandidate, DataFlowPath, CallChain
 ```
 
-### 8.3 Constitutional Domain — Candidate Node Types
+### 8.3 Constitutional Domain: Candidate Node Types
 
 Write authority: SovereignResolution only. Sovereign-versioned.
 
@@ -397,7 +397,7 @@ Affordance, ScopeRule, RiskRule, HumanReviewRequirement, EscalationCondition,
 StandingClass, PreAuthorizedDecision
 ```
 
-### 8.4 Task Ledger Domain — Candidate Node Types
+### 8.4 Task Ledger Domain: Candidate Node Types
 
 Write authority: substrate Resolution only.
 
@@ -407,7 +407,7 @@ EvidenceRecord, TerminalCriterion, FindingCandidate, ReportDraft,
 TerminalCriteriaAuthority
 ```
 
-### 8.5 Retrieval Lineage Domain — Candidate Node Types
+### 8.5 Retrieval Lineage Domain: Candidate Node Types
 
 Write authority: substrate only, on instrument invocation authorization. Append-only.
 Agent may reference by ID only; may never write.
@@ -417,21 +417,21 @@ ProvenanceChain, CodeGraphTraversalRecord, InstrumentRunRecord,
 SourceSnapshot, RetrievalLineageEntry, EvidenceAssemblyRecord
 ```
 
-**ProvenanceChain** — primary grounding object. Links finding candidate to complete
+**ProvenanceChain**: primary grounding object. Links finding candidate to complete
 evidentiary reconstruction path.
 
-**CodeGraphTraversalRecord** — one authorized graph traversal: repo, commit hash,
+**CodeGraphTraversalRecord**: one authorized graph traversal: repo, commit hash,
 traversal path, query scope, authorizing Resolution ID.
 
-**InstrumentRunRecord** — one authorized instrument invocation: instrument name,
+**InstrumentRunRecord**: one authorized instrument invocation: instrument name,
 input parameters, output reference, authorizing Resolution ID, timestamp.
 
-**SourceSnapshot** — repo state at traversal time: URL, commit hash, branch, timestamp.
+**SourceSnapshot**: repo state at traversal time: URL, commit hash, branch, timestamp.
 
-**RetrievalLineageEntry** — one external source retrieval: source type, query, result
+**RetrievalLineageEntry**: one external source retrieval: source type, query, result
 reference, admissibility check, authorizing Resolution ID.
 
-**EvidenceAssemblyRecord** — how an EvidenceRecord was assembled from lineage entries.
+**EvidenceAssemblyRecord**: how an EvidenceRecord was assembled from lineage entries.
 
 ### 8.6 Candidate Cross-Domain Edge Types
 
@@ -468,7 +468,7 @@ Retrieval Lineage Domain: written only by substrate on instrument invocation.
 
 No domain may write to a higher domain.
 
-### 8.8 Grounded(τ) — Operationalized for Code Evidence
+### 8.8 Grounded(τ): Operationalized for Code Evidence
 
 `Grounded(τ)` holds if and only if the Retrieval Lineage Domain contains a ProvenanceChain that:
 1. Traces to an authorized repository covered by the active DomainConstitution
@@ -492,17 +492,17 @@ evidence refs without a new authorized traversal producing a new ProvenanceChain
 ### 8.9 Out-of-Scope Asset Representation
 
 Out-of-scope assets are blocked constitutional nodes with explicit OUT_OF_SCOPE_BY
-edges — not structural absences. The substrate produces an auditable rejection
+edges, not structural absences. The substrate produces an auditable rejection
 explanation. No operational affordance may target a blocked node.
 
 ---
 
-## Section 9 — Governed Task Ledger
+## Section 9: Governed Task Ledger
 
 Task continuity lives in governed state, not in the model's memory. The Task Ledger
 is the answer to "Where are we?" That answer belongs to the substrate.
 
-### 9.1 TaskLedger — Stub Object
+### 9.1 TaskLedger: Stub Object
 
 Fields deferred. Required field families: task_id, goal, goal_status, current_state_ref,
 completed_transition_ids, pending_requirements, allowed_next_affordances, blocked_affordances,
@@ -545,7 +545,7 @@ Task initialized by Faheem → Terminal criteria authored → DomainConstitution
 
 ---
 
-## Section 10 — ORSR Continuation Loop
+## Section 10: ORSR Continuation Loop
 
 ORSR (Observe-Reason-Submit-Resolve): every Resolution becomes the next Observation.
 
@@ -563,15 +563,15 @@ TASK_COMPLETION proposal having verified all terminal criteria.
 1. Task initialized with terminal criteria authored by Faheem
 2. Substrate issues initial affordances
 3. Agent observes AgentObservation (substrate-issued, ephemeral per cycle)
-4. Agent reasons — hypothesis, no causal authority
-5. Agent submits TransitionProposalEnvelope — references only
+4. Agent reasons: hypothesis, no causal authority
+5. Agent submits TransitionProposalEnvelope: references only
 6. Schema gate → Contract gate → CTLC (including Grounded(τ))
 7. Resolution updates authoritative state and Retrieval Lineage
 8. Substrate emits next AgentObservation; agent re-enters ORSR
 
 ---
 
-## Section 11 — Affordance Lifecycle (ADR-002 APPROVED)
+## Section 11: Affordance Lifecycle (ADR-002 APPROVED)
 
 ```
 AffordanceCatalog → total governed moves
@@ -588,7 +588,7 @@ substrate rejection is the control.
 
 ---
 
-## Section 12 — Scope Encoding and DomainConstitution Compilation
+## Section 12: Scope Encoding and DomainConstitution Compilation
 
 DomainConstitution is compiled from: applicable law and regulation (Authority Encoder),
 platform policy (Authority Encoder), safe harbor language (Authority Encoder), program
@@ -599,7 +599,7 @@ subsequent SovereignResolution.
 
 ---
 
-## Section 13 — Evidence Admissibility Model
+## Section 13: Evidence Admissibility Model
 
 Evidence is governed state. Without a ProvenanceChain, evidence cannot satisfy
 Grounded(τ) and cannot reach ADMISSIBLE state.
@@ -614,9 +614,9 @@ Lineage Domain. REJECTED re-submission requires SovereignResolution.
 
 ---
 
-## Section 14 — Escalation and SovereignResolution
+## Section 14: Escalation and SovereignResolution
 
-ESCALATE is a governed detour — the loop is never abandoned.
+ESCALATE is a governed detour; the loop is never abandoned.
 
 ```
 ESCALATE → Task Ledger: ESCALATED
@@ -630,7 +630,7 @@ ESCALATE → Task Ledger: ESCALATED
 Does not re-enter CTLC as agent proposal. Substrate validates form under BC-008,
 applies state changes through governed mutation, records in ResolutionHistory.
 
-**REQUIRE_RECONSTRUCTION:** Used when prior reasoning is tainted — reasoning from
+**REQUIRE_RECONSTRUCTION:** Used when prior reasoning is tainted: reasoning from
 inadmissible evidence, scope error invalidating a step chain, or legal constraint
 discovered after steps that may have violated it.
 
@@ -642,7 +642,7 @@ SovereignResolutions. Faheem may revoke at any time.
 
 ---
 
-## Section 15a — State and Schema Contract Layer
+## Section 15a: State and Schema Contract Layer
 
 ### 15a.1 Core Doctrine
 
@@ -655,7 +655,7 @@ AffordanceAvailability, EvidenceRecord, CodebaseGraph, ResolutionHistory,
 RetrievalLineageStore (ProvenanceChain objects)
 ```
 Plus all durable memory stores (Task Memory, Episodic Memory, Provenance Memory,
-Evidence Memory, Monitoring Memory — see §20).
+Evidence Memory, Monitoring Memory; see §20).
 
 **Observation State** (substrate-issued, filtered):
 ```
@@ -667,9 +667,9 @@ EvidenceSummaryView, GraphResultView, ResolutionReceipt
 
 ### 15a.2 Three-Level Validation Pipeline
 
-Level 1 — Schema Validation (SCHEMA_INVALID — not a CTLC decision)
-Level 2 — Contract Validation (CONTRACT_INVALID — not a CTLC decision)
-Level 3 — CTLC (EMIT / HOLD / ESCALATE)
+Level 1: Schema Validation (SCHEMA_INVALID, not a CTLC decision)
+Level 2: Contract Validation (CONTRACT_INVALID, not a CTLC decision)
+Level 3: CTLC (EMIT / HOLD / ESCALATE)
 
 > Passing the gates means eligible for adjudication, not authorized.
 
@@ -681,16 +681,16 @@ Level 3 — CTLC (EMIT / HOLD / ESCALATE)
 | BC-002 | ProposalContract | Runtime Agent | Constitutional Substrate | `TransitionProposalEnvelope` | Valid proposal shape and authority |
 | BC-003 | ResolutionContract | Constitutional Substrate | Task Ledger / Agent | `Resolution` | Verdict, state mutation, next affordances |
 | BC-004 | InstrumentRequestContract | Substrate | Instrument | `InstrumentRequest` | Authorized instrument invocation |
-| BC-005 | InstrumentOutputContract | Instrument | Substrate / Evidence Store | `InstrumentOutput` | Allowed output — data only, never instruction |
+| BC-005 | InstrumentOutputContract | Instrument | Substrate / Evidence Store | `InstrumentOutput` | Allowed output, data only, never instruction |
 | BC-006 | EvidenceContract | Instrument / Substrate | Evidence Store | `EvidenceRecord` | Evidence capture and state promotion |
 | BC-007 | SovereignReviewContract | Substrate | Faheem | `EscalationPackage` | Escalation package |
 | BC-008 | SovereignResolutionContract | Faheem | Substrate | `SovereignResolution` | Human decision return path |
 | BC-009 | StateMutationContract | Constitutional Substrate | Governed Stores | `StateMutationInstruction` | Governed write path (OID-010) |
 | BC-010 | StandingClassResolutionContract | Constitutional Substrate | Task Ledger / Agent | `StandingClassResolution` | Pre-authorized decision |
-| BC-011 | MonitorObservationContract | Constitutional Substrate (trace) | Apex Drift Monitor (L2) | `AdjudicationTraceEntry` (read-only) | L2 reads L1 trace — one direction, no write path |
+| BC-011 | MonitorObservationContract | Constitutional Substrate (trace) | Apex Drift Monitor (L2) | `AdjudicationTraceEntry` (read-only) | L2 reads L1 trace, one direction, no write path |
 
 BC-011: L2 reads trace only, never writes, no path to any other governed store.
-DriftSignals are reports to Faheem — not substrate verdicts.
+DriftSignals are reports to Faheem, not substrate verdicts.
 
 ### 15a.4 CTLC as the Constitutional Adjudication Engine
 
@@ -725,60 +725,60 @@ any governed store. Constitutional, not organizational (CRC §7).
 | `StateMutationInstruction` | BC-009 | Substrate → Stores | Governed write instruction |
 | `StandingClassResolution` | BC-010 | Substrate → Ledger/Agent | Pre-authorized decision verdict |
 | `InstrumentRequest` | BC-004 | Substrate → Instrument | Authorized invocation |
-| `InstrumentOutput` | BC-005 | Instrument → Substrate | Typed output — data only |
+| `InstrumentOutput` | BC-005 | Instrument → Substrate | Typed output, data only |
 | `EvidenceRecord` | BC-006 | Instrument/Substrate → Store | Governed evidence with provenance_chain_ref |
 | `EscalationPackage` | BC-007 | Substrate → Faheem | Escalation context |
 | `SovereignResolution` | BC-008 | Faheem → Substrate | Human decision |
 | `AdjudicationTraceEntry` | BC-011 | L1 trace → L2 Monitor | Read-only adjudication trace |
-| `DriftSignal` | L2 → Faheem (not substrate-governed) | L2 → Faheem | Drift report — not a substrate verdict |
+| `DriftSignal` | L2 → Faheem (not substrate-governed) | L2 → Faheem | Drift report, not a substrate verdict |
 
 ---
 
-## Section 15 — Core Schema Object Requirements
+## Section 15: Core Schema Object Requirements
 
 > Fields are not defined here. Field-level schemas lock in Apex-State-Schema-Contracts.md
 > (OID-009) after OID-007 and OID-008 are complete. Monitor object fields (Family 12)
 > additionally block on OID-011.
 
-**Family 1 — Observation Objects** (BC-001): AgentObservation, TaskLedgerView,
+**Family 1: Observation Objects** (BC-001): AgentObservation, TaskLedgerView,
 AllowedAffordanceView, EvidenceSummaryView, GraphResultView, ResolutionReceipt
 
-**Family 2 — Proposal Objects** (BC-002): TransitionProposalEnvelope, TransitionProposal,
+**Family 2: Proposal Objects** (BC-002): TransitionProposalEnvelope, TransitionProposal,
 TaskCompletionProposal
 
-**Family 3 — Resolution Objects** (BC-003): Resolution
+**Family 3: Resolution Objects** (BC-003): Resolution
 
-**Family 4 — Instrument Objects** (BC-004, BC-005): InstrumentRequest, InstrumentOutput
+**Family 4: Instrument Objects** (BC-004, BC-005): InstrumentRequest, InstrumentOutput
 
-**Family 5 — Evidence Objects** (BC-006): EvidenceRecord
+**Family 5: Evidence Objects** (BC-006): EvidenceRecord
 
-**Family 6 — Sovereign Objects** (BC-007, BC-008): EscalationPackage, SovereignResolution
+**Family 6: Sovereign Objects** (BC-007, BC-008): EscalationPackage, SovereignResolution
 
-**Family 7 — Gate Objects** (Internal): ValidationResult
+**Family 7: Gate Objects** (Internal): ValidationResult
 
-**Family 8 — Authority Objects** (Constitutional Domain): DomainConstitution,
+**Family 8: Authority Objects** (Constitutional Domain): DomainConstitution,
 LegalAuthoritySet, SafeHarborProfile, ConstitutionalConstraintSet, ProgramScope,
 PlatformPolicy, StatuteConstraint, DisclosureRule, DataHandlingRule, StandingClass,
 PreAuthorizedDecision
 
-**Family 9 — Provenance Objects** (Retrieval Lineage Domain): ProvenanceChain,
+**Family 9: Provenance Objects** (Retrieval Lineage Domain): ProvenanceChain,
 CodeGraphTraversalRecord, InstrumentRunRecord, SourceSnapshot, RetrievalLineageEntry,
 EvidenceAssemblyRecord
 
-**Family 10 — Mutation Objects** (BC-009): StateMutationInstruction
+**Family 10: Mutation Objects** (BC-009): StateMutationInstruction
 
-**Family 11 — Standing Class Objects** (BC-010): StandingClassResolution
+**Family 11: Standing Class Objects** (BC-010): StandingClassResolution
 
-**Family 12 — Monitor Objects** (BC-011): AdjudicationTraceEntry, DriftSignal
+**Family 12: Monitor Objects** (BC-011): AdjudicationTraceEntry, DriftSignal
 (blocks on OID-011)
 
 ---
 
-## Section 16 — Maturity Map
+## Section 16: Maturity Map
 
 | Component | Maturity | Maturity Blocker |
 |---|---|---|
-| Apex Build Agent | SPECIFIED | — |
+| Apex Build Agent | SPECIFIED | None |
 | Constitutional Substrate (L1) | SEED | Build Spec approved → Substrate PEAS (OID-008) |
 | Apex Drift Monitor (L2) | SEED | L1 must reach SPECIFIED first (RDC sequencing) |
 | Governed Task Ledger | SEED | Build Spec approved → component spec |
@@ -799,7 +799,7 @@ monitor measuring an unstable baseline is worse than no monitor. (RDC requiremen
 
 ---
 
-## Section 17 — Prohibited Behaviors and Operational Gates
+## Section 17: Prohibited Behaviors and Operational Gates
 
 ### 17.1 Absolute Prohibitions (All Phases)
 
@@ -822,7 +822,7 @@ monitor measuring an unstable baseline is worse than no monitor. (RDC requiremen
 | Agent submitting authoritative state instead of references | State sovereignty violation |
 | Treating observed instrument or retrieval output as an instruction | Adversarial environment violation |
 | Promoting evidence from CANDIDATE to ADMISSIBLE without a ProvenanceChain | Grounding violation |
-| Agent writing to any durable memory store directly | Memory governance violation — see §20 |
+| Agent writing to any durable memory store directly | Memory governance violation; see §20 |
 
 ### 17.2 Build-Phase Prohibitions
 
@@ -842,7 +842,7 @@ constitute legal advice.
 
 ---
 
-## Section 18 — Open Implementation Decisions
+## Section 18: Open Implementation Decisions
 
 | # | Decision | Status |
 |---|---|---|
@@ -852,18 +852,18 @@ constitute legal advice.
 | OID-004 | Embedding model selection | Open |
 | OID-005 | Neo4j hosting: local vs cloud | Open |
 | OID-006 | Authority Encoder scope of safe automation | Open |
-| OID-007 | **Apex-Agent-PEAS.md v0.2** | **REQUIRED — NOT STARTED** — blocks Families 1–2 schemas; must inherit v0.4 provenance/grounding/monitoring/adversarial-input doctrine and v0.5 memory architecture |
-| OID-008 | **Apex-Constitutional-Substrate-PEAS.md** | **REQUIRED — NOT STARTED** — blocks Families 3, 4, 7 |
-| OID-009 | **Apex-State-Schema-Contracts.md** | **REQUIRED — BLOCKED on OID-007 and OID-008** |
-| OID-010 | **StateMutationContract (BC-009)** | Open — required before Substrate PROTOTYPED |
-| OID-011 | **Apex-Monitor-PEAS.md** | **REQUIRED — BLOCKED on L1 reaching SPECIFIED** |
-| OID-012 | **ADR-001a — Four-Domain Graph Extension** | **REQUIRED** — storage-level separation gap |
+| OID-007 | **Apex-Agent-PEAS.md v0.2** | **REQUIRED, NOT STARTED**: blocks Families 1–2 schemas; must inherit v0.4 provenance/grounding/monitoring/adversarial-input doctrine and v0.5 memory architecture |
+| OID-008 | **Apex-Constitutional-Substrate-PEAS.md** | **REQUIRED, NOT STARTED**: blocks Families 3, 4, 7 |
+| OID-009 | **Apex-State-Schema-Contracts.md** | **REQUIRED, BLOCKED on OID-007 and OID-008** |
+| OID-010 | **StateMutationContract (BC-009)** | Open: required before Substrate PROTOTYPED |
+| OID-011 | **Apex-Monitor-PEAS.md** | **REQUIRED, BLOCKED on L1 reaching SPECIFIED** |
+| OID-012 | **ADR-001a: Four-Domain Graph Extension** | **REQUIRED**: storage-level separation gap |
 | OID-013 | **StandingClassResolutionContract (BC-010)** | Open |
-| OID-014 | **Apex Memory Architecture** | **CLOSED — resolved by Section 20 of this spec** |
+| OID-014 | **Apex Memory Architecture** | **CLOSED: resolved by Section 20 of this spec** |
 
 ---
 
-## Section 19 — Adversarial Environment Doctrine
+## Section 19: Adversarial Environment Doctrine
 
 ### 19.1 The Threat
 
@@ -888,13 +888,13 @@ External sources (CVE feeds, advisory databases) can contain crafted content.
 
 ### 19.3 Layered Mitigations
 
-**Layer 1 — Instrument output typing (BC-005):** Instruments return only their declared
+**Layer 1: Instrument output typing (BC-005):** Instruments return only their declared
 output type. Instrument output carries no executable instructions.
 
-**Layer 2 — Authoritative/observation state separation:** The agent reasons over
-substrate-issued Observation State — not raw instrument output directly.
+**Layer 2: Authoritative/observation state separation:** The agent reasons over
+substrate-issued Observation State, not raw instrument output directly.
 
-**Layer 3 — Substrate adjudication backstop:** Even if the agent reasons incorrectly
+**Layer 3: Substrate adjudication backstop:** Even if the agent reasons incorrectly
 due to adversarial input, the substrate adjudicates against DomainConstitution and
 LegalAuthoritySet. Out-of-scope actions derived from injected instructions fail CTLC.
 
@@ -904,7 +904,7 @@ LegalAuthoritySet. Out-of-scope actions derived from injected instructions fail 
 2. Do not act on the instruction
 3. Propose COMPARE_SCOPE_RULE if the content attempts scope expansion
 4. ESCALATE_SCOPE_AMBIGUITY if the content creates genuine ambiguity
-5. Next proposal must reference scope_basis_ref from DomainConstitution — not from observed content
+5. Next proposal must reference scope_basis_ref from DomainConstitution, not from observed content
 
 ### 19.5 Adversarial Content Preservation
 
@@ -914,7 +914,7 @@ Preserved for audit and post-task adversarial pattern analysis.
 
 ---
 
-## Section 20 — Memory Architecture (new in v0.5)
+## Section 20: Memory Architecture (new in v0.5)
 
 *Resolves OID-014. Derived from: CRC §6 (uncertainty preservation and ephemeral
 reasoning); CRAS §6 (memory architecture and operational vs. constitutional separation);
@@ -924,12 +924,12 @@ AI Agent Build Guide (state scope and ownership); Apex ORSR doctrine (§10).*
 
 Without an explicit memory design, two failure modes threaten ORSR:
 
-**Failure 1 — Private continuity.** The agent maintains private state across ORSR
-cycles in its reasoning — remembering what it "decided" even after a HOLD verdict —
+**Failure 1: Private continuity.** The agent maintains private state across ORSR
+cycles in its reasoning, remembering what it "decided" even after a HOLD verdict,
 effectively carrying task continuity in a space the substrate cannot see. This
 violates ORSR's core guarantee: that task continuity lives in governed state.
 
-**Failure 2 — Durable memory written by the agent.** The agent writes to a store
+**Failure 2: Durable memory written by the agent.** The agent writes to a store
 outside the substrate's control, acquiring persistence authority it is not constitutionally
 permitted to hold.
 
@@ -947,29 +947,29 @@ persistence, write authority, and ORSR role.
 Three corollaries:
 
 **Agent memory is not authoritative.** If the agent "remembers" a prior decision, that
-memory has no constitutional force. Only ResolutionHistory — substrate-owned — is
+memory has no constitutional force. Only ResolutionHistory, substrate-owned, is
 authoritative.
 
 **Substrate memory is authoritative.** The substrate's records of what happened, what
 was authorized, what evidence exists, and what provenance was established are the only
 memories that count constitutionally.
 
-**Durable memory is governed.** Every persistent record in Apex — evidence, provenance,
-resolutions, task state — is subject to the same governance constraints as transitions.
+**Durable memory is governed.** Every persistent record in Apex (evidence, provenance,
+resolutions, task state) is subject to the same governance constraints as transitions.
 Nothing becomes durable outside substrate authorization.
 
 ### 20.3 Memory Classes
 
 | Memory Class | Owner | Persistence | Write Authority | Read Authority | ORSR Role |
 |---|---|---|---|---|---|
-| Ephemeral Memory | Agent | Not persisted — dies at ORSR cycle end | Agent (internal reasoning only) | Agent only | Hypothesis formation within one cycle |
-| Working Memory | Substrate-issued | Duration of one ORSR cycle — refreshed each cycle | Substrate (via AgentObservation) | Agent (read-only, via BC-001) | The agent's current observation context |
+| Ephemeral Memory | Agent | Not persisted, dies at ORSR cycle end | Agent (internal reasoning only) | Agent only | Hypothesis formation within one cycle |
+| Working Memory | Substrate-issued | Duration of one ORSR cycle, refreshed each cycle | Substrate (via AgentObservation) | Agent (read-only, via BC-001) | The agent's current observation context |
 | Task Memory | Substrate (Task Ledger) | Persistent for task duration | Substrate Resolution only | Agent (via TaskLedgerView) and Substrate | Task continuity, completed steps, terminal criteria, escalation status |
-| Episodic Memory | Substrate (ResolutionHistory) | Persistent, append-only | Substrate Resolution only | Agent (via ResolutionReceipt for most recent) and Substrate | Constitutional history — what proposals were made, what verdicts issued, what escalations resolved |
-| Evidence Memory | Substrate (Evidence Store) | Persistent, immutable after write | Substrate Resolution only | Agent (via EvidenceSummaryView — summary refs only) and Substrate | Governed evidence records, admissibility state |
-| Provenance Memory | Substrate (Retrieval Lineage Store) | Persistent, append-only, never modified after write | Substrate only (on instrument invocation authorization) | Agent (by ID reference only), Substrate (for Grounded(τ) checks), L2 (read-only for drift) | Forward evidentiary reconstruction — how evidence was assembled |
+| Episodic Memory | Substrate (ResolutionHistory) | Persistent, append-only | Substrate Resolution only | Agent (via ResolutionReceipt for most recent) and Substrate | Constitutional history: what proposals were made, what verdicts issued, what escalations resolved |
+| Evidence Memory | Substrate (Evidence Store) | Persistent, immutable after write | Substrate Resolution only | Agent (via EvidenceSummaryView, summary refs only) and Substrate | Governed evidence records, admissibility state |
+| Provenance Memory | Substrate (Retrieval Lineage Store) | Persistent, append-only, never modified after write | Substrate only (on instrument invocation authorization) | Agent (by ID reference only), Substrate (for Grounded(τ) checks), L2 (read-only for drift) | Forward evidentiary reconstruction: how evidence was assembled |
 | Semantic Memory | Substrate (Constitutional Domain) | Persistent, sovereign-versioned | SovereignResolution only | All components (read) | Authority structures: DomainConstitution, LegalAuthoritySet, StandingClasses, PreAuthorizedDecisions, ScopeRules |
-| Monitoring Memory | Substrate (L2 Monitor Store — deferred, OID-011) | Persistent, append-only | L2 Monitor (DriftSignals only) | L2 Monitor and Faheem | Drift signals, adjudication pattern records — L2 never writes to other stores |
+| Monitoring Memory | Substrate (L2 Monitor Store: deferred, OID-011) | Persistent, append-only | L2 Monitor (DriftSignals only) | L2 Monitor and Faheem | Drift signals, adjudication pattern records; L2 never writes to other stores |
 
 ### 20.4 Memory Class Ownership Map
 
@@ -989,30 +989,30 @@ SUBSTRATE-OWNED (durable, governed):
   Monitoring Memory   → L2 Monitor Store (deferred) → L2 DriftSignals only
 ```
 
-### 20.5 Memory and ORSR — The Complete Loop
+### 20.5 Memory and ORSR: The Complete Loop
 
 With the memory architecture integrated, the full ORSR loop becomes:
 
 ```
-Substrate emits AgentObservation [Working Memory — ephemeral for this cycle]
+Substrate emits AgentObservation [Working Memory, ephemeral for this cycle]
   ↓
 Agent loads Working Memory into Ephemeral Memory [internal, not persisted]
 Agent reasons over: current affordances, prior resolution, admissible evidence refs,
-  terminal criteria status, graph results — all from substrate-issued Working Memory
+  terminal criteria status, graph results, all from substrate-issued Working Memory
 Agent MAY recall prior decisions by reasoning over the substrate-issued ResolutionReceipt
-  (a filtered view of Episodic Memory) — not by internal recall
-Agent forms hypothesis [Ephemeral Memory — dies if proposal is rejected]
+  (a filtered view of Episodic Memory), not by internal recall
+Agent forms hypothesis [Ephemeral Memory, dies if proposal is rejected]
   ↓
 Agent submits TransitionProposalEnvelope with ID references
-  — references Task Memory (task_id, prior_resolution_ref)
-  — references Evidence Memory (evidence_id refs)
-  — references Provenance Memory (provenance_chain_ref)
-  — contains uncertainty_state [Ephemeral Memory — preserved in proposal object]
+  - references Task Memory (task_id, prior_resolution_ref)
+  - references Evidence Memory (evidence_id refs)
+  - references Provenance Memory (provenance_chain_ref)
+  - contains uncertainty_state [Ephemeral Memory, preserved in proposal object]
   ↓
 CTLC adjudicates using authoritative Substrate Memory:
   Task Memory (TaskLedger)
   Semantic Memory (DomainConstitution, LegalAuthoritySet)
-  Provenance Memory (ProvenanceChain — for Grounded(τ))
+  Provenance Memory (ProvenanceChain, for Grounded(τ))
   Episodic Memory (ResolutionHistory)
   ↓
 Resolution updates Substrate Memory:
@@ -1024,7 +1024,7 @@ Resolution updates Substrate Memory:
 L2 reads Episodic Memory trace (adjudication trace) via BC-011 [Monitoring Memory]
   ↓
 Substrate emits next AgentObservation [new Working Memory]
-Agent's prior Ephemeral Memory is gone — next cycle begins from governed state
+Agent's prior Ephemeral Memory is gone; next cycle begins from governed state
 ```
 
 **The critical boundary:** The agent never carries task continuity privately. Between
@@ -1047,34 +1047,34 @@ exactly what the substrate issues in the next AgentObservation.
 
 The following are absolute prohibitions (added to §17.1):
 
-- The agent may not write to any substrate-owned store — this is already covered by
+- The agent may not write to any substrate-owned store; this is already covered by
   the general no-write rules, but applies explicitly to all memory classes
-- The agent may not persist reasoning context across ORSR cycles — ephemeral reasoning
+- The agent may not persist reasoning context across ORSR cycles: ephemeral reasoning
   dies at cycle end
-- The agent may not treat its internal "recall" of prior decisions as authoritative —
+- The agent may not treat its internal "recall" of prior decisions as authoritative:
   only the ResolutionReceipt (substrate-issued) is authoritative
 - L2 may not write to any store except its own Monitoring Memory store (DriftSignals)
-- Instruments may not write to any memory store — provenance is written by the substrate
+- Instruments may not write to any memory store: provenance is written by the substrate
   when authorizing instrument invocations, not by instruments themselves
 
 ### 20.8 Schema Impact
 
 The Memory Architecture section drives the following additions to schema object families:
 
-**Family 1 (Observation Objects) — additions:**
+**Family 1 (Observation Objects): additions:**
 - `AgentObservation` must include a field indicating which ORSR cycle this observation
   is for (cycle number) and its ephemeral scope (this observation is valid only for
   the current cycle)
 
-**Family 3 (Resolution Objects) — additions:**
+**Family 3 (Resolution Objects): additions:**
 - `Resolution` must include fields for which memory stores it updates (task_ledger_updates,
   evidence_store_updates, retrieval_lineage_updates) so the memory mutation is explicit
   and auditable
 
-**Family 9 (Provenance Objects) — no new additions:** Provenance Memory is already
+**Family 9 (Provenance Objects): no new additions:** Provenance Memory is already
 fully specified by the Retrieval Lineage Domain node types in §8.5.
 
-**Family 12 (Monitor Objects) — additions pending OID-011:**
+**Family 12 (Monitor Objects): additions pending OID-011:**
 - `DriftSignal` must include which memory pattern triggered it (e.g., escalation
   suppression in Episodic Memory, calibration displacement in adjudication trace)
 
@@ -1085,14 +1085,14 @@ These additions are captured for OID-009 (State-Schema Contracts) and OID-011
 
 ## Section 18 (OID table) update for v0.5
 
-OID-014 is now CLOSED — resolved by Section 20 of this spec.
+OID-014 is now CLOSED: resolved by Section 20 of this spec.
 
 ---
 
-*Build Spec v0.5 — DRAFT FOR FAHEEM REVIEW*
+*Build Spec v0.5: DRAFT FOR FAHEEM REVIEW*
 *Drafted: 2026-06-12 | Session 005*
 *Pending sovereign approval before treating as confirmed baseline.*
 *After approval: STATE.md, HANDOFF.md, MEMORY.md to be updated to reflect v0.5.*
-*Commit note: Hannibal iCloud sync only — git commit requires Continuum.*
-*ADR-001a remains MANDATORY before implementation — storage-level graph separation*
+*Commit note: Hannibal iCloud sync only; git commit requires Continuum.*
+*ADR-001a remains MANDATORY before implementation: storage-level graph separation*
 *is named-open, not resolved.*
