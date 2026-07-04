@@ -110,6 +110,25 @@ core paper identifies but does not close.
   stability alongside baseline capture's vertical axis and family incoherence's
   horizontal axis.
 
+- [Constitutional Standing: Formation, Binding, and Non-Formation in Governed
+  Runtime Transitions](companions/constitutional-standing-v1.2.md)
+  Companion 6. Formalizes the Standing (STAND) step CTLC's own CRA Assembly
+  has named since its earliest formalization but specified only as a single
+  sentence, and substantially advances, though does not complete, the
+  task-state continuity residue named directly in Constitutional Runtime
+  Computation v5.4's Open Problems. It separates five stages the corpus had
+  touched but never organized into one pipeline, Formation, Standing,
+  Reachability, Binding, and Continuation, none of which entails the others.
+  FormationValid(π) and the NonFormationReceipt build on Constitutional
+  Boundary Contracts v1.0 and Constitutional Memory v2.1; BindingFormed(β) and
+  the BindingRecord generalize §6a's HoldRecord pinning discipline from the
+  Hold path to Emit and Escalate; ContinuationIssued and the ContinuationState
+  close the private-continuation failure mode named directly in the parent's
+  Open Problems. Cumulative Standing Creep is classified, against an explicit
+  four-part test, as the corpus's fourth sovereign-terminal primitive, after
+  Constitutional Baselines v1.2, Constitutional Coherence v1.2, and
+  Constitutional Thresholds v1.2's own contributions.
+
 ### Domain Applications
 
 Domain application documents show the CRC architecture instantiated in
@@ -150,6 +169,7 @@ They remain part of the intellectual lineage of the series.
 5. Constitutional Baselines v1.2 (companion 3)
 6. Constitutional Coherence v1.2 (companion 4)
 7. Constitutional Thresholds v1.2 (companion 5)
-8. Apex Architecture Seed (domain application, short)
-9. Apex Build Specification v0.5 (domain application, full)
-10. The Knowledge Graph as Constitutional Substrate (historical lineage)
+8. Constitutional Standing v1.2 (companion 6)
+9. Apex Architecture Seed (domain application, short)
+10. Apex Build Specification v0.5 (domain application, full)
+11. The Knowledge Graph as Constitutional Substrate (historical lineage)
