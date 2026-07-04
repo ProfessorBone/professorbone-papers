@@ -45,8 +45,8 @@ core paper identifies but does not close.
   events, and establishes typed contracts for both. Contributions include the
   Boundary Sovereignty Principle, ProposalContract and ObservationContract with
   full schemas and validation predicates, the BoundaryValidationFunction as a
-  constitutionally separated substrate component, a five-class violation severity
-  taxonomy (B0-B4), and five boundary-specific primitive failure topologies
+  constitutionally separated substrate component, a six-class violation severity
+  taxonomy (B0-B5), and five boundary-specific primitive failure topologies
   (P_bnd). Logically prior to all subsequent companions. May be read immediately
   after the core paper.
 
