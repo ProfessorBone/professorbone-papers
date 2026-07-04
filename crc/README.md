@@ -129,6 +129,20 @@ core paper identifies but does not close.
   Constitutional Baselines v1.2, Constitutional Coherence v1.2, and
   Constitutional Thresholds v1.2's own contributions.
 
+- Constitutional Tools: Capability Invocation, External Effects, and
+  Tool-Result Admission in Governed Agentic Systems *(forthcoming)*
+  Companion 7. Sits alongside Constitutional Memory v2.1 as the other major
+  agent-capability surface ORSR cannot leave ungoverned. Argues that tool
+  invocation is a constitutional transition surface, not a neutral capability
+  call: if the substrate owns terminal execution authority, that authority
+  cannot stop at Act while tool invocation remains agent-owned, since a tool
+  can retrieve or fabricate evidence, mutate substrate or external state,
+  shape future Observe, and produce real-world effects. The agent does not
+  call tools; it submits ToolInvocationProposals, and a tool result has no
+  constitutional force merely because a tool produced it. See
+  [companions/constitutional-tools-FORTHCOMING.md](companions/constitutional-tools-FORTHCOMING.md)
+  for the fixed title, scope, and required reading.
+
 ### Domain Applications
 
 Domain application documents show the CRC architecture instantiated in
