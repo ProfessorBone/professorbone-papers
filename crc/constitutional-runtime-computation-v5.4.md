@@ -183,7 +183,7 @@ This separation has a practical consequence that is easy to underestimate: it ma
 
 **ORSR as governed continuation loop.** A critical implication of the Resolution object's goal_status field is that ORSR is not a one-shot request-response cycle. Most agentic tasks require multiple transitions before a terminal condition is reached. When a resolution returns IN_PROGRESS, the substrate emits the Resolution object as the next observation, restarting the loop from a new governed state. The agent reasons again, but only over the affordances the substrate has declared constitutionally reachable from that state. This structure separates two layers that conventional agent systems conflate: step state (was this specific transition resolved, and how?) and goal state (is the larger task constitutionally complete?). Transition complete does not equal task complete. The substrate maintains the governed task trajectory. The agent cannot silently decide the task is finished, cannot select its next capability unilaterally, and cannot carry the task's continuity in private reasoning alone. The sovereignty problem does not only arise at individual transition boundaries, it arises at the level of task continuation. The governed continuation loop closes that gap.
 
-**Notation: ORDA, ORDS, ORDR, and ORSR.** Four related loop abbreviations appear in this paper and in Figure 2. ORDA (Observe → Reason → Decide → Act) names the traditional agent-centered sovereign loop in which the agent's decision terminates in action. ORDS (Observe → Reason → Decide → Submit) names the constitutional agent-side proposal loop in which Submit replaces Act: the agent's decision terminates in submission, not execution. ORDR (Observe → Reason → Decide → Request) is a variant agent-side notation used in the appendix POC; it is semantically equivalent to ORDS, with Request emphasizing that the agent's submission is a typed request for adjudication rather than a unilateral act. ORSR (Observe → Reason → Submit → Resolve) names the full system-level constitutional loop, where Resolve belongs to the substrate and completes the cycle. This paper uses ORSR as the primary term because it includes the substrate's adjudicative role; ORDS and ORDR appear as agent-side bridges from traditional ORDA to the constitutional model.
+**Notation: ORDA, ORDS, ORDR, and ORSR.** Four related loop abbreviations appear in this paper and in Figure 2. ORDA (Observe → Reason → Decide → Act) names the traditional agent-centered sovereign loop in which the agent's decision terminates in action. ORDS (Observe → Reason → Decide → Submit) names the constitutional agent-side proposal loop in which Submit replaces Act: the agent's decision terminates in submission, not execution. ORDR (Observe → Reason → Decide → Request) is a variant agent-side notation used in §8.5's ORDR Minimal Reachability POC; it is semantically equivalent to ORDS, with Request emphasizing that the agent's submission is a typed request for adjudication rather than a unilateral act. ORSR (Observe → Reason → Submit → Resolve) names the full system-level constitutional loop, where Resolve belongs to the substrate and completes the cycle. This paper uses ORSR as the primary term because it includes the substrate's adjudicative role; ORDS and ORDR appear as agent-side bridges from traditional ORDA to the constitutional model.
 
 **Figure 2: ORDA vs ODS: sovereignty location comparison**
 
@@ -336,11 +336,11 @@ flowchart TB
 
 **The asymmetry.** §6 defines Grounded(τ) for the Emit path with a formal mechanism: an append-only Retrieval Lineage Graph and the invariant that agents can reference provenance but cannot write it. Emit has teeth because its grounding condition names a concrete artifact and a concrete non-forgery property. Hold does not receive the same treatment. §6 states that Hold "does not earn privilege for a retry," but that is an assertion about the verdict's character, not a mechanism that enforces it. A gap of this shape, an informally stated property standing where a formal invariant should be, deserves the same discipline applied everywhere else in this section: the property should be named, typed, and given an enforcement mechanism, not left as prose.
 
-The gap is narrower than it might first appear. The architecture already produces a record for every verdict, including Hold: §8's worked example and Appendix A's Governance Runtime stub both write an AdjudicationRecord carrying an outcome, a reason, and the pinned constitution_version, for Emit, Escalate, and Hold alike. The artifact is not missing. What is missing is a formal specification of that artifact's constitutional properties, non-formation, non-replayability, and non-bypassability, of the kind §6 already supplies for Emit's grounding. This section formalizes an implicit mechanism. It does not invent one from nothing.
+The gap is narrower than it might first appear. The architecture already produces a record for every verdict, including Hold: §8's worked example and Appendix A's substrate runtime stub both write an AdjudicationRecord carrying an outcome, a reason, and the pinned constitution_version, for Emit, Escalate, and Hold alike. The artifact is not missing. What is missing is a formal specification of that artifact's constitutional properties, non-formation, non-replayability, and non-bypassability, of the kind §6 already supplies for Emit's grounding. This section formalizes an implicit mechanism. It does not invent one from nothing.
 
 Why this matters: a verdict space with an informally specified refusal path has a specific failure mode. A Hold that is silently discarded rather than recorded has no non-formation guarantee. A Hold that can be defeated by resubmitting an unchanged proposal until an evaluator's behavior happens to drift has no non-replay guarantee. A Hold that can be defeated by re-expressing the same effect under a different transition type has no non-bypass guarantee. None of these failures requires L1 to misbehave on any single evaluation. Each is a structural gap in what the verdict space is required to preserve across evaluations, which is precisely the kind of failure the drift and false-stability apparatus of §13 is built to catch, except that apparatus presupposes the verdict it is watching already has the completeness properties this section supplies.
 
-**The HoldRecord.** Emit, Escalate, and Hold all produce the Resolution-level adjudication artifact §4 establishes for every verdict, the same artifact the Governance Runtime stub writes as an AdjudicationRecord (§8.5, Appendix A). A **HoldRecord** is the Hold-specific constitutional subrecord of that artifact: the typed completeness structure the Hold branch additionally requires, precisely because Hold's non-retry property, unlike Emit's grounding and Escalate's routing, has so far been asserted rather than enforced. It is not a log line appended for observability. It is a formal artifact with the following fields:
+**The HoldRecord.** Emit, Escalate, and Hold all produce the Resolution-level adjudication artifact §4 establishes for every verdict, the same artifact the Appendix A substrate runtime stub writes as an AdjudicationRecord (§8.5, Appendix A). A **HoldRecord** is the Hold-specific constitutional subrecord of that artifact: the typed completeness structure the Hold branch additionally requires, precisely because Hold's non-retry property, unlike Emit's grounding and Escalate's routing, has so far been asserted rather than enforced. It is not a log line appended for observability. It is a formal artifact with the following fields:
 
 - `hold_id`: a unique, monotonically assigned identifier, append-only.
 - `proposal_ref`: a content hash of the exact TransitionProposal that was evaluated.
@@ -572,7 +572,7 @@ The POC models ten real AEGIS/SAP clinical workflow actions as `TypedTransitionR
 
 This POC does not implement the full CTLC architecture, MEC/L2 monitoring, formal verification, or production evidence reconstruction. It demonstrates one bounded claim: AEGIS clinical workflow actions can be expressed as typed transition requests and resolved through a minimal constitutional reachability gate before effect. That is the right first claim for an executable design trace. The architecture is instantiable. The loop is constructible. The POC is an executable design trace, not empirical validation.
 
-A representative excerpt of the POC code appears in Appendix A; the complete script is available from the Professor Bone Lab repository.
+This ORDR POC has since been superseded. Appendix A now presents the **Full ORSR Continuation Loop POC**, which closes the loop the ORDR POC left open: it demonstrates substrate-issued continuation after Resolve, replay governance, TaskLedger update, and a second ORSR cycle, not merely typed transition adjudication before effect. A representative excerpt appears in Appendix A; the complete script and its test suite are available from the Professor Bone Lab repository.
 
 ### 8.6 Extending the Example: HOLD Verdict Completeness in Practice
 
@@ -1108,7 +1108,7 @@ This work was developed under the Professor Bone Lab research identity. AEGIS se
 
 ---
 
-*v5.4: HOLD verdict completeness addressed, identified through external review of v5.3 and refined through a second review pass before commit. §6a added (Part II, between §6 and §7): formalizes the Hold verdict's constitutional structure that §6 previously stated only as an assertion ("does not earn privilege for a retry"). Introduces the typed HoldRecord object as the Hold-specific subrecord of the Resolution-level adjudication artifact §4 already establishes for every verdict, not a parallel object splitting Hold out of that artifact. HoldRecord carries proposal_ref, failed_conjunct, cause, and five pinned references, state_ref, authority_context_ref, domain_constitution_ref, constitution_version, and provenance_frontier_ref, plus cycle_id and superseded_by (renamed from an earlier supersedable_by, and typed as null | HoldRecordRef | ResolutionRef); the pinned references are what the replay predicate checks against, since a single constitution_version field cannot independently capture state, authority, and provenance movement. Three properties formalized: non-formation (a Hold is an immutable, independently queryable trace entry, not the absence of one); non-replayability (Replay(τ', h) is formally defined over content-identity and the four pinned references' unchanged-ness, evaluated at a named pre-CRA replay gate before Step 1 rather than as part of it; a true replay short-circuits to the existing HoldRecord without re-running the seven-step CRA Assembly, while a genuine change to any one of the four pinned references correctly triggers fresh adjudication from Step 1); and non-bypassability (admissibility is bound to effect-equivalence rather than to transition type, closing the cross-type route around a Hold; this names a new requirement on the domain constitution D to define effect-equivalence classes, stated as a requirement rather than a completed mechanism, and cross-referenced from §19's translation problem as a specific instance of it rather than a separate open-problem family). Figure 3a added and its replay-gate label updated to the five-conjunct predicate. A sixth candidate property, HOLD Verdict Completeness, added to Figure A2's verification-pathway list (Appendix), specified but not formally verified, in the same posture as the existing five; the figure notes explicitly that this P6 is scoped to its own list and distinct from the same numeral's use within the Q-domain-indexed primitives elsewhere in the paper. §8 extended with §8.6, a short worked continuation tracing a Hold, its replay at the pre-CRA gate, and its legitimate supersession under genuine provenance recording. §19's Open Problems retains its four items and is not expanded to five; a closing paragraph acknowledges that HOLD verdict completeness was an implicit gap in v5.3, now closed at the specification level, with formal verification of the new candidate property deferred alongside P1 through P5. Front-matter Contents and Key Terms updated to match. No change to CTLC's four-conjunct Reachable(τ) predicate or to the Emit and Escalate paths; the revision is confined to the internal structure of the Hold path. Companion papers 0 through 5 continue to cite Constitutional Runtime Computation v5.3; this is not an error, since v5.4 is non-breaking with respect to everything the companions depend on, and updating those citations is deferred to a separate repository-hygiene pass rather than folded into this one. Separately, the whole document was brought into conformance with the standing no-em-dash convention already applied across the companion series.*
+*v5.4: HOLD verdict completeness addressed, identified through external review of v5.3 and refined through a second review pass before commit. §6a added (Part II, between §6 and §7): formalizes the Hold verdict's constitutional structure that §6 previously stated only as an assertion ("does not earn privilege for a retry"). Introduces the typed HoldRecord object as the Hold-specific subrecord of the Resolution-level adjudication artifact §4 already establishes for every verdict, not a parallel object splitting Hold out of that artifact. HoldRecord carries proposal_ref, failed_conjunct, cause, and five pinned references, state_ref, authority_context_ref, domain_constitution_ref, constitution_version, and provenance_frontier_ref, plus cycle_id and superseded_by (renamed from an earlier supersedable_by, and typed as null | HoldRecordRef | ResolutionRef); the pinned references are what the replay predicate checks against, since a single constitution_version field cannot independently capture state, authority, and provenance movement. Three properties formalized: non-formation (a Hold is an immutable, independently queryable trace entry, not the absence of one); non-replayability (Replay(τ', h) is formally defined over content-identity and the four pinned references' unchanged-ness, evaluated at a named pre-CRA replay gate before Step 1 rather than as part of it; a true replay short-circuits to the existing HoldRecord without re-running the seven-step CRA Assembly, while a genuine change to any one of the four pinned references correctly triggers fresh adjudication from Step 1); and non-bypassability (admissibility is bound to effect-equivalence rather than to transition type, closing the cross-type route around a Hold; this names a new requirement on the domain constitution D to define effect-equivalence classes, stated as a requirement rather than a completed mechanism, and cross-referenced from §19's translation problem as a specific instance of it rather than a separate open-problem family). Figure 3a added and its replay-gate label updated to the five-conjunct predicate. A sixth candidate property, HOLD Verdict Completeness, added to Figure A2's verification-pathway list (Appendix), specified but not formally verified, in the same posture as the existing five; the figure notes explicitly that this P6 is scoped to its own list and distinct from the same numeral's use within the Q-domain-indexed primitives elsewhere in the paper. §8 extended with §8.6, a short worked continuation tracing a Hold, its replay at the pre-CRA gate, and its legitimate supersession under genuine provenance recording. §19's Open Problems retains its four items and is not expanded to five; a closing paragraph acknowledges that HOLD verdict completeness was an implicit gap in v5.3, now closed at the specification level, with formal verification of the new candidate property deferred alongside P1 through P5. Front-matter Contents and Key Terms updated to match. No change to CTLC's four-conjunct Reachable(τ) predicate or to the Emit and Escalate paths; the revision is confined to the internal structure of the Hold path. Companion papers 0 through 5 continue to cite Constitutional Runtime Computation v5.3; this is not an error, since v5.4 is non-breaking with respect to everything the companions depend on, and updating those citations is deferred to a separate repository-hygiene pass rather than folded into this one. Separately, the whole document was brought into conformance with the standing no-em-dash convention already applied across the companion series. Appendix A replaced: the earlier ORDR Minimal Reachability POC is superseded by a Full ORSR Continuation Loop POC demonstrating substrate-issued AgentObservation, typed TransitionProposal, Resolve, BindingRecord / HoldRecord / NonFormationReceipt / replay rejection / escalation handling, TaskLedger update, AllowedNextAffordanceSet issuance, ContinuationState issuance, private-continuation rejection, unchanged-replay rejection, and changed-context resubmission across chained cycles, closing with a second Observe drawn from substrate-issued ContinuationState. The prior appendix demonstrated typed transition adjudication before effect but did not demonstrate substrate-issued continuation, replay governance, TaskLedger update, or a second ORSR cycle. The new appendix remains a minimal executable design trace, not a production runtime, full CTLC implementation, MEC/L2 implementation, full AEGIS clinical workflow, or empirical validation of the full CRC corpus. The §8.5 cross-reference and the two §6a references to the appendix POC were reworded from "Governance Runtime stub" to "substrate runtime stub" accordingly. This is an appendix-level revision that brings Appendix A into alignment with v5.4 doctrine; it does not bump the parent version, since the parent architecture is unchanged.*
 
 *v5.3: Polish pass on v5.2 reviewer feedback. Appendix conflict resolved (§8.5 now states a representative excerpt appears in Appendix A, with the complete script in the Professor Bone Lab repository). §8.5 ORDS→ORDR notation fixed for internal consistency with the v5.1 notation block. Four duplicate horizontal-rule breaks cleaned (artifact of the v5.1 bridge cuts before Part II, Part III, Part V, and §16). v5.2: Second compression pass. §13 drift vectors fully restructured under family headers (selection / authority erosion / observation degradation / human-process / meta-failure) with original-vs-added markers preserved at each vector. §15 SLM section compressed: paragraphs 2-3 merged (constitutional substrate argument + sovereignty decomposition into one structural claim); paragraphs 5-7 compressed (frontier-models and assumptions-and-limits closing redundancy removed). v5.1: Three-pass review applied. Argument flow: four transitional bridges cut as redundant; §15 reframed as consequence of §14 strong-topology principle. Reviewer defensibility: decidability note added at §6 for the Admissible(τ) conjunct; reference monitor obligations (complete mediation, tamperproofing, verifiability) addressed explicitly at §18; Constitutional AI distinction sharpened to shape-distribution vs bound-reachable-space; TCB note added at §17 acknowledging structured-larger vs opaque-smaller tradeoff; constitutive-irreducibility added as third open problem at §19. Compression: §18 introduction cut; §13 drift vectors given family-taxonomy framing; redundant Key Terms entries (CTLC, Constitutional reachability) removed. Smaller fixes: ORDR added to §4 notation block. Prior history: v1.0 initial draft; v2.0 external review; v3.0 CTLC formalization; v4.0 admissibility predicate, three-layer stack, ORSR worked example, drift expansion; v5.0 formal legitimacy predicate, §16 renamed, six Mermaid diagrams added, Open Problems section added.*
 
@@ -1118,297 +1118,170 @@ This work was developed under the Professor Bone Lab research identity. AEGIS se
 
 ---
 
-**Appendix A: ORDR Minimal Reachability POC**
+**Appendix A: Full ORSR Continuation Loop POC**
 
-*Executable design trace for typed transition adjudication in AEGIS/SAP clinical workflow.*
+*Executable design trace for substrate-issued continuation after Resolve.*
 
-This appendix provides the local Python proof-of-concept script referenced in §8.5. The script is not a production runtime, a full CTLC implementation, or an empirical validation of CRA. It is a minimal executable demonstration that AEGIS/SAP clinical workflow actions can be represented as typed transition requests and adjudicated through a constitutional reachability gate before effect.
+This appendix **supersedes the earlier ORDR Minimal Reachability POC.** That earlier proof of concept demonstrated one bounded claim: that AEGIS/SAP workflow actions can be expressed as typed transition requests and adjudicated through a constitutional reachability gate before effect. That is typed transition adjudication before effect. It did **not** demonstrate substrate-issued continuation, replay governance, TaskLedger update, or a second ORSR cycle. Each adjudication in that POC terminated at the verdict; the loop did not close. The present appendix replaces it.
+
+The distinction the earlier POC could not show is the one that matters most for ORSR: **ORSR is a governed continuation loop, not a one-shot Submit/Resolve handoff.** Resolve does not merely return a verdict; it issues the next governed continuation state, and the next cycle may begin only from substrate-issued state. The agent may propose; the substrate resolves. The agent does not bind state, does not own task continuity, does not choose the next valid affordance set, and does not continue privately after a Hold, Escalate, or NonFormation. A favorable resolution must bind before it has causal force. A replay under unchanged pinned context is rejected; changed conditions may permit a new proposal.
+
+This appendix presents a representative excerpt of a local Python proof of concept that demonstrates the full loop:
+
+> Observe → Reason → Submit → Resolve → substrate-issued ContinuationState → next Observe
+
+**What this is:** a minimal executable design trace showing that ORSR is a governed continuation loop. **What it is not:** a production runtime, a full CTLC implementation, a full AEGIS clinical workflow, a MEC/L2 implementation, or empirical validation of the full CRC corpus. It uses in-memory stubs for unresolved corpus dependencies (enumerated at the end of this appendix). It introduces no PHI, no external tools, and no real clinical decisioning; the workflow tokens are abstract.
+
+**The single resolution chokepoint.** Every proposal enters `SubstrateRuntime.resolve`, and every outcome, favorable or not, leaves through the same `_finalize` path that issues a fresh substrate-owned `ContinuationState` and `AllowedNextAffordanceSet` and writes an `AdjudicationRecord` to the substrate-owned `TaskLedger`. The agent never writes the ledger, never mints a continuation, and never selects the next affordance set.
 
 ```python
-"""
-ORDR Minimal Reachability POC
-AEGIS Constitutional Governance Architecture
-Mac Studio, Local Python script
-
-ORDR = Observe → Reason → Decide → Request.
-It names the agent-side constitutional loop in which a decision becomes
-a typed transition request rather than an action.
-The Governance Runtime then performs the substrate-side Resolve step,
-completing the broader ORSR pattern.
-
-This POC models the ORDR agent-side handoff through typed request formation.
-The Governance Runtime stub implements a minimal Resolve step.
-This is not a full CTLC implementation, not a MEC/L2 implementation,
-and not empirical validation of the full CRA paradigm. It is a local
-reachability demonstrator for typed transition adjudication.
-
-POC Success Criteria:
-1. At least 8/10 real AEGIS/SAP workflow actions type cleanly
-2. Illegal transitions are caught
-3. Risk-bearing requests escalate
-4. Valid transitions emit with clear reason traces
-5. Artifact and transition request remain structurally distinct
-6. Local stub adjudication is effectively instant
-   (this does not predict production latency once graph lookup,
-   audit persistence, provenance reconstruction, and L2 telemetry exist)
-"""
-
-import time
-import uuid
-from dataclasses import dataclass, field
-from typing import Optional
-from enum import Enum
-
-# Stub constitution version (in production, pinned at CRA Assembly Step 1)
-CONSTITUTION_VERSION = "AEGIS-CRA-POC-v0.1"
-
-# ─────────────────────────────────────────────
-# CONSTITUTIONAL STATE SPACE
-# ─────────────────────────────────────────────
-
-LEGAL_TRANSITIONS = {
-    ("INTAKE_CONTEXT_CAPTURED",               "CLINICAL_FORMULATION_DRAFTED"),
-    ("CLINICAL_FORMULATION_DRAFTED",          "NOTE_DRAFT_READY"),
-    ("NOTE_DRAFT_READY",                      "SUBMITTED_FOR_GOVERNANCE_ADJUDICATION"),
-    ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "DECISION_QUEUE_ELIGIBLE"),
-    ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "HELD_FOR_CLINICAL_REVIEW"),
-    ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "ESCALATED_FOR_SOVEREIGN_REVIEW"),
-    ("DECISION_QUEUE_ELIGIBLE",               "NAFISAH_REVIEW"),
-    ("NAFISAH_REVIEW",                        "APPROVED_FOR_EXECUTION"),
-    ("APPROVED_FOR_EXECUTION",                "EXECUTED"),
-}
-
-# Standing classes and their authorized transition edges
-AUTHORITY_MAP = {
-    "mantis.clinical": {
-        ("INTAKE_CONTEXT_CAPTURED",               "CLINICAL_FORMULATION_DRAFTED"),
-        ("CLINICAL_FORMULATION_DRAFTED",          "NOTE_DRAFT_READY"),
-        ("NOTE_DRAFT_READY",                      "SUBMITTED_FOR_GOVERNANCE_ADJUDICATION"),
-    },
-    "governance.runtime": {
-        ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "DECISION_QUEUE_ELIGIBLE"),
-        ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "HELD_FOR_CLINICAL_REVIEW"),
-        ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "ESCALATED_FOR_SOVEREIGN_REVIEW"),
-        ("DECISION_QUEUE_ELIGIBLE",               "NAFISAH_REVIEW"),
-    },
-    "nafisah.sovereign": {
-        ("NAFISAH_REVIEW",                        "APPROVED_FOR_EXECUTION"),
-        ("APPROVED_FOR_EXECUTION",                "EXECUTED"),
-    },
-}
-
-# Claimed authority must match standing class (content cannot confer authority, I3)
-CLAIMED_AUTHORITY_MAP = {
-    "mantis.clinical": {
-        "clinical.formulation",
-        "clinical.note_drafting",
-        "clinical.submission",
-    },
-    "governance.runtime": {
-        "governance.adjudication",
-    },
-    "nafisah.sovereign": {
-        "nafisah.sovereign_approval",
-    },
-}
-
-# Risk signals that trigger ESCALATE inside Step 4 admissibility evaluation
-ESCALATION_SIGNALS = {
-    "HIGH_CLINICAL_RISK",
-    "MANDATORY_REPORTER_TRIGGER",
-    "SAFETY_CONCERN",
-    "BOUNDARY_VIOLATION_SUSPECTED",
-    "CLIENT_IMMEDIATE_DANGER",
-}
-
-# ─────────────────────────────────────────────
-# TYPED TRANSITION REQUEST SCHEMA
-# ─────────────────────────────────────────────
-
-@dataclass
-class TypedTransitionRequest:
-    """
-    The artifact Mantis produces is a cognitive product.
-    The typed transition request is a governance object.
-    These are distinct. The payload_summary carries the artifact reference.
-    The request itself is what the Governance Runtime adjudicates.
-    """
-    request_id:        str
-    requesting_agent:  str
-    from_state:        str
-    to_state:          str
-    claimed_authority: str
-    standing_class:    str
-    payload_type:      str         # e.g. CLINICAL_NOTE, FORMULATION, INTAKE_SUMMARY
-    payload_summary:   str         # human-readable description of the artifact
-    lineage_ref:       Optional[str]   # reference to prior request in chain
-    risk_signal:       Optional[str]   # None or one of ESCALATION_SIGNALS
-
-# ─────────────────────────────────────────────
-# ADJUDICATION OUTCOME
-# ─────────────────────────────────────────────
-
-class Outcome(Enum):
-    EMIT     = "EMIT"
-    HOLD     = "HOLD"
+class Outcome(str, Enum):
+    EMIT = "EMIT"  # Reserved for reachability-only traces; this POC binds favorable outcomes.
+    HOLD = "HOLD"
     ESCALATE = "ESCALATE"
+    NON_FORMATION = "NON_FORMATION"
+    BIND = "BIND"
+    REPLAY_REJECTED = "REPLAY_REJECTED"
+    PRIVATE_CONTINUATION_REJECTED = "PRIVATE_CONTINUATION_REJECTED"
 
-@dataclass
-class AdjudicationRecord:
-    request_id:           str
-    outcome:              Outcome
-    reason:               str
-    latency_ms:           float
-    from_state:           str
-    to_state:             str
-    requesting_agent:     str
-    constitution_version: str
 
-# ─────────────────────────────────────────────
-# GOVERNANCE RUNTIME STUB
-# ─────────────────────────────────────────────
+class SubstrateRuntime:
+    # Dataclasses (TransitionProposal, Resolution, ContinuationState, TaskLedger,
+    # BindingRecord, HoldRecord, NonFormationReceipt, PendingObligation,
+    # ReplayAdmissibilityRecord, AllowedNextAffordanceSet, AgentObservation) and
+    # the __init__ authority/provenance stubs are omitted here; see the full script.
 
-class GovernanceRuntime:
-    """
-    Receives typed transition requests.
-    Performs CRA Assembly against the Prior Graph (minimal stub).
-    Returns Emit, Escalate, or Hold with reason trace.
-
-    This is the single runtime adjudication point in the architecture.
-    It is not self-certifying: MEC/L2 monitors its adjudication traces
-    for drift, calibration displacement, and epistemic capture in later
-    build phases. This stub does not implement MEC monitoring.
-    """
-
-    def adjudicate(self, req: TypedTransitionRequest) -> AdjudicationRecord:
-        start = time.perf_counter()
-        outcome, reason = self._cra_assembly(req)
-        latency_ms = (time.perf_counter() - start) * 1000
-
-        return AdjudicationRecord(
-            request_id=req.request_id,
-            outcome=outcome,
-            reason=reason,
-            latency_ms=latency_ms,
-            from_state=req.from_state,
-            to_state=req.to_state,
-            requesting_agent=req.requesting_agent,
-            constitution_version=CONSTITUTION_VERSION,
-        )
-
-    def _cra_assembly(self, req: TypedTransitionRequest):
-        """
-        Constitutional Reachability Adjudication, minimal stub.
-
-        Canonical seven-step CRA Assembly order per §6 and
-        AEGIS CTLC Algorithmic Architecture Specification v0.1:
-
-        1. Pin constitution version
-        2. Resolve transition domain
-        3. Validate authority and standing
-        4. Check admissibility conditions (including risk signals)
-        5. Check grounding and lineage
-        6. Decide: Emit / Escalate / Hold
-        7. Trace verdict (handled by caller via AdjudicationRecord)
-
-        Risk signals are admissibility conditions evaluated in Step 4,
-        not pre-constitutional filters. Authority is validated in Step 3
-        before admissibility is evaluated in Step 4.
-        """
-
-        edge = (req.from_state, req.to_state)
-
-        # Step 1: Pin constitution version
-        # Stub: single implicit version (CONSTITUTION_VERSION constant).
-        # In production, read the pinned version from the Constitutional
-        # Substrate Graph at this point.
-
-        # Step 2: Resolve transition domain
-        if edge not in LEGAL_TRANSITIONS:
-            return (
-                Outcome.HOLD,
-                f"Domain resolution failed: {req.from_state} → {req.to_state} "
-                f"is not a legal edge in the constitutional state space. "
-                f"Transition blocked."
+    def resolve(self, proposal: TransitionProposal) -> ResolutionPackage:
+        # 1. Well-formedness. A malformed proposal never forms; it yields a
+        #    NonFormationReceipt, not a verdict on its merits.
+        if not self._proposal_has_required_fields(proposal):
+            return self._nonformation(
+                proposal, "ProposalWellFormed", "missing required proposal references"
             )
 
-        # Step 3: Validate authority and standing
-        # Check (a) standing class is authorized for this edge, and
-        # (b) claimed authority matches standing class (I3: content cannot confer authority).
-        authorized_edges = AUTHORITY_MAP.get(req.standing_class, set())
-        if edge not in authorized_edges:
-            return (
-                Outcome.HOLD,
-                f"Standing mismatch: '{req.standing_class}' is not authorized to "
-                f"request {req.from_state} → {req.to_state}. Blocked."
+        # 2. Continuation must reference the LATEST substrate-issued state.
+        #    An invented, stale, or private continuation reference is rejected.
+        continuation = self.continuation_states.get(proposal.continuation_state_ref or "")
+        if continuation is None or proposal.continuation_state_ref != self.ledger.latest_continuation_state_id:
+            return self._private_continuation_rejected(
+                proposal, "proposal continuation must reference latest substrate-issued state"
             )
-        valid_claims = CLAIMED_AUTHORITY_MAP.get(req.standing_class, set())
-        if req.claimed_authority not in valid_claims:
-            return (
-                Outcome.HOLD,
-                f"Authority claim invalid: '{req.claimed_authority}' does not match "
-                f"standing class '{req.standing_class}'. Content cannot confer authority. Blocked."
+        if proposal.cycle_id != continuation.cycle_id or proposal.prior_resolution_ref != continuation.prior_resolution_ref:
+            return self._private_continuation_rejected(
+                proposal, "proposal cycle/prior resolution do not match substrate-issued ContinuationState"
             )
 
-        # Step 4: Check admissibility conditions
-        # Risk signals are domain-specific admissibility conditions
-        # evaluated here, not pre-constitutional filters.
-        # If risk signal is present AND lineage is missing, escalate with
-        # trace-deficiency warning rather than suppressing the risk signal.
-        if req.risk_signal and req.risk_signal in ESCALATION_SIGNALS:
-            governance_transitions = {
-                ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "DECISION_QUEUE_ELIGIBLE"),
-                ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "HELD_FOR_CLINICAL_REVIEW"),
-                ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "ESCALATED_FOR_SOVEREIGN_REVIEW"),
-                ("DECISION_QUEUE_ELIGIBLE",               "NAFISAH_REVIEW"),
-                ("NAFISAH_REVIEW",                        "APPROVED_FOR_EXECUTION"),
-                ("APPROVED_FOR_EXECUTION",                "EXECUTED"),
-            }
-            if edge in governance_transitions and not req.lineage_ref:
-                return (
-                    Outcome.ESCALATE,
-                    f"Risk signal '{req.risk_signal}' requires escalation. "
-                    f"NOTE: lineage reference missing, escalating with constitutional "
-                    f"trace deficiency. Sovereign review required."
-                )
-            return (
-                Outcome.ESCALATE,
-                f"Admissibility condition: risk signal '{req.risk_signal}' triggers "
-                f"domain-specific escalation. Transition {req.from_state} → "
-                f"{req.to_state} escalated to Nafisah per clinical reachability constraints."
-            )
+        # 3. Replay: reject when the proposal signature AND all four pinned
+        #    frontiers are unchanged. Not proposal-ID equality; pinned context.
+        replay_context = self._pinned_context()
+        signature = self._proposal_signature(proposal)
+        previous = self._proposal_context_by_signature.get(signature)
+        if previous and previous[1] == replay_context:
+            return self._replay_rejected(proposal, previous[0], replay_context)
 
-        # Step 5: Check grounding and lineage
-        governance_transitions = {
-            ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "DECISION_QUEUE_ELIGIBLE"),
-            ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "HELD_FOR_CLINICAL_REVIEW"),
-            ("SUBMITTED_FOR_GOVERNANCE_ADJUDICATION", "ESCALATED_FOR_SOVEREIGN_REVIEW"),
-            ("DECISION_QUEUE_ELIGIBLE",               "NAFISAH_REVIEW"),
-            ("NAFISAH_REVIEW",                        "APPROVED_FOR_EXECUTION"),
-            ("APPROVED_FOR_EXECUTION",                "EXECUTED"),
-        }
-        if edge in governance_transitions and not req.lineage_ref:
-            return (
-                Outcome.HOLD,
-                f"Lineage check failed: lineage reference required for "
-                f"governance-layer transition {req.from_state} → {req.to_state}. "
-                f"Constitutional trace obligation unmet. Blocked."
-            )
+        # 4. Authority, then risk, then bind.
+        if not self._is_authorized(proposal):
+            package = self._hold(proposal, "Authorized",
+                                 "standing class or claimed authority does not authorize transition")
+        elif proposal.risk_signal == "sovereign_review_required":
+            package = self._escalate(proposal, "risk signal requires sovereign review")
+        else:
+            package = self._bind(proposal)
+        self._proposal_context_by_signature[signature] = (proposal.proposal_id, replay_context)
+        return package
 
-        # Step 6: Decide (all checks passed)
+    def _pinned_context(self) -> Tuple[str, str, str, str]:
+        # The four frontiers whose stability defines an inadmissible replay.
         return (
-            Outcome.EMIT,
-            f"Transition {req.from_state} → {req.to_state} is constitutionally "
-            f"reachable. Standing class '{req.standing_class}' authorized. "
-            f"Admissibility conditions satisfied. Lineage verified. Emitting."
+            self.ledger.current_state,
+            self.authority_context_ref,
+            self.domain_constitution_ref,
+            self.provenance_frontier_ref,
         )
 
-        # Step 7: Trace verdict
-        # Handled by GovernanceRuntime.adjudicate() via AdjudicationRecord,
-        # which includes constitution_version in every trace entry.
+    def _bind(self, proposal: TransitionProposal) -> ResolutionPackage:
+        resolution = Resolution(
+            resolution_id=self._id("res"), outcome=Outcome.BIND,
+            reason="proposal reachable; BindingRecord formed before state update",
+            proposal_id=proposal.proposal_id, cycle_id=proposal.cycle_id, task_id=proposal.task_id,
+        )
+        binding = BindingRecord(
+            binding_record_id=self._id("bind"), proposal_id=proposal.proposal_id,
+            from_state=proposal.from_state, to_state=proposal.to_state,
+            resolution_id=resolution.resolution_id, cycle_id=proposal.cycle_id,
+        )
+        resolution.binding_record_id = binding.binding_record_id
+        self.ledger.binding_records.append(binding)
+        # Binding is formed and recorded BEFORE the favorable outcome acquires
+        # causal force. Only now does substrate state advance.
+        self.ledger.current_state = proposal.to_state
+        return self._finalize(
+            resolution, affordances=["draft_note", "submit_for_review"],
+            affordance_reason="binding formed; ordinary next proposals allowed",
+            status=TaskStatus.IN_PROGRESS, binding_record=binding,
+        )
+
+    def _finalize(self, resolution, affordances, affordance_reason, status, **records):
+        # The one exit every outcome shares. It issues the next substrate-owned
+        # AllowedNextAffordanceSet and ContinuationState, advances the cycle,
+        # updates the ledger, and writes an AdjudicationRecord, on BIND, HOLD,
+        # ESCALATE, NON_FORMATION, REPLAY_REJECTED, and PRIVATE_CONTINUATION_REJECTED alike.
+        next_cycle_id = self._next_cycle_id()
+        allowed = self._create_affordances(next_cycle_id, affordances, affordance_reason)
+        continuation = self._create_continuation(
+            cycle_id=next_cycle_id, state_ref=self.ledger.current_state,
+            prior_resolution_ref=resolution.resolution_id,
+            allowed_next_affordance_set_id=allowed.affordance_set_id,
+        )
+        resolution.continuation_state_id = continuation.continuation_state_id
+        resolution.allowed_next_affordance_set_id = allowed.affordance_set_id
+        self.ledger.status = status
+        self.ledger.latest_resolution_id = resolution.resolution_id
+        self.ledger.adjudications.append(AdjudicationRecord(...))  # ledger write is substrate-owned
+        return ResolutionPackage(resolution, self.ledger, allowed, continuation, **records)
+
+    def observe_from_continuation(self, continuation_state_id: str) -> AgentObservation:
+        # The next Observe may begin only from the LATEST substrate-issued
+        # continuation. A stale continuation reference is rejected outright.
+        continuation = self.continuation_states.get(continuation_state_id)
+        if continuation is None or continuation_state_id != self.ledger.latest_continuation_state_id:
+            raise ValueError("next observe requires latest substrate-issued ContinuationState")
+        ...
 ```
 
-*Scenarios 1–10, output formatting, and the summary evaluation harness are omitted here for brevity. The complete script is available from the Professor Bone Lab repository.*
+**The trace.** The demonstrator issues one initial substrate-owned `AgentObservation`, then runs seven cycles. Each proposal is built from the substrate's latest continuation, so cycle *N+1* continues only from the continuation issued by cycle *N*'s resolution, so the loop is chained, not a set of independent one-shots. Every row below issues a new `ContinuationState`, a new `AllowedNextAffordanceSet`, and an `AdjudicationRecord`; the "Record" column names the outcome-specific subrecord.
+
+| Cycle | Scenario | Outcome | Outcome-specific record | Continuation issued | Next affordances (substrate-chosen) |
+|---|---|---|---|---|---|
+| 1 | Valid transition binds | `BIND` | `BindingRecord` bind-001 | cont-002 | draft_note, submit_for_review |
+| 2 | Unauthorized transition | `HOLD` | `HoldRecord` hold-001 | cont-003 | revise_proposal, request_authority_review |
+| 3 | Private continuation attempt | `PRIVATE_CONTINUATION_REJECTED` | none (state unchanged) | cont-004 | use_latest_substrate_continuation |
+| 4 | Unchanged replay | `REPLAY_REJECTED` | `ReplayAdmissibilityRecord` replay-001 | cont-005 | change_context_or_revise_proposal, request_authority_review |
+| 5 | Changed authority context | `BIND` | `BindingRecord` bind-002 | cont-006 | draft_note, submit_for_review |
+| 6 | Risk signal | `ESCALATE` | `PendingObligation` obl-001 | cont-007 | await_sovereign_review, submit_clarifying_evidence |
+| 7 | Malformed proposal | `NON_FORMATION` | `NonFormationReceipt` nf-001 | cont-008 | repair_proposal_schema |
+
+The loop then closes as it must: the next `Observe` (obs-002) is drawn from **cont-008, the substrate-issued continuation**, never from agent-invented state. Four doctrinal properties are visible in the trace and enforced in the tests:
+
+- **Binding before causal force.** In Cycle 1 the `BindingRecord` is formed and recorded before `current_state` advances (`_bind`). State never moves ahead of the binding that authorizes it.
+- **Private continuation is rejected, then corrected.** Cycle 3's proposal references an invented continuation; it is rejected, `current_state` is unchanged, and the substrate issues a *corrective* continuation (cont-004) pointing back to the real substrate state, not an authorization of the private attempt.
+- **Replay is caught by pinned context, not by identity.** Cycle 4 (`proposal-004`) is a distinct proposal ID but is rejected against `original_proposal_id proposal-001` because the signature and all four pinned frontiers (`state_ref`, `authority_context_ref`, `domain_constitution_ref`, `provenance_frontier_ref`) are unchanged. When one frontier moves (Cycle 5, after a sovereign authority-context update), the materially similar proposal is admitted and binds.
+- **Escalation creates an obligation.** Cycle 6 routes a risk signal to `ESCALATE` and opens a `PendingObligation` that persists across the following cycle.
+
+The accompanying test suite exercises all seven paths, including the well-formedness failure that produces the `NonFormationReceipt`, and asserts that every resolution updates the ledger and issues an affordance set and continuation.
+
+**Unresolved corpus dependencies (stubs).** The POC marks these explicitly in code and does not represent them as solved:
+
+- full DomainConstitution schema (a single pinned reference)
+- full authority graph (reduced to an in-memory authorization table)
+- full provenance frontier (a single pinned string)
+- full RequiredAffordanceSet (deterministic affordance lists)
+- full audit store (in-memory `AdjudicationRecord` objects)
+- full L2/MEC trajectory audits (not implemented)
+- full reconstitution grammar (an authority-context update)
+- effect-equivalence classes (exact proposal-signature comparison only)
+
+*The complete script (`appendix_a_full_orsr_loop_poc.py`) and its test suite (`test_appendix_a_full_orsr_loop_poc.py`) are available from the Professor Bone Lab repository. The excerpt above elides the dataclass definitions and the `_hold`, `_escalate`, `_nonformation`, `_private_continuation_rejected`, and `_replay_rejected` handlers for brevity; each routes through `_finalize` on the same terms as `_bind`.*
 
 ---
 
