@@ -150,20 +150,31 @@ core paper identifies but does not close.
   eight-primitive P_tool family, with an explicit four-part sovereign-terminal
   test applied to the two strongest candidates and neither found to qualify.
 
-- Constitutional Task Ledger: Task State, Continuation, and Terminal Criteria
-  in Governed Agentic Systems *(forthcoming)*
+- [Constitutional Task Ledger: Task State, Continuation, and Terminal Criteria
+  in Governed Agentic Systems](companions/constitutional-task-ledger-v1.1.md)
   Companion 8. Argues that task continuity cannot live in agent memory:
   Constitutional Standing v1.2 named ContinuationState, ContinuationIssued,
   TaskActive, and CycleCurrent as vocabulary without specifying the governed
-  task-state object they presuppose, and Constitutional Memory v2.2's Part
-  IV-A now depends on cycle closure and a Task Ledger carrying pending
-  obligations forward, without that Ledger existing anywhere in the corpus.
-  The agent does not own the task, does not decide what remains or when it
-  is complete, and does not carry task continuity in private reasoning; the
-  substrate owns task state, records progress, issues continuation, and
-  defines terminal criteria. See
-  [companions/constitutional-task-ledger-FORTHCOMING.md](companions/constitutional-task-ledger-FORTHCOMING.md)
-  for the fixed title, scope, and required reading.
+  task-state object they presuppose, and Constitutional Memory v2.2's cycle-
+  closure model depends on a Task Ledger carrying pending obligations forward
+  without that Ledger existing anywhere in the corpus. The agent does not own
+  the task, does not decide what remains or when it is complete, and does not
+  carry task continuity in private reasoning; the substrate owns task state,
+  records progress, issues continuation, and defines terminal criteria.
+  Contributions include the Constitutional Task Ledger Principle, seven
+  governed objects (TaskLedger, PendingObligation, CycleRecord, TerminalCriteria,
+  TaskClosureRecord, AllowedNextAffordanceSet, and a scaffolded
+  ReconstitutionRecord) with PendingObligation established as first-class
+  rather than a structured field, two independently evaluated predicates
+  (TaskContinuationReachable and TaskClosureValid) kept separate in the manner
+  of Constitutional Tools v1.1's own Emit and Admit separation, an obligation-
+  carrying table with a governing no-silence rule, and an eight-primitive
+  P_task family. Task-State False Stability (P_task8) is evaluated against
+  the corpus's own four-part sovereign-terminal test and conditionally
+  classified, given the current corpus's absence of a pinned
+  TaskResolutionPracticeContract or equivalent, as the corpus's fifth formally
+  named sovereign-terminal primitive, the opposite finding from Constitutional
+  Tools v1.1's own strongest candidates.
 
 ### Domain Applications
 
@@ -207,6 +218,7 @@ They remain part of the intellectual lineage of the series.
 7. Constitutional Thresholds v1.2 (companion 5)
 8. Constitutional Standing v1.2 (companion 6)
 9. Constitutional Tools v1.1 (companion 7)
-10. Apex Architecture Seed (domain application, short)
-11. Apex Build Specification v0.5 (domain application, full)
-12. The Knowledge Graph as Constitutional Substrate (historical lineage)
+10. Constitutional Task Ledger v1.1 (companion 8)
+11. Apex Architecture Seed (domain application, short)
+12. Apex Build Specification v0.5 (domain application, full)
+13. The Knowledge Graph as Constitutional Substrate (historical lineage)
