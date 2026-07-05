@@ -54,11 +54,14 @@ core paper identifies but does not close.
   (P_bnd). Logically prior to all subsequent companions. May be read immediately
   after the core paper.
 
-- [Constitutional Memory v2.1](companions/constitutional-memory-v2.1.md)
+- [Constitutional Memory v2.2](companions/constitutional-memory-v2.2.md)
   Companion 1. Argues that the substrate's authority over state transitions
   extends necessarily to memory. If the substrate owns the present transition,
   it must also own the record of past transitions and the conditions under
-  which they shape future ones.
+  which they shape future ones. v2.2 adds failure-derived learning and the
+  Constitutional Feedback Loop: a Hold may become a learning signal only
+  through a substrate-mediated LearningCandidate, never through private
+  agent reflection, overgeneralization, or learned bypass.
 
 - [Constitutional Retrieval: Memory View Issuance and Observe Construction
   in Governed Agentic Systems](companions/constitutional-retrieval-v1.2.md)
@@ -120,7 +123,7 @@ core paper identifies but does not close.
   touched but never organized into one pipeline, Formation, Standing,
   Reachability, Binding, and Continuation, none of which entails the others.
   FormationValid(π) and the NonFormationReceipt build on Constitutional
-  Boundary Contracts v1.0 and Constitutional Memory v2.1; BindingFormed(β) and
+  Boundary Contracts v1.0 and Constitutional Memory v2.2; BindingFormed(β) and
   the BindingRecord generalize §6a's HoldRecord pinning discipline from the
   Hold path to Emit and Escalate; ContinuationIssued and the ContinuationState
   close the private-continuation failure mode named directly in the parent's
@@ -131,7 +134,7 @@ core paper identifies but does not close.
 
 - [Constitutional Tools: Capability Invocation, External Effects, and
   Tool-Result Admission in Governed Agentic Systems](companions/constitutional-tools-v1.1.md)
-  Companion 7. Sits alongside Constitutional Memory v2.1 as the other major
+  Companion 7. Sits alongside Constitutional Memory v2.2 as the other major
   agent-capability surface ORSR cannot leave ungoverned. Argues that tool
   invocation is a constitutional transition surface, not a neutral capability
   call: if the substrate owns terminal execution authority, that authority
@@ -182,7 +185,7 @@ They remain part of the intellectual lineage of the series.
 
 1. Constitutional Runtime Computation v5.4 (core)
 2. Constitutional Boundary Contracts v1.0 (companion 0, foundational interface)
-3. Constitutional Memory v2.1 (companion 1)
+3. Constitutional Memory v2.2 (companion 1)
 4. Constitutional Retrieval v1.2 (companion 2)
 5. Constitutional Baselines v1.2 (companion 3)
 6. Constitutional Coherence v1.2 (companion 4)

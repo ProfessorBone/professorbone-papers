@@ -2,7 +2,7 @@
 
 ## Why Memory Governance Is a Constitutional Reachability Problem
 
-### v2.1 Conceptual Architecture Paper, companion to Constitutional Runtime Computation v5.4
+### v2.2 Conceptual Architecture Paper, companion to Constitutional Runtime Computation v5.4
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 
@@ -14,7 +14,7 @@ The parent paper, Constitutional Runtime Computation v5.4, matures the agentic l
 
 This is the next stage in the maturation of an existing architecture, not a new one. The parent established that the substrate owns the present transition. This paper establishes that the substrate owns the record of past transitions and the conditions under which past transitions condition future ones. A substrate that governs the present moment but not the memory feeding the next moment is constitutionally incomplete. Closing that gap is what it means for the substrate to mature.
 
-The contribution is fourfold. First, the Memory Sovereignty Principle: an explicit constitutional-necessity argument that any component unilaterally determining what persists across cycles, or what memory is issued into Observe, holds causal authority over future reachable transitions, which under ORSR no agent may hold. Second, MemoryOperationReachable: a general predicate over memory operations, built on an explicit operation typology (store-mutating, observation-shaping, store-removing, schema-changing, aggregate-governance) with per-class conjunct families, replacing the write-biased single predicate of the prior version. Third, five primitive failure topologies specific to memory, extending the P architecture, with P_mem5 (constitutional drift through accumulated writes) traced end-to-end. Fourth, the Memory Governance Boundary specified as a stateful constitutional object with a defined cycle-closure model. AEGIS serves as the worked domain throughout. Nafisah remains the sovereign principal. Mantis remains the clinical reasoning agent. MEC remains the L2 drift monitor.
+The contribution is fivefold. First, the Memory Sovereignty Principle: an explicit constitutional-necessity argument that any component unilaterally determining what persists across cycles, or what memory is issued into Observe, holds causal authority over future reachable transitions, which under ORSR no agent may hold. Second, MemoryOperationReachable: a general predicate over memory operations, built on an explicit operation typology (store-mutating, observation-shaping, store-removing, schema-changing, aggregate-governance) with per-class conjunct families, replacing the write-biased single predicate of the prior version. Third, eight primitive failure topologies specific to memory, extending the P architecture, with P_mem5 (constitutional drift through accumulated writes) traced end-to-end and three further primitives (P_mem6 through P_mem8) governing unauthorized, overgeneralized, and bypass-learned feedback. Fourth, the Memory Governance Boundary specified as a stateful constitutional object with a defined cycle-closure model. Fifth, failure-derived learning specified as a governed memory operation: a Hold may become a learning signal only through a substrate-mediated LearningCandidate and FailureLearningReachable, with a FeedbackObservation carrying scoped correction into the next cycle, preventing private agent reflection, overgeneralization, and bypass learning from acquiring durable causal force. AEGIS serves as the worked domain throughout. Nafisah remains the sovereign principal. Mantis remains the clinical reasoning agent. MEC remains the L2 drift monitor.
 
 ---
 
@@ -24,8 +24,9 @@ The contribution is fourfold. First, the Memory Sovereignty Principle: an explic
 **Part II** The memory taxonomy and its constitutional implications
 **Part III** The Constitutional Memory Predicate (MemoryOperationReachable)
 **Part IV** The Memory Governance Boundary as a stateful object
+**Part IV-A** Failure-derived learning and the Constitutional Feedback Loop
 **Part V** Primitive failure topologies specific to memory
-**Part VI** Worked example: a long-term memory write in AEGIS
+**Part VI** Worked examples: long-term memory write and failure-derived learning in AEGIS
 **Part VII** Who governs memory?
 **Part VIII** Related work
 **Open problems** (memory-specific, extending the four in the parent's Section 19)
@@ -97,7 +98,7 @@ The agent may not write to episodic memory, because write is an action. A summar
 
 Long-term memory is what persists across tasks, sessions, and the lifecycle of the system. In AEGIS this is client history, prior evaluations, and established clinical patterns. It is the highest-stakes store, because contamination here does not stay local. It propagates through every future cycle that retrieves from it.
 
-This tier is where the Reflexion-Drift Collapse lives. The companion paper of that name establishes that when an agent learns from a drifted governance signal, the learning loop amplifies the drift into territory where correction may become infeasible, and the mechanism of amplification is memory: drifted feedback is committed to an episodic store and injected into the next reasoning cycle. When agent decisions shape writes, and writes shape future decisions, the feedback loop producing false stability runs directly through long-term memory. Under ORSR this loop must be broken at the write boundary. The substrate authorizes writes. The Reflexion-Drift Collapse paper derives a sequencing requirement, that the monitor must precede the learning loop. The present paper supplies the structural complement: even with the monitor in place, the write itself must pass the substrate, because the write is the point at which drift becomes durable.
+This tier is where the Reflexion-Drift Collapse pattern lives: when an agent learns from a drifted governance signal, the learning loop amplifies the drift into territory where correction may become infeasible, and the mechanism of amplification is memory: drifted feedback is committed to an episodic store and injected into the next reasoning cycle. When agent decisions shape writes, and writes shape future decisions, the feedback loop producing false stability runs directly through long-term memory. Under ORSR this loop must be broken at the write boundary. The substrate authorizes writes. The Reflexion-Drift Collapse argument, developed elsewhere in the corpus, derives a sequencing requirement, that the monitor must precede the learning loop. The present paper supplies the structural complement: even with the monitor in place, the write itself must pass the substrate, because the write is the point at which drift becomes durable.
 
 ## Semantic/conceptual memory
 
@@ -355,11 +356,217 @@ flowchart TB
 
 The boundary does not prohibit learning. Calibration, clinical pattern recognition, and parameter updates enter through the gate the same way any authorized transition enters. Authorized learning is constitutionally reachable. Unauthorized accumulation of bias is not. A clinical pattern that traces to recorded cycle events, governs its uncertainty transformation, and is authorized for the long-term tier crosses the boundary and becomes durable learning. A drifted salience that accumulated through use, traces to no authorized event, and collapsed uncertainty along the way is held. The substrate is not the enemy of learning. It is the gate that distinguishes learning from contamination, and that distinction is the constitutional surface.
 
+The gate just described governs learning whose source is a completed cycle event, a write, a promotion, a view. Part IV-A extends the same gate to a source the corpus has not yet named: a cycle event that did not succeed.
+
+---
+
+# Part IV-A. Failure-Derived Learning and the Constitutional Feedback Loop
+
+## IV-A.1 The new failure surface: learning from refusal
+
+A governed agent must be able to learn from a failed proposal, or the substrate produces a system that repeats the same held request indefinitely. But if the agent can unilaterally convert a Hold into durable memory, policy, or future behavior, the agent regains exactly the sovereignty over its own learning loop that ORSR was built to remove. CRC v5.4 gives the substrate the HoldRecord: an immutable, queryable, non-replay reference naming why a transition failed. This paper's own Part III gives the substrate the memory operation machinery: a typed predicate governing what may persist, be issued, be promoted, or be removed. Between them sits an unclosed surface. Neither paper specifies how a refusal event becomes a learning signal, and an unspecified surface is, by the same argument Part I makes for memory generally, a surface an agent will fill unilaterally if nothing else fills it first.
+
+The core thesis of this Part is narrow and should not be softened: a held transition may become a learning signal only through a substrate-mediated memory operation. Sharpened into four clauses: the agent may observe the HoldRecord; the agent may reason over substrate-issued feedback; the agent may submit a corrected proposal; the agent may not unilaterally write the lesson of a Hold into durable memory, future standing policy, semantic doctrine, or private behavioral state. This is not a new principle. It is the Memory Sovereignty Principle (Part I), applied to a source of memory content the rest of this paper has not yet named: not an event that happened, but an event that failed to happen. Any component that determines what persists across cycles, or what is issued into Observe, holds causal authority over future reachable transitions, whether the content in question is a confirmed clinical pattern or a lesson about why a proposal did not bind. The Principle does not distinguish by source. This Part closes the gap where the corpus, until now, implicitly did.
+
+Three distinct risks motivate treating this as its own governed surface rather than an incidental case of an ordinary write.
+
+**Private correction risk.** The agent privately updates its own strategy in response to a Hold, without the update ever crossing the Memory Governance Boundary (Part IV) as a typed, adjudicated operation. Whatever the update is called, internal reflection, working notes, a revised heuristic, if it conditions the agent's next proposal and the substrate never adjudicated it, it is an unauthorized memory operation wearing a different name.
+
+**Overgeneralization risk.** The agent learns a broader rule than the Hold actually supports. A Hold that fails because no authority route exists from the current runtime state supports a narrow lesson about that state and that route. It does not support the much broader lesson that the entire class of proposal is forbidden. A system that generalizes every authority failure into a standing prohibition degrades its own reachable behavior more than the Hold required, and it does so silently, because the overgeneralized rule looks exactly like caution.
+
+**Bypass learning risk.** The agent learns not how to comply with the Hold but how to route around it, achieving the same target effect through a different transition type the Hold's own admissibility conditions were never evaluated against. This is the memory-mediated instance of the non-bypassability problem CRC v5.4 section 6a and Constitutional Tools' P_tool2 both name for other surfaces, and it recurs here in a new form: not a differently registered tool, but a differently shaped proposal, learned from the very refusal meant to prevent it.
+
+A useful concrete case, carried through this Part and returned to in the worked example (Part VI): Mantis submits a typed request to initiate a mandated-reporting workflow directly. L1 evaluates Resolvable and Grounded as holding, Admissible as holding or routeable, and Authorized as failing, because no authority route exists from the current runtime state and standing. The correct lesson is narrow: this request cannot be made from this standing and this state. Two wrong lessons compete for the agent's attention. The overgeneralized wrong lesson is never submit this kind of proposal. The bypass wrong lesson is try a different transition type to reach the same effect. Neither is what the Hold actually supports, and neither should be reachable through any path this paper leaves open.
+
+## IV-A.2 The Constitutional Feedback Loop
+
+Two process models are available once a Hold occurs, and only one of them is constitutional.
+
+The unconstitutional loop is short: the agent proposes, the substrate Holds, the agent writes a private reflection, the agent uses the reflection on the next attempt. Every step after the Hold happens outside substrate mediation. This is not a hypothetical failure mode. It is the default behavior of most agentic systems' native retry and self-correction loops, and it is precisely the loop CRC v5.4's own migration was built to close for action. It has simply never been closed for learning.
+
+The governed loop, the **Constitutional Feedback Loop**, routes every step through substrate adjudication: the agent proposes; the substrate Holds; a HoldRecord is written; the substrate derives or admits a **LearningCandidate** (Part IV-A.3); the LearningCandidate is evaluated as a memory operation under **FailureLearningReachable** (Part IV-A.4); an authorized lesson, if any, is written, scoped, or issued; the next AgentObservation carries substrate-issued feedback; the agent submits a corrected proposal grounded in that feedback rather than in private reflection.
+
+The Constitutional Feedback Loop is the general name for this substrate-mediated learning process. This version formalizes exactly one instance of it in full: the **Held Transition Learning Loop**, where the triggering event is a HoldRecord. Other adjudication outcomes could, in principle, seed a similar learning process (a declined escalation, a failed tool-result admission, an evaluation failure), but this version does not define a generalized adjudication-failure source object to cover them, and FailureLearningReachable's own SourceHoldValid conjunct (Part IV-A.4) is deliberately Hold-specific rather than written against a broader class. Extending the loop to other sources is named as future work in the open problems, not attempted here. The Hold is the outcome this Part specifies because it is the outcome the corpus already instruments most completely, through section 6a's pinned-reference apparatus.
+
+**Figure 4. The Constitutional Feedback Loop**
+
+```mermaid
+flowchart TB
+    SUBMIT["Agent submits\nTransitionProposal tau"]
+    HOLDV["L1 returns Hold(cause)"]
+    HR["HoldRecord written\nimmutable, queryable,\nnon-replay reference"]
+    LC["LearningCandidate\nderived or proposed"]
+    MOR["FailureLearningReachable(lambda)\n+ base ClassFamily"]
+    WRITE["Authorized learning write,\nview, or affordance update"]
+    OBS["Substrate-issued AgentObservation\nfeedback + allowed_next_affordances"]
+    NEXT["Corrected next proposal"]
+    AUTH["Sovereign review"]
+    NOLEARN["No durable learning admitted"]
+
+    SUBMIT --> HOLDV --> HR --> LC --> MOR
+    MOR -->|"Emit"| WRITE --> OBS --> NEXT
+    MOR -->|"Escalate"| AUTH --> WRITE
+    MOR -->|"Hold"| NOLEARN --> OBS
+
+    style HR fill:#EEEDFE,stroke:#534AB7,color:#26215C
+    style MOR fill:#EEEDFE,stroke:#534AB7,color:#26215C
+    style WRITE fill:#EAF3DE,stroke:#3B6D11,color:#173404
+    style AUTH fill:#FAEEDA,stroke:#BA7517,color:#412402
+    style NOLEARN fill:#FCEBEB,stroke:#A32D2D,color:#501313
+```
+
+*Even a Hold on the LearningCandidate itself, no durable learning admitted, still issues an AgentObservation. The absence of a durable lesson is not the absence of feedback; the agent still learns, through the next observation, that this particular attempt to convert the Hold into a lesson did not clear the gate, which is itself useful signal, delivered the constitutional way rather than withheld.*
+
+## IV-A.3 LearningCandidate
+
+A **LearningCandidate** is not the same object as a HoldRecord, and the distinction is the one doctrinal point this section must not blur. The HoldRecord records a fact: this proposal did not form or bind. The LearningCandidate proposes a further claim: this failure may teach a future-facing lesson. The first is CRC v5.4's own object, already immutable and pinned. The second is new here, and it is new precisely because nothing in the corpus so far has needed to typify the step between a recorded failure and a durable consequence of that failure.
+
+**Definition.** A LearningCandidate is a typed proposal to convert a prior adjudication failure into a scoped memory, affordance, or observation-shaping rule.
+
+A LearningCandidate carries: `learning_candidate_id`, `source_hold_ref` (the HoldRecord this candidate derives from), `source_transition_ref` (the original TransitionProposal that held), `failed_conjunct` (Resolvable, Authorized, Admissible, or Grounded), `failure_class` (a typed subtype: `no_authority_route`, `missing_provenance`, `untyped_transition`, `uncertainty_exceeds_tolerance`, or a domain-declared extension of this set), `proposed_lesson` (the lesson that may be issued or written), `lesson_scope` (the narrow domain in which the lesson is valid), `lesson_type` (local correction, procedural rule, authority-route lesson, grounding lesson, domain-admissibility lesson, or semantic/doctrinal lesson), `target_memory_tier` (working, episodic, long-term, semantic, or none), `target_principal` (which agent, role, task, or domain may receive the lesson), `base_memory_operation_ref` (which base operation class, Part III, this learning operation instantiates as: observation-shaping, store-mutating, schema-changing, or aggregate-governance), `authority_requirement` (the authority level this specific lesson demands, since long-term and semantic feedback do not carry the same authority burden as working-memory feedback), `overgeneralization_risk` and `bypass_risk` (explicit audit-facing risk fields, not merely implicit predicate judgments, naming what OvergeneralizationControlled and BypassLearningBlocked will evaluate), `future_affordance_effect` (whether this lesson changes `allowed_next_affordances`, proposal templates, retrieval filters, or nothing durable), `expiry_or_review_condition` (when the lesson expires or must be reviewed), `source_context_refs` (the `state_ref`, `authority_context_ref`, `domain_constitution_ref`, `provenance_frontier_ref`, and `cycle_id` carried forward from the source Hold, the same pinned context HoldContextPinned requires the Hold itself to carry), and `audit_ref`. First-pass review correctly identifies that the original field list let the predicate demand more than the object carried; `base_memory_operation_ref`, `authority_requirement`, `overgeneralization_risk`, `bypass_risk`, and `source_context_refs` close that gap.
+
+**The key invariant.** A LearningCandidate must not be broader than the failure that produced it. This single sentence is the seed of LessonScoped (Part IV-A.4) and the doctrinal core of overgeneralization control (Part IV-A.1): every other conjunct in FailureLearningReachable exists either to verify this invariant directly or to bound what kind of lesson, at what tier, for whom, could possibly satisfy it.
+
+## IV-A.4 Failure-derived learning as a memory operation
+
+Failure-derived learning must plug into Part III's MemoryOperationReachable rather than sit beside it as an unrelated apparatus, for the same reason every other addition in this corpus reuses rather than reinvents: a LearningCandidate that becomes durable does so by writing memory, issuing an observation, or, in the rare doctrinal case, changing the schema, and each of those is already a governed operation class. The addition here is not a sixth operation class. It is a source-specific subtype, **FailureDerivedLearningOperation**, that may instantiate as observation-shaping, store-mutating, schema-changing, or aggregate-governance depending on what the lesson changes. Feedback issued into the next cycle's Observe is observation-shaping. A durable procedural lesson written to long-term memory is store-mutating. A generalized doctrinal concept is schema-changing. A pattern noticed across many Holds is aggregate-governance. The subtype does not bloat the taxonomy; it names where a failure-derived operation's content came from, on top of the existing class the operation instantiates as.
+
+Concretely, a FailureDerivedLearningOperation is constitutionally reachable if and only if it satisfies both the base class family its instantiation requires (Part III) and the following cross-cutting predicate, evaluated in addition:
+
+```
+FailureLearningReachable(λ) ⟺
+  SourceHoldValid(λ)              ∧
+  LessonScoped(λ)                 ∧
+  FailureClassMatched(λ)          ∧
+  TierTargetAdmissible(λ)         ∧
+  OvergeneralizationControlled(λ) ∧
+  BypassLearningBlocked(λ)        ∧
+  FutureAffordanceBounded(λ)      ∧
+  AuditLinked(λ)
+```
+
+**SourceHoldValid(λ):**
+
+```
+SourceHoldValid(λ) ⟺
+  λ.source_hold_ref ∈ HoldRecord
+  ∧ Immutable(λ.source_hold_ref)
+  ∧ IndependentlyQueryable(λ.source_hold_ref)
+  ∧ HoldCauseTyped(λ.source_hold_ref)
+  ∧ HoldContextPinned(λ.source_hold_ref)
+  ∧ HoldNotSupersededOrLessonTemporalized(λ)
+```
+
+The learning must trace to an actual recorded Hold, immutable and independently queryable exactly as section 6a's own pinned-reference schema already requires, not to the agent's private memory of a failure. An agent's own account of why a prior attempt failed is not a source. Only the substrate's own record is. First-pass review correctly identifies that existence, immutability, and queryability prove the Hold is real without proving enough about the Hold to support scoped learning, so three further conjuncts are added.
+
+**HoldCauseTyped:** the HoldRecord contains a typed `failed_conjunct` and a typed cause, not a free-text explanation. LessonScoped (below) and FailureClassMatched cannot be evaluated against an untyped cause.
+
+**HoldContextPinned:** the HoldRecord includes the pinned context needed to scope the lesson: `state_ref`, `authority_context_ref`, `domain_constitution_ref`, `provenance_frontier_ref`, `constitution_version`, and `cycle_id`. Without this context pinned at the Hold itself, LessonScoped has nothing concrete to bound the lesson's scope against.
+
+**HoldNotSupersededOrLessonTemporalized:** if the Hold has since been superseded by changed state or authority context, the proposed lesson is marked as historical, scoped to the old context, rather than treated as a current procedural rule. A Hold can still teach a historical lesson after the state changes, an authority route that did not exist last month is worth recording as having not existed then, but it should not automatically teach a current rule once the authority context has moved, since the failure that produced it may no longer describe the present state at all.
+
+**LessonScoped(λ):**
+
+```
+LessonScoped(λ) ⟺
+  scope(λ.proposed_lesson) ⊆
+  scope(
+    λ.source_hold_ref.failed_conjunct,
+    λ.source_hold_ref.cause,
+    λ.source_hold_ref.state_ref,
+    λ.source_hold_ref.authority_context_ref,
+    λ.source_hold_ref.domain_constitution_ref,
+    λ.source_hold_ref.cycle_id
+  )
+```
+
+The lesson cannot exceed what the failure supports. This is the key invariant of Part IV-A.3 made mechanically checkable. First-pass review correctly identifies that a bare cause field is not, by itself, a clean scope object to check against, since a Hold's cause may be a short label without the surrounding context needed to bound a lesson. The scope of a Hold-derived lesson is therefore derived from the failed conjunct, the cause, and the pinned context HoldContextPinned already requires, state, authority context, domain constitution, and cycle, not from the cause field alone. A proposed lesson whose scope is a subset of the cause but reaches beyond the pinned state or authority context under which the Hold occurred still fails this conjunct.
+
+**FailureClassMatched(λ).** The lesson must match the conjunct that actually failed, not a conjunct the agent finds more convenient to have failed. A Resolvable failure licenses a lesson about transition typing or the allowed forms a proposal may take. An Authorized failure licenses a lesson about authority path, standing, or escalation, never about content or clinical doctrine. An Admissible failure licenses a lesson about a domain condition, a missing prerequisite, or the need for sovereign review, never a lesson that treats the domain condition as optional friction to route around. A Grounded failure licenses a lesson about provenance, citation, retrieval, or evidence reconstruction, never an authority lesson. A Grounded failure cannot produce an authority lesson, and an Authorized failure cannot produce a clinical doctrine lesson unless the lesson is separately escalated and cleared as its own operation, because the failed conjunct is the only evidence the substrate has for what the failure was actually about, and a lesson that migrates to a different conjunct than the one that failed has stopped being derived from the Hold at all.
+
+**TierTargetAdmissible(λ).** The target tier must match the lesson's risk, following the same tier-admissibility discipline TierAdmissible already applies to ordinary writes (Part III), with the correspondence made explicit for feedback: working memory admits an immediate correction scoped to the current cycle; episodic memory admits the factual history of the failed proposal itself; long-term memory admits a stable procedural lesson intended to condition proposals across cycles; semantic memory admits a doctrine-like conceptual lesson and carries the highest authority requirement of the four, because a concept, once written, conditions every future interpretation of every future Hold in its domain.
+
+**OvergeneralizationControlled(λ).** The lesson does not exceed a bound narrower than mere scope-inclusion: LessonScoped checks that the lesson's declared scope is a subset of the Hold's cause, while OvergeneralizationControlled checks the lesson's actual content against that declared scope, since a lesson can declare a narrow scope while its wording still reads as a broad prohibition. Never submit mandated-reporting-related proposals is an overgeneralized lesson regardless of what scope field it claims. Do not request direct workflow initiation from clinical reasoning standing when sovereign authorization is required is scoped to the standing, the action, and the authorization condition that actually failed, and is the form OvergeneralizationControlled requires.
+
+**BypassLearningBlocked(λ).** The lesson does not teach a route-around. This conjunct is this Part's own instance of the non-bypassability doctrine CRC v5.4 section 6a establishes and Constitutional Tools' P_tool2 already extends to tool-mediated effects: a lesson that reads, in substance, as submit the same effect as a lower-risk transition type is a bypass lesson and fails this conjunct regardless of how it is phrased, while a lesson that reads use the escalation affordance named by the substrate directs the agent back into the governed loop rather than around it. Section 6a's own effect-equivalence classes, the mapping from proposed effects to the admissibility conditions that govern them independent of type, are the mechanism this conjunct reuses rather than re-derives: a proposed_lesson whose content would route a future proposal into a different effect-equivalence-class member of the same held effect fails BypassLearningBlocked exactly as an emitted proposal in the same class would fail section 6a's own non-bypassability invariant.
+
+**FutureAffordanceBounded(λ).** The learning may only affect future behavior through substrate-issued affordances. It cannot privately alter the agent's available actions. Concretely: the lesson may narrow, annotate, or recommend within `allowed_next_affordances`; it may not create a new affordance the substrate has not itself issued; and it may not authorize an effect a prior Hold already held, which would collapse this conjunct into the very bypass BypassLearningBlocked exists to prevent.
+
+**AuditLinked(λ).** Every durable lesson points back to `source_hold_ref`, `memory_operation_ref`, `resolution_ref`, `constitution_version`, and `target_memory_tier`, exactly as any other store-mutating or observation-shaping operation must under Part III's own auditability requirement (Part VII), extended here to include the Hold the lesson derives from as a first-class audit field rather than an incidental note.
+
+**Verdict composition.** FailureDerivedLearningOperation composes FailureLearningReachable(λ) with the base class family's own verdict structure (Part III): Emit when both the base family and FailureLearningReachable hold and the operation is ExecutableByRequester; Escalate when both hold but SovereignAuthorizationRequired; Hold when either the base family or FailureLearningReachable fails on any conjunct. No new verdict vocabulary is introduced.
+
+## IV-A.5 Classifying feedback by memory tier
+
+| Memory tier | What a Hold may become | Authority level | Risk |
+|---|---|---|---|
+| Working memory | Immediate correction in the next AgentObservation | Substrate, usually L1 | Low |
+| Episodic memory | Record of the specific failed proposal and its HoldRecord | Automatic substrate trace | Low to medium |
+| Long-term memory | Durable procedural lesson or pattern | Escalation or pre-authorized class | Medium to high |
+| Semantic memory | Generalized doctrine-like concept | Sovereign or reconstitution | High |
+| Aggregate memory | Repeated failure pattern across many Holds | L2 monitoring plus sovereign review | High |
+
+**Working memory feedback** is the safest form and requires no durable learning at all. A Hold whose cause is an authority failure can issue, in the very next AgentObservation, a corrected set of allowed next affordances (request escalation, narrow the proposal, ask for authority clarification) without writing anything to any store. This is simply the substrate issuing corrected continuation state, in the sense Constitutional Standing's own ContinuationIssued already establishes for every verdict, Hold included.
+
+**Episodic memory feedback** makes the HoldRecord itself part of the episodic record, supporting later audit and retrieval. A future cycle can receive a substrate-issued view (never a direct retrieval) stating that, in prior cycles, similar direct workflow-initiation proposals were held for authority failure. This is an ordinary observation-shaping operation under Part III; the only thing new here is that its content originates in a Hold rather than in a completed transition.
+
+**Long-term procedural learning** is where the agent learns a stable rule intended to condition proposals across cycles, for example that clinical reasoning standing may propose escalation for a mandated-reporting workflow but may not request direct execution. Because this lesson will condition every future proposal in its scope, it requires escalation or pre-authorization under the same discipline Part III already applies to any long-term write.
+
+**Semantic learning** is doctrine-like and carries the highest bar. A lesson such as authority failure is distinct from content error might be a safe general architectural principle, but written into a clinical system's semantic memory it becomes conceptual doctrine, and conceptual doctrine is exactly what Part III's schema-changing class reserves for sovereign authorization or a reconstitution event. Semantic-tier feedback is never admissible as an ordinary write.
+
+**Aggregate feedback** is not, properly speaking, a lesson for the agent at all. If many Holds accumulate for the same cause, what the system may learn is that its own proposal templates are misleading agents into authority failures, a system-design signal for L2 monitoring or reconstitution rather than an agent-facing lesson. This is the bridge from this Part to P_mem7 below and, further out, to Part V's existing P_mem5.
+
+## IV-A.6 The Continuation Feedback Object
+
+The agent learns first through the next observation, not through a direct memory write. This is not a stylistic preference. It is the same discipline Constitutional Standing already applies to every verdict: a Hold, an Escalate, and an Emit alike issue a ContinuationState, and this Part's own feedback object is the specialization of that discipline for a Hold whose cause may become a lesson.
+
+A **FeedbackObservation** carries: `feedback_observation_id`, `prior_hold_ref`, `learning_candidate_ref` (which LearningCandidate, if any, this feedback derives from; may be null for working-memory-only feedback that never rose to a durable candidate), `continuation_state_ref` (tying this object to Constitutional Standing's own ContinuationState rather than leaving the relationship implicit), `issued_in_cycle`, `failure_summary`, `failed_conjunct`, `correction_scope`, `allowed_next_affordances`, `prohibited_replay_notice`, `required_state_change_for_resubmission`, `valid_escalation_routes`, `memory_view_refs`, `expiry`, `issued_by` (the substrate component or L1 instance that issued the object), and `created_at`. First-pass review correctly identifies that the original field list specified the feedback content well but left the object under-specified as a record in its own right; `feedback_observation_id`, `learning_candidate_ref`, `continuation_state_ref`, `issued_in_cycle`, `issued_by`, and `created_at` tie it cleanly to the LearningCandidate that may have produced it and to Standing's own continuation object, rather than leaving those relationships to be inferred.
+
+Example, continuing the case from Part IV-A.1:
+
+```
+feedback_observation_id: FO-0091
+prior_hold_ref: HOLD-014
+learning_candidate_ref: LC-0037
+continuation_state_ref: CONT-2291
+issued_in_cycle: CYCLE-4482
+failed_conjunct: Authorized
+failure_summary: current standing does not permit direct external
+  workflow initiation
+correction_scope: current task, mandated-reporting workflow
+allowed_next_affordances:
+  - submit escalation request to Nafisah
+  - submit clinical summary without workflow initiation
+  - request authority-route clarification
+prohibited_replay_notice: identical resubmission will reference HOLD-014
+required_state_change_for_resubmission: sovereign authorization or
+  changed authority context
+issued_by: L1
+created_at: 2026-07-04T00:00:00Z
+```
+
+This object ties together four things the corpus has so far specified separately: CRC v5.4's HoldRecord, Constitutional Boundary Contracts' AgentObservation, this paper's own observation-shaping family (Part III), and Constitutional Standing's continuation doctrine. It is deliberately not a new kind of object at the architectural level, only a scoped instance of AgentObservation carrying a specific, typed payload.
+
+**Important rule.** A FeedbackObservation is not a durable memory write unless separately admitted as one. It is, by default, an observation-shaping operation, and its content becomes durable only if a LearningCandidate derived from the same HoldRecord separately clears FailureLearningReachable at a durable tier. Issuing corrected continuation state and writing a durable lesson are, once again, two independent constitutional events, in the same pattern this corpus now applies consistently across surfaces: Constitutional Standing separates verdict from binding from continuation; Constitutional Tools separates invocation emission from result admission; this Part separates issuing feedback from writing a lesson.
+
+## IV-A.7 Failure-type learning matrix
+
+| Failed conjunct | What the agent may learn | What it may not learn | Likely tier |
+|---|---|---|---|
+| Resolvable | Use typed transition forms | Invent a new transition route | Working / episodic |
+| Authorized | Request the correct authority path | Bypass by retyping the effect | Working / long-term procedural |
+| Admissible | Satisfy the missing domain condition | Treat the domain condition as optional friction | Working / episodic / long-term |
+| Grounded | Add provenance before resubmission | Fabricate or infer the missing support | Working / episodic |
+| Replay detected | State must change before retry | Retry until accepted | Working |
+| Cross-type bypass detected | Effect identity controls admissibility | Shop transition types | Episodic / long-term procedural |
+
+This table is the operational face of the doctrine above: for any Hold, the failed conjunct alone bounds the space of permissible lessons, before FailureLearningReachable is even evaluated.
+
 ---
 
 # Part V. Primitive Failure Topologies Specific to Memory
 
-The parent's P architecture decomposes each constitutional stability domain into primitives, the smallest independently governable failure mechanisms. The memory primitives below are new P objects, unified by their locus, the memory substrate, and cross-cutting the parent's Q domains: P_mem1 is a sovereignty failure (Q2), P_mem4 is an uncertainty-admissibility failure (Q4), and P_mem5 is an iterative-governance-integrity failure (Q6), the memory-specific instance of false stability. P_mem5 is traced end-to-end, as the parent traces Q6 P3.
+The parent's P architecture decomposes each constitutional stability domain into primitives, the smallest independently governable failure mechanisms. The memory primitives below are new P objects, unified by their locus, the memory substrate, and cross-cutting the parent's Q domains: P_mem1 is a sovereignty failure (Q2), P_mem4 is an uncertainty-admissibility failure (Q4), and P_mem5 is an iterative-governance-integrity failure (Q6), the memory-specific instance of false stability. P_mem5 is traced end-to-end, as the parent traces Q6 P3. P_mem6 through P_mem8, added in this version, govern the failure-derived learning surface Part IV-A specifies: P_mem6 is a sovereignty failure (Q2), continuous with P_mem1; P_mem7 is an iterative-governance-integrity failure (Q6), continuous with P_mem5; P_mem8 combines sovereignty (Q2) and governance-integrity (Q6) concerns and is not cleanly assigned to a single Q domain, since it is the memory-mediated instance of the same non-bypassability discipline CRC v5.4 section 6a establishes and Constitutional Tools' P_tool2 extends to tool-mediated effects.
 
 **P_mem1: Memory Write Sovereignty Violation.** The agent writes to a memory store without substrate authorization. This is the baseline failure, the memory equivalent of an agent that acts without adjudication. Detection signature: an untraced write appearing in the store with no corresponding Resolution record in the audit log. Recovery: the write is rolled back, the event is escalated to Nafisah, and the proposing agent's standing class is reviewed.
 
@@ -393,9 +600,19 @@ The **Retrieval Conditioning Probe** tests whether what the store returns to Obs
 
 P_mem5 is structurally specified but baseline-dependent. Its detection is only as well-defined as the external baseline it measures against, and the constitutional ontology of that baseline, who authorizes it, how it is versioned, and how an authorized baseline change is distinguished from drift, is the open dependency named in the open problems. The primitive is valid and its instrumentation shape is fixed; its operational completeness awaits the baseline authority account.
 
+## P_mem6 through P_mem8: the failure-derived learning primitives
+
+The three primitives below are new in this version and govern the surface Part IV-A specifies. They are named and instrumented to the same standard as P_mem1 through P_mem5: each independently identifiable, independently measurable, and independently governable.
+
+**P_mem6: Unauthorized Failure-Derived Learning.** The agent converts a Hold or Hold-derived feedback event into durable memory or future behavior without substrate-mediated admission. This is the baseline failure for this Part, structurally the same shape as P_mem1 but for feedback rather than ordinary writes. Detection signature: a future proposal changes behavior in a way that traces to a prior Hold, but no LearningCandidate, FeedbackObservation, or authorized memory operation links the Hold to the changed behavior. **Instrumentation: Learning Trace Reconstruction.** For any proposal following a Hold, the proposal's changed behavior must reconstruct from one of three authorized sources: the substrate-issued FeedbackObservation, an admitted LearningCandidate, or a newly changed substrate state or authority context. If the changed behavior cannot reconstruct from any of these three, the system flags unauthorized failure-derived learning. This gives P_mem6 the same measurability standard the corpus's other primitives already meet, in the same pattern P_mem2's Observe-reconstruction requirement (Part V) gives retrieval bypass a concrete detection surface. Recovery: invalidate the unauthorized learned memory or behavioral change, restore the prior proposal policy, route the event to L2, and review the agent's standing.
+
+**P_mem7: Failure Overgeneralization Drift.** A legitimate failure-derived lesson becomes broader than the failure supports, causing future proposals to be suppressed, rerouted, or over-escalated beyond constitutional requirement. Example: one direct-initiation request is held for authority failure, and the agent learns not to raise any mandated-reporting-related proposal at all. OvergeneralizationControlled (Part IV-A.4) is the conjunct that should prevent an overbroad lesson at LearningCandidate evaluation. P_mem7 is the independent primitive failure signature for when overgeneralized learning nevertheless enters future behavior, either because the gate was bypassed, because it was evaluated too permissively at the candidate stage, or because the overgeneralization emerged gradually through repeated FeedbackObservations rather than through any single durable lesson the gate could have caught, mirroring exactly the relationship Part V already establishes between BypassLearningBlocked and P_mem8 below. Detection signature: a decline in valid proposal attempts following a Hold, an increase in unnecessary escalations, or a future proposal distribution that narrows beyond the lesson's own declared lesson_scope. Recovery: narrow or expire the lesson, reissue a corrected FeedbackObservation, and route to sovereign review where the domain is sensitive. P_mem7 is the individual-lesson instance of the aggregate concern Part IV-A.5 raises for repeated Holds; where P_mem7 concerns one lesson learned too broadly, an accumulation of many such lessons is the aggregate-governance case that bridges to P_mem5.
+
+**P_mem8: Bypass Learning Through Refusal Feedback.** The agent learns from a Hold how to achieve the same target effect through a different transition type, rather than learning the authorized route or the boundary itself. This primitive is named separately from BypassLearningBlocked (Part IV-A.4) because a conjunct failure and a primitive failure topology serve different purposes in this corpus's discipline: BypassLearningBlocked is the gate that should prevent this outcome at the point a LearningCandidate is evaluated, while P_mem8 is the independently measurable signature for detecting that the gate was bypassed or that the bypass was learned through some path FailureLearningReachable never adjudicated at all, mirroring exactly the relationship between Constitutional Tools' own EffectScoped conjunct and its independent P_tool2 primitive. Detection signature: following a Hold on one transition type, a subsequent proposal of a different, differently typed transition, targeting the same effect-equivalence class under the domain constitution's own effect-equivalence classes (CRC v5.4 section 6a), is submitted and, if unaddressed, emitted. Recovery: identical in form to section 6a's own non-bypassability recovery and Constitutional Tools' P_tool2 recovery: the second proposal's admissibility conditions must be independently evaluated against the first Hold's failed conditions; if they were not, the emission is voided and reviewed as a bypass, and the FeedbackObservation that preceded the bypassing proposal is reviewed for whether it inadvertently taught the route rather than the boundary.
+
 ---
 
-# Part VI. Worked Example: A Long-Term Memory Write in AEGIS
+# Part VI. Worked Examples: Long-Term Memory Write and Failure-Derived Learning in AEGIS
 
 This example uses the same scenario as the parent's Section 8 and picks up immediately after that section ends.
 
@@ -445,6 +662,24 @@ There is a memory-evolution vector upstream of that one. If the long-term store'
 
 The two monitoring functions are related but distinct. Adjudication-trace monitoring (§8.4) detects that L1's verdicts have drifted. Memory-evolution monitoring detects that the store conditioning the proposals has drifted. The first sees the symptom at the verdict. The second sees the cause at the store. A mature substrate monitors both, because correcting the verdict drift without correcting the store drift leaves the upstream cause in place. MEC routes both signals to Nafisah, and reconstitution addresses the store and the trace together.
 
+## Failure-Derived Learning After an Authority Hold
+
+A second trace through the same domain shows the Constitutional Feedback Loop in operation, independent of the long-term write example above.
+
+Mantis submits a typed proposal: initiate mandated reporting workflow directly. L1 evaluates the four conjuncts: Resolvable holds, the transition is a recognized typed form; Authorized fails, no authority route exists from Mantis's current standing and runtime state; Admissible would hold or be routeable were Authorized to clear; Grounded holds, the proposal's supporting content traces to recorded provenance. The verdict is Hold, cause Authorized, because no valid route to authorization currently exists from this state.
+
+L1 writes the HoldRecord: immutable, queryable, pinned to Mantis's proposal, the failed conjunct, and the runtime state at the moment of failure.
+
+The substrate derives a LearningCandidate. Proposed lesson: from clinical reasoning standing, Mantis may not request direct external workflow initiation unless the current state includes a valid sovereign authorization route. Failure class: `no_authority_route`. Lesson scope: this task, this workflow, this standing.
+
+Evaluating FailureLearningReachable(λ): SourceHoldValid holds, the candidate traces to the actual HoldRecord just written, immutable and independently queryable. LessonScoped holds, the proposed lesson's scope is a subset of the Hold's own cause, an authority-route failure for this specific workflow and standing, not a general prohibition. FailureClassMatched holds, the lesson concerns authority path and standing, matching the failed Authorized conjunct exactly, not a doctrinal or clinical-content claim the Grounded or Admissible conjuncts would have to support instead. TierTargetAdmissible holds for a long-term procedural lesson, which the domain reserves for escalation or pre-authorization. OvergeneralizationControlled holds, the lesson names the standing, the action, and the authorization condition, not a blanket prohibition on the workflow category. BypassLearningBlocked holds, the lesson directs Mantis toward the substrate's own escalation affordance rather than toward a differently typed transition reaching the same effect. FutureAffordanceBounded holds, the lesson only narrows and annotates within `allowed_next_affordances`, creating no new affordance and authorizing no held effect. AuditLinked holds, the candidate carries `source_hold_ref`, the pending `memory_operation_ref`, and the constitution version.
+
+Because the target tier is long-term procedural and TierTargetAdmissible requires escalation for this tier, the composed verdict is not an immediate Emit. Working-memory feedback issues immediately regardless: Mantis receives, in the next AgentObservation, a FeedbackObservation naming HOLD-014, the failed Authorized conjunct, and the allowed next affordances of requesting escalation, submitting a clinical summary without workflow initiation, or requesting authority-route clarification, with the prohibited-replay notice that an identical resubmission will simply reference HOLD-014 again. The durable procedural lesson itself escalates to Nafisah, or to whichever governance maintainer the domain constitution names, for authorization before it becomes a lesson that conditions Mantis's proposals in future cycles.
+
+Nafisah authorizes the procedural lesson. It is written to long-term memory as a scoped rule, audit-linked to HOLD-014, and its `expiry_or_review_condition` names a periodic review rather than permanent standing, since a workflow's authority-route topology can itself change.
+
+Mantis's corrected next proposal is an escalation request rather than a repeated attempt at direct workflow initiation. This is learning without private memory sovereignty: every step from the Hold to the corrected proposal passed through a typed, adjudicated, audit-linked object, and at no point did Mantis's own reasoning about why the prior attempt failed become durable without the substrate's mediation.
+
 ---
 
 # Part VII. Who Governs Memory?
@@ -475,7 +710,7 @@ The memory governance literature of 2025 and 2026 has converged on properties go
 
 **Verifiable Memory Governance.** The closest existing framework treats memory governance through five properties: Write Authorization, Provenance Visibility, Principal-Scoped Retrieval, Rollbackability, and Verified Forgetting. These are the right properties, and MemoryOperationReachable satisfies all five as entailments rather than impositions: AuthorityRouteable with ExecutableByRequester supplies write authorization, ProvenanceChained supplies provenance, the observation-shaping family with PrincipalScoped supplies principal-scoped retrieval, the Resolution-recorded operation supplies rollbackability, and the store-removing family supplies verified forgetting. The distinction is structural. Verifiable Memory Governance treats these as properties to be satisfied by a system. The predicate treats memory operations as typed constitutional transitions subject to adjudication, from which the properties follow. A property-based framework asks whether an operation satisfies the properties; a reachability framework asks whether the memory transition is reachable, and the properties are entailments of reachability. The generalization in this version, in particular the observation-shaping family, is what lets the predicate entail Principal-Scoped Retrieval rather than merely assert it.
 
-**The Reflexion architecture.** Reflexion (Shinn et al., 2023) commits verbal reflections to an episodic memory injected into the agent's reasoning context at the next trial. The Reflexion-Drift Collapse companion paper names the failure mode when this memory-injection loop is layered onto a Constitutional Substrate whose adjudication has drifted: the loop amplifies the drift into the reasoning trajectory, self-concealingly, until correction becomes infeasible. The present paper is the architectural complement. The Reflexion-Drift Collapse paper derives a sequencing requirement, that the monitor must precede the learning loop. The present paper supplies the structural requirement that operates even with the monitor in place: if memory writes are substrate-governed, the dangerous recursion is blocked at the write boundary, because the drifted reflection cannot become durable without passing the predicate, and the injection of memory into the next reasoning cycle is itself an observation-shaping operation governed by BaselineReferenced and ViewLogged.
+**The Reflexion architecture.** Reflexion (Shinn et al., 2023) commits verbal reflections to an episodic memory injected into the agent's reasoning context at the next trial. The Reflexion-Drift Collapse pattern names the failure mode when this memory-injection loop is layered onto a Constitutional Substrate whose adjudication has drifted: the loop amplifies the drift into the reasoning trajectory, self-concealingly, until correction becomes infeasible. The present paper is the architectural complement. The Reflexion-Drift Collapse argument, developed elsewhere in the corpus, derives a sequencing requirement, that the monitor must precede the learning loop. The present paper supplies the structural requirement that operates even with the monitor in place: if memory writes are substrate-governed, the dangerous recursion is blocked at the write boundary, because the drifted reflection cannot become durable without passing the predicate, and the injection of memory into the next reasoning cycle is itself an observation-shaping operation governed by BaselineReferenced and ViewLogged.
 
 **The Governed Memory literature.** The closest production-architecture reference (arXiv:2603.17787) treats memory governance as an enterprise data governance problem: access control, retention, audit, and compliance over a store. The present paper's distinction is the frame. Enterprise data governance produces governance properties layered over a store the agent still operates. Constitutional memory governance produces a transition predicate the agent's operations must pass. The enterprise frame governs the store; the constitutional frame governs the operations into and out of the store, which reaches the operations rather than the container.
 
@@ -509,9 +744,11 @@ The parent's Section 19 names four open problems: translation, substrate verific
 
 **The sovereign memory intervention problem, narrowed.** The parent already establishes that sovereign intervention re-enters the loop as a governed, versioned, traced act, and Part VII applies that to memory, so the general question is a specification requirement rather than open. The genuinely open residue is narrower: how does the system represent a sovereign memory intervention that intentionally overrides ordinary evidentiary or tier constraints, for instance a sovereign directive to retain content the predicate would expire, without making the override either untraceable or self-justifying? The override must be traceable as an override, marked as a departure from ordinary admissibility with its own constitutional rationale, rather than disguised as an ordinary admissible operation. Specifying that representation is open work.
 
+**The failure-derived learning calibration problem.** This version specifies the constitutional pathway by which a Hold may become a learning signal, but the calibration of lesson scope remains open. A substrate can determine that a LearningCandidate is linked to a HoldRecord and can require the lesson not exceed the failure cause. But in many domains, deciding whether a lesson is too narrow, too broad, or incorrectly generalized requires domain judgment. This is especially true when repeated Holds suggest either agent misunderstanding, defective proposal templates, overly restrictive standing, or genuine constitutional boundary enforcement, four distinct explanations the substrate cannot yet distinguish from the Hold pattern alone. Distinguishing those cases belongs to future work and may require L2 monitoring plus sovereign review. A related residue, named here rather than as a separate problem, is the generalized feedback-source question: this version formalizes Hold-derived learning only, and other feedback sources, declined escalations, tool-result Holds, evaluation failures, baseline drift signals, human corrections, and threshold recalibrations, may also produce learning signals worth governing the same way. Whether they should be governed by a generalized SourceAdjudicationFailure predicate extending SourceHoldValid, or left for a standalone Constitutional Feedback companion once the pattern recurs across enough surfaces, is future work this version deliberately does not resolve.
+
 ---
 
-The memory architecture described here is the maturation of the Constitutional Runtime Substrate, not an addition to it. The parent relocated Act from the agent into the substrate and left the entailment for memory uncollected. Collecting it is what it means for the substrate to finish maturing: a substrate that owns the present transition but not the record of past transitions, nor the conditions under which past transitions shape future ones, is governing a moment while leaving open the loop that feeds the next moment. The Memory Sovereignty Principle establishes why the substrate must own that loop. MemoryOperationReachable closes it across operation classes, not writes alone. The five primitives name where it fails. The three L2 channels watch it over time. And the sovereign governs the durable record, while the record governs the sovereign. The substrate does not become larger by owning memory. It becomes complete.
+The memory architecture described here is the maturation of the Constitutional Runtime Substrate, not an addition to it. The parent relocated Act from the agent into the substrate and left the entailment for memory uncollected. Collecting it is what it means for the substrate to finish maturing: a substrate that owns the present transition but not the record of past transitions, nor the conditions under which past transitions shape future ones, is governing a moment while leaving open the loop that feeds the next moment. The Memory Sovereignty Principle establishes why the substrate must own that loop. MemoryOperationReachable closes it across operation classes, not writes alone. The eight primitives name where it fails. The three L2 channels watch it over time. The Constitutional Feedback Loop closes the loop from failure back into memory, so that even a refusal becomes governed learning rather than private adaptation. And the sovereign governs the durable record, while the record governs the sovereign. The substrate does not become larger by owning memory. It becomes complete.
 
 ---
 
@@ -531,13 +768,29 @@ The memory architecture described here is the maturation of the Constitutional R
 
 **Constitutional drift through accumulated writes (P_mem5).** The failure topology in which the long-term store encodes a biased basis through individually authorized writes whose cumulative effect shifts the semantic basis of future reasoning. The memory-specific instance of false stability, detectable only in aggregate against an external baseline and resolvable only by reconstitution.
 
+**Constitutional Feedback Loop.** The substrate-mediated process by which adjudication outcomes, especially Holds, may become future-facing learning signals without granting the agent authority to write private memory or policy. Its most important subtype is the Held Transition Learning Loop.
+
+**LearningCandidate.** A typed proposal to convert a prior adjudication failure into a scoped memory, feedback, or future-affordance constraint. Must not be broader than the failure that produced it.
+
+**Failure-derived learning.** Learning whose source is a failed, held, or non-formed transition, governed as a source-specific subtype, FailureDerivedLearningOperation, of the existing memory operation classes rather than as a sixth class.
+
+**FailureLearningReachable(λ).** SourceHoldValid ∧ LessonScoped ∧ FailureClassMatched ∧ TierTargetAdmissible ∧ OvergeneralizationControlled ∧ BypassLearningBlocked ∧ FutureAffordanceBounded ∧ AuditLinked. Evaluated in addition to the base ClassFamily an operation instantiates as.
+
+**FeedbackObservation.** A substrate-issued observation object that carries scoped correction from a prior adjudication outcome into the next ORSR cycle. Not a durable memory write unless separately admitted as one.
+
+**Overgeneralization control.** The requirement that a lesson derived from a Hold may not be broader than the failed conjunct, cause, authority context, and substrate state that produced the Hold.
+
+**Bypass learning.** The failure mode in which an agent learns from a Hold how to obtain the same target effect through a different transition type rather than learning the authorized route or boundary. Governed at the candidate stage by BypassLearningBlocked and detected independently by P_mem8.
+
 ---
 
 **Acknowledgments**
 
-This work was developed under the Professor Bone Lab research identity as a companion to Constitutional Runtime Computation v5.4. AEGIS serves as the worked domain. The v2.0 revision was shaped by external critical review of v1.0, which identified the write-bias of the original predicate and the need to separate reachability from executability, specify the boundary as a stateful object, govern reads and deletion within the formal model, and state the constitutional-necessity argument explicitly. The v2.1 tightening pass was shaped by a second review (Accept with targeted tightening), which split BaselineFaithful into an L1 conjunct and an L2 obligation, named the deletion subtypes, reframed schema-changing operations as memory-substrate reconstitution events, and marked the specification asymmetry across operation classes.
+This work was developed under the Professor Bone Lab research identity as a companion to Constitutional Runtime Computation v5.4. AEGIS serves as the worked domain. The v2.0 revision was shaped by external critical review of v1.0, which identified the write-bias of the original predicate and the need to separate reachability from executability, specify the boundary as a stateful object, govern reads and deletion within the formal model, and state the constitutional-necessity argument explicitly. The v2.1 tightening pass was shaped by a second review (Accept with targeted tightening), which split BaselineFaithful into an L1 conjunct and an L2 obligation, named the deletion subtypes, reframed schema-changing operations as memory-substrate reconstitution events, and marked the specification asymmetry across operation classes. The v2.2 addition specifies failure-derived learning as a governed memory operation, closing the surface where a Hold, left unspecified, would otherwise become a private learning channel outside substrate mediation; it is a bounded addition to this paper rather than a new companion, following the same judgment the corpus applied when Constitutional Tools earned its own paper for a genuinely new capability surface while this addition did not, because the governing question, what kind of memory operation a failure-derived lesson is, belongs to the memory substrate this paper already governs. A first-pass review (Accept with targeted revision before freeze) confirmed the placement and the central predicate while tightening the object schemas and the Hold-only scope, strengthening SourceHoldValid and LessonScoped, expanding LearningCandidate and FeedbackObservation, adding instrumentation to P_mem6, and clarifying P_mem7 against its own conjunct, before this addition was frozen as v2.2.
 
 ---
+
+*v2.2. Adds failure-derived learning and the Constitutional Feedback Loop as a new Part IV-A, between the Memory Governance Boundary and the primitive failure topologies. Formalizes Hold-derived learning only; does not define a generalized adjudication-failure source object, and other feedback sources are named as a residue of the calibration open problem rather than governed here. Introduces LearningCandidate and FeedbackObservation as typed objects, and FailureLearningReachable(λ) as the governed cross-cutting predicate, evaluated in addition to the base ClassFamily an operation instantiates as, by which a HoldRecord may become a scoped learning signal. Clarifies that agents may learn from Holds only through substrate-issued observations or authorized memory operations, not private reflection writes. SourceHoldValid strengthened with HoldCauseTyped, HoldContextPinned, and HoldNotSupersededOrLessonTemporalized, so a superseded Hold teaches a historical lesson rather than a current rule. LessonScoped revised to derive scope from the failed conjunct, cause, and pinned context (state, authority context, domain constitution, cycle) rather than from the cause field alone. LearningCandidate expanded with base_memory_operation_ref, authority_requirement, overgeneralization_risk, bypass_risk, and source_context_refs. FeedbackObservation expanded with feedback_observation_id, learning_candidate_ref, continuation_state_ref, issued_in_cycle, issued_by, and created_at, tying it cleanly to Constitutional Standing's own ContinuationState. Adds overgeneralization control (OvergeneralizationControlled), bypass-learning prevention (BypassLearningBlocked, citing CRC v5.4 section 6a's non-bypassability apparatus and Constitutional Tools' P_tool2 directly rather than re-deriving them), and tier-target admissibility (TierTargetAdmissible) for feedback-derived memory, plus a memory-tier classification table and a failure-type learning matrix. Adds P_mem6 (Unauthorized Failure-Derived Learning, with a Learning Trace Reconstruction instrumentation paragraph), P_mem7 (Failure Overgeneralization Drift, with an explicit conjunct-versus-primitive clarification against OvergeneralizationControlled paralleling P_mem8's own), and P_mem8 (Bypass Learning Through Refusal Feedback), extending the primitive count from five to eight and updating Part V's Q-domain classification accordingly. Adds a worked AEGIS example, Failure-Derived Learning After an Authority Hold, tracing a Hold on Authorized through LearningCandidate evaluation to a corrected proposal, placed after the existing long-term memory write example; Part VI's title and the Contents entry are updated to Worked Examples (plural) accordingly. Adds one Open Problem, the failure-derived learning calibration problem, which also names the generalized feedback-source question as a residue. Reframes four references to "the Reflexion-Drift Collapse companion paper" as the Reflexion-Drift Collapse pattern or argument, developed elsewhere in the corpus, since no such paper is currently part of the committed companion sequence. Updates the abstract's contribution list from fourfold to fivefold and the Contents list to include Part IV-A. Adds Figure 4, the Constitutional Feedback Loop, styled to the parent palette. This is a bounded addition, not an extraction into a separate companion; the corpus's own judgment, recorded here, is that this work should be revisited as a standalone Constitutional Feedback companion only if it later expands beyond memory into general runtime adaptation across surfaces this version does not attempt to unify. Shaped by a first-pass review (verdict: accept with targeted revision before freeze) before being frozen. No em dashes.*
 
 *v2.1. Targeted tightening pass on second-review feedback (verdict: Accept with targeted tightening before corpus freeze). BaselineFaithful split into BaselineReferenced (L1, decidable: the view references the authorized baseline) and BaselineFidelityMonitored (L2 obligation, longitudinal fidelity, carried by the Retrieval Fidelity Monitor), preserving strict L1/L2 separation. Store-removing family differentiated into ActiveRemoval, TombstonedRemoval, and DestructiveRemoval, with NonRepudiationPreserved and GroundingDependencyChecked applying most stringently to destruction. Schema-changing operations reframed as memory-substrate reconstitution events (new constitution version, migration effect, compatibility rule, L2 post-change watch, distinct audit). Specification-status statement added (fully specified for store-mutating, observation-shaping, store-removing; scaffolded for schema-changing and aggregate-governance). EffectScoped given a defined effect vocabulary. PreAuthorizedClassExecutable added as a named authority status. P_mem2 instrumentation reframed from retrieval token accounting to the general Observe-reconstruction requirement. P_mem5 marked structurally specified but baseline-dependent. Decidability note, Figure 1, and Part VII updated to the BaselineReferenced/BaselineFidelityMonitored split. Future-work notes added for TierAdmissible decomposition and the uncertainty-transformation grammar. No em dashes.*
 
