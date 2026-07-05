@@ -176,6 +176,41 @@ core paper identifies but does not close.
   named sovereign-terminal primitive, the opposite finding from Constitutional
   Tools v1.1's own strongest candidates.
 
+- [Constitutional Feedback: Cross-Surface Learning and the Governance of
+  Corpus-Wide Adaptation](companions/constitutional-feedback-v1.0.md)
+  Companion 9. Generalizes Constitutional Memory v2.2's own Part IV-A
+  feedback loop, Hold-derived learning only, across the further outcome
+  types Constitutional Standing (NonFormationReceipt, StandingFailureRecord),
+  Constitutional Tools (ToolResultHold), and Constitutional Task Ledger
+  (PendingObligation, the shared population object that finally gives
+  cross-surface feedback somewhere to land) have since produced, and opens a
+  second, structurally distinct branch for whether a sovereign reconstitution
+  already confirmed on one surface, a baseline re-anchoring, a generation
+  re-cohering, a threshold recalibration, should propagate to a second
+  surface's own standard. The two branches are kept deliberately separate
+  rather than composed: operational feedback asks whether a governed outcome
+  may become a scoped lesson, doctrinal feedback asks whether a sovereign
+  correction should propagate, and a baseline reconstitution is a sovereign
+  act rather than a failure awaiting one. Contributions include the
+  Constitutional Feedback Principle, an extended LearningCandidate and
+  FeedbackObservation for the operational branch, a new
+  ReconstitutionFeedbackRecord with an explicit proposal-to-confirmation
+  lifecycle for the doctrinal branch, and a shared FeedbackLedger indexing
+  both under a governing no-silence rule. OperationalFeedbackSourceValid(σ)
+  and FeedbackLearningReachable(λ) generalize Memory's own SourceHoldValid
+  and FailureLearningReachable(λ); DoctrinalFeedbackReachable(δ) is new, with
+  CrossSurfaceApplicabilityAssessed and AuthorityBoundaryPreserved as its
+  load-bearing conjuncts, neither of which has any analogue in Memory's own
+  apparatus. A six-primitive P_fbk family includes Cross-Surface Bypass
+  Learning (P_fbk4), named as the primitive that most justifies this
+  companion's own existence since no single surface's non-bypassability
+  apparatus can see a lesson that moves its target effect to a different
+  governed surface, and Feedback Corpus Drift (P_fbk6), tested against the
+  corpus's own four-part sovereign-terminal test and recorded as a candidate,
+  deliberately not entered into the formally named sovereign-terminal
+  lineage, on the reasoning that an absence-of-a-fixed-reference argument can
+  be invoked for nearly any new corpus-wide drift problem.
+
 ### Domain Applications
 
 Domain application documents show the CRC architecture instantiated in
@@ -219,6 +254,7 @@ They remain part of the intellectual lineage of the series.
 8. Constitutional Standing v1.2 (companion 6)
 9. Constitutional Tools v1.1 (companion 7)
 10. Constitutional Task Ledger v1.1 (companion 8)
-11. Apex Architecture Seed (domain application, short)
-12. Apex Build Specification v0.5 (domain application, full)
-13. The Knowledge Graph as Constitutional Substrate (historical lineage)
+11. Constitutional Feedback v1.0 (companion 9)
+12. Apex Architecture Seed (domain application, short)
+13. Apex Build Specification v0.5 (domain application, full)
+14. The Knowledge Graph as Constitutional Substrate (historical lineage)
