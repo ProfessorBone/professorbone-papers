@@ -150,6 +150,21 @@ core paper identifies but does not close.
   eight-primitive P_tool family, with an explicit four-part sovereign-terminal
   test applied to the two strongest candidates and neither found to qualify.
 
+- Constitutional Task Ledger: Task State, Continuation, and Terminal Criteria
+  in Governed Agentic Systems *(forthcoming)*
+  Companion 8. Argues that task continuity cannot live in agent memory:
+  Constitutional Standing v1.2 named ContinuationState, ContinuationIssued,
+  TaskActive, and CycleCurrent as vocabulary without specifying the governed
+  task-state object they presuppose, and Constitutional Memory v2.2's Part
+  IV-A now depends on cycle closure and a Task Ledger carrying pending
+  obligations forward, without that Ledger existing anywhere in the corpus.
+  The agent does not own the task, does not decide what remains or when it
+  is complete, and does not carry task continuity in private reasoning; the
+  substrate owns task state, records progress, issues continuation, and
+  defines terminal criteria. See
+  [companions/constitutional-task-ledger-FORTHCOMING.md](companions/constitutional-task-ledger-FORTHCOMING.md)
+  for the fixed title, scope, and required reading.
+
 ### Domain Applications
 
 Domain application documents show the CRC architecture instantiated in
