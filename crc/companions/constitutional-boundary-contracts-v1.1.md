@@ -95,7 +95,7 @@ The ORSR loop has two directions of crossing in the core agent-substrate interac
 
 **Substrate-to-Agent.** The substrate's AgentObservation crosses into the agent's Working Memory to initiate the next cycle. This is the governed observation boundary. ObservationContract governs it.
 
-The Resolution, the substrate's internal verdict, does not cross a boundary in the same sense. It is produced inside the substrate and consumed inside the substrate. Its output (goal_status, allowed_next_affordances, task_ledger_update) is what feeds ObservationContract. The Resolution is not a crossing event; it is an internal substrate act. The observation issued from it is the crossing event.
+The Resolution, the substrate's internal adjudication object, does not itself cross a boundary. It is produced inside the substrate by Resolve and consumed inside the substrate. When continuation is authorized, the substrate issues a ContinuationState from the Resolution, and constructs the AgentObservation from that ContinuationState. It is that AgentObservation, not the Resolution, that crosses the Substrate-to-Agent boundary under ObservationContract. The Resolution is an internal substrate act; the AgentObservation is the governed crossing event issued from substrate-owned continuation state.
 
 ## II.3 The relationship to the reachability predicates
 
@@ -143,6 +143,8 @@ The TransitionProposal is the typed object the agent submits to cross the Agent-
 
 ## IV.2 Schema
 
+This schema is the boundary-crossing validation view over the canonical ten-field TransitionProposal defined in the parent paper's Section 4. It does not replace or reduce that object. Every field the parent names as canonical is carried across the boundary; the fields below are the fields the ProposalContract validates at the crossing, and they include the parent's authority-bearing fields so that a ProposalConformant-passing proposal still carries what Authorized(tau) reads over the authority graph. The six canonical fields the earlier v1.0 required set omitted, actor identity, authority claim, source state, target effect, domain context, and requested resolution, are restored as required fields below.
+
 **Required fields:**
 
 | Field | Type | Constitutional function |
@@ -160,6 +162,12 @@ The TransitionProposal is the typed object the agent submits to cross the Agent-
 | `proposal_rationale` | Text | The agent's reasoning trace; must be traceable to cited evidence |
 | `authority_boundary_acknowledgment` | Boolean | Agent explicitly acknowledges it is proposing, not executing; must be True |
 | `terminal_completion_flag` | Boolean | True only if agent proposes TASK_COMPLETION; subject to terminal criteria check |
+| `actor_identity` | ActorRef | The requesting agent's identity; canonical parent field; read by Authorized(tau) |
+| `authority_claim` | AuthorityClaimRef | The authority the agent claims for this transition; read by Authorized(tau) over the authority graph |
+| `source_state` | StateRef | The substrate state the transition departs from; canonical parent field |
+| `target_effect` | EffectRef | The proposed effect; keyed to the domain constitution's effect-equivalence classes |
+| `domain_context` | DomainConstitutionRef | The domain constitution governing this transition type |
+| `requested_resolution` | ResolutionRequestRef | The resolution the agent requests; canonical parent field |
 
 **Optional fields:**
 
@@ -167,6 +175,8 @@ The TransitionProposal is the typed object the agent submits to cross the Agent-
 |---|---|---|
 | `escalation_request` | EscalationRequest | Agent requests sovereign review of a detected condition |
 | `gap_flag` | GapRecord | Agent flags an evidentiary gap for sovereign attention |
+
+The field types above (ActorRef, AuthorityClaimRef, StateRef, EffectRef, DomainConstitutionRef, ResolutionRequestRef) are provisional placeholders; their final typing is fixed in the shared-schema pass, not here.
 
 ## IV.3 Validation predicate: ProposalConformant
 
@@ -183,6 +193,7 @@ ProposalConformant(p) ⟺
   ProvenancePresent(p)          ∧
   UncertaintyPresent(p)         ∧
   AuthorityAcknowledged(p)      ∧
+  AuthorityFieldsTraceable(p)   ∧
   TerminalConsistent(p)
 ```
 
@@ -209,6 +220,8 @@ ProposalConformant(p) ⟺
 **UncertaintyPresent(p):** uncertainty_state is present and non-null. The agent may not submit a proposal with a null or absent uncertainty record. This prevents silent epistemic flattening at the Submit boundary: the agent cannot drop preserved uncertainty when crossing the boundary. What was uncertain in the Reason phase must remain visible at the Submit phase.
 
 **AuthorityAcknowledged(p):** authority_boundary_acknowledgment is True. A proposal with this field False or absent is an authority boundary violation regardless of other fields. Note: AuthorityAcknowledged is a necessary declaration, not proof of correct authority posture. A confused or malicious agent can set this field True. The actual authority boundary is enforced by the substrate's refusal to treat proposals as actions, not by the agent's self-declaration. The field's absence or falsity is an immediate B4 violation. Its presence establishes the required declaration; the substance of authority governance is the substrate's function.
+
+**AuthorityFieldsTraceable(p):** actor_identity and authority_claim are present, non-null, and traceable to the standing context and authority-graph reference the parent's Authorized(tau) evaluates. AuthorityAcknowledged records that the agent acknowledges it is proposing rather than executing; AuthorityFieldsTraceable records that the authority-bearing content Authorized(tau) reads is actually carried across the boundary, not merely acknowledged. A proposal that acknowledges proposal status but omits its actor identity or authority claim fails here.
 
 **TerminalConsistent(p):** if terminal_completion_flag is True, proposed_capability is TASK_COMPLETION; if False, proposed_capability is not TASK_COMPLETION. Inconsistency between these fields prevents undetected terminal self-declaration.
 
@@ -256,7 +269,7 @@ ProposalContract validation runs before CTLC adjudication. A non-conforming prop
 
 ## V.1 The governed object: AgentObservation
 
-The AgentObservation is the typed object the substrate issues to cross the Substrate-to-Agent boundary. It is the concrete form of the substrate's Observe event in ORSR. The substrate does not pass an informal context window or a raw task state dump. It passes an AgentObservation that conforms to ObservationContract. The agent reasons only from what the substrate has issued and only within the cycle for which the observation was issued.
+The AgentObservation is the typed object the substrate constructs from substrate-owned ContinuationState and issues to cross the Substrate-to-Agent boundary. It is the concrete form of the substrate's Observe event in ORSR, and it is not identical to the Resolution: the Resolution is the substrate's internal adjudication object, the ContinuationState is the continuity authority issued from that resolution, and the AgentObservation is the governed envelope built from that continuation authority for the next cycle. The substrate does not pass an informal context window or a raw task state dump. It passes an AgentObservation that conforms to ObservationContract. The agent reasons only from what the substrate has issued and only within the cycle for which the observation was issued.
 
 **Two sub-surfaces of the observation boundary.** The AgentObservation contains two constitutionally distinct sub-surfaces that fail differently and may require independent treatment in future work:
 
@@ -276,6 +289,7 @@ Both sub-surfaces are governed by ObservationContract. Their failure modes are d
 | `task_id` | UUID | The governed task this cycle belongs to |
 | `cycle_id` | UUID | Unique identifier for this ORSR cycle |
 | `issuing_resolution_ref` | UUID | The Resolution that authorized this observation; establishes provenance chain from substrate to agent; every observation must trace to a valid Resolution |
+| `continuation_state_ref` | ContinuationStateRef | The ContinuationState this AgentObservation was constructed from and references; the continuity authority that authorizes the next cycle, which the agent's next Formation reconstructs against (Constitutional Standing, Part V) |
 | `observation_components` | List[ObservationComponent] | Typed list of components assembled into this observation; each component carries a component_type, source_ref, construction_predicate_ref (where applicable), provenance_ref, expiry_scope, and agent_visibility flag; prevents AgentObservation from being a flat opaque object |
 | `task_ledger_view` | TaskLedgerView | Substrate-issued filtered view of Task Ledger state; read-only for the agent |
 | `goal_status` | GoalStatusEnum | NOT_STARTED, IN_PROGRESS, BLOCKED, ESCALATED, COMPLETE, or ABORTED |
@@ -665,8 +679,10 @@ The coherence companion (Companion 4) extends baseline governance to the family 
 
 ---
 
+*v1.1: ProposalContract reframed as a boundary-crossing validation view over the parent's canonical ten-field TransitionProposal rather than a replacement schema (Part IV.2), restoring the six canonical fields the v1.0 required set omitted, including actor identity and authority claim, so a ProposalConformant-passing proposal carries what Authorized(tau) reads over the authority graph; field types are provisional pending the shared-schema pass. ProposalConformant gains AuthorityFieldsTraceable (Part IV.3). Part II.2 and Part V.1 state the refined lineage: the substrate issues a ContinuationState from the Resolution and constructs the AgentObservation from that ContinuationState, which crosses the boundary under ObservationContract. Part V.2 adds continuation_state_ref. Aligns with Constitutional Runtime Computation v5.5. No change to the Boundary Sovereignty Principle, the B0 to B5 taxonomy, the BoundaryValidationFunction, or the P_bnd family.*
+
 *Constitutional Boundary Contracts: Governed Interface Exchange at the Agent-Substrate Boundary*
-*Companion 0 to Constitutional Runtime Computation v5.4.*
+*Companion 0 to Constitutional Runtime Computation v5.5.*
 *Foundational interface companion. Governs the two primary boundaries in the core ORSR agent-substrate loop.*
 *ProposalContract (Agent-to-Substrate) and ObservationContract (Substrate-to-Agent).*
 *BoundaryValidationFunction, five P_bnd primitives (P_bnd5 with two subtypes), B0-B5 six-class severity taxonomy.*
