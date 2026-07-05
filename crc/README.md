@@ -104,7 +104,7 @@ core paper identifies but does not close.
   derives the Trigger Authority Principle: whoever can move the threshold or
   the trigger controls whether an honestly measured deviation ever produces
   action, so threshold and trigger authority must be sovereign. It also extends
-  Constitutional Boundary Contracts v1.0's boundary-contract pattern to the
+  Constitutional Boundary Contracts v1.1's boundary-contract pattern to the
   evidence-packet-to-sovereign crossing with the EvidencePacketContract,
   closing the mechanically detectable form of the mediated-capture deployment
   precondition Constitutional Coherence v1.2 named, while naming evidentiary
@@ -146,7 +146,7 @@ core paper identifies but does not close.
   Contributions include the Tool Sovereignty Principle, a seven-class
   tool-operation taxonomy by constitutional effect, ToolInvocationReachable(κ)
   and ToolResultAdmissible(ρ), the Tool Governance Boundary as a third instance
-  of Constitutional Boundary Contracts v1.0's six-component pattern, and an
+  of Constitutional Boundary Contracts v1.1's six-component pattern, and an
   eight-primitive P_tool family, with an explicit four-part sovereign-terminal
   test applied to the two strongest candidates and neither found to qualify.
 
@@ -244,8 +244,8 @@ They remain part of the intellectual lineage of the series.
 
 ## Recommended Reading Order
 
-1. Constitutional Runtime Computation v5.4 (core)
-2. Constitutional Boundary Contracts v1.0 (companion 0, foundational interface)
+1. Constitutional Runtime Computation v5.5 (core)
+2. Constitutional Boundary Contracts v1.1 (companion 0, foundational interface)
 3. Constitutional Memory v2.2 (companion 1)
 4. Constitutional Retrieval v1.2 (companion 2)
 5. Constitutional Baselines v1.2 (companion 3)

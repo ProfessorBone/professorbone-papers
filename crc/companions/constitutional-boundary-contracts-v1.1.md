@@ -2,7 +2,7 @@
 
 ## Why Boundary Crossings Are Constitutional Events
 
-### Companion 0 to Constitutional Runtime Computation v5.4
+### Companion 0 to Constitutional Runtime Computation v5.5
 ### Foundational interface companion to the ORSR architecture
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
@@ -611,8 +611,8 @@ This paper is Companion 0 because boundary contracts are logically prior to ever
 
 **Recommended reading order:**
 
-1. Constitutional Runtime Computation v5.4
-2. Constitutional Boundary Contracts v1.0 (this paper)
+1. Constitutional Runtime Computation v5.5
+2. Constitutional Boundary Contracts v1.1 (this paper)
 3. Constitutional Memory v2.1
 4. Constitutional Retrieval v1.2
 5. Constitutional Baselines v1.2

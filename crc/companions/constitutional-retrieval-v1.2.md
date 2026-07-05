@@ -2,7 +2,7 @@
 
 ## Why Observe Construction Is a Constitutional Surface
 
-### v1.2 Conceptual Architecture Paper, Companion 2 to Constitutional Runtime Computation v5.4; direct continuation of Constitutional Memory v2.1
+### v1.2 Conceptual Architecture Paper, Companion 2 to Constitutional Runtime Computation v5.5; direct continuation of Constitutional Memory v2.1
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 
@@ -502,7 +502,7 @@ The parent's Section 19 names four open problems: translation, substrate verific
 
 **Acknowledgments**
 
-This work was developed under the Professor Bone Lab research identity as the second companion to Constitutional Runtime Computation v5.4 and a direct continuation of Constitutional Memory v2.1. AEGIS serves as the worked domain. The v1.0 draft was written to close the retrieval-as-observation-construction problem named in the memory companion's open problems. The v1.1 revision was shaped by external critical review of v1.0 (verdict: accept with targeted revision), which called for governing compositional assembly rather than leaving it scaffolded, a formal required-content object behind ScopeComplete, an L1/L2 split in the salience conjunct that does not overstate what L1 can certify, a decomposition of the compression conjunct into its distinct subchecks, a reconstructability standard stronger than logging, a primitive-versus-topology correction for the retrieval conditioning loop, and an explicit statement that the apparatus governs the memory-derived component of Observe construction rather than all of it. The v1.2 tightening pass was shaped by a second review (verdict: Accept), which named the ObserveConstructionEnvironment object, asked that CompositionalFaithful and P_ret4 be marked instrumentation-partial rather than presented as fully measurable, tied SummaryFaithful to its audit surface, and stated the baseline-dependence of the whole L2 construction-fidelity layer.
+This work was developed under the Professor Bone Lab research identity as the second companion to Constitutional Runtime Computation v5.5 and a direct continuation of Constitutional Memory v2.1. AEGIS serves as the worked domain. The v1.0 draft was written to close the retrieval-as-observation-construction problem named in the memory companion's open problems. The v1.1 revision was shaped by external critical review of v1.0 (verdict: accept with targeted revision), which called for governing compositional assembly rather than leaving it scaffolded, a formal required-content object behind ScopeComplete, an L1/L2 split in the salience conjunct that does not overstate what L1 can certify, a decomposition of the compression conjunct into its distinct subchecks, a reconstructability standard stronger than logging, a primitive-versus-topology correction for the retrieval conditioning loop, and an explicit statement that the apparatus governs the memory-derived component of Observe construction rather than all of it. The v1.2 tightening pass was shaped by a second review (verdict: Accept), which named the ObserveConstructionEnvironment object, asked that CompositionalFaithful and P_ret4 be marked instrumentation-partial rather than presented as fully measurable, tied SummaryFaithful to its audit surface, and stated the baseline-dependence of the whole L2 construction-fidelity layer.
 
 ---
 

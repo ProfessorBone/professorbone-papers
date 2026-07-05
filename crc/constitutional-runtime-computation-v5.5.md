@@ -2,7 +2,7 @@
 
 ## Governed Cognitive Substrates, Constitutional Reachability, and the Reconstruction of Agentic Sovereignty
 
-### v5.4 Conceptual Architecture Paper
+### v5.5 Conceptual Architecture Paper
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 

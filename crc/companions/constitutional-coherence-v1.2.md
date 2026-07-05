@@ -2,7 +2,7 @@
 
 ## Why the Coherence of the Standard-Set Is a Constitutional Object
 
-### v1.2 Conceptual Architecture Paper, Companion 4 to Constitutional Runtime Computation v5.4; closure of the cross-baseline coherence dependency named in Constitutional Baselines v1.2
+### v1.2 Conceptual Architecture Paper, Companion 4 to Constitutional Runtime Computation v5.5; closure of the cross-baseline coherence dependency named in Constitutional Baselines v1.2
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 
@@ -543,7 +543,7 @@ The parent's Section 19 names four open problems. The memory companion extended 
 
 **Acknowledgments**
 
-This work was developed under the Professor Bone Lab research identity as the fourth companion to Constitutional Runtime Computation v5.4 and the closure of the cross-baseline coherence dependency named in Constitutional Baselines v1.2. AEGIS serves as the worked domain. The paper was written to pre-empt the recurring critiques of the prior companion review cycles: to govern the coherence of the standard-set rather than re-describe per-surface baseline authority, with NoSurfaceMasksAnother as the cross-surface non-masking property that is the genuinely new object; to keep the per-surface versus family-level distinction clean and state the unusual coherence-fidelity L2 honestly; to separate reachability from executability through the corpus authority statuses; to respect the primitive-versus-topology distinction, distinguishing P_coh1 from P_base4 sharply and naming the Coherence Conditioning Loop as a topology; to handle threshold governance and evidence-packet provenance honestly by scoping them out on a clear axis argument rather than half-governing them; to make the Generation Coherence Principle and the second regress termination explicit rather than asserted; to state specification completeness plainly; and to honor scope by naming the measurement calculus, the unbuilt surfaces, and multi-sovereign coherence as boundaries.
+This work was developed under the Professor Bone Lab research identity as the fourth companion to Constitutional Runtime Computation v5.5 and the closure of the cross-baseline coherence dependency named in Constitutional Baselines v1.2. AEGIS serves as the worked domain. The paper was written to pre-empt the recurring critiques of the prior companion review cycles: to govern the coherence of the standard-set rather than re-describe per-surface baseline authority, with NoSurfaceMasksAnother as the cross-surface non-masking property that is the genuinely new object; to keep the per-surface versus family-level distinction clean and state the unusual coherence-fidelity L2 honestly; to separate reachability from executability through the corpus authority statuses; to respect the primitive-versus-topology distinction, distinguishing P_coh1 from P_base4 sharply and naming the Coherence Conditioning Loop as a topology; to handle threshold governance and evidence-packet provenance honestly by scoping them out on a clear axis argument rather than half-governing them; to make the Generation Coherence Principle and the second regress termination explicit rather than asserted; to state specification completeness plainly; and to honor scope by naming the measurement calculus, the unbuilt surfaces, and multi-sovereign coherence as boundaries.
 
 ---
 

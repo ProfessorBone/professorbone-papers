@@ -2,7 +2,7 @@
 
 ## Why Tool Invocation Is a Constitutional Transition Surface, Not a Neutral Capability Call
 
-### v1.1 Conceptual Architecture Paper, Companion 7 to Constitutional Runtime Computation v5.4
+### v1.1 Conceptual Architecture Paper, Companion 7 to Constitutional Runtime Computation v5.5
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 
@@ -14,7 +14,7 @@
 
 # Abstract
 
-The parent paper, Constitutional Runtime Computation v5.4, relocates terminal execution authority from the agent into the Constitutional Runtime Substrate. The agent proposes. The substrate resolves. But this migration, as specified, stops at Act. Contemporary agents do not act only through the substrate's own governed transitions; they call tools, and a tool can retrieve, generate, transform, or misframe evidence, mutate substrate or external state, shape future Observe, and produce real-world effects, all without ever passing through an Act event the parent's apparatus was built to gate. If tool invocation remains agent-owned, action authority has not actually migrated. It has only moved into the tool surface. This paper closes that sovereignty leak.
+The parent paper, Constitutional Runtime Computation v5.5, relocates terminal execution authority from the agent into the Constitutional Runtime Substrate. The agent proposes. The substrate resolves. But this migration, as specified, stops at Act. Contemporary agents do not act only through the substrate's own governed transitions; they call tools, and a tool can retrieve, generate, transform, or misframe evidence, mutate substrate or external state, shape future Observe, and produce real-world effects, all without ever passing through an Act event the parent's apparatus was built to gate. If tool invocation remains agent-owned, action authority has not actually migrated. It has only moved into the tool surface. This paper closes that sovereignty leak.
 
 This paper's central doctrine, stated plainly and not softened: the agent does not call tools. The agent submits ToolInvocationProposals. The substrate resolves tool reachability. The substrate invokes, admits, limits, or refuses tool effects. A tool result has no constitutional force until admitted.
 
@@ -678,7 +678,7 @@ Tools (this, C7):            Tool invocation and tool-result admission relocated
 
 This paper sits alongside Constitutional Memory as the other major agent-capability surface ORSR cannot leave ungoverned, and follows Constitutional Standing directly in the reading order, since a ToolInvocationProposal is itself a transition proposal subject to that paper's five-stage pipeline.
 
-**Recommended reading order:** Constitutional Runtime Computation v5.4; Constitutional Boundary Contracts v1.0; Constitutional Memory v2.1; Constitutional Retrieval v1.2; Constitutional Baselines v1.2; Constitutional Coherence v1.2; Constitutional Thresholds v1.2; Constitutional Standing v1.2; Constitutional Tools v1.1 (this paper).
+**Recommended reading order:** Constitutional Runtime Computation v5.5; Constitutional Boundary Contracts v1.0; Constitutional Memory v2.1; Constitutional Retrieval v1.2; Constitutional Baselines v1.2; Constitutional Coherence v1.2; Constitutional Thresholds v1.2; Constitutional Standing v1.2; Constitutional Tools v1.1 (this paper).
 
 ## IX.2 Relationship to the parent paper
 
@@ -786,7 +786,7 @@ A full compensation doctrine would need to specify, for each effect category, wh
 
 **Acknowledgments**
 
-This work was developed under the Professor Bone Lab research identity as the seventh companion to Constitutional Runtime Computation v5.4, closing the tool-invocation residue the parent paper's own migration implies but does not itself specify, alongside Constitutional Memory as the other major agent-capability surface ORSR cannot leave ungoverned. AEGIS serves as the worked domain, as in every prior companion. The v0.1 draft was built to the same discipline the corpus's own review cycles have consistently required: reuse existing corpus vocabulary wherever it already reaches most of the way there (ProposalWellFormed and the four authority statuses from Constitutional Memory; the pinned-reference schema and non-bypassability apparatus from section 6a; the Formation-Standing-Reachability-Binding-Continuation pipeline from Constitutional Standing; the six-component boundary-contract pattern from Constitutional Boundary Contracts), classify a new sovereign-terminal primitive only where the corpus's own four-part test is actually met, and name genuinely open questions as open rather than resolved. The v1.0 revision was shaped by first-pass external review (verdict: accept with targeted revision before v1.0), which correctly identified that several class-family predicates were thinner than the doctrine they were carrying, and that authority-route terminology needed cleaning up to avoid conflating routeability with executability.
+This work was developed under the Professor Bone Lab research identity as the seventh companion to Constitutional Runtime Computation v5.5, closing the tool-invocation residue the parent paper's own migration implies but does not itself specify, alongside Constitutional Memory as the other major agent-capability surface ORSR cannot leave ungoverned. AEGIS serves as the worked domain, as in every prior companion. The v0.1 draft was built to the same discipline the corpus's own review cycles have consistently required: reuse existing corpus vocabulary wherever it already reaches most of the way there (ProposalWellFormed and the four authority statuses from Constitutional Memory; the pinned-reference schema and non-bypassability apparatus from section 6a; the Formation-Standing-Reachability-Binding-Continuation pipeline from Constitutional Standing; the six-component boundary-contract pattern from Constitutional Boundary Contracts), classify a new sovereign-terminal primitive only where the corpus's own four-part test is actually met, and name genuinely open questions as open rather than resolved. The v1.0 revision was shaped by first-pass external review (verdict: accept with targeted revision before v1.0), which correctly identified that several class-family predicates were thinner than the doctrine they were carrying, and that authority-route terminology needed cleaning up to avoid conflating routeability with executability.
 
 ---
 
