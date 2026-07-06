@@ -678,7 +678,7 @@ Tools (this, C7):            Tool invocation and tool-result admission relocated
 
 This paper sits alongside Constitutional Memory as the other major agent-capability surface ORSR cannot leave ungoverned, and follows Constitutional Standing directly in the reading order, since a ToolInvocationProposal is itself a transition proposal subject to that paper's five-stage pipeline.
 
-**Recommended reading order:** Constitutional Runtime Computation v5.5; Constitutional Boundary Contracts v1.0; Constitutional Memory v2.1; Constitutional Retrieval v1.2; Constitutional Baselines v1.2; Constitutional Coherence v1.2; Constitutional Thresholds v1.2; Constitutional Standing v1.2; Constitutional Tools v1.1 (this paper).
+**Recommended reading order:** Constitutional Runtime Computation v5.5; Constitutional Boundary Contracts v1.0; Constitutional Memory v2.1; Constitutional Retrieval v1.2; Constitutional Baselines v1.2; Constitutional Coherence v1.2; Constitutional Thresholds v1.2; Constitutional Standing v1.3; Constitutional Tools v1.1 (this paper).
 
 ## IX.2 Relationship to the parent paper
 

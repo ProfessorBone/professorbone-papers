@@ -114,7 +114,7 @@ core paper identifies but does not close.
   horizontal axis.
 
 - [Constitutional Standing: Formation, Binding, and Non-Formation in Governed
-  Runtime Transitions](companions/constitutional-standing-v1.2.md)
+  Runtime Transitions](companions/constitutional-standing-v1.3.md)
   Companion 6. Formalizes the Standing (STAND) step CTLC's own CRA Assembly
   has named since its earliest formalization but specified only as a single
   sentence, and substantially advances, though does not complete, the
@@ -153,7 +153,7 @@ core paper identifies but does not close.
 - [Constitutional Task Ledger: Task State, Continuation, and Terminal Criteria
   in Governed Agentic Systems](companions/constitutional-task-ledger-v1.1.md)
   Companion 8. Argues that task continuity cannot live in agent memory:
-  Constitutional Standing v1.2 named ContinuationState, ContinuationIssued,
+  Constitutional Standing v1.3 named ContinuationState, ContinuationIssued,
   TaskActive, and CycleCurrent as vocabulary without specifying the governed
   task-state object they presuppose, and Constitutional Memory v2.2's cycle-
   closure model depends on a Task Ledger carrying pending obligations forward
@@ -251,7 +251,7 @@ They remain part of the intellectual lineage of the series.
 5. Constitutional Baselines v1.2 (companion 3)
 6. Constitutional Coherence v1.2 (companion 4)
 7. Constitutional Thresholds v1.2 (companion 5)
-8. Constitutional Standing v1.2 (companion 6)
+8. Constitutional Standing v1.3 (companion 6)
 9. Constitutional Tools v1.1 (companion 7)
 10. Constitutional Task Ledger v1.1 (companion 8)
 11. Constitutional Feedback v1.0 (companion 9)
