@@ -84,7 +84,7 @@ core paper identifies but does not close.
   and it is the meta-level closure of the corpus's drift architecture.
 
 - [Constitutional Coherence: Baseline Generations, Cross-Surface Consistency,
-  and the Governance of Multi-Surface Drift](companions/constitutional-coherence-v1.3.md)
+  and the Governance of Multi-Surface Drift](companions/constitutional-coherence-v1.4.md)
   Companion 4. Constitutional Baselines governs baseline authority one surface
   at a time, but the corpus has a family of baselines, and per-surface validity
   does not guarantee family coherence. This paper matures the BaselineGeneration
@@ -96,7 +96,7 @@ core paper identifies but does not close.
   surface expects to escalate.
 
 - [Constitutional Thresholds: Trigger Authority, Decision Boundaries, and
-  Evidence-Packet Provenance in Governed Drift Monitoring](companions/constitutional-thresholds-v1.3.md)
+  Evidence-Packet Provenance in Governed Drift Monitoring](companions/constitutional-thresholds-v1.4.md)
   Companion 5. Closes the threshold-authority and evidence-packet-provenance
   residues named and scoped out across Constitutional Baselines v1.2 and
   Constitutional Coherence v1.2. It distinguishes four objects the corpus had
