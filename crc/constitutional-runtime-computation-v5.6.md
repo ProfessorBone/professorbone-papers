@@ -2,7 +2,7 @@
 
 ## Governed Cognitive Substrates, Constitutional Reachability, and the Reconstruction of Agentic Sovereignty
 
-### v5.5 Conceptual Architecture Paper
+### v5.6 Conceptual Architecture Paper
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 
@@ -60,7 +60,9 @@ The resulting architecture suggests a transition away from capability-centric co
 §18 Related work
 §19 Conclusion (including open problems)
 
-Appendix: Supporting figures
+Appendix A: Full ORSR Continuation Loop POC
+Appendix B: Corpus Amendment and Version Authority
+Supporting figures (Figures A1 to A3)
 
 ---
 
@@ -1108,6 +1110,8 @@ This work was developed under the Professor Bone Lab research identity. AEGIS se
 
 ---
 
+*v5.6: Appendix B added, Corpus Amendment and Version Authority, the corpus-compilation authority governing how the multi-paper corpus compiles into one constitution. It establishes the precedence rule (defining-paper-owns by default now, with the future shared schema home as the registry of record once it exists), the amendment declaration and its mandatory back-reference obligation on the amended paper, the Core-binding amendment rule (a companion may propose or disclose a Core-binding amendment, but only the Core carries and ratifies it, and a companion may not rebind a Core field in its own text), the compatible-extension class and its lighter path, the coarse-to-operational goal-status mapping of Section 4's goal_status onto the boundary companion's GoalStatusEnum with ESCALATED projecting to IN_PROGRESS and RECONSTITUTED left open pending its registry entry (Appendix B.6), and an inaugural registry (R1 through R7) that records the corpus's current shared-object divergences as pending reconciliation under the new authority without reconciling any of them. The appendix area is restructured so that Appendix A and Appendix B are sibling appendices and the supporting figures sit beneath their own heading. No normative section, predicate, or object-model definition of Core changed: the ORSR loop, CTLC's Reachable(tau) predicate, the verdict space, the ten-field TransitionProposal, and the Resolution to ContinuationState to AgentObservation lineage are all unchanged. The addition is non-breaking for the companions. Inserting this appendix is itself the first governed exercise of the new authority, and the declaration that the companions need no version bump is that authority's first application, which is why their alignment citations are left at Constitutional Runtime Computation v5.5 by governed decision rather than swept.*
+
 *v5.5: ORSR return-path object model reconciled with the stabilization plan's refined Option C. Section 4's return-path sentence is amended: the substrate no longer emits the Resolution as the next observation. The Resolution remains the substrate's internal adjudication object; from it the substrate issues a substrate-owned ContinuationState, and from that ContinuationState it constructs the next AgentObservation, the governed Observe envelope for the next cycle. This brings the Section 4 body into conformance with Appendix A's Full ORSR Continuation Loop POC, whose resolve, _finalize, and observe_from_continuation path already realizes the Resolution then ContinuationState then AgentObservation chain. Section 4's TransitionProposal enumeration is marked canonical: the ten-field object is the corpus TransitionProposal, and boundary-crossing validation checks it rather than redefining it. No change to CTLC's Reachable(tau) predicate, the verdict space, or the Emit, Escalate, and Hold paths.*
 
 *v5.4: HOLD verdict completeness addressed, identified through external review of v5.3 and refined through a second review pass before commit. §6a added (Part II, between §6 and §7): formalizes the Hold verdict's constitutional structure that §6 previously stated only as an assertion ("does not earn privilege for a retry"). Introduces the typed HoldRecord object as the Hold-specific subrecord of the Resolution-level adjudication artifact §4 already establishes for every verdict, not a parallel object splitting Hold out of that artifact. HoldRecord carries proposal_ref, failed_conjunct, cause, and five pinned references, state_ref, authority_context_ref, domain_constitution_ref, constitution_version, and provenance_frontier_ref, plus cycle_id and superseded_by (renamed from an earlier supersedable_by, and typed as null | HoldRecordRef | ResolutionRef); the pinned references are what the replay predicate checks against, since a single constitution_version field cannot independently capture state, authority, and provenance movement. Three properties formalized: non-formation (a Hold is an immutable, independently queryable trace entry, not the absence of one); non-replayability (Replay(τ', h) is formally defined over content-identity and the four pinned references' unchanged-ness, evaluated at a named pre-CRA replay gate before Step 1 rather than as part of it; a true replay short-circuits to the existing HoldRecord without re-running the seven-step CRA Assembly, while a genuine change to any one of the four pinned references correctly triggers fresh adjudication from Step 1); and non-bypassability (admissibility is bound to effect-equivalence rather than to transition type, closing the cross-type route around a Hold; this names a new requirement on the domain constitution D to define effect-equivalence classes, stated as a requirement rather than a completed mechanism, and cross-referenced from §19's translation problem as a specific instance of it rather than a separate open-problem family). Figure 3a added and its replay-gate label updated to the five-conjunct predicate. A sixth candidate property, HOLD Verdict Completeness, added to Figure A2's verification-pathway list (Appendix), specified but not formally verified, in the same posture as the existing five; the figure notes explicitly that this P6 is scoped to its own list and distinct from the same numeral's use within the Q-domain-indexed primitives elsewhere in the paper. §8 extended with §8.6, a short worked continuation tracing a Hold, its replay at the pre-CRA gate, and its legitimate supersession under genuine provenance recording. §19's Open Problems retains its four items and is not expanded to five; a closing paragraph acknowledges that HOLD verdict completeness was an implicit gap in v5.3, now closed at the specification level, with formal verification of the new candidate property deferred alongside P1 through P5. Front-matter Contents and Key Terms updated to match. No change to CTLC's four-conjunct Reachable(τ) predicate or to the Emit and Escalate paths; the revision is confined to the internal structure of the Hold path. Companion papers 0 through 5 continue to cite Constitutional Runtime Computation v5.3; this is not an error, since v5.4 is non-breaking with respect to everything the companions depend on, and updating those citations is deferred to a separate repository-hygiene pass rather than folded into this one. Separately, the whole document was brought into conformance with the standing no-em-dash convention already applied across the companion series. Appendix A replaced: the earlier ORDR Minimal Reachability POC is superseded by a Full ORSR Continuation Loop POC demonstrating substrate-issued AgentObservation, typed TransitionProposal, Resolve, BindingRecord / HoldRecord / NonFormationReceipt / replay rejection / escalation handling, TaskLedger update, AllowedNextAffordanceSet issuance, ContinuationState issuance, private-continuation rejection, unchanged-replay rejection, and changed-context resubmission across chained cycles, closing with a second Observe drawn from substrate-issued ContinuationState. The prior appendix demonstrated typed transition adjudication before effect but did not demonstrate substrate-issued continuation, replay governance, TaskLedger update, or a second ORSR cycle. The new appendix remains a minimal executable design trace, not a production runtime, full CTLC implementation, MEC/L2 implementation, full AEGIS clinical workflow, or empirical validation of the full CRC corpus. The §8.5 cross-reference and the two §6a references to the appendix POC were reworded from "Governance Runtime stub" to "substrate runtime stub" accordingly. This is an appendix-level revision that brings Appendix A into alignment with v5.4 doctrine; it does not bump the parent version, since the parent architecture is unchanged.*
@@ -1116,11 +1120,7 @@ This work was developed under the Professor Bone Lab research identity. AEGIS se
 
 ---
 
-## Appendix: Supporting Figures
-
----
-
-**Appendix A: Full ORSR Continuation Loop POC**
+## Appendix A: Full ORSR Continuation Loop POC
 
 *Executable design trace for substrate-issued continuation after Resolve.*
 
@@ -1284,6 +1284,242 @@ The accompanying test suite exercises all seven paths, including the well-formed
 - effect-equivalence classes (exact proposal-signature comparison only)
 
 *The complete script (`appendix_a_full_orsr_loop_poc.py`) and its test suite (`test_appendix_a_full_orsr_loop_poc.py`) are available from the Professor Bone Lab repository. The excerpt above elides the dataclass definitions and the `_hold`, `_escalate`, `_nonformation`, `_private_continuation_rejected`, and `_replay_rejected` handlers for brevity; each routes through `_finalize` on the same terms as `_bind`.*
+
+---
+
+## Appendix B: Corpus Amendment and Version Authority
+
+*The precedence rule and amendment route that compile the corpus into one coherent constitution.*
+
+The CRC corpus is a multi-paper constitution. This core paper defines the root
+architecture; each companion closes a named gap and, in doing so, defines shared
+apparatus, objects, predicates, enumerations, and typed records, that later
+companions consume, reference, and sometimes alter. A multi-paper constitution
+must answer two questions this corpus has, until now, left unstated. First, when
+two papers state different definitions of the same shared object, which definition
+governs. Second, by what authority, and in what form, one paper may alter
+apparatus another paper defines.
+
+Disclosure by an amending paper, which several companions already practice as a
+matter of good authorship, is not a governing act, and the paper whose object is
+altered is typically never updated to acknowledge the alteration. Two definitions
+then stand side by side with nothing to adjudicate between them, and an
+implementer building a predicate that reads the shared object cannot determine,
+from the corpus alone, which definition to build. This appendix supplies the
+missing authority. It fixes the operative definition of every shared object
+through a precedence rule, and it makes lawful alteration explicit, disclosed on
+both sides, and versioned, through an amendment route. It governs how the corpus
+compiles into one constitution. It does not change the runtime behavior of any
+single surface, and it introduces no new runtime object; it is a rule about the
+papers, not about the substrate.
+
+### B.1 Shared apparatus, and the three roles
+
+**Shared apparatus** is any object, predicate, enumeration, field, or typed record
+that is defined in one paper and read, referenced, extended, or altered by another.
+Three roles attach to each item of shared apparatus.
+
+- The **defining paper** is the paper that first gives the item its canonical form:
+  the field list of an object, the conjunct set of a predicate, the value set of an
+  enumeration.
+- A **consuming paper** is any paper that reads or depends on the item without
+  altering it.
+- An **amending paper** is a consuming paper that alters the item: adds to it,
+  restricts it, redefines an element of it, or retires it.
+
+Apparatus defined in this core paper is **Core apparatus**, and it is governed by
+the same rules with one addition stated in B.4.
+
+### B.2 The precedence rule
+
+The precedence rule fixes the operative definition of a shared object when the
+corpus holds more than one. It has a default that operates now and a stronger form
+that takes effect when the shared schema home exists.
+
+**Default, defining-paper-owns.** The defining paper owns the canonical definition
+of a shared object. That definition is operative for the whole corpus unless and
+until a lawful amendment under B.3 changes it, in which case the amended definition
+is operative from the amendment forward. A consuming paper must pin the version of
+the object it was written against. A definition that diverges from the operative
+one without a lawful amendment declaration is **non-operative**: it is a defect to
+be reconciled, not an alternative standard an implementer may choose between. Where
+the corpus currently holds an undeclared divergence, the operative definition is
+the defining paper's, and the divergent text is pending reconciliation, not
+co-equal doctrine.
+
+**Registry of record, once the shared schema home exists.** The corpus will
+establish a shared schema home: a single artifact that holds the canonical typed
+definition of every shared load-bearing object. That home is sequenced after this
+authority and is created under it. When the home exists, it becomes the **registry
+of record** and the single source of truth for the definition of every shared
+object it holds. From that point, the operative definition of an object in the home
+is the one the home carries, and the defining-paper-owns default continues to
+govern only those objects not yet migrated into the home. The transition is
+itself governed: moving an object's canonical definition into the home is a lawful
+amendment under B.3, disclosed and versioned, never an ungoverned relocation. The
+inaugural registry in B.7 is the opening docket that the home's full registry will
+later absorb and supersede.
+
+### B.3 The amendment route and the amendment declaration
+
+One paper may lawfully alter another paper's shared apparatus only through an
+amendment declaration. The declaration is carried by the amending paper and
+carries these fields.
+
+- **amended_object:** the shared object being amended, named with its defining
+  paper.
+- **amended_from_version:** the operative version the amendment is made against.
+- **amendment_type:** one of *extend* (add fields, conjuncts, or enum values),
+  *narrow* (restrict an existing definition), *redefine* (change the meaning of an
+  existing field, conjunct, or value), or *deprecate* (retire the object or an
+  element of it). The compatible-extension subclass of *extend* is defined in B.5.
+- **superseded_elements:** the specific fields, conjuncts, or enum values this
+  amendment replaces, restricts, or retires. Empty for a pure extension.
+- **compatibility_rule:** whether existing consumers remain valid, must migrate, or
+  are marked predecessor-relative.
+- **operative_version_after:** the new operative version identifier, and, once the
+  shared schema home exists, the home location where the amended object now lives.
+- **back_reference:** the pointer that the amended paper must carry to this
+  declaration (B.3.1).
+
+#### B.3.1 The back-reference obligation
+
+The back-reference is a requirement, not a courtesy. A lawful amendment is
+complete only when the amended paper carries a back-reference acknowledging the
+amendment and naming the amending paper and the operative version after amendment.
+An amendment disclosed only on the amending side is incomplete: the object remains
+in a divergent, non-operative state under B.2 until the amended paper carries the
+back-reference. The corpus's existing disclosed amendments all disclose on the
+amending side and leave the amended side silent; each is therefore recorded in B.7
+as pending, precisely because the back-reference is absent. The back-reference is
+what keeps two papers from stating two definitions with nothing joining them; it is
+the joining.
+
+### B.4 Amendments that bind the Core
+
+Core apparatus is the root of the corpus, and a leaf may not silently redefine the
+root. A companion may propose or disclose the need for an amendment that binds the
+Core, but only the Core carries and ratifies an amendment to Core apparatus. A
+companion may not rebind a Core-defined field, redefine a Core object, or extend a
+Core enumeration in its own text. A companion that depends on a change to Core
+apparatus records the dependency as a proposed amendment and routes it to the Core;
+the change becomes operative only when the Core carries it, under the same
+declaration and back-reference discipline of B.3, in the Core paper.
+
+This rule is the direct correction of the corpus's one live case in which a
+companion declared that a Core field resolves to a companion-defined object
+"wherever it appears," including in the Core and in papers not yet written. That
+declaration is not operative: under this rule the Core field's own binding governs
+until the Core itself carries an amendment. The case is recorded in B.7 as the
+registry's priority entry, because it is the pattern the Core-binding rule exists to
+foreclose.
+
+### B.5 The compatible-extension class
+
+A **compatible extension** is an addition to a shared object that does not change
+the object's meaning for any existing consumer. The paradigm cases are an optional
+field that is absent or vacuous for existing instances, a conjunct added to a
+predicate that is vacuously true for any input that does not exercise the new
+feature, and an enum value that no existing consumer is required to produce or to
+accept.
+
+A compatible extension is still an amendment, and it still requires a declaration
+(B.3) and a back-reference (B.3.1). It travels a lighter path in one respect only:
+it does not force a full version rewrite of the amended object, because it changes
+nothing for existing consumers. The amended paper's back-reference records the
+extension and pins the extended version; consumers pinned to the pre-extension
+version remain valid, because for them the object is unchanged. The `amendment_type`
+is *extend*, `superseded_elements` is empty, and `compatibility_rule` states that
+existing consumers remain valid without migration.
+
+The test is meaning-for-existing-consumers, not surface-additivity. An addition
+that alters what an existing consumer must accept or produce is not a compatible
+extension: it is a *redefine* or a *narrow*, and it travels the full path of B.3,
+including a migration statement, regardless of how additive it looks. In
+particular, an added enum value is a compatible extension only where an existing
+validator is not thereby made to reject a value the corpus now treats as valid; if
+an existing validator would reject the new value, the extension changes meaning for
+that consumer and is a full amendment until the validator is reconciled.
+
+The inaugural compatible extensions are recorded in B.7 as registry entries R1, R2,
+and R6: the thresholds companion's additions to two coherence-companion predicates,
+each vacuously true for a generation with no threshold-bearing members, and its
+typing of the coherence companion's per-surface member object with an optional
+threshold-set version. Each is operative as a compatible extension only once it
+carries a declaration and the coherence companion carries the back-reference; until
+then each is pending under B.2.
+
+### B.6 The coarse-to-operational goal-status mapping
+
+The Core's `goal_status` is a coarse two-value field, `IN_PROGRESS` or `TERMINAL`,
+expressing goal state: whether the larger task is constitutionally complete. The
+boundary companion's `GoalStatusEnum` is a finer operational enumeration expressing
+task status at the interface. These are not two definitions of one object in
+conflict; they are one field at two granularities. The corpus declares the
+projection from the operational enumeration onto the coarse field, so that a
+consumer reading only the coarse field reads a defined projection rather than
+guessing one.
+
+| Operational status (`GoalStatusEnum`) | Coarse projection (`goal_status`) |
+|---|---|
+| `NOT_STARTED` | `IN_PROGRESS` |
+| `IN_PROGRESS` | `IN_PROGRESS` |
+| `BLOCKED` | `IN_PROGRESS` |
+| `COMPLETE` | `TERMINAL` |
+| `ABORTED` | `TERMINAL` |
+| `ESCALATED` | `IN_PROGRESS` |
+| `RECONSTITUTED` | to be declared during R4 reconciliation |
+
+The projection is the operative relation between the two granularities; the
+operational enumeration does not conflict with the coarse field so long as the
+projection holds.
+
+ESCALATED projects to IN_PROGRESS because escalation suspends completion rather than ending the task. It remains governed, pending review, and therefore non-terminal at the Core level.
+
+One value remains for later declaration: `RECONSTITUTED`. It enters through the
+task-ledger companion's extension of `GoalStatusEnum` (B.7, R4) and needs a
+projection once that extension is reconciled. The task-ledger companion's own
+currency predicate groups mid-reconstitution with the non-live states, so its
+projection is declared by the sovereign author during R4 reconciliation, not fixed
+by this appendix.
+
+### B.7 Inaugural registry
+
+This registry is the opening docket of shared-object divergences the corpus carries
+at the ratification of this appendix. For each entry it records the shared item,
+the defining paper that owns it under B.2, the amending or diverging paper, the
+operative definition under B.2, the amendment class, and the status. Every entry is
+pending reconciliation under this authority: the registry records the divergence
+and its operative determination; it does not reconcile it. Reconciliation, and any
+version change to the papers involved, is separate governed work. This registry is
+the opening docket, not the final shared-object registry; when the shared schema
+home exists, its full registry absorbs and supersedes this one (B.2).
+
+| Id | Shared item | Owner (defining paper) | Amending or diverging paper | Operative definition under B.2 | Class | Status |
+|---|---|---|---|---|---|---|
+| R1 | `GenerationPinAdmissible` | Constitutional Coherence | Constitutional Thresholds | The coherence companion's four-conjunct definition is operative. The thresholds companion's six-conjunct form is a compatible extension (B.5), vacuous for a generation with no threshold-bearing members. | compatible extension | pending: needs a declaration and a coherence-companion back-reference |
+| R2 | `GenerationCoherenceReachable` | Constitutional Coherence | Constitutional Thresholds | The coherence companion's seven-conjunct definition is operative. The thresholds companion's added eighth conjunct is a compatible extension (B.5). | compatible extension | pending: needs a declaration and a coherence-companion back-reference |
+| R3 | `goal_status` coarse-to-operational | Core (coarse) and Constitutional Boundary Contracts (operational) | mapping, not an amendment | The projection declared in B.6 is operative. This is a granularity mapping, not a conflict. | mapping declaration | pending: `ESCALATED` resolved to `IN_PROGRESS`; the `RECONSTITUTED` projection is to be declared during R4 reconciliation (B.6) |
+| R4 | `GoalStatusEnum` value set | Constitutional Boundary Contracts | Constitutional Task Ledger | The boundary companion's six-value enumeration is operative. The task-ledger companion's added `RECONSTITUTED` value is currently a full amendment, not yet a compatible extension, because the boundary companion's validator would reject the seventh value (B.5, final paragraph). | full amendment (extend), pending validator reconciliation | pending: needs a declaration, a boundary-companion validator reconciliation, and a boundary-companion back-reference |
+| R5 | `authority_context_ref` binding | Core | Constitutional Standing | Core's own binding of the field is operative. The standing companion may not rebind a Core field in its own text (B.4); its rebinding to a companion-defined object is recorded as a proposed Core amendment and is non-operative until the Core carries it. | Core-binding amendment | **priority.** pending: the standing companion's in-text rebinding is non-operative; route as a proposed Core amendment (B.4). Note: the proposed binding narrows what the Core field pins, which is a correctness matter for the reconciliation to weigh. |
+| R6 | `GenerationMember` | Constitutional Coherence | Constitutional Thresholds | The coherence companion owns the object. The thresholds companion's typed three-field form with an optional threshold-set version is a compatible extension (B.5); where the coherence companion gave no explicit field list, the reconciliation should site the typed form in the owner. | compatible extension | pending: needs a declaration and a coherence-companion back-reference; reconciliation sites the field list in the owner |
+| R7 | `ProposalConformant` name | Constitutional Boundary Contracts | Constitutional Standing | The boundary companion's name `ProposalConformant` is operative. The standing companion's alias `BoundaryConformant` has no definitional home under that name and, where it is used as an enum value, must be reconciled to the operative name. | naming reconciliation | pending: reconcile the alias to the operative name |
+
+### B.8 Relationship to the shared schema home
+
+This authority is sequenced first; the shared schema home is created second, under
+it. When the home exists, it becomes the registry of record (B.2): the canonical
+definition of every shared object lives there, the operative-version determination
+reads from there, and the inaugural registry of B.7 is absorbed into and superseded
+by the home's full registry. Creating the home, and migrating each object's
+canonical definition into it, is itself a lawful amendment under B.3: each migration
+carries a declaration and back-references, so the home is populated under the same
+authority it will later enforce. Until the home exists, the defining-paper-owns
+default of B.2 governs, and B.7 is the corpus's docket of open divergences.
+
+---
+
+## Supporting Figures
 
 ---
 
