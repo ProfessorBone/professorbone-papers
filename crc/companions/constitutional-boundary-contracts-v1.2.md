@@ -292,7 +292,7 @@ Both sub-surfaces are governed by ObservationContract. Their failure modes are d
 | `continuation_state_ref` | ContinuationStateRef | The ContinuationState this AgentObservation was constructed from and references; the continuity authority that authorizes the next cycle, which the agent's next Formation reconstructs against (Constitutional Standing, Part V) |
 | `observation_components` | List[ObservationComponent] | Typed list of components assembled into this observation; each component carries a component_type, source_ref, construction_predicate_ref (where applicable), provenance_ref, expiry_scope, and agent_visibility flag; prevents AgentObservation from being a flat opaque object |
 | `task_ledger_view` | TaskLedgerView | Substrate-issued filtered view of Task Ledger state; read-only for the agent |
-| `goal_status` | GoalStatusEnum | NOT_STARTED, IN_PROGRESS, BLOCKED, ESCALATED, COMPLETE, or ABORTED |
+| `goal_status` | GoalStatusEnum | NOT_STARTED, IN_PROGRESS, BLOCKED, ESCALATED, COMPLETE, ABORTED, or RECONSTITUTED |
 | `allowed_next_affordances` | List[CapabilityRef] | Substrate-declared set of capabilities the agent may propose; agent may not propose outside this set |
 | `working_memory` | WorkingMemoryRecord | Substrate-issued working memory for this cycle; expires at cycle end; must contain no prior-cycle ephemeral state |
 | `cycle_expiry` | Timestamp | The time at which this observation expires; agent may not reference this observation after expiry |
@@ -344,6 +344,8 @@ ObservationConformant(o) ⟺
 **ComponentProvenanceVisible(o):** every agent-visible component in observation_components carries a provenance_ref traceable to an authorized substrate source. The substrate cannot assemble agent-visible observation components from untraced sources.
 
 **GoalStatusConsistent(o):** goal_status matches the goal_status recorded in the Task Ledger at time of issue.
+
+RECONSTITUTED is admitted to GoalStatusEnum as a seventh value, the status of a task under active reconstitution. The value originates in the Task Ledger companion's use and is admitted here under Core Appendix B. Boundary Contracts owns the GoalStatusEnum value set, including RECONSTITUTED, while the Task Ledger companion continues to own the operational semantics and mechanics of reconstitution, what a reconstituted task is and does. Admitting the value changes no existing value's meaning and requires no change to GoalStatusConsistent, which matches goal_status against the Task Ledger rather than enumerating a fixed value set. The coarse projection of RECONSTITUTED onto the Core's goal_status field is declared in Core Appendix B, B.6.
 
 **AffordancesAuthorized(o):** every capability in allowed_next_affordances is a capability the substrate can authorize from this task state. No unauthorized capability appears in the affordance set. This is the ceiling: the substrate cannot offer what it cannot authorize.
 
@@ -612,7 +614,7 @@ This paper is Companion 0 because boundary contracts are logically prior to ever
 **Recommended reading order:**
 
 1. Constitutional Runtime Computation v5.5
-2. Constitutional Boundary Contracts v1.1 (this paper)
+2. Constitutional Boundary Contracts v1.2 (this paper)
 3. Constitutional Memory v2.1
 4. Constitutional Retrieval v1.2
 5. Constitutional Baselines v1.2
@@ -678,6 +680,8 @@ The coherence companion (Companion 4) extends baseline governance to the family 
 **The BVF's relationship to CTLC.** ProposalConformant is evaluated by the BVF before a proposal enters CTLC. The BVF checks structural and provenance properties. CTLC checks constitutional reachability. These are distinct evaluations at distinct layers. The question of whether there exist conjuncts that properly belong to ProposalConformant but currently appear in CTLC's reachability evaluation, or vice versa, is an architectural question about the correct placement of each check. The distinction between "did this cross correctly" (BVF) and "may this happen" (CTLC) is the governing principle; applying it consistently to every check in both evaluators is future refinement work.
 
 ---
+
+*v1.2: RECONSTITUTED admitted to GoalStatusEnum as its seventh value under Core Appendix B, the status of a task under active reconstitution, originating in the Task Ledger companion's use, resolving the R4 divergence on the owner side. Boundary Contracts owns the GoalStatusEnum value set including RECONSTITUTED; the Task Ledger companion continues to own the operational semantics and mechanics of reconstitution. GoalStatusConsistent is unchanged, because it matches goal_status against the Task Ledger rather than enumerating a fixed value set, so no existing value's meaning changes and no validator logic is reworked. The coarse projection of RECONSTITUTED onto the Core's goal_status is declared in Core Appendix B, B.6. Aligns with Constitutional Runtime Computation v5.5. No change to the Boundary Sovereignty Principle, the B0 to B5 taxonomy, the BoundaryValidationFunction, the P_bnd family, or ProposalConformant.*
 
 *v1.1: ProposalContract reframed as a boundary-crossing validation view over the parent's canonical ten-field TransitionProposal rather than a replacement schema (Part IV.2), restoring the six canonical fields the v1.0 required set omitted, including actor identity and authority claim, so a ProposalConformant-passing proposal carries what Authorized(tau) reads over the authority graph; field types are provisional pending the shared-schema pass. ProposalConformant gains AuthorityFieldsTraceable (Part IV.3). Part II.2 and Part V.1 state the refined lineage: the substrate issues a ContinuationState from the Resolution and constructs the AgentObservation from that ContinuationState, which crosses the boundary under ObservationContract. Part V.2 adds continuation_state_ref. Aligns with Constitutional Runtime Computation v5.5. No change to the Boundary Sovereignty Principle, the B0 to B5 taxonomy, the BoundaryValidationFunction, or the P_bnd family.*
 

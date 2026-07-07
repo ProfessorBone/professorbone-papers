@@ -27,7 +27,7 @@ documents demonstrate the architecture operating under real constraints.
 
 ### Core Paper
 
-- [Constitutional Runtime Computation v5.6](constitutional-runtime-computation-v5.6.md)
+- [Constitutional Runtime Computation v5.7](constitutional-runtime-computation-v5.7.md)
   The foundational paper. Introduces ORSR, CTLC, L1/L2 governance separation,
   the Q/P constitutional ontology, and the Constitutional Engineering Lifecycle.
   v5.4 adds §6a, formalizing HOLD verdict completeness (non-formation,
@@ -41,7 +41,7 @@ Companion papers extend the core architecture. Each addresses a gap that the
 core paper identifies but does not close.
 
 - [Constitutional Boundary Contracts: Governed Interface Exchange at the
-  Agent-Substrate Boundary](companions/constitutional-boundary-contracts-v1.1.md)
+  Agent-Substrate Boundary](companions/constitutional-boundary-contracts-v1.2.md)
   Companion 0. Foundational interface companion. ORSR produces two primary
   governed boundaries in the core agent-substrate loop: Agent-to-Substrate
   (TransitionProposal) and Substrate-to-Agent (AgentObservation). This paper
@@ -151,7 +151,7 @@ core paper identifies but does not close.
   test applied to the two strongest candidates and neither found to qualify.
 
 - [Constitutional Task Ledger: Task State, Continuation, and Terminal Criteria
-  in Governed Agentic Systems](companions/constitutional-task-ledger-v1.1.md)
+  in Governed Agentic Systems](companions/constitutional-task-ledger-v1.2.md)
   Companion 8. Argues that task continuity cannot live in agent memory:
   Constitutional Standing v1.3 named ContinuationState, ContinuationIssued,
   TaskActive, and CycleCurrent as vocabulary without specifying the governed

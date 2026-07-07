@@ -2,7 +2,7 @@
 
 ## Governed Cognitive Substrates, Constitutional Reachability, and the Reconstruction of Agentic Sovereignty
 
-### v5.6 Conceptual Architecture Paper
+### v5.7 Conceptual Architecture Paper
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 
@@ -1110,6 +1110,8 @@ This work was developed under the Professor Bone Lab research identity. AEGIS se
 
 ---
 
+*v5.7: Appendix B, B.6 completed. The coarse-to-operational goal-status projection now declares RECONSTITUTED to IN_PROGRESS, the projection Appendix B intentionally left open at v5.6 pending R4 reconciliation. RECONSTITUTED projects to IN_PROGRESS because reconstitution is governed continuation, not terminal completion, the same reasoning that maps ESCALATED to IN_PROGRESS. This is the R4 reconciliation on the Core-projection side: RECONSTITUTED is a value of the boundary companion's GoalStatusEnum, which owns the seven-value set as a compatible extension admitted on the boundary-companion side with its ledger-match validator unchanged, and the task-ledger companion reuses the enum and supplies the operational meaning of reconstitution. This is a narrow corpus-amendment and projection update. No normative section, predicate, or object-model definition of Core changed: the ORSR loop, CTLC's Reachable(tau) predicate, the verdict space, the ten-field TransitionProposal, and the Resolution to ContinuationState to AgentObservation lineage are all unchanged. The amendment is non-breaking for the companions, so their Core alignment citations are left at Constitutional Runtime Computation v5.5 by governed decision rather than swept, the same Option applied at v5.6. The B.7 registry rows R3 and R4 are left pending for a later batch registry-maintenance pass. That pass must update R3 to record the RECONSTITUTED projection as declared, and must correct R4, whose provisional rationale that the boundary companion's validator would reject the seventh value is false against the live text, since GoalStatusConsistent is a ledger-match check rather than an enum-membership gate. R4 is properly a compatible GoalStatusEnum extension coupled with this B.6 projection amendment.*
+
 *v5.6: Appendix B added, Corpus Amendment and Version Authority, the corpus-compilation authority governing how the multi-paper corpus compiles into one constitution. It establishes the precedence rule (defining-paper-owns by default now, with the future shared schema home as the registry of record once it exists), the amendment declaration and its mandatory back-reference obligation on the amended paper, the Core-binding amendment rule (a companion may propose or disclose a Core-binding amendment, but only the Core carries and ratifies it, and a companion may not rebind a Core field in its own text), the compatible-extension class and its lighter path, the coarse-to-operational goal-status mapping of Section 4's goal_status onto the boundary companion's GoalStatusEnum with ESCALATED projecting to IN_PROGRESS and RECONSTITUTED left open pending its registry entry (Appendix B.6), and an inaugural registry (R1 through R7) that records the corpus's current shared-object divergences as pending reconciliation under the new authority without reconciling any of them. The appendix area is restructured so that Appendix A and Appendix B are sibling appendices and the supporting figures sit beneath their own heading. No normative section, predicate, or object-model definition of Core changed: the ORSR loop, CTLC's Reachable(tau) predicate, the verdict space, the ten-field TransitionProposal, and the Resolution to ContinuationState to AgentObservation lineage are all unchanged. The addition is non-breaking for the companions. Inserting this appendix is itself the first governed exercise of the new authority, and the declaration that the companions need no version bump is that authority's first application, which is why their alignment citations are left at Constitutional Runtime Computation v5.5 by governed decision rather than swept.*
 
 *v5.5: ORSR return-path object model reconciled with the stabilization plan's refined Option C. Section 4's return-path sentence is amended: the substrate no longer emits the Resolution as the next observation. The Resolution remains the substrate's internal adjudication object; from it the substrate issues a substrate-owned ContinuationState, and from that ContinuationState it constructs the next AgentObservation, the governed Observe envelope for the next cycle. This brings the Section 4 body into conformance with Appendix A's Full ORSR Continuation Loop POC, whose resolve, _finalize, and observe_from_continuation path already realizes the Resolution then ContinuationState then AgentObservation chain. Section 4's TransitionProposal enumeration is marked canonical: the ten-field object is the corpus TransitionProposal, and boundary-crossing validation checks it rather than redefining it. No change to CTLC's Reachable(tau) predicate, the verdict space, or the Emit, Escalate, and Hold paths.*
@@ -1468,7 +1470,7 @@ guessing one.
 | `COMPLETE` | `TERMINAL` |
 | `ABORTED` | `TERMINAL` |
 | `ESCALATED` | `IN_PROGRESS` |
-| `RECONSTITUTED` | to be declared during R4 reconciliation |
+| `RECONSTITUTED` | `IN_PROGRESS` |
 
 The projection is the operative relation between the two granularities; the
 operational enumeration does not conflict with the coarse field so long as the
@@ -1476,12 +1478,7 @@ projection holds.
 
 ESCALATED projects to IN_PROGRESS because escalation suspends completion rather than ending the task. It remains governed, pending review, and therefore non-terminal at the Core level.
 
-One value remains for later declaration: `RECONSTITUTED`. It enters through the
-task-ledger companion's extension of `GoalStatusEnum` (B.7, R4) and needs a
-projection once that extension is reconciled. The task-ledger companion's own
-currency predicate groups mid-reconstitution with the non-live states, so its
-projection is declared by the sovereign author during R4 reconciliation, not fixed
-by this appendix.
+RECONSTITUTED projects to IN_PROGRESS because reconstitution is governed continuation, not terminal completion. A task under active reconstitution has been reopened, not completed or aborted, so it remains non-terminal at the Core level, the same reasoning that maps ESCALATED to IN_PROGRESS. Under the R4 reconciliation, RECONSTITUTED is a value of the boundary companion's `GoalStatusEnum`, which owns the seven-value set; the task-ledger companion supplies the operational meaning and mechanics of reconstitution. The task-ledger companion's own currency predicate groups mid-reconstitution with the non-live states, but that is a proposal-readiness distinction at the operational layer, not a completion one, and it does not change this coarse projection.
 
 ### B.7 Inaugural registry
 
