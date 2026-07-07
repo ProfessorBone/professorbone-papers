@@ -27,7 +27,7 @@ documents demonstrate the architecture operating under real constraints.
 
 ### Core Paper
 
-- [Constitutional Runtime Computation v5.7](constitutional-runtime-computation-v5.7.md)
+- [Constitutional Runtime Computation v5.8](constitutional-runtime-computation-v5.8.md)
   The foundational paper. Introduces ORSR, CTLC, L1/L2 governance separation,
   the Q/P constitutional ontology, and the Constitutional Engineering Lifecycle.
   v5.4 adds §6a, formalizing HOLD verdict completeness (non-formation,
