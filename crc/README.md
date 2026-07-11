@@ -114,7 +114,7 @@ core paper identifies but does not close.
   horizontal axis.
 
 - [Constitutional Standing: Formation, Binding, and Non-Formation in Governed
-  Runtime Transitions](companions/constitutional-standing-v1.3.md)
+  Runtime Transitions](companions/constitutional-standing-v1.5.md)
   Companion 6. Formalizes the Standing (STAND) step CTLC's own CRA Assembly
   has named since its earliest formalization but specified only as a single
   sentence, and substantially advances, though does not complete, the
@@ -245,15 +245,15 @@ They remain part of the intellectual lineage of the series.
 ## Recommended Reading Order
 
 1. Constitutional Runtime Computation v5.5 (core)
-2. Constitutional Boundary Contracts v1.1 (companion 0, foundational interface)
+2. Constitutional Boundary Contracts v1.2 (companion 0, foundational interface)
 3. Constitutional Memory v2.2 (companion 1)
 4. Constitutional Retrieval v1.2 (companion 2)
 5. Constitutional Baselines v1.2 (companion 3)
-6. Constitutional Coherence v1.2 (companion 4)
-7. Constitutional Thresholds v1.2 (companion 5)
-8. Constitutional Standing v1.3 (companion 6)
+6. Constitutional Coherence v1.4 (companion 4)
+7. Constitutional Thresholds v1.4 (companion 5)
+8. Constitutional Standing v1.5 (companion 6)
 9. Constitutional Tools v1.1 (companion 7)
-10. Constitutional Task Ledger v1.1 (companion 8)
+10. Constitutional Task Ledger v1.2 (companion 8)
 11. Constitutional Feedback v1.0 (companion 9)
 12. Apex Architecture Seed (domain application, short)
 13. Apex Build Specification v0.5 (domain application, full)
