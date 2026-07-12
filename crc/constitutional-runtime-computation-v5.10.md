@@ -2,7 +2,7 @@
 
 ## Governed Cognitive Substrates, Constitutional Reachability, and the Reconstruction of Agentic Sovereignty
 
-### v5.9 Conceptual Architecture Paper
+### v5.10 Conceptual Architecture Paper
 
 **Clarence "Faheem" Downs (Professor Bone Lab)**
 
@@ -1110,6 +1110,8 @@ This work was developed under the Professor Bone Lab research identity. AEGIS se
 
 ---
 
+*v5.10: Appendix B, B.10 added, exercising the activation condition established in B.9. The CRC-SSR v1.0 seed registry passed its Section 5 validation gate, as recorded in crc/registry-receipts/crc-ssr-v1.0-activation-validation-receipt.md with gate_verdict PASS, validated commit 2691d3f, and validation date 2026-07-11. CRC-SSR v1.1, which preserves the validated twelve-entry seed unaltered, is now declared the active registry of record. B.7 is retained with a short archival pointer rather than deleted. The amendment changes no ORSR runtime doctrine, no CTLC predicate, no verdict space, and no runtime object-model definition. It activates governance authority already granted in B.9 rather than granting new authority. Under Option Y, companion Core-alignment citations remain at Constitutional Runtime Computation v5.5. The mandatory README current-Core link is moved to v5.10 in the same commit; the README reading-order citation stays at v5.5.*
+
 *v5.9: Appendix B, B.9 added, a normative Appendix B authority amendment. It authorizes the shared schema registry CRC-SSR, the authorized candidate successor registry of record by pointer for shared load-bearing objects, carried as the standalone governance artifact crc/shared-schema-registry-v1.0.md, and it establishes the registry-update obligation: once CRC-SSR is the active registry of record, a lawful amendment to a registered object is complete only when the same governed change set updates the defining paper, carries the B.3.1 back-reference, and updates the registry entry. B.8 gains a one-line forward pointer to B.9. The amendment changes no ORSR runtime doctrine, no CTLC predicate, no verdict space, no runtime object-model definition, and no companion-consumed schema: the ORSR loop, Reachable(tau), the ten-field TransitionProposal, and the Resolution to ContinuationState to AgentObservation lineage are all unchanged. Authorization is distinct from activation: this amendment authorizes and publishes CRC-SSR but does not make it the active registry, so the B.7 inaugural registry remains the operative divergence docket until a later Core-carried archival transition activates CRC-SSR after the seed registry passes validation. Option Y remains in force, so the companions' Core alignment citations remain at Constitutional Runtime Computation v5.5. The mandatory README current-Core link is moved to v5.9 in the same commit; the README reading-order citation stays at v5.5.*
 
 *v5.8: Appendix B, B.7 inaugural registry updated to record the resolved outcomes of R1 through R7, now that all seven shared-object divergences are reconciled and pushed. Each row's status carries the resolved marker, citing the resolving paper version rather than a commit hash. R1 reflects the split: R1a, the thresholds companion's addition of ThresholdPinsAdmissible, is a compatible extension giving a five-conjunct form, and R1b, the earlier BaselinePinsAdmissible conjunct, was a phantom rename and was removed, so it is not a compatible extension; the stale six-conjunct framing is gone. R4 is reclassified from a full amendment to a compatible GoalStatusEnum extension coupled with the B.6 projection, and its provisional rationale that the boundary companion's validator would reject the seventh value is struck, because GoalStatusConsistent is a ledger-match check rather than an enum-membership gate. R5 is recorded as resolved by withdrawal under B.4, not as a carried Core amendment. R2, R3, R6, and R7 carry the resolved marker with their resolving provenance. This is registry maintenance only. It is not R8, not a new reconciliation, and it changes no normative section, predicate, or object-model definition of Core: the ORSR loop, CTLC's Reachable(tau) predicate, the verdict space, the ten-field TransitionProposal, the Resolution to ContinuationState to AgentObservation lineage, and Appendix B B.6 are all unchanged; B.6 is untouched. Option Y remains in force, so the companions' Core alignment citations remain at Constitutional Runtime Computation v5.5. The mandatory README current-Core link is moved to v5.8 in the same commit; the README reading-order citation stays at v5.5.*
@@ -1506,6 +1508,12 @@ home exists, its full registry absorbs and supersedes this one (B.2).
 | R6 | `GenerationMember` | Constitutional Coherence | Constitutional Thresholds | The coherence companion owns the object. The thresholds companion's typed three-field form with an optional threshold-set version is a compatible extension (B.5); the typed form is now sited in the owner, with canonical typing deferred to the shared schema home. | compatible extension | resolved: declared in Constitutional Thresholds v1.3, back-reference in Constitutional Coherence v1.3; typed form sited in the owner |
 | R7 | `ProposalConformant` name | Constitutional Boundary Contracts | Constitutional Standing | The boundary companion's name `ProposalConformant` is operative. The standing companion's alias `BoundaryConformant` has no definitional home under that name and, where it is used as an enum value, must be reconciled to the operative name. | naming reconciliation | resolved: alias reconciled to `ProposalConformant` in Constitutional Standing v1.5 |
 
+The seven divergences recorded in this inaugural docket were reconciled through
+the amendment history identified in their rows and are represented as archival
+migration history within CRC-SSR. This section remains the original docket of
+record and is not further updated. CRC-SSR is activated as the successor registry
+of record under B.10.
+
 ### B.8 Relationship to the shared schema home
 
 This authority is sequenced first; the shared schema home is created second, under
@@ -1515,21 +1523,35 @@ reads from there, and the inaugural registry of B.7 is absorbed into and superse
 by the home's full registry. Creating the home, and migrating each object's
 canonical definition into it, is itself a lawful amendment under B.3: each migration
 carries a declaration and back-references, so the home is populated under the same
-authority it will later enforce. Until CRC-SSR is activated as the registry of record under B.9, the defining-paper-owns default of B.2 governs, and B.7 remains the corpus's operative divergence docket. The shared schema home anticipated here is established as CRC-SSR in B.9.
+authority it will later enforce. The shared schema home anticipated here is established as CRC-SSR in B.9 and activated as the registry of record in B.10. B.7 is retained as the archived inaugural divergence docket.
 
 ### B.9 The shared schema registry, CRC-SSR
 
-B.2 anticipates a shared schema home that becomes the registry of record for shared load-bearing objects, and B.8 states that the home is created under this authority. This section establishes that home as a standalone governance artifact, the CRC Shared Schema Registry, identified as CRC-SSR and carried in the file crc/shared-schema-registry-v1.0.md.
+B.2 anticipates a shared schema home that becomes the registry of record for shared load-bearing objects, and B.8 states that the home is created under this authority. This section establishes that home as a standalone governance artifact, the CRC Shared Schema Registry, identified as CRC-SSR, initially published in crc/shared-schema-registry-v1.0.md and carried upon activation in crc/shared-schema-registry-v1.1.md.
 
 CRC-SSR is authorized as the successor registry of record by pointer. For each shared load-bearing object it records the owning paper, the operative version, the canonical location, and the governance metadata around that pointer. It holds no schema text. The defining paper continues to carry the canonical definition of the object; CRC-SSR records where that definition lives and at what version it is operative. This division is exact: the registry owns canonical location and operative-version authority, and the defining paper owns the schema text. A reader resolves an object by reading its CRC-SSR entry to learn the operative location and version, then reading the definition in the named paper. CRC-SSR is bounded by this appendix: its authority is the authority this appendix grants, and it may not assert a definition, only a location and a version.
 
 Before activation, a REGISTERED entry records the settled pointer proposed for activation. Once CRC-SSR is active, only a REGISTERED entry establishes a settled authoritative pointer. An AMBIGUOUS, DIVERGENT, or AMENDMENT_PENDING entry records the object's unresolved authority state and the relevant candidate or operative loci without declaring a canonical definition. Such an entry is authoritative as to the existence and status of the unresolved condition, not as to a settled schema location or operative version.
 
-Authorization is distinct from activation. This section authorizes CRC-SSR. It does not, by its enactment, make CRC-SSR the active registry of record. CRC-SSR becomes the operative registry of record only when its seed set is published and passes the registry's validation, and when a later amendment carried by the Core ratifies the archival transition of the B.7 inaugural registry into it. Until that transition is ratified, the inaugural registry of B.7 remains the operative divergence docket, and CRC-SSR is authorized and populated but not yet the active registry. The corpus holds exactly one active registry of record at any time.
+Authorization is distinct from activation. This section authorized CRC-SSR and established the conditions under which it could become the operative registry of record. At authorization time, B.7 remained the operative divergence docket and CRC-SSR was authorized and populated but not active. That activation condition was subsequently satisfied and carried under B.10. The corpus continues to hold exactly one active registry of record at any time.
 
 The registry-update obligation. Once CRC-SSR is the active registry of record, a lawful amendment to a registered object is complete only when the same governed change set updates the defining paper, carries the back-reference required by B.3.1, and updates the corresponding CRC-SSR entry. An amendment that updates the papers but not the registry is incomplete for corpus-wide authority, in the same way that an amendment disclosed only on the amending side is incomplete under B.3.1. The registry entry, the defining-paper text, and the back-reference move together or not at all.
 
 Relationship to B.7. When the archival transition is ratified, the inaugural registry of B.7 is represented as resolved registry history within CRC-SSR, and B.7 retains a short archival pointer to CRC-SSR as the successor registry of record. This realizes B.8's absorb-and-supersede relation without relocating any schema: B.7's divergence docket is carried forward as history, and CRC-SSR becomes the going-forward registry, while every object's canonical definition stays in its defining paper.
+
+### B.10 Activation of CRC-SSR
+
+The activation condition established in B.9 has been satisfied. The CRC-SSR v1.0
+seed registry published at commit 2691d3f passed the prescribed validation gate,
+as recorded in crc/registry-receipts/crc-ssr-v1.0-activation-validation-receipt.md
+with gate_verdict PASS and validation date 2026-07-11.
+
+CRC-SSR v1.1 preserves the validated twelve-entry seed without alteration to its
+entry definitions, pointers, or statuses. It is therefore the active registry of
+record by pointer for shared load-bearing objects. B.7 is retained as the
+archived inaugural divergence docket. Its seven historical rows remain unchanged
+and are not further updated. Exactly one active registry of record exists, now
+CRC-SSR.
 
 ---
 

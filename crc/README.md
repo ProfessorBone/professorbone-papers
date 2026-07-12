@@ -27,7 +27,7 @@ documents demonstrate the architecture operating under real constraints.
 
 ### Core Paper
 
-- [Constitutional Runtime Computation v5.9](constitutional-runtime-computation-v5.9.md)
+- [Constitutional Runtime Computation v5.10](constitutional-runtime-computation-v5.10.md)
   The foundational paper. Introduces ORSR, CTLC, L1/L2 governance separation,
   the Q/P constitutional ontology, and the Constitutional Engineering Lifecycle.
   v5.4 adds §6a, formalizing HOLD verdict completeness (non-formation,
@@ -215,8 +215,8 @@ core paper identifies but does not close.
 
 Governance artifacts are not papers in the conceptual reading order; they are corpus-level control surfaces that the papers are read against.
 
-- [CRC Shared Schema Registry v1.0](shared-schema-registry-v1.0.md)
-  A standalone governance artifact authorized by Core Appendix B B.9 and published as the candidate successor registry of record by pointer for the corpus's shared load-bearing objects. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. It holds no schema text: every definition stays in its defining paper. It is not yet the active registry of record. The B.7 inaugural registry remains the operative divergence docket until the seed registry passes validation and a later Core-carried archival transition activates CRC-SSR. CRC-SSR sits outside the conceptual reading order.
+- [CRC Shared Schema Registry v1.1](shared-schema-registry-v1.1.md)
+  A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
 
 ### Domain Applications
 

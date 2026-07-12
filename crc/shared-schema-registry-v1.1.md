@@ -1,18 +1,39 @@
 # CRC Shared Schema Registry
 
 **Identifier:** CRC-SSR
-**Version:** v1.0
+**Version:** v1.1
 **Authority:** Authorized by Constitutional Runtime Computation, Appendix B, section B.9. Bounded by that appendix.
 
 CRC-SSR records canonical location and operative-version authority for the corpus's shared load-bearing objects. It holds no schema text. Each defining paper carries the canonical definition of its objects; this registry records where that definition lives and at what version it is operative.
 
 ## Status of this registry
 
-CRC-SSR is authorized and published. It is not yet the active registry of record. The B.7 inaugural registry in the Core Appendix B remains the operative divergence docket until this seed registry passes its validation gate and a later Core-carried archival transition activates CRC-SSR. Exactly one active registry of record exists in the corpus at any time.
+CRC-SSR is authorized, published, and active as the registry of record, effective
+this governed change set. The activation exercises the validation receipt at
+crc/registry-receipts/crc-ssr-v1.0-activation-validation-receipt.md, which records
+gate_verdict PASS, validated_commit 2691d3f, and validation_date 2026-07-11.
+The Core amendment carrying the activation is Constitutional Runtime Computation
+v5.10 Appendix B B.10. The B.7 inaugural registry in Core Appendix B is retained
+as the archived inaugural docket with its seven rows unchanged. Exactly one active
+registry of record exists in the corpus at any time.
+
+CRC-SSR v1.1 derives from the validated CRC-SSR v1.0 seed without alteration to
+any of its twelve entry definitions, pointers, statuses, or histories. Version
+v1.1 records only the registry's constitutional activation state and the authority
+and receipt references supporting that transition.
+
+Activation history: v1.0 to v1.1 records activation of CRC-SSR as the active
+registry of record under Constitutional Runtime Computation v5.10 Appendix B B.10,
+supported by crc/registry-receipts/crc-ssr-v1.0-activation-validation-receipt.md.
 
 ## What this registry is and is not
 
-It is the authorized candidate successor registry of record by pointer for shared load-bearing objects: for each object it names the owner, the operative version, and the canonical location, plus the governance metadata around that pointer. It does not duplicate or relocate any schema, and it does not itself reconcile divergences. An object with an unsettled canonical definition is recorded at AMBIGUOUS or DIVERGENT with its unresolved state named, not with a definition invented for it.
+It is the active registry of record by pointer for shared load-bearing objects:
+for each object it names the owner, the operative version, and the canonical
+location, plus the governance metadata around that pointer. It does not duplicate
+or relocate any schema, and it does not itself reconcile divergences. An object
+with an unsettled canonical definition is recorded at AMBIGUOUS or DIVERGENT with
+its unresolved state named, not with a definition invented for it.
 
 ## Status vocabulary
 
@@ -272,3 +293,21 @@ Before activation, a REGISTERED entry records a settled candidate pointer, the t
 ## Expansion
 
 This seed registry holds the twelve highest-drift objects. The remaining shared objects from the Cluster 1 inventory are registered post-activation, by drift rank, each as its own governed addition.
+
+## Inaugural registry migration history
+
+Upon activation under Constitutional Runtime Computation v5.10 Appendix B B.10,
+the seven resolved divergences recorded in Core Appendix B B.7 are incorporated
+into CRC-SSR as archival migration history. This record alters no registered
+object's definition, pointer, operative version, status, or entry history. B.7
+remains the original docket of record.
+
+| Record | Shared item | Migration status | Source docket | Resolving or amendment reference |
+|---|---|---|---|---|
+| R1 | `GenerationPinAdmissible` | RESOLVED | Core Appendix B B.7 | R1a declared in Constitutional Thresholds v1.4 with a Constitutional Coherence v1.4 back-reference; R1b phantom rename removed under Route C, F27 closed |
+| R2 | `GenerationCoherenceReachable` | RESOLVED | Core Appendix B B.7 | Declared in Constitutional Thresholds v1.3, back-reference in Constitutional Coherence v1.3 |
+| R3 | `goal_status` coarse-to-operational mapping | RESOLVED | Core Appendix B B.7 | Projection declared in Core Appendix B B.6, Core v5.7, `ESCALATED` to `IN_PROGRESS` and `RECONSTITUTED` to `IN_PROGRESS` |
+| R4 | `GoalStatusEnum` value set | RESOLVED | Core Appendix B B.7 | `RECONSTITUTED` admitted in Constitutional Boundary Contracts v1.2 with the B.6 projection in Core v5.7; Constitutional Task Ledger v1.2 reuse |
+| R5 | `authority_context_ref` binding | RESOLVED | Core Appendix B B.7 | Resolved by withdrawal, Constitutional Standing v1.4; Core unchanged, no amendment declaration required |
+| R6 | `GenerationMember` | RESOLVED | Core Appendix B B.7 | Declared in Constitutional Thresholds v1.3, back-reference in Constitutional Coherence v1.3, typed form sited in the owner |
+| R7 | `ProposalConformant` name | RESOLVED | Core Appendix B B.7 | Alias reconciled to `ProposalConformant` in Constitutional Standing v1.5 |
