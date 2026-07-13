@@ -44,7 +44,7 @@ documents demonstrate the architecture operating under real constraints.
   contract for later BindingRecord reconciliation. v5.14 establishes Core
   ownership of canonical BindingRecord and BindingRecordValid. Binding occurs
   at valid applied governed mutation. BindingRecord records and proves binding
-  without creating it. F-3 is SPECIFYING, not SPECIFIED or RESOLVED.
+  without creating it. F-3 is RESOLVED in CRC-OAR v1.4.
 
 ### Companion Papers
 
@@ -249,28 +249,28 @@ core paper identifies but does not close.
   mutations, failure handling, replay, retry, idempotency, compensation,
   rollback, and audit durability connect adjudicative authorization to governed
   causal force. It does not own Core sovereignty, BindingRecord schema, Tools,
-  Task Ledger, Standing, Memory, or domain semantics. F-3 has advanced to
-  SPECIFIED in CRC-OAR v1.3 and is not RESOLVED.
+  Task Ledger, Standing, Memory, or domain semantics. F-3 is RESOLVED in
+  CRC-OAR v1.4, and the F-5 apparatus entries are RESOLVED in CRC-OAR v1.4.
 
 ### Governance Artifacts
 
 Governance artifacts are not papers in the conceptual reading order; they are corpus-level control surfaces that the papers are read against.
 
-- [CRC Open Architecture Register v1.3](open-architecture-register-v1.3.md)
+- [CRC Open Architecture Register v1.4](open-architecture-register-v1.4.md)
   A standalone governance-operational and historical artifact for tracking
   unresolved findings, missing apparatus, blocked dependencies, and closure
   state. CRC-OAR provides an Obsidian-like unresolved-link function for the
   corpus without making unresolved concepts canonical or normatively usable.
-  CRC-OAR v1.3 is active after publication. OAR-F003 is SPECIFIED and not
-  RESOLVED. OAR-F005 is RESOLVED. OAR-A001, OAR-A002, OAR-P001, OAR-A003, and
-  OAR-X001 through OAR-X005 are SPECIFIED and not RESOLVED. OAR-F005 is the
-  only newly RESOLVED entry in v1.3. No doctrine or schema version changed in
-  this lifecycle package. CRC-OAR does not define canonical schemas or doctrine. CRC-SSR
-  remains the artifact that tracks canonical shared-object locations and
-  operative versions.
+  CRC-OAR v1.4 is active after publication. OAR-F003 is RESOLVED. OAR-F005
+  remains RESOLVED. OAR-A001, OAR-A002, OAR-P001, OAR-A003, and OAR-X001
+  through OAR-X005 are RESOLVED. The F-3/F-5 OAR workstream is
+  lifecycle-closed. No doctrine or schema version changed in this lifecycle
+  package. Unrelated OAR entries are not affected. CRC-OAR does not define
+  canonical schemas or doctrine. CRC-SSR remains the artifact that tracks
+  canonical shared-object locations and operative versions.
 
 - [CRC Shared Schema Registry v1.6](shared-schema-registry-v1.6.md)
-  A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. CRC-SSR v1.1 carried the activation transition from the validated v1.0 seed; v1.6 is the current post-activation governed registry update. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. v1.3 records the F-2 reconciliation: Core owns canonical AgentObservation, C0 validates the crossing representation, `contract_version` remains C0 crossing metadata, and no new envelope object is introduced. v1.4 records the F-1 reconciliation: Core owns canonical ContinuationState, Standing owns continuation predicates and standing-local records, Task Ledger owns authoritative task state, no `derived_from_ref` exists, and outcome lineage reconstructs through Resolution, CycleRecord, Task Ledger, and audit trace. v1.5 registers ActuationCommand, ActuationResult, ActuationAdmissionRecord, and GovernedStateMutationRecord as Core-owned F-5 shared objects. v1.6 resolves `crc-ssr:binding-record` to REGISTERED with Core v5.14 as owner, Standing v1.7 as standing elaboration, and Task Ledger v1.4 as consumer. CRC-OAR v1.3 records the next lifecycle transition after F-3 restart and F-5 closure review. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
+  A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. CRC-SSR v1.1 carried the activation transition from the validated v1.0 seed; v1.6 is the current post-activation governed registry update. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. v1.3 records the F-2 reconciliation: Core owns canonical AgentObservation, C0 validates the crossing representation, `contract_version` remains C0 crossing metadata, and no new envelope object is introduced. v1.4 records the F-1 reconciliation: Core owns canonical ContinuationState, Standing owns continuation predicates and standing-local records, Task Ledger owns authoritative task state, no `derived_from_ref` exists, and outcome lineage reconstructs through Resolution, CycleRecord, Task Ledger, and audit trace. v1.5 registers ActuationCommand, ActuationResult, ActuationAdmissionRecord, and GovernedStateMutationRecord as Core-owned F-5 shared objects. v1.6 resolves `crc-ssr:binding-record` to REGISTERED with Core v5.14 as owner, Standing v1.7 as standing elaboration, and Task Ledger v1.4 as consumer. CRC-OAR v1.4 records formal closure of the F-3/F-5 OAR workstream. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
 
 ### Corpus Governance and Entry
 
