@@ -27,13 +27,16 @@ documents demonstrate the architecture operating under real constraints.
 
 ### Core Paper
 
-- [Constitutional Runtime Computation v5.10](constitutional-runtime-computation-v5.10.md)
+- [Constitutional Runtime Computation v5.11](constitutional-runtime-computation-v5.11.md)
   The foundational paper. Introduces ORSR, CTLC, L1/L2 governance separation,
   the Q/P constitutional ontology, and the Constitutional Engineering Lifecycle.
   v5.4 adds §6a, formalizing HOLD verdict completeness (non-formation,
   non-replayability, non-bypassability) as an invariant rather than an
   asserted norm; it does not change CTLC's Reachable(τ) predicate or the
-  Emit and Escalate paths that every companion below builds on.
+  Emit and Escalate paths that every companion below builds on. v5.11 formalizes
+  Core ownership of AgentObservation and publishes the canonical schema for the
+  Core-owned AgentObservation while leaving F-1 ContinuationState and F-3
+  BindingRecord unresolved.
 
 ### Companion Papers
 
@@ -41,7 +44,7 @@ Companion papers extend the core architecture. Each addresses a gap that the
 core paper identifies but does not close.
 
 - [Constitutional Boundary Contracts: Governed Interface Exchange at the
-  Agent-Substrate Boundary](companions/constitutional-boundary-contracts-v1.2.md)
+  Agent-Substrate Boundary](companions/constitutional-boundary-contracts-v1.3.md)
   Companion 0. Foundational interface companion. ORSR produces two primary
   governed boundaries in the core agent-substrate loop: Agent-to-Substrate
   (TransitionProposal) and Substrate-to-Agent (AgentObservation). This paper
@@ -51,8 +54,11 @@ core paper identifies but does not close.
   full schemas and validation predicates, the BoundaryValidationFunction as a
   constitutionally separated substrate component, a six-class violation severity
   taxonomy (B0-B5), and five boundary-specific primitive failure topologies
-  (P_bnd). Logically prior to all subsequent companions. May be read immediately
-  after the core paper.
+  (P_bnd). v1.3 clarifies that C0 owns ObservationContract and
+  ObservationConformant, validates the crossing representation of the Core-owned
+  AgentObservation, and retains `contract_version` as C0 crossing metadata
+  without creating a new envelope object. Logically prior to all subsequent
+  companions. May be read immediately after the core paper.
 
 - [Constitutional Memory v2.2](companions/constitutional-memory-v2.2.md)
   Companion 1. Argues that the substrate's authority over state transitions
@@ -217,8 +223,8 @@ core paper identifies but does not close.
 
 Governance artifacts are not papers in the conceptual reading order; they are corpus-level control surfaces that the papers are read against.
 
-- [CRC Shared Schema Registry v1.2](shared-schema-registry-v1.2.md)
-  A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. CRC-SSR v1.1 carried the activation transition from the validated v1.0 seed; v1.2 is the current post-activation governed registry update. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
+- [CRC Shared Schema Registry v1.3](shared-schema-registry-v1.3.md)
+  A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. CRC-SSR v1.1 carried the activation transition from the validated v1.0 seed; v1.3 is the current post-activation governed registry update. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. v1.3 records the F-2 reconciliation: Core owns canonical AgentObservation, C0 validates the crossing representation, `contract_version` remains C0 crossing metadata, and no new envelope object is introduced. F-1 and F-3 remain unresolved. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
 
 ### Corpus Governance and Entry
 
@@ -281,7 +287,7 @@ guides, diagrams, templates, and other public artifacts are defined in
 ## Recommended Reading Order
 
 1. Constitutional Runtime Computation v5.5 (core)
-2. Constitutional Boundary Contracts v1.2 (companion 0, foundational interface)
+2. Constitutional Boundary Contracts v1.3 (companion 0, foundational interface)
 3. Constitutional Memory v2.2 (companion 1)
 4. Constitutional Retrieval v1.2 (companion 2)
 5. Constitutional Baselines v1.2 (companion 3)
