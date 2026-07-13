@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
+<title id="title">CRC artifact-class authority map</title>
+<desc id="desc">CRC corpus-entry explanatory figure proposed for admission.</desc>
+<metadata><![CDATA[
+Artifact type: Explanatory artifact
+Identifier: CRC-CORPUS-ENTRY
+Version: v1.0
+Status: Current
+Owning authority: Professor Bone Lab
+Ratifying authority: Faheem Downs
+Ratification state: Ratified by Faheem Downs on 2026-07-12
+Authority effect: none beyond the prose it illustrates
+Source prose: 02-corpus-authority-model.md, ## Artifact Classes
+]]></metadata>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" fill="#52606d"/>
+  </marker>
+  <style><![CDATA[
+    .title { font: 700 16px Arial, sans-serif; fill: #1f2933; }
+    .body { font: 13px Arial, sans-serif; fill: #1f2933; }
+    .label { font: 12px Arial, sans-serif; fill: #52606d; }
+    .heading { font: 700 22px Arial, sans-serif; fill: #1f2933; }
+    .group { font: 700 15px Arial, sans-serif; fill: #52606d; }
+  ]]></style>
+</defs>
+<rect x="0" y="0" width="1200" height="850" fill="#fbfbf8"/>
+<text x="40" y="44" class="heading">CRC artifact-class authority map</text>
+<rect x="70" y="100" width="280" height="130" rx="6" fill="#d9e8f6" stroke="#7b8794" stroke-width="1.4"/>
+<text x="210.0" y="124" text-anchor="middle" class="title">Normative artifacts</text>
+<text x="210.0" y="148" text-anchor="middle" class="body">Core and defining papers</text>
+<text x="210.0" y="166" text-anchor="middle" class="body">carry authority.</text>
+<rect x="420" y="100" width="280" height="130" rx="6" fill="#dcebd8" stroke="#7b8794" stroke-width="1.4"/>
+<text x="560.0" y="124" text-anchor="middle" class="title">Governance artifacts</text>
+<text x="560.0" y="148" text-anchor="middle" class="body">CRC-SSR and ratified guides.</text>
+<text x="560.0" y="166" text-anchor="middle" class="body">bounded declared authority</text>
+<text x="560.0" y="184" text-anchor="middle" class="body">effects.</text>
+<rect x="770" y="100" width="280" height="130" rx="6" fill="#f6ead1" stroke="#7b8794" stroke-width="1.4"/>
+<text x="910.0" y="124" text-anchor="middle" class="title">Evidentiary artifacts</text>
+<text x="910.0" y="148" text-anchor="middle" class="body">Receipts carry evidence,</text>
+<text x="910.0" y="166" text-anchor="middle" class="body">not doctrine.</text>
+<rect x="70" y="390" width="280" height="130" rx="6" fill="#f4dada" stroke="#7b8794" stroke-width="1.4"/>
+<text x="210.0" y="414" text-anchor="middle" class="title">Navigational artifacts</text>
+<text x="210.0" y="438" text-anchor="middle" class="body">README files support</text>
+<text x="210.0" y="456" text-anchor="middle" class="body">discoverability and orientation.</text>
+<rect x="420" y="390" width="280" height="130" rx="6" fill="#e5ddf2" stroke="#7b8794" stroke-width="1.4"/>
+<text x="560.0" y="414" text-anchor="middle" class="title">Explanatory artifacts</text>
+<text x="560.0" y="438" text-anchor="middle" class="body">Guides and figures</text>
+<text x="560.0" y="456" text-anchor="middle" class="body">explain prose.</text>
+<rect x="770" y="390" width="280" height="130" rx="6" fill="#e6e8eb" stroke="#7b8794" stroke-width="1.4"/>
+<text x="910.0" y="414" text-anchor="middle" class="title">Operational templates</text>
+<text x="910.0" y="438" text-anchor="middle" class="body">Templates standardize work</text>
+<text x="910.0" y="456" text-anchor="middle" class="body">and settle no substantive question.</text>
+<line x1="350" y1="165" x2="420" y2="165" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="385.0" y="157.0" text-anchor="middle" class="label">points to</text>
+<line x1="700" y1="165" x2="770" y2="165" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="735.0" y="157.0" text-anchor="middle" class="label">records evidence for</text>
+<line x1="560" y1="390" x2="560" y2="250" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="560.0" y="312.0" text-anchor="middle" class="label">explains</text>
+<line x1="910" y1="520" x2="700" y2="520" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="805.0" y="512.0" text-anchor="middle" class="label">standardizes work for</text>
+<line x1="210" y1="390" x2="210" y2="250" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="210.0" y="312.0" text-anchor="middle" class="label">points to</text>
+<text x="70" y="705" class="body">No unlabeled connector transmits authority. Each class keeps its declared scope.</text>
+</svg>

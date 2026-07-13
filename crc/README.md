@@ -218,6 +218,13 @@ Governance artifacts are not papers in the conceptual reading order; they are co
 - [CRC Shared Schema Registry v1.1](shared-schema-registry-v1.1.md)
   A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
 
+### Corpus Governance and Entry
+
+- [How to Enter the CRC Corpus](corpus-entry/README.md)
+  The public entry point for corpus orientation, artifact admission, new-paper
+  integration, amendment discipline, validation, publication, and
+  corpus-engineering methodology.
+
 ### Domain Applications
 
 Domain application documents show the CRC architecture instantiated in
@@ -246,6 +253,26 @@ They remain part of the intellectual lineage of the series.
   is structurally graph traversal, and that a knowledge graph is therefore the
   natural implementation substrate. This insight was later generalized and
   carried forward into the Apex architecture.
+
+---
+
+## Public Artifacts and Corpus Admission
+
+A file does not become part of the CRC corpus merely because it is useful,
+complete, or present in a working directory. Entry into the tracked public surface
+is a governed act. Tracked artifacts may carry different roles and levels of
+authority: normative artifacts carry doctrine; governance artifacts define how
+the corpus operates and may carry a bounded authority effect; evidentiary
+artifacts record validation or audit evidence; navigational artifacts control
+discoverability; explanatory artifacts clarify the corpus without replacing
+doctrine; operational templates standardize work without settling substantive
+questions.
+
+Not every tracked file is doctrinal authority. Readers should consult the
+artifact's type, status, version, and authority statement before treating it as
+operative. The admission rules for new papers, amendments, registries, receipts,
+guides, diagrams, templates, and other public artifacts are defined in
+[How to Enter the CRC Corpus](corpus-entry/README.md).
 
 ---
 

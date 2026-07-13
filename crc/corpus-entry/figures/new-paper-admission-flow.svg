@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">New-paper admission as a specialization</title>
+<desc id="desc">CRC corpus-entry explanatory figure proposed for admission.</desc>
+<metadata><![CDATA[
+Artifact type: Explanatory artifact
+Identifier: CRC-CORPUS-ENTRY
+Version: v1.0
+Status: Current
+Owning authority: Professor Bone Lab
+Ratifying authority: Faheem Downs
+Ratification state: Ratified by Faheem Downs on 2026-07-12
+Authority effect: none beyond the prose it illustrates
+Source prose: 04-new-paper-admission.md, ## New Paper Admission
+]]></metadata>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" fill="#52606d"/>
+  </marker>
+  <style><![CDATA[
+    .title { font: 700 16px Arial, sans-serif; fill: #1f2933; }
+    .body { font: 13px Arial, sans-serif; fill: #1f2933; }
+    .label { font: 12px Arial, sans-serif; fill: #52606d; }
+    .heading { font: 700 22px Arial, sans-serif; fill: #1f2933; }
+    .group { font: 700 15px Arial, sans-serif; fill: #52606d; }
+  ]]></style>
+</defs>
+<rect x="0" y="0" width="1200" height="760" fill="#fbfbf8"/>
+<text x="40" y="44" class="heading">New-paper admission as a specialization</text>
+<rect x="60" y="110" width="210" height="90" rx="6" fill="#d9e8f6" stroke="#7b8794" stroke-width="1.4"/>
+<text x="165.0" y="134" text-anchor="middle" class="title">Paper need</text>
+<text x="165.0" y="158" text-anchor="middle" class="body">Proposed paper need</text>
+<rect x="330" y="90" width="260" height="130" rx="6" fill="#dcebd8" stroke="#7b8794" stroke-width="1.4"/>
+<text x="460.0" y="114" text-anchor="middle" class="title">Public Artifact Admission Protocol</text>
+<text x="460.0" y="138" text-anchor="middle" class="body">General declaration remains</text>
+<text x="460.0" y="156" text-anchor="middle" class="body">controlling</text>
+<rect x="670" y="110" width="210" height="90" rx="6" fill="#f6ead1" stroke="#7b8794" stroke-width="1.4"/>
+<text x="775.0" y="134" text-anchor="middle" class="title">Primary class</text>
+<text x="775.0" y="158" text-anchor="middle" class="body">One class selected</text>
+<rect x="930" y="110" width="210" height="90" rx="6" fill="#f4dada" stroke="#7b8794" stroke-width="1.4"/>
+<text x="1035.0" y="134" text-anchor="middle" class="title">Authority analysis</text>
+<text x="1035.0" y="158" text-anchor="middle" class="body">Owner, ratifier, context</text>
+<rect x="70" y="310" width="220" height="90" rx="6" fill="#e5ddf2" stroke="#7b8794" stroke-width="1.4"/>
+<text x="180.0" y="334" text-anchor="middle" class="title">Core relationship</text>
+<text x="180.0" y="358" text-anchor="middle" class="body">Doctrine or context</text>
+<rect x="350" y="310" width="220" height="90" rx="6" fill="#e5ddf2" stroke="#7b8794" stroke-width="1.4"/>
+<text x="460.0" y="334" text-anchor="middle" class="title">CRC-SSR consequences</text>
+<text x="460.0" y="358" text-anchor="middle" class="body">Registry effect</text>
+<rect x="630" y="310" width="220" height="90" rx="6" fill="#e5ddf2" stroke="#7b8794" stroke-width="1.4"/>
+<text x="740.0" y="334" text-anchor="middle" class="title">README consequences</text>
+<text x="740.0" y="358" text-anchor="middle" class="body">Reading order and</text>
+<text x="740.0" y="376" text-anchor="middle" class="body">navigation</text>
+<rect x="910" y="310" width="220" height="90" rx="6" fill="#e5ddf2" stroke="#7b8794" stroke-width="1.4"/>
+<text x="1020.0" y="334" text-anchor="middle" class="title">Dependencies</text>
+<text x="1020.0" y="358" text-anchor="middle" class="body">Companions and papers</text>
+<rect x="45" y="550" width="200" height="90" rx="6" fill="#e6e8eb" stroke="#7b8794" stroke-width="1.4"/>
+<text x="145.0" y="574" text-anchor="middle" class="title">Lifecycle and versioning</text>
+<text x="145.0" y="598" text-anchor="middle" class="body">Filename and version</text>
+<text x="145.0" y="616" text-anchor="middle" class="body">rule</text>
+<rect x="275" y="550" width="200" height="90" rx="6" fill="#e6e8eb" stroke="#7b8794" stroke-width="1.4"/>
+<text x="375.0" y="574" text-anchor="middle" class="title">Validation</text>
+<text x="375.0" y="598" text-anchor="middle" class="body">Checks and receipts</text>
+<rect x="505" y="550" width="200" height="90" rx="6" fill="#e6e8eb" stroke="#7b8794" stroke-width="1.4"/>
+<text x="605.0" y="574" text-anchor="middle" class="title">Review</text>
+<text x="605.0" y="598" text-anchor="middle" class="body">Package and diff review</text>
+<rect x="735" y="550" width="200" height="90" rx="6" fill="#e6e8eb" stroke="#7b8794" stroke-width="1.4"/>
+<text x="835.0" y="574" text-anchor="middle" class="title">Ratification</text>
+<text x="835.0" y="598" text-anchor="middle" class="body">Faheem decision</text>
+<rect x="965" y="550" width="200" height="90" rx="6" fill="#e6e8eb" stroke="#7b8794" stroke-width="1.4"/>
+<text x="1065.0" y="574" text-anchor="middle" class="title">Authorized apply</text>
+<text x="1065.0" y="598" text-anchor="middle" class="body">Apply and diff review</text>
+<line x1="270" y1="155" x2="330" y2="155" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="300.0" y="147.0" text-anchor="middle" class="label">uses</text>
+<line x1="590" y1="155" x2="670" y2="155" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="630.0" y="147.0" text-anchor="middle" class="label">specializes through</text>
+<line x1="880" y1="155" x2="930" y2="155" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="905.0" y="147.0" text-anchor="middle" class="label">requires</text>
+<line x1="180" y1="220" x2="180" y2="310" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="180.0" y="257.0" text-anchor="middle" class="label">analyzes</text>
+<line x1="460" y1="220" x2="460" y2="310" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="460.0" y="257.0" text-anchor="middle" class="label">analyzes</text>
+<line x1="740" y1="220" x2="740" y2="310" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="740.0" y="257.0" text-anchor="middle" class="label">analyzes</text>
+<line x1="1020" y1="220" x2="1020" y2="310" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1020.0" y="257.0" text-anchor="middle" class="label">analyzes</text>
+<line x1="180" y1="400" x2="145" y2="550" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="162.5" y="467.0" text-anchor="middle" class="label">feeds</text>
+<line x1="460" y1="400" x2="375" y2="550" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="417.5" y="467.0" text-anchor="middle" class="label">feeds</text>
+<line x1="740" y1="400" x2="605" y2="550" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="672.5" y="467.0" text-anchor="middle" class="label">feeds</text>
+<line x1="1020" y1="400" x2="835" y2="550" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="927.5" y="467.0" text-anchor="middle" class="label">feeds</text>
+<line x1="245" y1="595" x2="275" y2="595" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="475" y1="595" x2="505" y2="595" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="705" y1="595" x2="735" y2="595" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="935" y1="595" x2="965" y2="595" stroke="#52606d" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="60" y="720" class="body">The paper-specific declaration specializes the general Public Artifact Declaration. It does not replace it.</text>
+</svg>
