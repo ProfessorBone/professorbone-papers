@@ -27,7 +27,7 @@ documents demonstrate the architecture operating under real constraints.
 
 ### Core Paper
 
-- [Constitutional Runtime Computation v5.13](constitutional-runtime-computation-v5.13.md)
+- [Constitutional Runtime Computation v5.14](constitutional-runtime-computation-v5.14.md)
   The foundational paper. Introduces ORSR, CTLC, L1/L2 governance separation,
   the Q/P constitutional ontology, and the Constitutional Engineering Lifecycle.
   v5.4 adds §6a, formalizing HOLD verdict completeness (non-formation,
@@ -41,7 +41,10 @@ documents demonstrate the architecture operating under real constraints.
   v5.13 publishes the generic F-5 apparatus connecting Resolution(Emit) to
   substrate-owned ActuationCommand issuance, ActuationResult recording,
   ActuationAdmissionRecord, GovernedStateMutationRecord, and the dependency
-  contract for later binding finalization. F-3 BindingRecord remains unresolved.
+  contract for later BindingRecord reconciliation. v5.14 establishes Core
+  ownership of canonical BindingRecord and BindingRecordValid. Binding occurs
+  at valid applied governed mutation. BindingRecord records and proves binding
+  without creating it. F-3 is SPECIFYING, not SPECIFIED or RESOLVED.
 
 ### Companion Papers
 
@@ -125,7 +128,7 @@ core paper identifies but does not close.
   horizontal axis.
 
 - [Constitutional Standing: Formation, Binding, and Non-Formation in Governed
-  Runtime Transitions](companions/constitutional-standing-v1.6.md)
+  Runtime Transitions](companions/constitutional-standing-v1.7.md)
   Companion 6. Formalizes the Standing (STAND) step CTLC's own CRA Assembly
   has named since its earliest formalization but specified only as a single
   sentence, and substantially advances, though does not complete, the
@@ -134,13 +137,12 @@ core paper identifies but does not close.
   touched but never organized into one pipeline, Formation, Standing,
   Reachability, Binding, and Continuation, none of which entails the others.
   FormationValid(π) and the NonFormationReceipt build on Constitutional
-  Boundary Contracts v1.0 and Constitutional Memory v2.2; BindingFormed(β) and
-  the BindingRecord generalize §6a's HoldRecord pinning discipline from the
-  Hold path to Emit and Escalate; ContinuationIssued and the ContinuationState
-  close the private-continuation failure mode named directly in the parent's
-  Open Problems. v1.6 clarifies that Core owns canonical ContinuationState,
-  Standing owns continuation predicates and standing-local records, Task Ledger
-  owns authoritative task state, and no new StandingRecord is created.
+  Boundary Contracts v1.0 and Constitutional Memory v2.2; ContinuationIssued
+  and the ContinuationState close the private-continuation failure mode named
+  directly in the parent's Open Problems. v1.7 aligns Standing to F-3:
+  Standing owns standing applicability, positive non-applicability evidence,
+  standing validation evidence, StandingFailureRecord, and historical standing
+  timing. Core v5.14 owns BindingRecord and BindingRecordValid.
   Cumulative Standing Creep is classified, against an explicit
   four-part test, as the corpus's fourth sovereign-terminal primitive, after
   Constitutional Baselines v1.2, Constitutional Coherence v1.2, and
@@ -167,10 +169,11 @@ core paper identifies but does not close.
   ToolResultRecord specializes ActuationResult, ToolResultAdmissible specializes
   ActuationResultAdmissible, tool admission maps to ActuationAdmissionRecord,
   downstream tool effects conform to GovernedStateMutationRecord, and final
-  tool binding remains dependent on later F-3 reconciliation.
+  tool binding consumes Core v5.14 BindingRecord lineage without expanding
+  Tools authority.
 
 - [Constitutional Task Ledger: Task State, Continuation, and Terminal Criteria
-  in Governed Agentic Systems](companions/constitutional-task-ledger-v1.3.md)
+  in Governed Agentic Systems](companions/constitutional-task-ledger-v1.4.md)
   Companion 8. Argues that task continuity cannot live in agent memory:
   Constitutional Standing v1.3 named ContinuationState, ContinuationIssued,
   TaskActive, and CycleCurrent as vocabulary without specifying the governed
@@ -198,7 +201,9 @@ core paper identifies but does not close.
   admission, result, compensation, and audit-repair cases, and requiring every
   failed, rejected, unknown, partial, held, escalated, or verification-required
   actuation state to produce either a PendingObligation or an explicit
-  no_obligation_reason.
+  no_obligation_reason. v1.4 aligns Task Ledger to F-3 by requiring
+  CycleRecord Bind outcome_ref to point to BindingRecord, adding binding-closure
+  repair obligations, and preserving CycleRecord outcome vocabulary.
 
 - [Constitutional Feedback: Cross-Surface Learning and the Governance of
   Corpus-Wide Adaptation](companions/constitutional-feedback-v1.1.md)
@@ -243,28 +248,29 @@ core paper identifies but does not close.
   actuation commands, attempts, results, admission decisions, governed state
   mutations, failure handling, replay, retry, idempotency, compensation,
   rollback, and audit durability connect adjudicative authorization to governed
-  causal force. It does not own Core sovereignty, the final BindingRecord
-  schema, Tools, Task Ledger, Standing, Memory, or domain semantics. F-3 remains
-  BLOCKED pending separate restart and BindingRecord reconciliation.
+  causal force. It does not own Core sovereignty, BindingRecord schema, Tools,
+  Task Ledger, Standing, Memory, or domain semantics. F-3 has restarted in
+  CRC-OAR v1.2 and remains SPECIFYING.
 
 ### Governance Artifacts
 
 Governance artifacts are not papers in the conceptual reading order; they are corpus-level control surfaces that the papers are read against.
 
-- [CRC Open Architecture Register v1.1](open-architecture-register-v1.1.md)
+- [CRC Open Architecture Register v1.2](open-architecture-register-v1.2.md)
   A standalone governance-operational and historical artifact for tracking
   unresolved findings, missing apparatus, blocked dependencies, and closure
   state. CRC-OAR provides an Obsidian-like unresolved-link function for the
   corpus without making unresolved concepts canonical or normatively usable.
-  CRC-OAR v1.1 is the active first post-publication F-5 transition package. It
-  records OAR-F005 as SPECIFIED, OAR-A001, OAR-A002, OAR-P001, OAR-A003, and
-  OAR-X001 through OAR-X005 as SPECIFYING, and OAR-F003 as BLOCKED. No OAR
-  entry is RESOLVED by v1.1, and F-3 has not restarted. CRC-OAR does not define
-  canonical schemas or doctrine. CRC-SSR remains the artifact that tracks
-  canonical shared-object locations and operative versions.
+  CRC-OAR v1.2 is active. It moves OAR-F003 to SPECIFYING, leaves OAR-F005 as
+  SPECIFIED, and leaves OAR-A001, OAR-A002, OAR-P001, OAR-A003, and OAR-X001
+  through OAR-X005 as SPECIFYING. No F-5 lifecycle advancement occurred in
+  v1.2, no OAR entry is newly RESOLVED, and F-3 is not yet SPECIFIED or
+  RESOLVED. CRC-OAR does not define canonical schemas or doctrine. CRC-SSR
+  remains the artifact that tracks canonical shared-object locations and
+  operative versions.
 
-- [CRC Shared Schema Registry v1.5](shared-schema-registry-v1.5.md)
-  A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. CRC-SSR v1.1 carried the activation transition from the validated v1.0 seed; v1.5 is the current post-activation governed registry update. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. v1.3 records the F-2 reconciliation: Core owns canonical AgentObservation, C0 validates the crossing representation, `contract_version` remains C0 crossing metadata, and no new envelope object is introduced. v1.4 records the F-1 reconciliation: Core owns canonical ContinuationState, Standing owns continuation predicates and standing-local records, Task Ledger owns authoritative task state, no `derived_from_ref` exists, and outcome lineage reconstructs through Resolution, CycleRecord, Task Ledger, and audit trace. v1.5 registers ActuationCommand, ActuationResult, ActuationAdmissionRecord, and GovernedStateMutationRecord as Core-owned F-5 shared objects. F-3 remains BLOCKED and `crc-ssr:binding-record` remains AMBIGUOUS. CRC-OAR v1.1 records the first post-publication OAR transitions for F-5 Phase 1. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
+- [CRC Shared Schema Registry v1.6](shared-schema-registry-v1.6.md)
+  A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. CRC-SSR v1.1 carried the activation transition from the validated v1.0 seed; v1.6 is the current post-activation governed registry update. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. v1.3 records the F-2 reconciliation: Core owns canonical AgentObservation, C0 validates the crossing representation, `contract_version` remains C0 crossing metadata, and no new envelope object is introduced. v1.4 records the F-1 reconciliation: Core owns canonical ContinuationState, Standing owns continuation predicates and standing-local records, Task Ledger owns authoritative task state, no `derived_from_ref` exists, and outcome lineage reconstructs through Resolution, CycleRecord, Task Ledger, and audit trace. v1.5 registers ActuationCommand, ActuationResult, ActuationAdmissionRecord, and GovernedStateMutationRecord as Core-owned F-5 shared objects. v1.6 resolves `crc-ssr:binding-record` to REGISTERED with Core v5.14 as owner, Standing v1.7 as standing elaboration, and Task Ledger v1.4 as consumer. CRC-OAR v1.2 records the F-3 restart transition. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
 
 ### Corpus Governance and Entry
 
@@ -333,9 +339,9 @@ guides, diagrams, templates, and other public artifacts are defined in
 5. Constitutional Baselines v1.2 (companion 3)
 6. Constitutional Coherence v1.4 (companion 4)
 7. Constitutional Thresholds v1.4 (companion 5)
-8. Constitutional Standing v1.5 (companion 6)
+8. Constitutional Standing v1.7 (companion 6)
 9. Constitutional Tools v1.2 (companion 7)
-10. Constitutional Task Ledger v1.3 (companion 8)
+10. Constitutional Task Ledger v1.4 (companion 8)
 11. Constitutional Feedback v1.1 (companion 9)
 12. Constitutional Actuation and Effect Admission v1.0 (companion 10)
 12. Apex Architecture Seed (domain application, short)
