@@ -2,11 +2,11 @@
 
 **Artifact type:** Governance artifact
 **Identifier:** CRC-CORPUS-ENTRY
-**Version:** v1.0
+**Version:** v1.1
 **Status:** Current
 **Ratifying authority:** Faheem Downs
 **Ratification state:** Ratified by Faheem Downs on 2026-07-12
-**Governance context:** Constitutional Runtime Computation v5.10 Appendix B and CRC-SSR v1.1
+**Governance context:** Constitutional Runtime Computation v5.12 Appendix B, CRC-SSR v1.4, and CRC-OAR v1.0
 **Normative scope:** Process governance for public corpus entry only
 **Does not:** Override Core, CRC-SSR, or any defining paper
 
@@ -25,9 +25,39 @@ Before creating a public file, ask whether the need belongs in a new artifact, a
 
 Private working artifacts support deliberation. Public tracked artifacts represent the corpus to readers and therefore require admission. A private spec can be useful without being doctrine.
 
+## Route Selection
+
+Public admission now distinguishes three routes.
+
+- Canonical corpus entry: material enters the appropriate public artifact with
+  the ownership, authority, definition, anchors, dependencies, and validation
+  required by that artifact class.
+- Open-architecture entry: a live corpus dependency lacking a settled owner,
+  schema, predicate, event sequence, cross-paper relationship,
+  implementation-safe architecture, or evidence surface enters CRC-OAR as
+  recognized unresolved dependency lineage only.
+- Research-only treatment: speculative, desirable, exploratory, or unused
+  material remains in working notes, drafts, issues, or private research
+  surfaces until it becomes a corpus dependency.
+
+See [10-open-architecture-admission.md](10-open-architecture-admission.md).
+
+OAR admission is mandatory when a public artifact depends on an object without a
+canonical owner or locus, a named field references an undefined object, multiple
+papers publish competing definitions, architecture review identifies missing
+apparatus blocking another object, a required predicate lacks an owner, or lawful
+publication or implementation cannot proceed without missing architecture.
+
+CRC-OAR is not a general research backlog, a list of desirable improvements, a
+catalog of every undefined term, or a substitute for private design notes.
+
 ## Public Artifact Declaration
 
 Every proposed public artifact has a declaration covering identity, purpose, authority, corpus relationships, public-surface effects, lifecycle, and validation. Use [templates/public-artifact-declaration.md](templates/public-artifact-declaration.md).
+
+Every proposed public artifact, including governance, evidentiary, navigational,
+explanatory, and operational-template artifacts, must include the Open
+Architecture Dependencies field.
 
 ## Identity and Status Block
 

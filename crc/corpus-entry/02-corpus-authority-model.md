@@ -2,11 +2,11 @@
 
 **Artifact type:** Explanatory artifact
 **Identifier:** CRC-CORPUS-ENTRY
-**Version:** v1.0
+**Version:** v1.1
 **Status:** Current
 **Ratifying authority:** Faheem Downs
 **Ratification state:** Ratified by Faheem Downs on 2026-07-12
-**Governance context:** Constitutional Runtime Computation v5.10 Appendix B and CRC-SSR v1.1
+**Governance context:** Constitutional Runtime Computation v5.12 Appendix B, CRC-SSR v1.4, and CRC-OAR v1.0
 **Normative scope:** Explanation of public corpus entry practice only
 **Does not:** Override Core, CRC-SSR, or any defining paper
 
@@ -28,7 +28,24 @@ Each public artifact receives exactly one primary class. It may also declare sec
 
 ## Authority Sources
 
-The Core and defining papers carry runtime doctrine and object definitions. CRC-SSR v1.1 records authoritative location and operative version for shared load-bearing objects. Receipts record evidence. Guides govern process only within their declared scope after ratification by their identified ratifying authority. This guide is owned by Professor Bone Lab and becomes operative only through explicit ratification by Faheem Downs and publication through the governed apply process.
+The Core and defining papers carry runtime doctrine and object definitions. CRC-SSR v1.4 records authoritative location and operative version for shared load-bearing objects. Receipts record evidence. Guides govern process only within their declared scope after ratification by their identified ratifying authority. This guide is owned by Professor Bone Lab and becomes operative only through explicit ratification by Faheem Downs and publication through the governed apply process.
+
+## Canonical Authority and Open Recognition
+
+Canonical authority is granted by the receiving artifact according to its class
+and lawful integration. A Core section, companion paper, amendment, registry
+entry, receipt, guide, or template carries only the authority its own class and
+ratified text support.
+
+Open-architecture recognition is different. CRC-OAR authority is limited to
+unresolved status, discovery lineage, dependency relationships, blocking
+conditions, and closure state. It does not grant canonicality, validity,
+reachability, executability, admissibility, binding force, or implementation
+permission.
+
+Research-only material has no public corpus authority and no recognized
+dependency status. Movement into CRC-OAR is entry into corpus governance, not
+entry into canonical doctrine.
 
 ## Context Is Not Delegation
 

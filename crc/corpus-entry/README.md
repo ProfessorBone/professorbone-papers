@@ -2,11 +2,11 @@
 
 **Artifact type:** Governance artifact
 **Identifier:** CRC-CORPUS-ENTRY
-**Version:** v1.0
+**Version:** v1.1
 **Status:** Current
 **Ratifying authority:** Faheem Downs
 **Ratification state:** Ratified by Faheem Downs on 2026-07-12
-**Governance context:** Constitutional Runtime Computation v5.10 Appendix B and CRC-SSR v1.1
+**Governance context:** Constitutional Runtime Computation v5.12 Appendix B, CRC-SSR v1.4, and CRC-OAR v1.0
 **Normative scope:** Process governance for public corpus entry only
 **Does not:** Override Core, CRC-SSR, or any defining paper
 
@@ -24,6 +24,23 @@ Not every tracked file is doctrinal authority. Read the artifact type, status, v
 ## Public Artifact Admission Protocol
 
 No file becomes a tracked public artifact merely because it is useful or complete. Before admission, its role, authority, ownership, dependencies, lifecycle, navigation placement, validation burden, and relationship to existing corpus artifacts must be declared and reviewed. The complete protocol is in [05-public-artifact-admission.md](05-public-artifact-admission.md).
+
+Initial routing question: Is the proposed material settled doctrine, a recognized
+unresolved corpus dependency, or exploratory research?
+
+The guide recognizes three treatment routes:
+
+- Canonical corpus entry: for material with the ownership, authority,
+  definition, anchors, dependencies, and validation appropriate to its artifact
+  class.
+- Open-architecture entry: for a live corpus dependency that lacks a settled
+  owner, schema, predicate, event sequence, cross-paper relationship,
+  implementation-safe architecture, or evidence surface. The destination is
+  CRC-OAR. The only authority acquired is recognized unresolved status and
+  dependency lineage.
+- Research-only treatment: for speculative, desirable, exploratory, or unused
+  material not yet relied upon by a live corpus artifact. The destination is
+  working notes, drafts, issues, or private research surfaces.
 
 ## Artifact Classes
 
@@ -50,6 +67,10 @@ Before creating a public file, ask whether the function belongs in a new artifac
 - [07 Validation, Publication, and Activation](07-validation-publication-and-activation.md)
 - [08 Corpus Engineering Methodology](08-corpus-engineering-methodology.md)
 - [09 Review and Publication Workflow](09-review-and-publication-workflow.md)
+- [10 Open Architecture Admission](10-open-architecture-admission.md)
+  The authoritative guide section for OAR admission triggers, research boundary,
+  undefined references, dependency materiality, OAR citations, promotion, and
+  closure.
 
 ## Templates
 
@@ -57,3 +78,15 @@ Before creating a public file, ask whether the function belongs in a new artifac
 - [Corpus Integration Declaration](templates/corpus-integration-declaration.md)
 - [Orientation Report](templates/orientation-report.md)
 - [Publication Checklist](templates/publication-checklist.md)
+
+## Version History
+
+*v1.1. Adds the three-route admission model: canonical corpus entry,
+open-architecture entry through CRC-OAR, and research-only treatment. Adds the
+CRC-OAR entry route for recognized unresolved corpus dependencies, dependency
+materiality review, and the Open Architecture Dependencies declaration field. No
+CRC-OAR or CRC-SSR authority changes.*
+
+*v1.0. Initial ratified public entry guide for corpus orientation, artifact
+admission, new-paper integration, amendment discipline, validation, publication,
+and corpus-engineering methodology.*

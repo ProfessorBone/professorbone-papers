@@ -2,11 +2,11 @@
 
 **Artifact type:** Operational template
 **Identifier:** CRC-CORPUS-ENTRY
-**Version:** v1.0
+**Version:** v1.1
 **Status:** Current
 **Ratifying authority:** Faheem Downs
 **Ratification state:** Ratified by Faheem Downs on 2026-07-12
-**Governance context:** Constitutional Runtime Computation v5.10 Appendix B and CRC-SSR v1.1
+**Governance context:** Constitutional Runtime Computation v5.12 Appendix B, CRC-SSR v1.4, and CRC-OAR v1.0
 **Normative scope:** Work standardization only
 **Does not:** Settle substantive doctrine or override governing artifacts
 
@@ -15,6 +15,17 @@
 - declaration_reviewed: [yes or no]
 - package_ratified: [yes or no]
 - apply_scope_authorized: [yes or no]
+- open_architecture_dependencies_field_present: [yes or no]
+- open_architecture_dependencies_none_explicit_if_no_oar_dependency: [yes or no]
+- every_oar_id_resolves: [yes, no, or not applicable]
+- relationship_values_valid: [yes, no, or not applicable]
+- materiality_values_valid: [yes, no, or not applicable]
+- every_blocking_dependency_stopped_publication: [yes, no, or not applicable]
+- every_non_blocking_dependency_passed_materiality_test: [yes, no, or not applicable]
+- informational_dependencies_confer_no_authority: [yes, no, or not applicable]
+- no_raw_wikilink_used_as_canonical_citation: [yes or no]
+- no_oar_entry_represented_as_canonical_or_implementation_permission: [yes or no]
+- crc_ssr_treatment_evaluated_separately: [yes or no]
 
 ## 2. Unstaged Apply Review
 

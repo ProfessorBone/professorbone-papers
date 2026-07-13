@@ -2,11 +2,11 @@
 
 **Artifact type:** Operational template
 **Identifier:** CRC-CORPUS-ENTRY
-**Version:** v1.0
+**Version:** v1.1
 **Status:** Current
 **Ratifying authority:** Faheem Downs
 **Ratification state:** Ratified by Faheem Downs on 2026-07-12
-**Governance context:** Constitutional Runtime Computation v5.10 Appendix B and CRC-SSR v1.1
+**Governance context:** Constitutional Runtime Computation v5.12 Appendix B, CRC-SSR v1.4, and CRC-OAR v1.0
 **Normative scope:** Work standardization only
 **Does not:** Settle substantive doctrine or override governing artifacts
 
@@ -41,6 +41,32 @@ This paper declaration specializes the general Public Artifact Declaration. It d
 - objects_amended: [objects amended]
 - objects_superseded: [objects superseded]
 - objects_relocated: [objects relocated]
+
+## Open Architecture Dependencies
+
+Use one of the following forms.
+
+```text
+Open Architecture Dependencies: none
+```
+
+or:
+
+```text
+Open Architecture Dependencies:
+- oar_id: [active OAR ID]
+  status: [current OAR status]
+  relationship: [prerequisite | adjacent_dependency | consumer_dependency | candidate_successor | evidence_dependency | informational]
+  materiality: [blocking | non-blocking | informational]
+  effect: [effect statement]
+  coherence_effect: [effect on the new paper's coherence]
+  schema_completeness_effect: [effect on schema completeness]
+  implementation_readiness_effect: [effect on implementation readiness]
+  non_blocking_rationale: [why non-blocking is genuine, or not applicable]
+```
+
+The `oar_id` must resolve in active CRC-OAR. Blocking materiality stops canonical
+paper admission.
 
 ## Public-Surface Effects
 
