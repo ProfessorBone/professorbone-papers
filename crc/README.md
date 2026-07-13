@@ -177,7 +177,7 @@ core paper identifies but does not close.
   Tools v1.1's own strongest candidates.
 
 - [Constitutional Feedback: Cross-Surface Learning and the Governance of
-  Corpus-Wide Adaptation](companions/constitutional-feedback-v1.0.md)
+  Corpus-Wide Adaptation](companions/constitutional-feedback-v1.1.md)
   Companion 9. Generalizes Constitutional Memory v2.2's own Part IV-A
   feedback loop, Hold-derived learning only, across the further outcome
   types Constitutional Standing (NonFormationReceipt, StandingFailureRecord),
@@ -192,11 +192,13 @@ core paper identifies but does not close.
   may become a scoped lesson, doctrinal feedback asks whether a sovereign
   correction should propagate, and a baseline reconstitution is a sovereign
   act rather than a failure awaiting one. Contributions include the
-  Constitutional Feedback Principle, an extended LearningCandidate and
-  FeedbackObservation for the operational branch, a new
-  ReconstitutionFeedbackRecord with an explicit proposal-to-confirmation
-  lifecycle for the doctrinal branch, and a shared FeedbackLedger indexing
-  both under a governing no-silence rule. OperationalFeedbackSourceValid(σ)
+  Constitutional Feedback Principle, C9-owned OperationalLearningCandidate and
+  OperationalFeedbackObservation objects for the operational branch, an
+  explicit mapping from Memory's Hold-specific objects into the operational
+  population, a new ReconstitutionFeedbackRecord with an explicit
+  proposal-to-confirmation lifecycle for the doctrinal branch, and a shared
+  FeedbackLedger indexing both under a governing no-silence rule.
+  OperationalFeedbackSourceValid(σ)
   and FeedbackLearningReachable(λ) generalize Memory's own SourceHoldValid
   and FailureLearningReachable(λ); DoctrinalFeedbackReachable(δ) is new, with
   CrossSurfaceApplicabilityAssessed and AuthorityBoundaryPreserved as its
@@ -215,8 +217,8 @@ core paper identifies but does not close.
 
 Governance artifacts are not papers in the conceptual reading order; they are corpus-level control surfaces that the papers are read against.
 
-- [CRC Shared Schema Registry v1.1](shared-schema-registry-v1.1.md)
-  A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
+- [CRC Shared Schema Registry v1.2](shared-schema-registry-v1.2.md)
+  A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. CRC-SSR v1.1 carried the activation transition from the validated v1.0 seed; v1.2 is the current post-activation governed registry update. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
 
 ### Corpus Governance and Entry
 
@@ -288,7 +290,7 @@ guides, diagrams, templates, and other public artifacts are defined in
 8. Constitutional Standing v1.5 (companion 6)
 9. Constitutional Tools v1.1 (companion 7)
 10. Constitutional Task Ledger v1.2 (companion 8)
-11. Constitutional Feedback v1.0 (companion 9)
+11. Constitutional Feedback v1.1 (companion 9)
 12. Apex Architecture Seed (domain application, short)
 13. Apex Build Specification v0.5 (domain application, full)
 14. The Knowledge Graph as Constitutional Substrate (historical lineage)
