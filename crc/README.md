@@ -229,6 +229,16 @@ core paper identifies but does not close.
 
 Governance artifacts are not papers in the conceptual reading order; they are corpus-level control surfaces that the papers are read against.
 
+- [CRC Open Architecture Register v1.0](open-architecture-register-v1.0.md)
+  A standalone governance-operational and historical artifact for tracking
+  unresolved findings, missing apparatus, blocked dependencies, and closure
+  state. CRC-OAR provides an Obsidian-like unresolved-link function for the
+  corpus without making unresolved concepts canonical or normatively usable.
+  CRC-OAR v1.0 records F-3 BindingRecord lineage reconciliation as BLOCKED and
+  F-5 Substrate Actuation and Effect Admission as SPECIFYING. CRC-OAR does not
+  define canonical schemas or doctrine. CRC-SSR remains the artifact that tracks
+  canonical shared-object locations and operative versions.
+
 - [CRC Shared Schema Registry v1.4](shared-schema-registry-v1.4.md)
   A standalone governance artifact authorized by Core Appendix B B.9 and active as the registry of record by pointer for the corpus's shared load-bearing objects. CRC-SSR v1.1 carried the activation transition from the validated v1.0 seed; v1.4 is the current post-activation governed registry update. For REGISTERED objects it records the settled owner, operative version, and canonical location. For unresolved objects it records the honest ambiguity or divergence, candidate loci, and reconciliation dependency without asserting a canonical pointer. v1.3 records the F-2 reconciliation: Core owns canonical AgentObservation, C0 validates the crossing representation, `contract_version` remains C0 crossing metadata, and no new envelope object is introduced. v1.4 records the F-1 reconciliation: Core owns canonical ContinuationState, Standing owns continuation predicates and standing-local records, Task Ledger owns authoritative task state, no `derived_from_ref` exists, and outcome lineage reconstructs through Resolution, CycleRecord, Task Ledger, and audit trace. F-3 remains unresolved, and F-5 remains outside scope. It holds no schema text: every definition stays in its defining paper. CRC-SSR sits outside the conceptual reading order.
 
