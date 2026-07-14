@@ -279,6 +279,16 @@ Governance artifacts are not papers in the conceptual reading order; they are co
   integration, amendment discipline, validation, publication, and
   corpus-engineering methodology.
 
+### Methodology Papers
+
+- [Constitutional Corpus Engineering v1.0](methodology/constitutional-corpus-engineering-v1.0.md)
+  Explanatory methodology paper and CRC case-study synthesis. It explains how
+  distributed technical papers can be transformed into a governed, coherent
+  knowledge architecture through ownership mapping, authority boundaries,
+  registry discipline, open-architecture lifecycle tracking, publication gates,
+  historical preservation, and active navigation. It is not CRC runtime doctrine
+  and does not govern corpus-entry procedure.
+
 ### Domain Applications
 
 Domain application documents show the CRC architecture instantiated in
