@@ -289,6 +289,22 @@ Governance artifacts are not papers in the conceptual reading order; they are co
   historical preservation, and active navigation. It is not CRC runtime doctrine
   and does not govern corpus-entry procedure.
 
+- [Architecture Selection and the Scope of Constitutional Governance v1.0](methodology/architecture-selection-and-scope-of-constitutional-governance-v1.0.md)
+  Normative methodology paper establishing a two-stage upstream doctrine for
+  selecting the governance architecture an application is justified in using.
+  Whether constitutional guarantees are required is a prior sovereign determination
+  authored by the constitutional principal, not computed by the system. Where they
+  are not required, ordinary execution is eligible. Where they are required, a
+  certified Hybrid is eligible only through affirmative scope certification, and
+  Full Constitutional Runtime is the required governance baseline where no narrower
+  Hybrid boundary has been affirmatively certified. The paper also establishes the
+  bounded negative result that the operative corpus provides no general scope-
+  certification procedure and the candidates examined do not generalize beyond
+  restricted structural classes. This is not an impossibility theorem, and the
+  candidate Hybrid class is illustrative only, not a completed construction. The
+  paper does not weaken complete mediation, define a shared object, or alter CRC-SSR
+  or CRC-OAR.
+
 ### Domain Applications
 
 Domain application documents show the CRC architecture instantiated in
