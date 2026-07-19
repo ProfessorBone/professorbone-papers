@@ -358,6 +358,8 @@ guides, diagrams, templates, and other public artifacts are defined in
 
 ## Recommended Reading Order
 
+> **Start here for architecture selection:** Before entering the numbered CRC runtime-doctrine sequence, read [Architecture Selection and the Scope of Constitutional Governance v1.0](methodology/architecture-selection-and-scope-of-constitutional-governance-v1.0.md). It establishes a two-stage doctrine: whether constitutional guarantees are required is first supplied as a prior sovereign determination; where they are not required, Ordinary execution is eligible, while where they are required, affirmative scope certification distinguishes Hybrid eligibility from the Full Constitutional Runtime governance baseline when no narrower Hybrid boundary has been affirmatively certified.
+
 1. Constitutional Runtime Computation v5.5 (core)
 2. Constitutional Boundary Contracts v1.3 (companion 0, foundational interface)
 3. Constitutional Memory v2.2 (companion 1)
