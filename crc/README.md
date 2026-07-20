@@ -256,12 +256,12 @@ core paper identifies but does not close.
 
 Governance artifacts are not papers in the conceptual reading order; they are corpus-level control surfaces that the papers are read against.
 
-- [CRC Open Architecture Register v1.4](open-architecture-register-v1.4.md)
+- [CRC Open Architecture Register v1.5](open-architecture-register-v1.5.md)
   A standalone governance-operational and historical artifact for tracking
   unresolved findings, missing apparatus, blocked dependencies, and closure
   state. CRC-OAR provides an Obsidian-like unresolved-link function for the
   corpus without making unresolved concepts canonical or normatively usable.
-  CRC-OAR v1.4 is active after publication. OAR-F003 is RESOLVED. OAR-F005
+  CRC-OAR v1.5 is active after publication. OAR-F003 is RESOLVED. OAR-F005
   remains RESOLVED. OAR-A001, OAR-A002, OAR-P001, OAR-A003, and OAR-X001
   through OAR-X005 are RESOLVED. The F-3/F-5 OAR workstream is
   lifecycle-closed. No doctrine or schema version changed in this lifecycle
