@@ -458,7 +458,7 @@ Feedback (this, C9):         Generalizes Memory's own feedback-loop doctrine
                              formally classified in v1.1.
 ```
 
-**Recommended reading order:** Constitutional Runtime Computation v5.5; Constitutional Boundary Contracts v1.1; Constitutional Memory v2.2; Constitutional Retrieval v1.2; Constitutional Baselines v1.2; Constitutional Coherence v1.2; Constitutional Thresholds v1.2; Constitutional Standing v1.3; Constitutional Tools v1.1; Constitutional Task Ledger v1.1; Constitutional Feedback v1.1 (this paper).
+**Recommended reading order:** Constitutional Runtime Computation v5.5; Constitutional Boundary Contracts v1.3; Constitutional Memory v2.2; Constitutional Retrieval v1.2; Constitutional Baselines v1.2; Constitutional Coherence v1.4; Constitutional Thresholds v1.4; Constitutional Standing v1.7; Constitutional Tools v1.2; Constitutional Task Ledger v1.4; Constitutional Feedback v1.1 (this paper).
 
 ---
 
